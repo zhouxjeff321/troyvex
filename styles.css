@@ -36,14 +36,14 @@ nav {
     margin-left: -1.5rem;
 }
 
-.logo-icon {
-    height: 80px;
-    width: 80px;
+.logo-icon, .logo {
+    height: 40px;
+    width: 40px;
     object-fit: contain;
 }
 
 .logo-text {
-    font-size: 2rem;
+    font-size: 3.2rem;
     color: black;
     margin: 0 4rem 0 0;
     text-align: left;
