@@ -278,7 +278,7 @@ main {
 .about-highlight {
     font-size: 1.4rem;
     font-weight: 600;
-    color: #667eea;
+    color: #b12a34;
     text-align: center;
     margin-bottom: 1rem;
     font-family: 'Geist', sans-serif;
@@ -525,6 +525,99 @@ footer {
     margin-top: 4rem;
 }
 
+/* Contact Page Styles */
+.contact-main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 3rem 1rem 2rem 1rem;
+}
+
+.contact-section {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    padding: 2.5rem 2rem;
+    margin-top: 2rem;
+}
+
+.contact-section h1 {
+    color: #b12a34;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Geist', sans-serif;
+}
+
+.contact-section p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+}
+
+.contact-form label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+    font-family: 'Geist', sans-serif;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.7rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Geist', sans-serif;
+    background: #f8f9fa;
+    resize: vertical;
+}
+
+.contact-form button {
+    background: #b12a34;
+    color: white;
+    border: none;
+    padding: 0.9rem 0;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-family: 'Geist', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+}
+
+.contact-form button:hover {
+    background: #a01f2b;
+}
+
+.contact-info {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem 1rem;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.contact-info h2 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+}
+
+.contact-info a {
+    color: #b12a34;
+    text-decoration: underline;
+    word-break: break-all;
+}
+
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -542,5 +635,14 @@ footer {
     
     main {
         padding: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-section {
+        padding: 1.2rem 0.5rem;
+    }
+    .contact-main {
+        padding: 1rem 0.2rem;
     }
 }
