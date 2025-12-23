@@ -32,7 +32,8 @@ nav {
 .logo {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
+    margin-left: -1.5rem;
 }
 
 .logo-icon {
