@@ -10,8 +10,7 @@ body {
     font-family: 'Geist', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(120deg, #ffe5e5 0%, #ffd6e0 50%, #fff1f1 100%);
-    /* soft light red/pink gradient */
+    background-color: #fff;
 }
 
 header {
