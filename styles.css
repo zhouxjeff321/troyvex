@@ -52,7 +52,9 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.1rem;
+    justify-content: flex-end;
+    margin-left: auto;
 }
 
 .nav-links a {
