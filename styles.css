@@ -45,7 +45,7 @@ nav {
 .logo-text {
     font-size: 3rem;
     color: black;
-    margin: 0;
+    margin: 0 4rem 0 0;
     text-align: left;
     font-family: 'Geist', sans-serif;
 }
@@ -56,7 +56,7 @@ nav {
     gap: 0.5rem;
     justify-content: flex-end;
     margin-left: auto;
-    margin-right: 4.5rem;
+    margin-right: 7rem;
 }
 
 .nav-links a {
