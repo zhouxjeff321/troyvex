@@ -26,9 +26,10 @@ nav {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0 2rem;
     min-height: 70px;
+    position: relative;
 }
 
 .logo-container {
@@ -37,6 +38,7 @@ nav {
     gap: 12px;
     margin-left: 0;
     height: 56px;
+    z-index: 2;
 }
 
 .logo {
@@ -78,9 +80,13 @@ nav {
     align-items: center;
     list-style: none;
     gap: 0.5rem;
-    justify-content: flex-end;
-    margin-left: auto;
-    margin-right: 0;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    z-index: 1;
 }
 
 .nav-links a {
