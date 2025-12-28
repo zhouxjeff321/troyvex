@@ -766,3 +766,22 @@ footer {
         align-self: center;
     }
 }
+
+/* Teams page staff styling */
+.teams-staff {
+    text-align: center;
+    padding: 0.75rem 1rem;
+}
+.teams-staff .head-coach {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #0d1b3a;
+    margin: 0.25rem 0 0.6rem 0;
+}
+.teams-staff .staff-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+}
+.teams-staff .staff-list p { margin: 0; }
