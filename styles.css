@@ -785,3 +785,47 @@ footer {
     align-items: center;
 }
 .teams-staff .staff-list p { margin: 0; }
+
+/* Card layout for teams grid: rectangular cards with number badge */
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+}
+.team-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    min-height: 160px;
+    position: relative;
+    box-shadow: 0 6px 18px rgba(13,27,58,0.06);
+    overflow: hidden;
+}
+.team-card h3 {
+    margin: 0 0 0.4rem 0;
+}
+.team-number {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #b12a34;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+.team-members-compact {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    background: rgba(248,250,251,0.95);
+    padding: 8px 10px;
+    border-radius: 6px;
+    max-width: 60%;
+}
+.team-members-compact ol { margin: 0; padding-left: 1.05rem; }
+.team-members-compact li { font-size: 0.95rem; margin: 0.15rem 0; }
+
+@media (max-width: 600px) {
+    .team-members-compact { max-width: 100%; }
+}
