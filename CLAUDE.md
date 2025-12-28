@@ -48,7 +48,7 @@ Open any HTML file directly in a web browser. No build process, server, or depen
         <ul class="nav-links" style="margin-right:12rem;">
             <li><a href="about.html">About</a></li>
             <li class="dropdown">
-                <a href="about.html">Teams</a>
+                <a href="teams.html">Teams</a>
                 <ul class="dropdown-menu">
                     <!-- 7 team links -->
                 </ul>
