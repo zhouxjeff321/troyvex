@@ -329,7 +329,7 @@ main {
 }
 
 .accomplishments h3 {
-    color: white;
+    color: #000;
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
@@ -365,7 +365,7 @@ main {
     box-shadow: 0 8px 30px rgba(177,42,52,0.08);
 }
 
-.accomplishment-item .trophy { font-size: 1.6rem; }
+.accomplishment-item .trophy { font-size: 1.6rem; color: #000; }
 .accomplishment-text { font-weight: 600; color: #000; }
 
 .accomplishment-item .trophy {
@@ -839,4 +839,55 @@ footer {
 
 @media (max-width: 600px) {
     .team-members-compact { max-width: 100%; }
+}
+
+/* Sponsors page enhancements */
+.sponsor-hero {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 2rem;
+    align-items: center;
+    margin: 1.5rem 0 2.5rem 0;
+}
+.sponsor-hero .hero-text {
+    background: rgba(13,27,58,0.03);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+.sponsor-hero .hero-text h2 {
+    margin-top: 0;
+    color: #0d1b3a;
+}
+.sponsor-hero .hero-image img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(13,27,58,0.08);
+    object-fit: cover;
+}
+.impact-list { margin: 1rem 0 1.25rem 1rem; }
+.impact-list li { margin: 0.6rem 0; font-size: 1.05rem; color: #222; }
+.donation-cta { display:flex; gap:0.75rem; align-items:center; margin-top:1rem; }
+.secondary-button {
+    display:inline-block;
+    background: transparent;
+    color: #0d1b3a;
+    border: 1px solid #0d1b3a;
+    padding: 0.9rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.secondary-button:hover { background: #0d1b3a; color: #fff; }
+.donation-tiers { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-top:1rem; }
+.tier { background:#f8fafb; padding:1rem; border-radius:8px; border:1px solid rgba(13,27,58,0.04); }
+.tier h3 { margin:0 0 0.4rem 0; }
+.platinum-tier { border-left:4px solid #e74c3c; }
+.gold-tier { border-left:4px solid #f39c12; }
+.silver-tier { border-left:4px solid #95a5a6; }
+.friend-tier { border-left:4px solid #7f8c8d; }
+.bottom-cta { margin-top: 1.5rem; }
+
+@media (max-width: 900px) {
+    .sponsor-hero { grid-template-columns: 1fr; }
+    .sponsor-hero .hero-image { order: -1; }
 }
