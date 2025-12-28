@@ -674,3 +674,33 @@ footer {
         padding: 1rem 0.2rem;
     }
 }
+
+/* Team officers display */
+.team-officers {
+    background: #f4f6f8;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border-left: 4px solid #b12a34;
+}
+.team-officers h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+.team-officers .officer {
+    margin: 0.25rem 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.team-info-section .team-info h2 + .team-officers {
+    margin-top: 0.5rem;
+}
+
+/* Small tweaks for officer labels */
+.team-officers .officer strong {
+    color: #0d1b3a;
+    display: inline-block;
+    width: 48px;
+}
