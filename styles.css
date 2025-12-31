@@ -805,7 +805,7 @@ footer {
     padding: 0.75rem 1rem;
 }
 .teams-staff .head-coach {
-    font-size: 1.45rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: #000;
     margin: 0.25rem 0 0.6rem 0;
@@ -816,7 +816,10 @@ footer {
     gap: 0.25rem;
     align-items: center;
 }
-.teams-staff .staff-list p { margin: 0; }
+.teams-staff .staff-list p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
 
 /* Card layout for teams grid: rectangular cards with number badge */
 .teams-grid {
