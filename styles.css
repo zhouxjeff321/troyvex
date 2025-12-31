@@ -63,7 +63,7 @@ nav {
 }
 
 .logo-text {
-    font-size: 3.2rem;
+    font-size: 2rem; /* Reduced size to match the original smaller size */
     color: black;
     margin: 0 0 0 0.8rem;
     text-align: left;
@@ -401,33 +401,55 @@ main {
 
 .teams-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .team-card {
-    background: white;
-    padding: 2rem;
+    background: #ffffff;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    border-left: 4px solid #0d1b3a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .team-card h3 {
-    color: #2c3e50;
-    margin-bottom: 1rem;
-}
-
-.team-card h3 a {
-    color: #2c3e50;
-    text-decoration: none;
-}
-
-.team-card h3 a:hover {
+    font-size: 1.25rem;
     color: #0d1b3a;
+    margin-bottom: 0.5rem;
 }
 
+.team-card p {
+    font-size: 1rem;
+    color: #333;
+    margin: 0.25rem 0;
+}
+
+.team-number {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #b12a34;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .teams-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Join Team Section */
 .join-team {
     background: white;
     padding: 2rem;
@@ -437,6 +459,7 @@ main {
     margin-top: 2rem;
 }
 
+/* Sponsor Section */
 .sponsor-levels {
     margin: 2rem 0;
 }
