@@ -434,7 +434,7 @@ main {
 
 .staff-image {
     display: block;
-    max-width: 100%;
+    max-width: 80%; /* Reduce size to 80% of the container */
     height: auto;
     margin: 1rem auto;
     border-radius: 8px;
