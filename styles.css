@@ -432,15 +432,13 @@ main {
     margin: 0.25rem 0;
 }
 
-.team-number {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: #b12a34;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-weight: 700;
+.staff-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
