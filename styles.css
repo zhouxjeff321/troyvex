@@ -1,5 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+:root {
+    --bg-color: #fff;
+    --text-color: #000;
+    --header-bg: transparent;
+    --header-text: black;
+    --nav-hover: #e0e0e0;
+    --dropdown-bg: #f4f4f4;
+    --dropdown-border: #ddd;
+    --card-bg: white;
+    --card-shadow: rgba(0,0,0,0.1);
+    --border-color: #ddd;
+    --section-bg: #f4f4f4;
+    --accent-color: #0d1b3a;
+    --secondary-text: #333;
+    --light-border: lightgrey;
+}
+
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-bg: transparent;
+    --header-text: #e0e0e0;
+    --nav-hover: #2a2a2a;
+    --dropdown-bg: #2a2a2a;
+    --dropdown-border: #444;
+    --card-bg: #252525;
+    --card-shadow: rgba(0,0,0,0.3);
+    --border-color: #444;
+    --section-bg: #252525;
+    --accent-color: #4a90e2;
+    --secondary-text: #b0b0b0;
+    --light-border: #444;
+}
+
 html, body, * {
     margin: 0;
     padding: 0;
@@ -10,15 +44,17 @@ html, body, * {
 body {
     font-family: 'Geist', sans-serif !important;
     line-height: 1.6;
-    color: #000;
-    background-color: #fff;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
-    background: transparent;
-    color: black;
+    background: var(--header-bg);
+    color: var(--header-text);
     padding: 1rem 0;
     box-shadow: none;
+    transition: background-color 0.3s ease;
 }
 
 nav {
@@ -64,7 +100,7 @@ nav {
 
 .logo-text {
     font-size: 2rem; /* Reduced size to match the original smaller size */
-    color: black;
+    color: var(--header-text);
     margin: 0 0 0 0.8rem;
     text-align: left;
     font-family: 'Geist', sans-serif;
@@ -73,6 +109,7 @@ nav {
     align-items: center;
     height: 56px;
     white-space: nowrap;
+    transition: color 0.3s ease;
 }
 
 .nav-links {
@@ -85,16 +122,16 @@ nav {
 }
 
 .nav-links a {
-    color: black;
+    color: var(--header-text);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s ease;
     font-family: 'Geist', sans-serif;
 }
 
 .nav-links a:hover {
-    background-color: #e0e0e0;
+    background-color: var(--nav-hover);
 }
 
 /* Dropdown Menu Styles */
@@ -107,13 +144,14 @@ nav {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #f4f4f4;
+    background: var(--dropdown-bg);
     min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 16px var(--card-shadow);
     z-index: 1000;
     list-style: none;
     padding: 0;
     margin: 0;
+    transition: background-color 0.3s ease;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -127,14 +165,15 @@ nav {
 .dropdown-menu a {
     display: block;
     padding: 0.75rem 1rem;
-    color: black;
+    color: var(--text-color);
     text-decoration: none;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--dropdown-border);
     font-family: 'Geist', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dropdown-menu a:hover {
-    background-color: #e0e0e0;
+    background-color: var(--nav-hover);
 }
 
 /* Team Detail Page Styles */
@@ -145,17 +184,19 @@ nav {
 }
 
 .team-fun-facts, .team-members {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px var(--card-shadow);
+    transition: background-color 0.3s ease;
 }
 
 .team-info h2, .team-fun-facts h2, .team-members h2 {
-    color: #2c3e50;
+    color: var(--accent-color);
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid #0d1b3a;
+    border-bottom: 2px solid var(--accent-color);
     padding-bottom: 0.5rem;
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .team-info p {
@@ -168,10 +209,11 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px var(--card-shadow);
+    transition: background-color 0.3s ease;
 }
 
 .team-info {
@@ -379,6 +421,458 @@ main {
     font-family: 'Geist', sans-serif;
 }
 
+/* Dark mode styles for accomplishments */
+body.dark-mode .accomplishments {
+    background: rgba(60, 60, 60, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .accomplishments h3 {
+    color: #fff;
+}
+
+body.dark-mode .accomplishment-item {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .accomplishment-item:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .accomplishment-item .accomplishment-text {
+    color: #fff;
+}
+
+body.dark-mode .accomplishment-item .trophy {
+    color: #fff;
+}
+
+/* Dark mode for page headers */
+body.dark-mode .page-header h1 {
+    color: #fff !important;
+}
+
+body.dark-mode .page-header p {
+    color: #e0e0e0 !important;
+}
+
+/* Dark mode for team cards */
+body.dark-mode .team-card {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .team-card h3 {
+    color: #fff !important;
+}
+
+body.dark-mode .team-card p {
+    color: #fff !important;
+}
+
+body.dark-mode .team-card strong {
+    color: #fff !important;
+}
+
+/* Dark mode for event cards */
+body.dark-mode .event-card {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 4px solid #4a90e2;
+}
+
+body.dark-mode .event-card h3 {
+    color: #fff !important;
+}
+
+body.dark-mode .event-card p {
+    color: #e0e0e0 !important;
+}
+
+/* Dark mode for competition schedule */
+body.dark-mode .competition-schedule {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Dark mode for tables */
+body.dark-mode th {
+    background: rgba(60, 60, 60, 0.6);
+    color: #fff;
+}
+
+body.dark-mode td {
+    color: #e0e0e0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode th {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Dark mode for team members compact */
+body.dark-mode .team-members-compact {
+    background: rgba(60, 60, 60, 0.95);
+    color: #fff;
+}
+
+body.dark-mode .team-members-compact li {
+    color: #e0e0e0;
+}
+
+/* Dark mode for all headings */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #fff !important;
+}
+
+/* Dark mode for all paragraphs and text */
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode span {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode strong {
+    color: #fff !important;
+}
+
+/* Dark mode for links */
+body.dark-mode a {
+    color: #4a90e2;
+}
+
+body.dark-mode a:hover {
+    color: #6ba3e8;
+}
+
+/* Dark mode for member boxes */
+body.dark-mode .member {
+    background: rgba(80, 80, 80, 0.5);
+    border-left: 4px solid #4a90e2;
+}
+
+body.dark-mode .member h3 {
+    color: #fff !important;
+}
+
+body.dark-mode .member p {
+    color: #e0e0e0 !important;
+}
+
+/* Dark mode for hero section */
+body.dark-mode .hero {
+    color: #fff;
+}
+
+body.dark-mode .hero h1 {
+    color: #fff !important;
+}
+
+body.dark-mode .hero p {
+    color: #e0e0e0 !important;
+}
+
+/* Dark mode for about content */
+body.dark-mode .about-content h2 {
+    color: #fff !important;
+}
+
+body.dark-mode .about-highlight {
+    color: #6ba3e8 !important;
+}
+
+body.dark-mode .about-content > p {
+    color: #e0e0e0 !important;
+}
+
+/* Dark mode for team details sections */
+body.dark-mode .team-fun-facts,
+body.dark-mode .team-members {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .team-info-section {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .team-fun-facts ul,
+body.dark-mode .team-members ul {
+    color: #e0e0e0;
+}
+
+body.dark-mode .team-fun-facts li,
+body.dark-mode .team-members li {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .photo-caption {
+    color: #b0b0b0 !important;
+}
+
+/* Dark mode for staff textbox */
+body.dark-mode .staff-textbox {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .staff-textbox p {
+    color: #e0e0e0 !important;
+}
+
+/* Dark mode for contact section */
+body.dark-mode .contact-section {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .contact-info {
+    color: #e0e0e0;
+}
+
+body.dark-mode .contact-info p {
+    color: #e0e0e0 !important;
+}
+
+/* Dark mode for team officers and about sections */
+body.dark-mode .team-officers {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .about-section {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .officer {
+    color: #e0e0e0 !important;
+}
+
+/* Dark mode for contact section */
+body.dark-mode .contact-section {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .contact-section h1 {
+    color: #6ba3e8 !important;
+}
+
+body.dark-mode .contact-section p {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .contact-info {
+    background: rgba(60, 60, 60, 0.6);
+}
+
+body.dark-mode .contact-info h2 {
+    color: #fff !important;
+}
+
+body.dark-mode .contact-info p {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .contact-info a {
+    color: #6ba3e8 !important;
+}
+
+body.dark-mode .contact-form label {
+    color: #fff !important;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+    background: rgba(60, 60, 60, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+}
+
+body.dark-mode .contact-form button {
+    background: #4a90e2;
+}
+
+body.dark-mode .contact-form button:hover {
+    background: #3a7bc8;
+}
+
+/* Dark mode for sponsors page */
+body.dark-mode .sponsor-hero .hero-text {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .sponsor-hero .hero-text h2 {
+    color: #fff !important;
+}
+
+body.dark-mode .sponsor-hero .hero-text p {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .impact-list li {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .sponsor-level {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .sponsor-level.platinum {
+    border-left: 4px solid #e74c3c;
+}
+
+body.dark-mode .sponsor-level.gold {
+    border-left: 4px solid #f39c12;
+}
+
+body.dark-mode .sponsor-level.silver {
+    border-left: 4px solid #95a5a6;
+}
+
+body.dark-mode .sponsor-level h2 {
+    color: #fff !important;
+}
+
+body.dark-mode .sponsor-logo {
+    background: rgba(60, 60, 60, 0.6);
+}
+
+body.dark-mode .sponsor-logo h3 {
+    color: #fff !important;
+}
+
+body.dark-mode .sponsor-logo p {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .become-sponsor {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .become-sponsor h2,
+body.dark-mode .become-sponsor h3 {
+    color: #fff !important;
+}
+
+body.dark-mode .become-sponsor p {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .become-sponsor li {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .tier {
+    background: rgba(60, 60, 60, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .tier h3 {
+    color: #fff !important;
+}
+
+body.dark-mode .tier p {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .tier ul {
+    color: #e0e0e0;
+}
+
+body.dark-mode .tier li {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .secondary-button {
+    background: transparent;
+    color: #6ba3e8;
+    border: 1px solid #6ba3e8;
+}
+
+body.dark-mode .secondary-button:hover {
+    background: #6ba3e8;
+    color: #fff;
+}
+
+/* Dark mode for donation info section */
+body.dark-mode .donation-info {
+    background: rgba(80, 80, 80, 0.5) !important;
+    border-left: 4px solid #4a90e2 !important;
+}
+
+body.dark-mode .donation-info h3,
+body.dark-mode .donation-info h4 {
+    color: #fff !important;
+}
+
+body.dark-mode .donation-info p {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .donation-info h4 {
+    color: #6ba3e8 !important;
+}
+
+body.dark-mode .primary-cta {
+    background: #b12a34;
+}
+
+body.dark-mode .primary-cta:hover {
+    background: #a01f2b;
+}
+
+body.dark-mode .secondary-cta {
+    background: #4a90e2;
+}
+
+body.dark-mode .secondary-cta:hover {
+    background: #3a7bc8;
+}
+
+/* Dark mode for awards section */
+body.dark-mode .awards-list h2 {
+    color: #6ba3e8 !important;
+}
+
+body.dark-mode .awards-list table {
+    background: rgba(80, 80, 80, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .awards-list thead tr {
+    background: rgba(60, 60, 60, 0.6) !important;
+}
+
+body.dark-mode .awards-list th {
+    color: #fff !important;
+    border-bottom: 2px solid #4a90e2 !important;
+}
+
+body.dark-mode .awards-list td {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .awards-list li {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .awards-list tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .program-highlights {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -561,19 +1055,66 @@ th {
 }
 
 .cta-button {
-    background: #0d1b3a;
+    background: #b12a34;
     color: white;
     border: none;
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    font-size: 1rem;
+    padding: 1.2rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(177, 42, 52, 0.2);
 }
 
 .cta-button:hover {
-    background: #0a1459;
+    background: #a01f2b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(177, 42, 52, 0.3);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+.cta-button:focus {
+    outline: 3px solid #b12a34;
+    outline-offset: 3px;
+}
+
+.button-icon {
+    font-size: 1.3rem;
+}
+
+.donation-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.primary-cta {
+    background: #b12a34;
+    min-width: 220px;
+}
+
+.secondary-cta {
+    background: #0d1b3a;
+    min-width: 220px;
+}
+
+.secondary-cta:hover {
+    background: #1a2d54;
+}
+
+.secondary-cta:focus {
+    outline: 3px solid #0d1b3a;
+    outline-offset: 3px;
 }
 
 footer {
@@ -908,8 +1449,10 @@ footer {
 }
 .secondary-button:hover { background: #0d1b3a; color: #fff; }
 .donation-tiers { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-top:1rem; }
-.tier { background:#f8fafb; padding:1rem; border-radius:8px; border:1px solid rgba(13,27,58,0.04); }
-.tier h3 { margin:0 0 0.4rem 0; }
+.tier { background:#f8fafb; padding:1.5rem; border-radius:8px; border:1px solid rgba(13,27,58,0.04); }
+.tier h3 { margin:0 0 0.8rem 0; font-size: 1.3rem; }
+.tier ul { margin: 0; padding-left: 1.5rem; list-style: disc; }
+.tier li { margin: 0.5rem 0; color: #333; font-size: 0.95rem; }
 .platinum-tier { border-left:4px solid #e74c3c; }
 .gold-tier { border-left:4px solid #f39c12; }
 .silver-tier { border-left:4px solid #95a5a6; }
@@ -954,12 +1497,42 @@ footer {
 
 .event-card p {
     font-size: 1rem;
-    color: #333;
+    color: var(--secondary-text);
     margin: 0.25rem 0;
+    transition: color 0.3s ease;
 }
 
 @media (max-width: 768px) {
     .events-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 12px var(--card-shadow);
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px var(--card-shadow);
+}
+
+.dark-mode-toggle:active {
+    transform: scale(0.95);
 }
