@@ -1055,52 +1055,48 @@ th {
 }
 
 .cta-button {
-    background: #b12a34;
+    background: #004aad;
     color: white;
     border: none;
-    padding: 1.2rem 2rem;
-    border-radius: 8px;
+    padding: 1.25rem 2.25rem;
+    border-radius: 12px;
     font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.2px;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(177, 42, 52, 0.2);
+    box-shadow: 0 6px 18px rgba(13, 27, 58, 0.14);
 }
 
 .cta-button:hover {
-    background: #a01f2b;
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(177, 42, 52, 0.3);
-}
-
-.cta-button:active {
-    transform: translateY(0);
+    box-shadow: 0 10px 26px rgba(13, 27, 58, 0.18);
 }
 
 .cta-button:focus {
-    outline: 3px solid #b12a34;
+    outline: 3px solid #0d1b3a;
     outline-offset: 3px;
-}
-
-.button-icon {
-    font-size: 1.3rem;
 }
 
 .donation-cta {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.25rem;
     flex-wrap: wrap;
 }
 
 .primary-cta {
     background: #b12a34;
     min-width: 220px;
+}
+
+.primary-cta:hover {
+    background: #a01f2b;
 }
 
 .secondary-cta {
@@ -1428,6 +1424,11 @@ footer {
     margin-top: 0;
     color: #0d1b3a;
 }
+
+.sponsor-hero .hero-text p {
+    margin: 1.05rem 0;
+    line-height: 1.75;
+}
 .sponsor-hero .hero-image img {
     width: 100%;
     max-width: 420px;
@@ -1437,7 +1438,14 @@ footer {
 }
 .impact-list { margin: 1rem 0 1.25rem 1rem; }
 .impact-list li { margin: 0.6rem 0; font-size: 1.05rem; color: #222; }
-.donation-cta { display:flex; gap:0.75rem; align-items:center; margin-top:1rem; }
+.donation-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
 .secondary-button {
     display:inline-block;
     background: transparent;
