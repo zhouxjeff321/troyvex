@@ -1314,17 +1314,29 @@ footer {
 }
 .team-members-list {
     margin-top: 1rem;
-    background: #f8fafb;
+    background: var(--section-bg);
     padding: 1rem;
     border-radius: 8px;
 }
 .team-members-list ol {
-    padding-left: 1.2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: member;
+    columns: 3;
+    column-gap: 1.25rem;
 }
 .team-members-list li {
-    margin: 0.35rem 0;
+    margin: 0;
     font-size: 1rem;
-    color: #000;
+    color: var(--text-color);
+    counter-increment: member;
+    break-inside: avoid;
+    padding: 0.175rem 0;
+}
+.team-members-list li::before {
+    content: counter(member) ". ";
+    font-weight: 600;
 }
 
 @media (max-width: 900px) {
@@ -1336,6 +1348,12 @@ footer {
         max-width: 100%;
         align-self: center;
     }
+
+    .team-members-list ol { columns: 2; }
+}
+
+@media (max-width: 600px) {
+    .team-members-list ol { columns: 1; }
 }
 
 /* Teams page staff styling */
