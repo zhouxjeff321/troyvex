@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Sponsors - Troy VEX Robotics</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     <link rel="icon" type="image/png" href="njrotcupdated.png">
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -18,10 +20,11 @@
                 <span class="logo-text" style="font-size:2rem;">Troy VEX Robotics</span>
             </div>
             <ul class="nav-links">
-                <li><a href="about">About</a></li>
+                <li><a href="about.html?v=2">About</a></li>
                 <li class="dropdown">
                     <a href="teams">Teams</a>
                     <ul class="dropdown-menu">
+                        <li><a href="teams">Our Teams</a></li>
                         <li><a href="teama">Team A - Aegis</a></li>
                         <li><a href="teamb">Team B - Ouroboros</a></li>
                         <li><a href="teamc">Team C - Jinx</a></li>
@@ -46,88 +49,139 @@
     </header>
 
     <main>
-        <section class="page-header">
-            <h1>Support Troy VEX Robotics</h1>
-            <p>Invest in future engineers through hands-on STEM education</p>
-        </section>
-
-        <section class="sponsor-hero">
-            <div class="hero-text">
-                <h2>Why Sponsor Us?</h2>
-                <p><strong>Proven Success:</strong> Troy High School is home to Signature Event Winners and top-of-the-line VEX performers. Our 98601Y team is #5 in the entire world for skills. Our A, and C teams have won Division Finalist @ JROTC Nationals.</p>
-                <p><strong>Direct Impact:</strong> 100% of donations go to parts, travel, and student development.</p>
-                <p><strong>Community Partnership:</strong> Troy VEX does its service to the community and holds summer camps amongst other events to boost the local community.</p>
-                <p><strong>Legacy:</strong> Troy VEX is more than 50% freshman who are fresh into their journey of robotics and STEM. Your donations help fuel the next generation of STEM engineers. Our leadership and upperclassmen have interned or been accepted to prestigious summer camps such as Yale Young Global Scholars, COSMOS, Stanford Summer Session, Boeing, Raytheon, Carnegie Mellon, Peraton, Algoverse AI, and JPL @ Caltech.</p>
-            </div>
-            <div class="hero-image">
-                <img src="diamond/TC.jpg" alt="Troy VEX Robotics Team" onerror="this.style.opacity=.6;this.alt='Team photo'">
-            </div>
-        </section>
-
-        <section class="sponsors-content">
-            <section class="become-sponsor">
-                <h2>Sponsorship Levels</h2>
-                <p>Choose a tier that works for you, or contact us to create a customized partnership package.</p>
-
-                <div class="donation-cta" style="margin-top: 2.5rem;">
-                    <a class="cta-button primary-cta" href="donate" aria-label="View donation information">
-                        <span class="button-icon">💼</span>
-                        <span>Become a Sponsor</span>
-                    </a>
-                    <a class="cta-button secondary-cta" href="donate" aria-label="View donation information">
-                        <span class="button-icon">💳</span>
-                        <span>Donate</span>
-                    </a>
-                    <a class="cta-button tertiary-cta" href="sponsorship-packet.html" aria-label="Request a sponsorship packet">
-                        <span class="button-icon">📄</span>
-                        <span>Request Sponsorship Packet</span>
-                    </a>
+        <section class="page-header"
+            style="background: linear-gradient(135deg, rgba(177, 42, 52, 0.05) 0%, rgba(13, 27, 58, 0.05) 100%); padding: 4rem 0; margin-bottom: 2rem; border-radius: 20px;">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h1 class="serif-header" style="font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Fuel the
+                    Next Generation of <br><span class="text-gradient">Engineers</span></h1>
+                <p
+                    style="font-size: 1.25rem; color: var(--secondary-text); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Your support directly impacts 72+ students, funding robotics parts, competition travel, and STEM
+                    outreach.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="donate" class="btn-primary"
+                        style="display: inline-block; padding: 1rem 2.5rem; font-size: 1.1rem; background: linear-gradient(135deg, #b12a34 0%, #8b1c24 100%); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 15px rgba(177, 42, 52, 0.3); transition: all 0.3s ease;">Make
+                        a
+                        Donation</a>
+                    <a href="sponsorship-packet.html"
+                        style="display: inline-block; padding: 1rem 2.5rem; font-size: 1.1rem; background: linear-gradient(135deg, #0d1b3a 0%, #1a2d5a 100%); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 15px rgba(13, 27, 58, 0.3); transition: all 0.3s ease;">View
+                        Packet</a>
                 </div>
+            </div>
+        </section>
 
-                <div class="donation-tiers">
-                    <div class="tier platinum-tier">
-                        <h3>Platinum — $5,000+</h3>
-                        <ul>
-                            <li>Logo will be represented on robots. May choose any team from ABCDEXY.</li>
-                            <li>Logo placement on team merchandise and websites.</li>
-                            <li>Advertisement and promotion through Troy VEX Robotics Instagram.</li>
-                            <li>VIP invitations to showcases & demos.</li>
-                            <li>Customized partnership opportunities.</li>
-                        </ul>
+        <!-- Main Content Area -->
+        <section class="sponsors-content">
+
+            <!-- Why Sponsor Us Section (Restored) -->
+            <section class="split-section" style="padding: 2rem 0; margin-bottom: 4rem;">
+                <div class="split-content">
+                    <h2 class="serif-header" style="font-size: 2.5rem; margin-bottom: 1.5rem;">Why Partner With Us?</h2>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #b12a34;">Proven
+                            Success</h4>
+                        <p style="font-size: 1rem; color: var(--secondary-text);">Troy High School is home to Signature
+                            Event Winners and top-of-the-line VEX performers. Our 98601Y team is #5 in the entire world
+                            for skills, and A & C teams have won Division Finalist @ JROTC Nationals.</p>
                     </div>
-                    <div class="tier gold-tier">
-                        <h3>Gold — $1,000–$4,999</h3>
-                        <ul>
-                            <li>Logo on website & competition banners</li>
-                            <li>Social media recognition</li>
-                            <li>Event invitations</li>
-                            <li>Acknowledgment in press materials</li>
-                        </ul>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #0d1b3a;">Direct
+                            Impact</h4>
+                        <p style="font-size: 1rem; color: var(--secondary-text);">100% of donations go to parts, travel,
+                            and student development. We are more than 50% freshmen, so your support fuels the start of
+                            many STEM journeys.</p>
                     </div>
-                    <div class="tier silver-tier">
-                        <h3>Silver — $250–$999</h3>
-                        <ul>
-                            <li>Name listed on website sponsors page</li>
-                            <li>Social media shoutouts</li>
-                            <li>Email updates on team progress</li>
-                        </ul>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #b12a34;">Student
+                            Legacy</h4>
+                        <p style="font-size: 1rem; color: var(--secondary-text);">Our leadership and upperclassmen have
+                            interned or been accepted to prestigious summer camps such as Yale Young Global Scholars,
+                            COSMOS, Stanford Summer Session, Boeing, Raytheon, Carnegie Mellon, and JPL @ Caltech.</p>
                     </div>
-                    <div class="tier friend-tier">
-                        <h3>Friend — Under $250</h3>
-                        <ul>
-                            <li>Listed on our donors page</li>
-                            <li>Heartfelt thanks from our students</li>
-                            <li>Every dollar makes a difference</li>
-                        </ul>
-                    </div>
+
+                </div>
+                <div class="split-visual">
+                    <img src="diamond/TC.jpg" alt="Troy VEX Robotics Team"
+                        style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); width: 100%; height: auto;"
+                        onerror="this.onerror=null; this.src='teamphotos.jpg';">
                 </div>
             </section>
+            <h2 class="serif-header" style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">Sponsorship
+                Tiers</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Platinum -->
+                <div class="glass-card"
+                    style="border: 1px solid rgba(229, 228, 226, 0.8); background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(240,240,240,0.8));">
+                    <h3 class="serif-header" style="font-size: 2rem; color: #5a5a5a; margin-bottom: 0.5rem;">Platinum
+                    </h3>
+                    <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">$5,000+</div>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li>✔️ Logo on All Robots</li>
+                        <li>✔️ Premium Placement on Website</li>
+                        <li>✔️ VIP Showcase Invitations</li>
+                        <li>✔️ Full Social Media Campaign</li>
+                    </ul>
+                </div>
+
+                <!-- Gold -->
+                <div class="glass-card"
+                    style="border: 1px solid rgba(255, 215, 0, 0.3); background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,250,230,0.6));">
+                    <h3 class="serif-header" style="font-size: 2rem; color: #b8860b; margin-bottom: 0.5rem;">Gold</h3>
+                    <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">$1,000+</div>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li>✔️ Logo on Banners</li>
+                        <li>✔️ Social Media Recognition</li>
+                        <li>✔️ Press Release Mention</li>
+                    </ul>
+                </div>
+
+                <!-- Silver -->
+                <div class="glass-card" style="border: 1px solid rgba(192, 192, 192, 0.3);">
+                    <h3 class="serif-header" style="font-size: 2rem; color: #7a7a7a; margin-bottom: 0.5rem;">Silver</h3>
+                    <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">$250+</div>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li>✔️ Website Listing</li>
+                        <li>✔️ Email Updates</li>
+                        <li>✔️ Social Media Shoutout</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass-card"
+                style="margin-top: 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Why Sponsor Troy VEX?</h3>
+                    <p style="color: var(--secondary-text); max-width: 600px;">
+                        Troy High School is home to Signature Event Winners and top-ranked teams globally.
+                        Your donation is 100% tax-deductible and goes directly to student success.
+                    </p>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <div style="text-align: center;">
+                        <span style="font-size: 2rem; font-weight: 700; display: block;">#5</span>
+                        <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--secondary-text);">Global
+                            Rank</span>
+                    </div>
+                    <div style="text-align: center;">
+                        <span style="font-size: 2rem; font-weight: 700; display: block;">100%</span>
+                        <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--secondary-text);">Goes
+                            to Students</span>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Troy High School VEX Robotics. All rights reserved.</p>
+        <a href="contact" class="footer-contact-btn">Contact Us</a>
     </footer>
     <script src="darkmode.js"></script>
 </body>
+
 </html>

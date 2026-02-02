@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Events - Troy VEX Robotics</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     <link rel="icon" type="image/png" href="njrotcupdated.png">
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -18,10 +20,11 @@
                 <span class="logo-text">Troy VEX Robotics</span>
             </div>
             <ul class="nav-links">
-                <li><a href="about">About</a></li>
+                <li><a href="about.html?v=2">About</a></li>
                 <li class="dropdown">
                     <a href="teams">Teams</a>
                     <ul class="dropdown-menu">
+                        <li><a href="teams">Our Teams</a></li>
                         <li><a href="teama">Team A - Aegis</a></li>
                         <li><a href="teamb">Team B - Ouroboros</a></li>
                         <li><a href="teamc">Team C - Jinx</a></li>
@@ -51,73 +54,212 @@
             <p>Follow our journey through the VEX Robotics competition season</p>
         </section>
 
-        <section class="events-content">
-            <div class="events-section">
-                <h2>Upcoming Events</h2>
-                <div class="events-grid">
-                    <div class="event-card">
-                        <h3>Ignite the Northwest Signature</h3>
-                        <p><strong>Date:</strong> January 10th</p>
-                        <p><strong>Teams:</strong> X, Y</p>
+        <section class="events-content" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="events-section" style="margin-bottom: 4rem;">
+                <h2 class="serif-header" style="text-align: center; margin-bottom: 2rem; font-size: 2.5rem;">Events
+                    Schedule</h2>
+
+                <!-- Events Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+
+                    <div class="glass-card" style="padding: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div
+                                style="width: 60px; height: 60px; background: linear-gradient(135deg, #b12a34, #8b1c24); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff;">
+                                <span style="font-size: 1.2rem; font-weight: 700; line-height: 1;">10</span>
+                                <span style="font-size: 0.7rem; text-transform: uppercase;">Jan</span>
+                            </div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.15rem;">Ignite the Northwest Signature</h3>
+                                <p style="margin: 0.25rem 0 0; color: var(--secondary-text); font-size: 0.9rem;">Teams:
+                                    X, Y</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="event-card">
-                        <h3>Roundtable Robotics Challenge</h3>
-                        <p><strong>Date:</strong> January 10th</p>
-                        <p><strong>Teams:</strong> A, B, C, D, E</p>
+
+                    <div class="glass-card" style="padding: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div
+                                style="width: 60px; height: 60px; background: linear-gradient(135deg, #b12a34, #8b1c24); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff;">
+                                <span style="font-size: 1.2rem; font-weight: 700; line-height: 1;">10</span>
+                                <span style="font-size: 0.7rem; text-transform: uppercase;">Jan</span>
+                            </div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.15rem;">Roundtable Robotics Challenge</h3>
+                                <p style="margin: 0.25rem 0 0; color: var(--secondary-text); font-size: 0.9rem;">Teams:
+                                    A, B, C, D, E</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="event-card">
-                        <h3>Kalahari Signature</h3>
-                        <p><strong>Date:</strong> January 23-24th</p>
-                        <p><strong>Teams:</strong> A, B, C, D, X, Y</p>
+
+                    <div class="glass-card" style="padding: 1.5rem; border: 2px solid rgba(177, 42, 52, 0.3);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div
+                                style="width: 60px; height: 60px; background: linear-gradient(135deg, #b12a34, #8b1c24); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff;">
+                                <span style="font-size: 1rem; font-weight: 700; line-height: 1;">23-24</span>
+                                <span style="font-size: 0.7rem; text-transform: uppercase;">Jan</span>
+                            </div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.15rem;">Kalahari Signature</h3>
+                                <p style="margin: 0.25rem 0 0; color: var(--secondary-text); font-size: 0.9rem;">Teams:
+                                    A, B, C, D, X, Y</p>
+                                <span
+                                    style="display: inline-block; margin-top: 0.5rem; padding: 0.2rem 0.6rem; background: rgba(177, 42, 52, 0.1); color: #b12a34; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">Major
+                                    Event</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="event-card">
-                        <h3>JROTC Nationals</h3>
-                        <p><strong>Date:</strong> January 24-25th</p>
-                        <p><strong>Teams:</strong> A, B, C, D, E, X, Y</p>
+
+                    <div class="glass-card"
+                        style="padding: 1.5rem; border: 2px solid rgba(207, 181, 59, 0.4); background: linear-gradient(135deg, rgba(255,215,0,0.05), transparent);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div
+                                style="width: 60px; height: 60px; background: linear-gradient(135deg, #cfb53b, #a69028); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff;">
+                                <span style="font-size: 1rem; font-weight: 700; line-height: 1;">24-25</span>
+                                <span style="font-size: 0.7rem; text-transform: uppercase;">Jan</span>
+                            </div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.15rem;">JROTC Nationals</h3>
+                                <p style="margin: 0.25rem 0 0; color: var(--secondary-text); font-size: 0.9rem;">Teams:
+                                    All Teams</p>
+                                <span
+                                    style="display: inline-block; margin-top: 0.5rem; padding: 0.2rem 0.6rem; background: rgba(207, 181, 59, 0.15); color: #a69028; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">🏆
+                                    Nationals</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="event-card">
-                        <h3>NorCal Signature Event</h3>
-                        <p><strong>Date:</strong> February 13-15th</p>
-                        <p><strong>Teams:</strong> B, C, D, E, X</p>
+
+                    <div class="glass-card" style="padding: 1.5rem; border: 2px solid rgba(177, 42, 52, 0.3);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div
+                                style="width: 60px; height: 60px; background: linear-gradient(135deg, #b12a34, #8b1c24); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff;">
+                                <span style="font-size: 1rem; font-weight: 700; line-height: 1;">13-15</span>
+                                <span style="font-size: 0.7rem; text-transform: uppercase;">Feb</span>
+                            </div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.15rem;">NorCal Signature Event</h3>
+                                <p style="margin: 0.25rem 0 0; color: var(--secondary-text); font-size: 0.9rem;">Teams:
+                                    B, C, D, E, X</p>
+                                <span
+                                    style="display: inline-block; margin-top: 0.5rem; padding: 0.2rem 0.6rem; background: rgba(177, 42, 52, 0.1); color: #b12a34; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">Signature
+                                    Event</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="event-card">
-                        <h3>California R4 States</h3>
-                        <p><strong>Date:</strong> February 27th-March 1st</p>
+
+                    <div class="glass-card" style="padding: 1.5rem; border: 2px solid rgba(13, 27, 58, 0.3);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div
+                                style="width: 60px; height: 60px; background: linear-gradient(135deg, #0d1b3a, #1a2d5a); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff;">
+                                <span style="font-size: 0.75rem; font-weight: 700; line-height: 1;">27-Mar 1</span>
+                                <span style="font-size: 0.7rem; text-transform: uppercase;">Feb</span>
+                            </div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.15rem;">California R4 States</h3>
+                                <p style="margin: 0.25rem 0 0; color: var(--secondary-text); font-size: 0.9rem;">
+                                    Championship</p>
+                                <span
+                                    style="display: inline-block; margin-top: 0.5rem; padding: 0.2rem 0.6rem; background: rgba(13, 27, 58, 0.1); color: #0d1b3a; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">States</span>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="glass-card"
+                        style="padding: 1.5rem; border: 2px solid rgba(147, 51, 234, 0.4); background: linear-gradient(135deg, rgba(147, 51, 234, 0.05), transparent);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div
+                                style="width: 60px; height: 60px; background: linear-gradient(135deg, #9333ea, #7c3aed); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff;">
+                                <span style="font-size: 1rem; font-weight: 700; line-height: 1;">21-24</span>
+                                <span style="font-size: 0.7rem; text-transform: uppercase;">Apr</span>
+                            </div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.15rem;">VEX Worlds Championship</h3>
+                                <p style="margin: 0.25rem 0 0; color: var(--secondary-text); font-size: 0.9rem;">Dallas,
+                                    TX</p>
+                                <span
+                                    style="display: inline-block; margin-top: 0.5rem; padding: 0.2rem 0.6rem; background: rgba(147, 51, 234, 0.15); color: #7c3aed; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">🌎
+                                    World Championship</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
+            <!-- Past Events -->
             <div class="events-section">
-                <h2>Past Events</h2>
-                <div class="events-grid">
-                    <div class="event-card">
-                        <h3>Diamond in the Desert Signature Event</h3>
-                        <p><strong>Date:</strong> December 30-31st</p>
-                        <p><strong>Teams:</strong> B, C, D, E, Y</p>
-                        <p><strong>Highlights:</strong> Team Y - Tournament Champion, Robot Skills Champion</p>
+                <h2 class="serif-header"
+                    style="text-align: center; margin-bottom: 2rem; font-size: 2rem; color: var(--secondary-text);">Past
+                    Events</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+
+                    <div class="glass-card"
+                        style="padding: 1.5rem; border: 2px solid rgba(177, 42, 52, 0.2); opacity: 0.9;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div
+                                style="width: 60px; height: 60px; background: linear-gradient(135deg, #666, #888); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff;">
+                                <span style="font-size: 0.9rem; font-weight: 700; line-height: 1;">30-31</span>
+                                <span style="font-size: 0.7rem; text-transform: uppercase;">Dec</span>
+                            </div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.1rem;">Diamond in the Desert</h3>
+                                <span
+                                    style="display: inline-block; margin-top: 0.25rem; padding: 0.2rem 0.6rem; background: rgba(177, 42, 52, 0.1); color: #b12a34; border-radius: 12px; font-size: 0.7rem; font-weight: 600;">Signature
+                                    Event</span>
+                                <div
+                                    style="background: rgba(0,0,0,0.05); padding: 0.5rem; border-radius: 6px; margin-top: 0.5rem;">
+                                    <p style="font-size: 0.85rem; margin: 0;">🏆 Team Y: Tournament Champion & Robot
+                                        Skills Champion</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="event-card">
-                        <h3>Beach Brawl @ McBride High School</h3>
-                        <p><strong>Date:</strong> November 15th</p>
-                        <p><strong>Highlights:</strong> Team C - Innovate Award, Team Y - Excellence, Tournament Finalist</p>
+
+                    <div class="glass-card" style="padding: 1.5rem; opacity: 0.9;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div
+                                style="width: 60px; height: 60px; background: linear-gradient(135deg, #666, #888); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff;">
+                                <span style="font-size: 1.2rem; font-weight: 700; line-height: 1;">15</span>
+                                <span style="font-size: 0.7rem; text-transform: uppercase;">Nov</span>
+                            </div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.1rem;">Beach Brawl @ McBride High</h3>
+                                <p style="font-size: 0.85rem; margin: 0.25rem 0 0; color: var(--secondary-text);">🏅
+                                    Team C (Innovate), Team Y (Excellence & Finalist)</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="event-card">
-                        <h3>Supernova</h3>
-                        <p><strong>Date:</strong> November 9th</p>
-                        <p><strong>Highlights:</strong> Team Y - Think Award</p>
+
+                    <div class="glass-card" style="padding: 1.5rem; opacity: 0.9;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div
+                                style="width: 60px; height: 60px; background: linear-gradient(135deg, #666, #888); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff;">
+                                <span style="font-size: 1.2rem; font-weight: 700; line-height: 1;">9</span>
+                                <span style="font-size: 0.7rem; text-transform: uppercase;">Nov</span>
+                            </div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.1rem;">Supernova</h3>
+                                <p style="font-size: 0.85rem; margin: 0.25rem 0 0; color: var(--secondary-text);">💡
+                                    Team Y (Think Award)</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="event-card">
-                        <h3>One World @ UC Berkeley</h3>
-                        <p><strong>Highlights:</strong> Team Y - Tournament Finalists</p>
+
+                    <div class="glass-card" style="padding: 1.5rem; opacity: 0.9;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div
+                                style="width: 60px; height: 60px; background: linear-gradient(135deg, #666, #888); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff;">
+                                <span style="font-size: 0.8rem; font-weight: 700; line-height: 1;">Fall</span>
+                                <span style="font-size: 0.7rem; text-transform: uppercase;">2024</span>
+                            </div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.1rem;">One World @ UC Berkeley</h3>
+                                <p style="font-size: 0.85rem; margin: 0.25rem 0 0; color: var(--secondary-text);">🥈
+                                    Team Y (Finalists)</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="event-card">
-                        <h3>San Diego Match Only No.6</h3>
-                        <p><strong>Highlights:</strong> Team Y - Tournament Champion, Robot Skills Champion</p>
-                    </div>
-                    <div class="event-card">
-                        <h3>Harvard Westlake Challenge</h3>
-                        <p><strong>Highlights:</strong> Team Y - Robot Skills Champion</p>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -126,7 +268,9 @@
     <footer>
         <p>&copy; 2025 Troy High School VEX Robotics. All rights reserved.</p>
         <p>2200 E Dorothy Ln, Fullerton, CA 92831, Room 401</p>
+        <a href="contact" class="footer-contact-btn">Contact Us</a>
     </footer>
     <script src="darkmode.js"></script>
 </body>
+
 </html>

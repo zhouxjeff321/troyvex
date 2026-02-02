@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Donate - Troy VEX Robotics</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     <link rel="icon" type="image/png" href="njrotcupdated.png">
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -18,10 +20,11 @@
                 <span class="logo-text" style="font-size:2rem;">Troy VEX Robotics</span>
             </div>
             <ul class="nav-links">
-                <li><a href="about">About</a></li>
+                <li><a href="about.html?v=2">About</a></li>
                 <li class="dropdown">
                     <a href="teams">Teams</a>
                     <ul class="dropdown-menu">
+                        <li><a href="teams">Our Teams</a></li>
                         <li><a href="teama">Team A - Aegis</a></li>
                         <li><a href="teamb">Team B - Ouroboros</a></li>
                         <li><a href="teamc">Team C - Jinx</a></li>
@@ -47,28 +50,53 @@
 
     <main>
         <section class="page-header">
-            <h1>Donate</h1>
-            <p>Thank you for supporting Troy VEX Robotics.</p>
+            <h1 class="serif-header" style="font-size: 3rem;">Support Our Mission</h1>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Your contributions help us build robots,
+                fund competitions, and train the next generation of engineers.</p>
         </section>
 
-        <section class="donation-info">
-            <h3>Donate by check</h3>
-            <ol>
-                <li>Make checks payable to <strong>NJROTC Booster Club</strong>.</li>
-                <li>Mail the check to the <strong>NJROTC Booster Club</strong>.</li>
-                <li>Email us for the mailing address and any questions.</li>
-            </ol>
+        <section class="donation-grid">
+            <!-- Check Donation Card -->
+            <div class="glass-card">
+                <div
+                    style="background: rgba(177, 42, 52, 0.1); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                    <span style="font-size: 1.5rem;">✉️</span>
+                </div>
+                <h3 style="margin-bottom: 1rem;">Donate by Check</h3>
+                <p style="color: var(--secondary-text); margin-bottom: 1.5rem;">Please make checks payable to
+                    <strong>NJROTC Booster Club</strong>.</p>
+                <div
+                    style="background: var(--section-bg); padding: 1rem; border-radius: 8px; font-family: monospace; font-size: 0.9rem; color: var(--text-color);">
+                    Payable to: NJROTC Booster Club<br>
+                    Memo: Troy VEX Robotics
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--secondary-text);">Mail to the NJROTC
+                    Booster Club or hand deliver to Room 401.</p>
+            </div>
 
-            <div style="margin-top: 1.25rem;">
-                <p style="margin: 0.25rem 0;">Email: <a href="mailto:troyvexrobotics@gmail.com">troyvexrobotics@gmail.com</a></p>
-                <p style="margin: 0.25rem 0;">Instagram: <a href="https://instagram.com/troyvexrobotics" target="_blank" rel="noopener noreferrer">@troyvexrobotics</a></p>
+            <!-- Contact Card -->
+            <div class="glass-card">
+                <div
+                    style="background: rgba(13, 27, 58, 0.1); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                    <span style="font-size: 1.5rem;">💬</span>
+                </div>
+                <h3 style="margin-bottom: 1rem;">Have Questions?</h3>
+                <p style="color: var(--secondary-text); margin-bottom: 1.5rem;">Need a mailing address or want to
+                    discuss a sponsorship?</p>
+                <a href="mailto:troyvexrobotics@gmail.com" class="btn-primary"
+                    style="width: 100%; text-align: center; margin-bottom: 0.5rem;">Email Us</a>
+                <a href="https://instagram.com/troyvexrobotics" target="_blank"
+                    style="display: block; text-align: center; color: var(--secondary-text); font-size: 0.9rem; margin-top: 1rem;">Follow
+                    us @troyvexrobotics</a>
             </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Troy High School VEX Robotics. All rights reserved.</p>
+        <a href="contact" class="footer-contact-btn">Contact Us</a>
     </footer>
     <script src="darkmode.js"></script>
 </body>
+
 </html>

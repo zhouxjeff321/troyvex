@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <meta http-equiv="refresh" content="0; url=about">
+
     <title>Home - Troy VEX Robotics</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     <link rel="icon" type="image/png" href="njrotcupdated.png">
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -19,10 +21,11 @@
                 <span class="logo-text" style="font-size:2rem;">Troy VEX Robotics</span>
             </div>
             <ul class="nav-links">
-                <li><a href="about">About</a></li>
+                <li><a href="about.html?v=2">About</a></li>
                 <li class="dropdown">
                     <a href="teams">Teams</a>
                     <ul class="dropdown-menu">
+                        <li><a href="teams">Our Teams</a></li>
                         <li><a href="teama">Team A - Aegis</a></li>
                         <li><a href="teamb">Team B - Ouroboros</a></li>
                         <li><a href="teamc">Team C - Jinx</a></li>
@@ -47,40 +50,48 @@
     </header>
 
     <main>
-        <section class="hero" style="background-color: #f4f4f4; padding: 40px 20px; text-align: center; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-            <h1 style="color:#111; font-size: 2.5rem; margin-bottom: 10px;">Welcome to Troy High School VEX Robotics</h1>
-            <p style="color:#222; font-size: 1.2rem;">Building the future, one robot at a time</p>
-            <hr style="width:60%;margin:1.5em auto 0 auto;border:0;border-top:3px solid #b12a34;opacity:0.7;">
-        </section>
-
-        <section class="about-content" style="margin-top: 40px;">
-            <h2 style="font-size: 3.5rem; text-align: center; margin-bottom: 1.5rem; letter-spacing: -1px; font-family: 'Arial Black', sans-serif; color: #111;">Who are we?</h2>
-            <p class="about-highlight" style="font-size: 1.2rem; text-align: center;">The largest JROTC VEX Robotics organization in the nation.</p>
-            <p class="about-growth" style="font-size: 1rem; text-align: center;">Since the program's founding in 2023, the program has grown from 13 students to 72 students. We currently have a total of 7 teams representing our school. We are an exclusively NJROTC program, making us one of the biggest VEX organizations in the world.</p>
-            <p style="text-align: center;">Troy High School's VEX Robotics program provides students with hands-on experience in STEM fields through competitive robotics. Our students design, build, and program robots to compete in VEX Robotics competitions at the highest level.</p>
-            <div style="text-align:center; margin-bottom: 2em;">
-                <img src="teamphotos.jpg" alt="Team Photo" style="max-width:100%; height:auto; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,0.15);">
+        <section class="split-section" style="padding: 2rem 0; max-width: 1200px; margin: 0 auto;">
+            <div class="split-content" style="padding: 0 2rem;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2; color: #111;">
+                    <span class="serif-header">The Nation's Largest</span>
+                    <span style="font-weight: 700;">JROTC VEX Program</span>
+                </h2>
+                <p style="font-size: 1.25rem; color: var(--text-color); margin-bottom: 1rem;">From a humble beginning of
+                    13 cadets to a powerhouse of 72 students, Troy VEX Robotics has grown into a global leader. We are a
+                    dedicated family of 7 teams, exclusively representing NJROTC.</p>
+                <p style="font-size: 1.1rem; color: var(--secondary-text); margin-bottom: 2rem;">Our students don't just
+                    build robots; they engineer solutions. Through hands-on experience in STEM, we design, build, and
+                    code competitive robots that perform at the highest levels of VEX Robotics competitions.</p>
+                <a href="teams" class="btn-primary"
+                    style="display: inline-block; padding: 0.9rem 2rem; background: linear-gradient(135deg, #b12a34 0%, #8b1c24 100%); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 15px rgba(177, 42, 52, 0.3); transition: all 0.3s ease;">Meet
+                    the Teams</a>
+            </div>
+            <div class="split-visual" style="padding: 0 2rem;">
+                <img src="teamphotos.jpg" alt="Team Photo"
+                    style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
             </div>
         </section>
 
-        <section class="upcoming-events" style="margin: 3em 0;">
-            <h2 style="text-align:center; color:#764ba2; font-family:'Geist',sans-serif;">Upcoming Events</h2>
-            <ul style="max-width:600px; margin:1.5em auto; font-size:1.15em; line-height:1.7; color:#333; font-family:'Geist',sans-serif;">
-                <li><strong>Diamond in the Desert Signature Event</strong> &mdash; December 30-31st</li>
-                <li><strong>Ignite the Northwest Signature</strong> &mdash; January 10th</li>
-                <li><strong>Roundtable Robotics Challenge</strong> &mdash; January 10th</li>
-                <li><strong>Kalahari Signature</strong> &mdash; January 23-24th</li>
-                <li><strong>JROTC Nationals</strong> &mdash; January 24-25th</li>
-                <li><strong>NorCal Signature Event</strong> &mdash; February 13-15th</li>
-                <li><strong>California R4 States</strong> &mdash; February 27th-March 1st</li>
-            </ul>
+        <section class="location-section" style="margin: 3rem auto; max-width: 1000px; padding: 0 2rem;">
+            <h2 style="text-align:center; color:#111; font-family:'Geist',sans-serif; margin-bottom: 1.5rem;">Troy High
+                School, Fullerton CA</h2>
+            <div class="map-container" style="display: flex; justify-content: center;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d828.0124!2d-117.88550!3d33.88750!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcd5ce8cc6140d%3A0x673905d6447847b2!2sTroy%20High%20School!5e0!3m2!1sen!2sus!4v1673892015243!5m2!1sen!2sus"
+                    width="100%" height="400" style="border:0; border-radius: 12px; max-width: 900px;"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Troy High School VEX Robotics. All rights reserved.</p>
         <p>2200 E Dorothy Ln, Fullerton, CA 92831, Room 401</p>
+        <a href="contact" class="footer-contact-btn"
+            style="display: inline-block; padding: 0.6rem 1.5rem; background: rgba(255,255,255,0.2); color: #fff; text-decoration: none; border-radius: 6px; border: 1px solid rgba(255,255,255,0.4); margin-top: 0.5rem; font-weight: 500; transition: all 0.3s ease;">Contact
+            Us</a>
     </footer>
     <script src="darkmode.js"></script>
 </body>
+
 </html>
