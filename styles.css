@@ -2021,3 +2021,54 @@ footer {
     background: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
 }
+/* Premium Highlights */
+.premium-highlights {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    perspective: 1000px;
+}
+
+.highlight-stat {
+    flex: 1;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 10px 10px 20px #d1d1d1, -10px -10px 20px #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border-top: 4px solid #b12a34;
+}
+
+.highlight-stat:hover {
+    transform: translateY(-10px);
+}
+
+.highlight-val {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #b12a34;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.highlight-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333;
+}
+
+body.dark-mode .highlight-stat {
+    background: linear-gradient(145deg, #2a2a2a, #232323);
+    box-shadow: 5px 5px 15px #111, -5px -5px 15px #333;
+    border-top-color: #4a90e2;
+}
+
+body.dark-mode .highlight-label {
+    color: #ccc;
+}
