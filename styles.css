@@ -2072,3 +2072,79 @@ body.dark-mode .highlight-stat {
 body.dark-mode .highlight-label {
     color: #ccc;
 }
+
+
+/* Premium Button Styles */
+.premium-button-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.premium-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    min-width: 200px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.premium-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.3);
+}
+
+.premium-btn-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.premium-btn-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.premium-btn-sub {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    font-weight: 500;
+    margin-top: 0.2rem;
+}
+
+/* Specific Button Themes */
+.btn-donate {
+    background: linear-gradient(135deg, #b12a34 0%, #d43f4b 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(177, 42, 52, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-donate:hover {
+    box-shadow: 0 10px 25px rgba(177, 42, 52, 0.4);
+}
+
+.btn-packet {
+    background: linear-gradient(135deg, #0d1b3a 0%, #1a3a6e 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(13, 27, 58, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-packet:hover {
+    box-shadow: 0 10px 25px rgba(13, 27, 58, 0.4);
+}
+
+body.dark-mode .btn-packet {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.25);
+}
