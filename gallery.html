@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="styles.css?v=2">
     <link rel="icon" type="image/png" href="njrotcupdated.png">
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -68,10 +70,14 @@
             <div class="gallery-section">
                 <h3>Beach Brawl @ McBride High School (November 15, 2025)</h3>
                 <div class="photo-gallery">
-                    <img src="beach brawl/582545215_4161534964093393_5160703348096074670_n.jpg" alt="Beach Brawl Event Photo 1">
-                    <img src="beach brawl/582587382_4161534850760071_4682994050265721951_n.jpg" alt="Beach Brawl Event Photo 2">
-                    <img src="beach brawl/582923457_4161534787426744_5074396647716276807_n.jpg" alt="Beach Brawl Event Photo 3">
-                    <img src="beach brawl/583245284_4161535097426713_3116256423590730507_n.jpg" alt="Beach Brawl Event Photo 4">
+                    <img src="beach brawl/582545215_4161534964093393_5160703348096074670_n.jpg"
+                        alt="Beach Brawl Event Photo 1">
+                    <img src="beach brawl/582587382_4161534850760071_4682994050265721951_n.jpg"
+                        alt="Beach Brawl Event Photo 2">
+                    <img src="beach brawl/582923457_4161534787426744_5074396647716276807_n.jpg"
+                        alt="Beach Brawl Event Photo 3">
+                    <img src="beach brawl/583245284_4161535097426713_3116256423590730507_n.jpg"
+                        alt="Beach Brawl Event Photo 4">
                 </div>
                 <p class="photo-credit"><em>Photo credit: Commander Lauper's Facebook page</em></p>
             </div>
@@ -80,16 +86,26 @@
             <div class="gallery-section">
                 <h3>One World @ UC Berkeley (November 2025)</h3>
                 <div class="photo-gallery">
-                    <img src="oneworld/586845622_4169138573333032_9081429515033235494_n.jpg" alt="One World Event Photo 1">
-                    <img src="oneworld/586890835_4169807339932822_1777193793440060412_n.jpg" alt="One World Event Photo 2">
-                    <img src="oneworld/586958843_4169139096666313_6170539189412982083_n.jpg" alt="One World Event Photo 3">
-                    <img src="oneworld/587089300_4169807016599521_7420513945176883690_n.jpg" alt="One World Event Photo 4">
-                    <img src="oneworld/587102580_4169138723333017_7908606869056431640_n.jpg" alt="One World Event Photo 5">
-                    <img src="oneworld/587103917_4169807259932830_3177160969979622646_n.jpg" alt="One World Event Photo 6">
-                    <img src="oneworld/587830523_10164708698914274_5793245622178358113_n.jpg" alt="One World Event Photo 7">
-                    <img src="oneworld/588645457_10164708698704274_3395418400421253950_n.jpg" alt="One World Event Photo 8">
-                    <img src="oneworld/607617590_4202782159968673_7147195847232773575_n.jpg" alt="One World Event Photo 10">
-                    <img src="oneworld/607762362_4202781506635405_8161473073768550156_n.jpg" alt="One World Event Photo 11">
+                    <img src="oneworld/586845622_4169138573333032_9081429515033235494_n.jpg"
+                        alt="One World Event Photo 1">
+                    <img src="oneworld/586890835_4169807339932822_1777193793440060412_n.jpg"
+                        alt="One World Event Photo 2">
+                    <img src="oneworld/586958843_4169139096666313_6170539189412982083_n.jpg"
+                        alt="One World Event Photo 3">
+                    <img src="oneworld/587089300_4169807016599521_7420513945176883690_n.jpg"
+                        alt="One World Event Photo 4">
+                    <img src="oneworld/587102580_4169138723333017_7908606869056431640_n.jpg"
+                        alt="One World Event Photo 5">
+                    <img src="oneworld/587103917_4169807259932830_3177160969979622646_n.jpg"
+                        alt="One World Event Photo 6">
+                    <img src="oneworld/587830523_10164708698914274_5793245622178358113_n.jpg"
+                        alt="One World Event Photo 7">
+                    <img src="oneworld/588645457_10164708698704274_3395418400421253950_n.jpg"
+                        alt="One World Event Photo 8">
+                    <img src="oneworld/607617590_4202782159968673_7147195847232773575_n.jpg"
+                        alt="One World Event Photo 10">
+                    <img src="oneworld/607762362_4202781506635405_8161473073768550156_n.jpg"
+                        alt="One World Event Photo 11">
                     <img src="oneworld/harvardwestlakete.jpg" alt="One World Event Photo 12">
                 </div>
                 <p class="photo-credit"><em>Photo credit: Commander Lauper's Facebook page</em></p>
@@ -177,7 +193,7 @@
             lightboxImg.src = img.src;
             lightboxCaption.textContent = img.alt;
             lightboxCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
-            
+
             // Hide arrows if only one image
             if (currentImages.length <= 1) {
                 prevBtn.style.display = 'none';
@@ -213,11 +229,12 @@
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (!lightbox.classList.contains('active')) return;
-            
+
             if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowRight') nextImage();
             if (e.key === 'ArrowLeft') prevImage();
         });
     </script>
 </body>
+
 </html>
