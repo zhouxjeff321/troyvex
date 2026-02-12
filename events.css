@@ -1,0 +1,246 @@
+/* =========================================
+   Events Page - Clean Schedule Styles
+   ========================================= */
+
+/* --- Layout Variables --- */
+:root {
+    --event-border: rgba(0, 0, 0, 0.08);
+    --event-hover: rgba(0, 0, 0, 0.02);
+    --date-color: #b12a34;
+}
+
+body.dark-mode {
+    --event-border: rgba(255, 255, 255, 0.1);
+    --event-hover: rgba(255, 255, 255, 0.05);
+    --date-color: #ff6b6b;
+}
+
+/* --- Hero --- */
+.events-hero {
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+}
+
+.events-hero h1 {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+
+.events-hero p {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Schedule Container --- */
+.schedule-container {
+    max-width: 1000px;
+    margin: 0 auto 6rem;
+    padding: 0 2rem;
+}
+
+.schedule-group {
+    margin-bottom: 5rem;
+}
+
+.group-title {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--event-border);
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- Event Row --- */
+.event-row {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    /* Date | Details | Status */
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--event-border);
+    transition: background-color 0.2s ease;
+    align-items: start;
+}
+
+.event-row:hover {
+    background-color: var(--event-hover);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-radius: 8px;
+    border-bottom-color: transparent;
+}
+
+/* Date Column */
+.event-date {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.date-month {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text-light);
+    letter-spacing: 1px;
+}
+
+.date-day {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--date-color);
+    line-height: 1;
+    margin: 0.2rem 0;
+}
+
+.date-year {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    opacity: 0.6;
+}
+
+/* Details Column */
+.event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.event-name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+    margin: 0;
+}
+
+.event-location {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.event-teams {
+    font-size: 0.9rem;
+    color: var(--text-body);
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.teams-label {
+    color: var(--text-light);
+    font-weight: 400;
+    margin-right: 0.3rem;
+}
+
+/* Status/Badge Column */
+.event-status {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.event-badge {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-signature {
+    background: rgba(177, 42, 52, 0.1);
+    color: #b12a34;
+}
+
+.badge-champion {
+    background: rgba(255, 215, 0, 0.15);
+    color: #bfa00d;
+    /* Darker gold for text */
+}
+
+.badge-upcoming {
+    background: rgba(13, 27, 58, 0.05);
+    color: var(--text-light);
+}
+
+.badge-worlds {
+    background: linear-gradient(135deg, #9333ea, #7c3aed);
+    color: white;
+    box-shadow: 0 4px 10px rgba(147, 51, 234, 0.3);
+}
+
+/* Past Events Styling */
+.past-event {
+    opacity: 0.7;
+}
+
+.past-event .date-day {
+    color: var(--text-light);
+    /* Grayscale dates for past */
+}
+
+.past-result {
+    font-size: 0.9rem;
+    color: var(--primary-dark);
+    background: rgba(0, 0, 0, 0.03);
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    border-left: 2px solid var(--text-light);
+}
+
+body.dark-mode .past-result {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .event-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: left;
+    }
+
+    .event-date {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.5rem;
+        text-align: left;
+        margin-bottom: 0.5rem;
+    }
+
+    .date-month {
+        font-size: 1rem;
+    }
+
+    .date-day {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    .event-status {
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
