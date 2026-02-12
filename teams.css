@@ -1,0 +1,693 @@
+/* =========================================
+   Narrative Teams Page Design - Styles
+   ========================================= */
+
+/* --- Typography & Variables --- */
+:root {
+    --primary-dark: #0d1b3a;
+    --primary-red: #b12a34;
+    --text-body: #444;
+    --text-light: #666;
+    --bg-light: #f9f9fb;
+    --card-bg: #fff;
+    --font-serif: "Georgia", "Times New Roman", serif;
+    --font-sans: "Geist", "Inter", sans-serif;
+}
+
+body.dark-mode {
+    --primary-dark: #ffffff;
+    --primary-red: #ff6b6b;
+    --text-body: #e0e0e0;
+    --text-light: #aaa;
+    --bg-light: #121212;
+    --card-bg: #1e1e1e;
+}
+
+/* --- Hero Section --- */
+.narrative-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(13, 27, 58, 0.03) 0%, transparent 70%);
+    overflow: hidden;
+}
+
+.narrative-hero-content {
+    max-width: 800px;
+    padding: 2rem;
+    z-index: 2;
+    animation: fadeUp 1.2s ease-out;
+}
+
+.chapter-tag {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-red);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.serif-title {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    font-weight: 400;
+    /* Lighter weight for elegance */
+}
+
+.hero-subtext {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+}
+
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.6;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.scroll-indicator .line {
+    width: 1px;
+    height: 60px;
+    background: var(--primary-dark);
+}
+
+/* --- Stats Widget --- */
+.stats-widget {
+    position: relative;
+    margin: -3rem auto 5rem;
+    background: var(--card-bg);
+    width: 90%;
+    max-width: 900px;
+    border-radius: 100px;
+    /* Pill shape */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 4rem;
+    z-index: 10;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    line-height: 1;
+    margin-bottom: 0.2rem;
+}
+
+.stat-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+}
+
+.stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .stat-divider {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Narrative Timeline --- */
+.narrative-timeline {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    padding: 4rem 2rem;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%);
+}
+
+body.dark-mode .timeline-line {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-chapter {
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+    justify-content: flex-end;
+    /* Default right side content */
+    margin-bottom: 6rem;
+    position: relative;
+    width: 50%;
+    padding-left: 3rem;
+    /* Space from line */
+    box-sizing: border-box;
+    margin-left: auto;
+    /* Push to right half */
+}
+
+/* Left side chapters (using a different class or nth-child logic, but here manual class) */
+.timeline-chapter:nth-child(even) {
+    /* Actually odd in DOM structure due to line div */
+}
+
+/* Wait, I used a manual structure. Let's fix alignment */
+
+/* Resetting to explicit alternate */
+.timeline-chapter {
+    width: 45%;
+    margin-left: 55%;
+    /* Right side */
+    padding-left: 0;
+    text-align: left;
+}
+
+.timeline-chapter:nth-child(odd) {
+    /* Chapters 1 and 3 in the DOM order after line */
+    margin-left: 0;
+    margin-right: 55%;
+    text-align: right;
+    align-items: flex-end;
+}
+
+/* Corrections for the specific DOM structure */
+.narrative-timeline .timeline-chapter:nth-of-type(1) {
+    /* Chapter I (Spark) - Left */
+    margin-left: 0;
+    margin-right: auto;
+    text-align: right;
+    padding-right: 3rem;
+    justify-content: flex-end;
+}
+
+.narrative-timeline .timeline-chapter:nth-of-type(2) {
+    /* Chapter II (Rise) - Right */
+    margin-left: auto;
+    margin-right: 0;
+    text-align: left;
+    padding-left: 3rem;
+    justify-content: flex-start;
+}
+
+.narrative-timeline .timeline-chapter:nth-of-type(3) {
+    /* Chapter III (Expansion) - Left */
+    margin-left: 0;
+    margin-right: auto;
+    text-align: right;
+    padding-right: 3rem;
+    justify-content: flex-end;
+}
+
+
+.chapter-year {
+    position: absolute;
+    top: 0;
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    color: rgba(0, 0, 0, 0.03);
+    line-height: 1;
+    font-weight: 700;
+    z-index: -1;
+}
+
+body.dark-mode .chapter-year {
+    color: rgba(255, 255, 255, 0.05);
+}
+
+.narrative-timeline .timeline-chapter:nth-of-type(odd) .chapter-year {
+    right: 3rem;
+}
+
+.narrative-timeline .timeline-chapter:nth-of-type(even) .chapter-year {
+    left: 3rem;
+}
+
+.chapter-content {
+    background: transparent;
+}
+
+.chapter-subtitle {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--primary-red);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.chapter-content h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+}
+
+.chapter-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-body);
+}
+
+.highlight-clean {
+    color: var(--primary-dark);
+    border-bottom: 1px solid var(--primary-red);
+    padding-bottom: 2px;
+}
+
+/* --- Staff Narrative --- */
+.staff-narrative {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.section-title-clean {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title-clean h2 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+
+.title-underline {
+    width: 60px;
+    height: 3px;
+    background: var(--primary-red);
+    margin: 0 auto;
+}
+
+.staff-featured {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.staff-photo-clean {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.staff-caption-card {
+    background: var(--card-bg);
+    padding: 2rem 3rem;
+    margin-top: -3rem;
+    /* Overlap */
+    margin-left: 2rem;
+    margin-right: 2rem;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border-top: 3px solid var(--primary-red);
+}
+
+.staff-caption-card h3 {
+    font-family: var(--font-serif);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.staff-names {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+/* --- Squads Clean --- */
+.squads-clean {
+    max-width: 1200px;
+    margin: 6rem auto;
+    padding: 0 2rem;
+}
+
+.squad-grid-clean {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.squad-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    /* Slightly softer corners */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.squad-img-container {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+}
+
+.squad-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.squad-card:hover .squad-img-container img {
+    transform: scale(1.05);
+}
+
+.squad-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(13, 27, 58, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.squad-card:hover .squad-overlay {
+    opacity: 1;
+}
+
+.view-btn {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.view-btn:hover {
+    background: white;
+    color: var(--primary-dark);
+}
+
+.squad-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.squad-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .squad-header {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.squad-header h3 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.2rem;
+}
+
+.squad-code {
+    font-size: 0.85rem;
+    color: var(--primary-red);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.squad-leaders p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 0.3rem 0;
+}
+
+/* --- Roster - Keep Existing but Tweak --- */
+.roster-section {
+    padding-top: 2rem;
+}
+
+.member-pill {
+    /* Redefine for cleaner look */
+    background: transparent !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    font-size: 0.9rem !important;
+    color: var(--text-light) !important;
+    box-shadow: none !important;
+}
+
+body.dark-mode .member-pill {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.member-pill:hover {
+    border-color: var(--primary-dark) !important;
+    color: var(--primary-dark) !important;
+    transform: none !important;
+    background: rgba(0, 0, 0, 0.02) !important;
+}
+
+/* --- Animations --- */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .serif-title {
+        font-size: 3rem;
+    }
+
+    .timeline-line {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline-chapter,
+    .narrative-timeline .timeline-chapter:nth-of-type(odd),
+    .narrative-timeline .timeline-chapter:nth-of-type(even) {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 3rem;
+        padding-right: 0;
+        text-align: left;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .chapter-year {
+        display: none;
+    }
+
+    /* Simplify timeline for mobile */
+
+    .stats-widget {
+        flex-direction: column;
+        gap: 2rem;
+        border-radius: 20px;
+        width: 100%;
+    }
+
+    .stat-divider {
+        width: 40px;
+        height: 1px;
+    }
+
+    .staff-caption-card {
+        margin: 1rem 0;
+        width: 100%;
+    }
+}
+
+/* =========================================
+   Refined Roster - Teams.css Update
+   ========================================= */
+
+/* --- Roster Section --- */
+.roster-header-modern {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.roster-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-red);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.serif-title.small-margin {
+    margin-bottom: 1rem;
+}
+
+.roster-decoration-line {
+    width: 40px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+body.dark-mode .roster-decoration-line {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Roster Grid --- */
+.roster-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Member Card Styling --- */
+/* Override old styles by using the container + class specificity */
+.roster-grid-modern .member-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    /* Force override */
+    border-radius: 8px !important;
+    padding: 1rem 1.25rem !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    color: var(--text-body) !important;
+    font-size: 0.95rem !important;
+    box-shadow: none !important;
+}
+
+body.dark-mode .roster-grid-modern .member-pill {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    background: rgba(255, 255, 255, 0.03);
+    color: #ddd !important;
+}
+
+/* Hover Effect */
+.roster-grid-modern .member-pill:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+    border-color: rgba(13, 27, 58, 0.2) !important;
+    background: var(--card-bg) !important;
+}
+
+body.dark-mode .roster-grid-modern .member-pill:hover {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Avatar Placeholder - Pseudo Element */
+.roster-grid-modern .member-pill::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-color: rgba(13, 27, 58, 0.05);
+    border-radius: 50%;
+    /* Simple Personnel Icon SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d1b3a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+    background-size: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .roster-grid-modern .member-pill::before {
+    background-color: rgba(255, 255, 255, 0.1);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dddddd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+}
+
+.roster-grid-modern .member-pill:hover::before {
+    background-color: rgba(13, 27, 58, 0.1);
+}
+
+body.dark-mode .roster-grid-modern .member-pill:hover::before {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Status Dot (Green) */
+.roster-grid-modern .member-pill::after {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: #4cd137;
+    border-radius: 50%;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.roster-grid-modern .member-pill:hover::after {
+    opacity: 1;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 600px) {
+    .roster-grid-modern {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+
+    .roster-grid-modern .member-pill {
+        padding: 0.8rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+}
