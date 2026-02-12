@@ -288,6 +288,108 @@ body.dark-mode .nav-links a::after {
     margin: 0;
 }
 
+/* Mobile Navigation Styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    z-index: 1001;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--header-text);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - 70px);
+        background-color: var(--bg-color);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 1rem;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        overflow-y: auto;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem;
+        font-size: 1.1rem;
+        width: 100%;
+    }
+
+    /* Mobile Dropdown Handling */
+    .dropdown:hover .dropdown-menu {
+        display: none;
+        /* Disable hover on mobile */
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
+        position: static;
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.03);
+        width: 100%;
+        margin-top: 0.5rem;
+        border-radius: 8px;
+    }
+
+    body.dark-mode .dropdown.active .dropdown-menu {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .dropdown-menu a {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    /* Hamburger Animation */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    /* Prevent body scroll when menu is open */
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
 .dropdown-menu a {
     display: block;
     padding: 0.75rem 1rem;
@@ -2443,4 +2545,95 @@ header {
 body.dark-mode header {
     background: rgba(26, 26, 26, 0.9) !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Mobile Responsive Layout Adjustments */
+@media (max-width: 768px) {
+
+    /* Typography adjustments */
+    h1 {
+        font-size: 2rem !important;
+    }
+
+    h2 {
+        font-size: 1.75rem !important;
+    }
+
+    h3 {
+        font-size: 1.5rem !important;
+    }
+
+    .page-header {
+        padding: 4rem 1.5rem 3rem !important;
+    }
+
+    .page-header h1 {
+        font-size: 2.5rem !important;
+    }
+
+    /* Split section adjustments */
+    .split-section {
+        flex-direction: column !important;
+        padding: 2rem 1rem !important;
+    }
+
+    .split-content,
+    .split-visual {
+        padding: 0 1rem !important;
+        width: 100% !important;
+    }
+
+    .split-visual {
+        margin-top: 2rem;
+    }
+
+    /* Team cards grid */
+    .team-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Glass cards */
+    .glass-card {
+        padding: 1.5rem !important;
+    }
+
+    /* Footer */
+    footer {
+        padding: 2rem 1rem !important;
+        text-align: center;
+    }
+
+    /* Buttons */
+    .btn-primary,
+    .premium-btn {
+        width: 100%;
+        text-align: center;
+        padding: 1rem !important;
+    }
+
+    /* Premium button container */
+    .premium-button-container {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    /* Reduce excessive padding on mobile */
+    main {
+        padding-top: 1rem;
+    }
+
+    section {
+        margin-bottom: 2rem !important;
+    }
+
+    /* Logo text size */
+    .logo-text {
+        font-size: 1.5rem !important;
+    }
+
+    /* Navbar adjustments */
+    .navbar {
+        padding: 1rem !important;
+    }
 }
