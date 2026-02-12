@@ -43,6 +43,17 @@ body,
     font-family: 'Geist', sans-serif !important;
 }
 
+/* Global Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 body {
     font-family: 'Geist', sans-serif !important;
     line-height: 1.6;
@@ -50,6 +61,7 @@ body {
     background-color: var(--bg-color);
     transition: background-color 0.3s ease, color 0.3s ease;
     cursor: url('circle_cursor.svg') 12 12, auto;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 /* Custom Cursor Global Enforce */
