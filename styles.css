@@ -49,6 +49,21 @@ body {
     color: var(--text-color);
     background-color: var(--bg-color);
     transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: url('circle_cursor.svg') 12 12, auto;
+}
+
+/* Custom Cursor Global Enforce */
+a,
+button,
+[type="button"],
+[type="submit"],
+[role="button"],
+.btn,
+select,
+label,
+.logo-container,
+.dropdown-menu {
+    cursor: url('circle_cursor.svg') 12 12, auto !important;
 }
 
 header {
@@ -99,6 +114,8 @@ nav {
     border-radius: 50%;
     overflow: hidden;
 }
+
+
 
 /* Split Section Layout - Text Left, Image Right */
 .split-section {
@@ -267,6 +284,7 @@ body.dark-mode .nav-links a::after {
     border-bottom: 1px solid var(--dropdown-border);
     font-family: 'Geist', sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: url('circle_cursor.svg') 12 12, auto;
 }
 
 .dropdown-menu a:hover {
