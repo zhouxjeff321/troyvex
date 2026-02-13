@@ -6,13 +6,13 @@
 :root {
     --event-border: rgba(0, 0, 0, 0.08);
     --event-hover: rgba(0, 0, 0, 0.02);
-    --date-color: #b12a34;
+    --date-color: #111;
 }
 
 body.dark-mode {
     --event-border: rgba(255, 255, 255, 0.1);
     --event-hover: rgba(255, 255, 255, 0.05);
-    --date-color: #ff6b6b;
+    --date-color: #eee;
 }
 
 /* --- Hero --- */
