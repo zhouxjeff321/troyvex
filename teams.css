@@ -141,7 +141,7 @@ body.dark-mode .stat-divider {
 
 /* --- Narrative Timeline --- */
 .narrative-timeline {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     position: relative;
     padding: 4rem 2rem;
@@ -152,9 +152,10 @@ body.dark-mode .stat-divider {
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 1px;
+    width: 2px;
     background: rgba(0, 0, 0, 0.1);
     transform: translateX(-50%);
+    z-index: 1;
 }
 
 body.dark-mode .timeline-line {
@@ -164,93 +165,83 @@ body.dark-mode .timeline-line {
 .timeline-chapter {
     display: flex;
     align-items: center;
-    /* Center vertically */
-    justify-content: flex-end;
-    /* Default right side content */
-    margin-bottom: 6rem;
+    justify-content: space-between;
+    margin-bottom: 10rem;
     position: relative;
-    width: 50%;
-    padding-left: 3rem;
-    /* Space from line */
-    box-sizing: border-box;
-    margin-left: auto;
-    /* Push to right half */
+    width: 100%;
+    z-index: 2;
 }
 
-/* Left side chapters (using a different class or nth-child logic, but here manual class) */
-.timeline-chapter:nth-child(even) {
-    /* Actually odd in DOM structure due to line div */
+.chapter-image {
+    width: 44%;
+    display: flex;
+    justify-content: center;
 }
 
-/* Wait, I used a manual structure. Let's fix alignment */
+.chapter-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
 
-/* Resetting to explicit alternate */
-.timeline-chapter {
-    width: 45%;
-    margin-left: 55%;
-    /* Right side */
-    padding-left: 0;
+.chapter-image img:hover {
+    transform: scale(1.02);
+}
+
+.chapter-content {
+    width: 44%;
+    position: relative;
+}
+
+/* Mirroring Logic */
+
+/* Chapter 1 & 3: Content (Left), Image (Right) */
+.narrative-timeline .timeline-chapter:nth-child(2),
+.narrative-timeline .timeline-chapter:nth-child(4) {
+    flex-direction: row-reverse;
+}
+
+.narrative-timeline .timeline-chapter:nth-child(2) .chapter-content,
+.narrative-timeline .timeline-chapter:nth-child(4) .chapter-content {
+    text-align: right;
+}
+
+/* Chapter 2: Image (Left), Content (Right) */
+.narrative-timeline .timeline-chapter:nth-child(3) {
+    flex-direction: row;
+}
+
+.narrative-timeline .timeline-chapter:nth-child(3) .chapter-content {
     text-align: left;
 }
-
-.timeline-chapter:nth-child(odd) {
-    /* Chapters 1 and 3 in the DOM order after line */
-    margin-left: 0;
-    margin-right: 55%;
-    text-align: right;
-    align-items: flex-end;
-}
-
-/* Corrections for the specific DOM structure */
-.narrative-timeline .timeline-chapter:nth-of-type(1) {
-    /* Chapter I (Spark) - Left */
-    margin-left: 0;
-    margin-right: auto;
-    text-align: right;
-    padding-right: 3rem;
-    justify-content: flex-end;
-}
-
-.narrative-timeline .timeline-chapter:nth-of-type(2) {
-    /* Chapter II (Rise) - Right */
-    margin-left: auto;
-    margin-right: 0;
-    text-align: left;
-    padding-left: 3rem;
-    justify-content: flex-start;
-}
-
-.narrative-timeline .timeline-chapter:nth-of-type(3) {
-    /* Chapter III (Expansion) - Left */
-    margin-left: 0;
-    margin-right: auto;
-    text-align: right;
-    padding-right: 3rem;
-    justify-content: flex-end;
-}
-
 
 .chapter-year {
     position: absolute;
-    top: 0;
+    top: -2rem;
     font-family: var(--font-serif);
-    font-size: 4rem;
-    color: rgba(0, 0, 0, 0.03);
+    font-size: 6rem;
+    color: rgba(0, 0, 0, 0.04);
     line-height: 1;
     font-weight: 700;
     z-index: -1;
+    pointer-events: none;
 }
 
 body.dark-mode .chapter-year {
     color: rgba(255, 255, 255, 0.05);
 }
 
-.narrative-timeline .timeline-chapter:nth-of-type(odd) .chapter-year {
-    right: 3rem;
+.narrative-timeline .timeline-chapter:nth-child(2) .chapter-year,
+.narrative-timeline .timeline-chapter:nth-child(4) .chapter-year {
+    left: 0;
 }
 
-.narrative-timeline .timeline-chapter:nth-of-type(even) .chapter-year {
-    left: 3rem;
+.narrative-timeline .timeline-chapter:nth-child(3) .chapter-year {
+    right: 0;
 }
 
 .chapter-content {
@@ -511,14 +502,25 @@ body.dark-mode .member-pill {
     .timeline-chapter,
     .narrative-timeline .timeline-chapter:nth-of-type(odd),
     .narrative-timeline .timeline-chapter:nth-of-type(even) {
+        flex-direction: column !important;
+        align-items: flex-start;
         width: 100%;
         margin-left: 0;
         margin-right: 0;
         padding-left: 3rem;
         padding-right: 0;
         text-align: left;
-        align-items: flex-start;
         justify-content: flex-start;
+        gap: 2rem;
+    }
+
+    .chapter-image,
+    .chapter-content {
+        width: 100% !important;
+    }
+
+    .chapter-image img {
+        max-width: 100%;
     }
 
     .chapter-year {
