@@ -224,7 +224,7 @@ body.dark-mode .timeline-line {
     top: -2rem;
     font-family: var(--font-serif);
     font-size: 6rem;
-    color: rgba(0, 0, 0, 0.04);
+    color: rgba(0, 0, 0, 0.08);
     line-height: 1;
     font-weight: 700;
     z-index: -1;
@@ -232,7 +232,7 @@ body.dark-mode .timeline-line {
 }
 
 body.dark-mode .chapter-year {
-    color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.1);
 }
 
 .narrative-timeline .timeline-chapter:nth-child(2) .chapter-year,
@@ -499,9 +499,7 @@ body.dark-mode .member-pill {
         transform: none;
     }
 
-    .timeline-chapter,
-    .narrative-timeline .timeline-chapter:nth-of-type(odd),
-    .narrative-timeline .timeline-chapter:nth-of-type(even) {
+    .timeline-chapter {
         flex-direction: column !important;
         align-items: flex-start;
         width: 100%;
@@ -509,9 +507,14 @@ body.dark-mode .member-pill {
         margin-right: 0;
         padding-left: 3rem;
         padding-right: 0;
-        text-align: left;
+        text-align: left !important;
         justify-content: flex-start;
         gap: 2rem;
+        margin-bottom: 6rem;
+    }
+
+    .timeline-chapter .chapter-content {
+        text-align: left !important;
     }
 
     .chapter-image,
