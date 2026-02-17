@@ -1,0 +1,360 @@
+/* =========================================
+   About Page Styles
+   ========================================= */
+
+/* Hero Section */
+.about-hero {
+    background: linear-gradient(135deg, rgba(13, 27, 58, 0.03) 0%, rgba(13, 27, 58, 0.08) 100%);
+    padding: 6rem 2rem 4rem;
+    margin-bottom: 2rem;
+    border-radius: 0;
+    text-align: center;
+}
+
+.about-hero .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-hero .subtitle {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b12a34;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.about-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    color: #0d1b3a;
+}
+
+.about-hero .description {
+    font-size: 1.25rem;
+    color: var(--secondary-text);
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Split Section */
+.about-split {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+}
+
+.about-split .content {
+    flex: 1;
+}
+
+.about-split .visual {
+    flex: 1;
+}
+
+.about-split h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #111;
+}
+
+.about-split .accent-bar {
+    width: 60px;
+    height: 3px;
+    background: #b12a34;
+    margin-bottom: 2rem;
+}
+
+.about-split p {
+    font-size: 1.1rem;
+    color: var(--secondary-text);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.about-split img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Leadership Section */
+.leadership-section {
+    max-width: 1200px;
+    margin: 0 auto 6rem;
+    padding: 0 2rem;
+}
+
+.leadership-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.leadership-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+.leadership-header p {
+    color: var(--secondary-text);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Coach Card */
+.coach-card {
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: start;
+    gap: 3rem;
+    padding: 3rem;
+    border-left: 4px solid #0d1b3a;
+}
+
+.coach-card .role {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    color: #0d1b3a;
+    font-weight: 700;
+}
+
+.coach-card h3 {
+    font-size: 2.2rem;
+    margin: 0.5rem 0 1rem;
+    color: #111;
+}
+
+.coach-card p {
+    color: var(--secondary-text);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Student Leadership Grid */
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.student-card {
+    padding: 2.5rem;
+    text-align: left;
+    border-top: 3px solid #0d1b3a;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.student-card.primary {
+    border-top-color: #b12a34;
+}
+
+.student-card .role {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.student-card.primary .role {
+    color: #b12a34;
+}
+
+.student-card:not(.primary) .role {
+    color: #0d1b3a;
+}
+
+.student-card h4 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+.student-card p {
+    color: var(--secondary-text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* Philosophy Section */
+.philosophy-section {
+    background: var(--section-bg);
+    padding: 5rem 2rem;
+}
+
+.philosophy-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: #111;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.philosophy-item h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #0d1b3a;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+.philosophy-item p {
+    color: var(--secondary-text);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.cta-section .container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-section h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: #111;
+}
+
+.cta-section .description {
+    color: var(--secondary-text);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    color: #0d1b3a;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    border: 1px solid #0d1b3a;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #0d1b3a;
+    color: #fff;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+
+    .leadership-grid,
+    .philosophy-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .about-split {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 3rem 1.5rem;
+    }
+
+    .coach-card {
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+    }
+
+    .leadership-grid,
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Dark Mode Overrides */
+body.dark-mode .about-hero h1,
+body.dark-mode .about-split h2,
+body.dark-mode .leadership-header h2,
+body.dark-mode .coach-card h3,
+body.dark-mode .student-card h4,
+body.dark-mode .philosophy-section h2,
+body.dark-mode .cta-section h3,
+body.dark-mode .philosophy-item h4 {
+    color: #eee;
+}
+
+body.dark-mode .about-hero .description,
+body.dark-mode .about-split p,
+body.dark-mode .leadership-header p,
+body.dark-mode .coach-card p,
+body.dark-mode .student-card p,
+body.dark-mode .philosophy-item p,
+body.dark-mode .cta-section .description {
+    color: #bbb;
+}
+
+body.dark-mode .student-card,
+body.dark-mode .coach-card {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .philosophy-item h4 {
+    border-bottom-color: #444;
+}
+
+body.dark-mode .btn-secondary {
+    color: #eee;
+    border-color: #eee;
+}
+
+body.dark-mode .btn-secondary:hover {
+    background: #eee;
+    color: #111;
+}

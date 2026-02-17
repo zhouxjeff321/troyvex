@@ -1,37 +1,77 @@
-# Agent Guide - Troy VEX Robotics
+# 🤖 AGENT.md - Troy VEX Robotics Project Guide
 
-## Codebase Overview
-This project is a static website for the Troy High School NJROTC VEX Robotics program. It showcases teams, events, sponsors, and awards.
+Welcome to the **Troy High School NJROTC VEX Robotics** codebase. This document is the source of truth for all agents collaborating on this project.
 
-### Tech Stack
-- **Core**: HTML5, CSS3, Vanilla JavaScript.
-- **Styling**: `styles.css` containing global styles, variables for theming, and utility classes.
-- **Dark Mode**: Implemented via `darkmode.js` and CSS variables (`--bg-color`, `--text-color`, etc.).
-- **Server**: Local testing via `http-server`.
+## 🚀 Project Missions
+Construct and maintain a premium, high-performance static website that reflects the excellence of a world-class JROTC robotics program.
 
-## Directory Structure
-- `/` (Root): Main HTML pages (`index.html`, `about.html`, `teams.html`, etc.).
-- `styles.css`: Main stylesheet.
-- `darkmode.js`: Dark mode toggle logic.
-- Images: Stored in root or subfolders (e.g., `diamond/`).
+---
 
-## Design Guidelines
-- **Aesthetic**: Premium, "Landing Page" style. Clean layouts, clear typography, and high-quality visuals.
+## 🏗 Codebase Architecture
+
+### Core Tech Stack
+- **HTML5**: Pure semantic markup.
+- **CSS3**: Vanilla CSS with a heavy focus on custom properties and responsive design.
+- **JavaScript**: Minimal, performance-oriented vanilla JS (e.g., `darkmode.js`).
+- **Assets**: Root-level image storage with subdirectories for specific team photos and events.
+
+### Global Styles (`styles.css`)
+This project uses a central design system defined in `:root`. Always use these variables rather than hardcoding colors.
+- **Theming**: Integrated Light/Dark mode via `.dark-mode` class on `body`.
 - **Typography**: 
-  - Primary: 'Geist' (Sans-serif).
-  - Headers: 'Playfair Display' (Serif) for a premium feel (`.serif-header`).
-- **Components**:
-  - **Glass Cards**: `.glass-card` for transparent, blur-effect containers.
-  - **Split Layouts**: `.split-section` for text/image pairings.
-  - **Badges**: Avoid using small colored "stat badges" (e.g., "Est. 2023") unless explicitly requested; user prefers cleaner looks.
-- **Navigation**: Sticky navbar with blur effect. "Our Teams" link must be present in the Teams dropdown on all pages.
+  - `Geist`: Main sans-serif font for all body text and UI.
+  - `Serif Header`: Georgia/Times New Roman (often overridden as `.serif-header`) for a high-end editorial look.
+- **Cursors**: Custom SVG cursors (`circle_cursor.svg`) are globally enforced for a unique interactive feel.
 
-## Restrictions & Rules
-1.  **Frameworks**: Do NOT introduce heavyweight frameworks (React, Vue, Tailwind) unless explicitly asked. Stick to plain HTML/CSS.
-2.  **Files**: Do not modify image files or move them unless necessary.
-3.  **Content**: Ensure "Why Sponsor Us" and other impact-related text remains prominent on the Sponsors page.
+---
 
-## Key Files
-- `styles.css`: Central point for all visual changes.
-- `teams.html`: The hub for team information (keep this simple/functional as per user preference).
-- `sponsors.html`: Critical page for donations; prioritization on "Why Sponsor Us" content and clear CTAs.
+## 🎨 Design System & Patterns
+
+### 1. Glassmorphism (`.glass-card`)
+A signature visual style. Use semi-transparent backgrounds with `backdrop-filter: blur(10px)` for high-end UI components.
+
+### 2. Responsiveness
+Every change must be "Mobile-First." 
+- **Grids**: Use `grid-template-columns: 1fr` on mobile and `1fr 1fr` (or similar) on desktop.
+- **Spacing**: Avoid huge fixed paddings; use responsive units or media query overrides.
+
+### 3. Page-Specific CSS
+To keep `styles.css` from becoming a monolith, larger pages have their own style sheets:
+- `events.css`: Handlers for the competition schedule grid and status badges.
+- `about.css`: Detailed layouts for leadership cards and philosophy sections.
+- `donate.css`: Specialized formatting for booster club donation information.
+- `teams.css`: Layouts for the narrative timeline and team individual pages.
+
+---
+
+## 🛠 Standard Operating Procedures
+
+### Adding a New Page
+1. Create the `.html` file in the root directory.
+2. Link the global `styles.css` and the theme script `darkmode.js`.
+3. If the page is complex, create a dedicated `.css` file for its unique components.
+4. Ensure the `navbar` matches precisely across all pages (Copy/Paste the nav block).
+5. Verify mobile navigation (Hamburger menu functionality).
+
+### Updating Content
+- **Competition Schedule**: Located in `events.html`. Always group by "Upcoming" vs "Completed."
+- **Team Info**: Updates should be reflected in `teams.html` and individual team pages (e.g., `teama.html`, `teamb.html`).
+- **Impact Copy**: Maintain professional, inspiring tone (military + technical excellence).
+
+---
+
+## 🚫 Restrictions & Taboos
+- **NO Frameworks**: Do not install React, Next.js, or Tailwind unless the user specifically demands a total rebuild.
+- **NO Placeholder Images**: Use the `generate_image` tool if real assets are missing.
+- **NO Inline Styles**: All new styling must go into the appropriate `.css` file.
+- **Asset Integrity**: Never rename or move image files without updating all HTML references globally.
+
+---
+
+## 📅 Roadmap / Todo
+- [x] Refactor About page for mobile responsiveness.
+- [x] Refactor Events page for mobile responsiveness.
+- [x] Refactor Donate page for mobile responsiveness.
+- [ ] Review Sponsors page for better mobile layout.
+- [ ] Audit all team pages for visual consistency.
+- [ ] Optimize image loading times.

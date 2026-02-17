@@ -1,0 +1,213 @@
+/* =========================================
+   Donate Page Styles
+   ========================================= */
+
+/* Hero Section */
+.donate-hero {
+    background: linear-gradient(135deg, rgba(85, 139, 47, 0.05) 0%, rgba(13, 27, 58, 0.05) 100%);
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: 0;
+}
+
+.donate-hero .subtitle {
+    font-family: 'Geist', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    color: #333;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.donate-hero h1 {
+    font-size: 3.5rem;
+    color: #0d1b3a;
+    margin-bottom: 1rem;
+}
+
+.donate-hero .description {
+    font-family: 'Geist', sans-serif;
+    font-size: 1.15rem;
+    color: var(--secondary-text);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Donation Methods */
+.donation-section {
+    max-width: 800px;
+    margin: 0 auto 6rem;
+    padding: 0 2rem;
+}
+
+.donation-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #111;
+}
+
+.donation-card {
+    display: flex;
+    gap: 3rem;
+    padding: 3rem;
+    align-items: center;
+    border-left: 5px solid #0d1b3a;
+}
+
+.donation-card .content {
+    flex: 1;
+}
+
+.donation-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+.donation-card p {
+    color: var(--secondary-text);
+    margin-bottom: 1.5rem;
+}
+
+.payment-details {
+    background: rgba(0, 0, 0, 0.03);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.detail-item {
+    margin-bottom: 0.5rem;
+}
+
+.detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #888;
+    font-weight: 600;
+    display: block;
+}
+
+.detail-value {
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    color: #111;
+    font-weight: 600;
+}
+
+.address-sidebar {
+    flex: 0 0 250px;
+    text-align: center;
+    padding-left: 2rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.address-sidebar p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.address-sidebar address {
+    font-style: normal;
+    font-size: 1rem;
+    color: #111;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* Outreach Section */
+.outreach-section {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.outreach-section p {
+    color: var(--secondary-text);
+    margin-bottom: 1.5rem;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 1px solid #0d1b3a;
+    color: #0d1b3a;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    background: #0d1b3a;
+    color: #fff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .donate-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .donation-card {
+        flex-direction: column;
+        padding: 2rem;
+        gap: 2rem;
+        align-items: stretch;
+    }
+
+    .address-sidebar {
+        flex: none;
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        padding-top: 2rem;
+    }
+}
+
+/* Dark Mode Overrides */
+body.dark-mode .donate-hero h1,
+body.dark-mode .donation-section h2,
+body.dark-mode .donation-card h3,
+body.dark-mode .detail-value,
+body.dark-mode .address-sidebar address {
+    color: #eee;
+}
+
+body.dark-mode .donate-hero .description,
+body.dark-mode .donation-card p,
+body.dark-mode .address-sidebar p,
+body.dark-mode .outreach-section p {
+    color: #bbb;
+}
+
+body.dark-mode .donate-hero .subtitle {
+    color: #aaa;
+}
+
+body.dark-mode .payment-details {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .btn-outline {
+    color: #eee;
+    border-color: #eee;
+}
+
+body.dark-mode .btn-outline:hover {
+    background: #eee;
+    color: #111;
+}
+
+body.dark-mode .address-sidebar {
+    border-color: rgba(255, 255, 255, 0.1);
+}
