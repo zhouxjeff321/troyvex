@@ -1,187 +1,73 @@
-# AGENT.md - Troy VEX Robotics Project Guide
+# agent.md
 
-This document is the source of truth for all agents collaborating on the Troy High School NJROTC VEX Robotics website project.
+Runtime notes for AI agents working in this repository. Complements `CLAUDE.md`.
 
-## Project Mission
+## Starting the Dev Server
 
-Construct and maintain a professional, high-performance static website that accurately represents a world-class JROTC robotics program. The site should prioritize:
+Always use `serve.py`, not `python -m http.server`. The plain server does not resolve extensionless URLs and every page except `/` will 404.
 
-- Clean, maintainable code over trendy effects
-- Fast load times and accessibility
-- Mobile-first responsive design
-- Professional appearance suitable for academic/military context
-
----
-
-## Codebase Architecture
-
-### Core Technologies
-
-- **HTML5**: Semantic markup with proper document structure
-- **CSS3**: Vanilla CSS with CSS custom properties for theming
-- **JavaScript**: Minimal, performance-oriented vanilla JS (only `darkmode.js`)
-- **Assets**: Root-level image storage with subdirectories for team/event photos
-
-### File Structure
-
-```
-/
-|-- index.html          # Homepage
-|-- about.html          # About the program
-|-- teams.html          # Teams overview
-|-- team[a-y].html      # Individual team pages (7 total)
-|-- sponsors.html       # Sponsor showcase
-|-- events.html         # Competition schedule
-|-- awards.html         # Awards and achievements
-|-- contact.html        # Contact information
-|-- donate.html         # Donation page
-|-- gallery.html        # Photo gallery
-|-- styles.css          # Global stylesheet (single source of truth)
-|-- darkmode.js         # Theme toggle functionality
-|-- NJROTC.jpg          # Logo asset
-|-- team[a-y]-photo.jpg # Team photos
-|-- teamphotos.jpg      # Group photo
-|-- README.md           # Public documentation
-|-- CLAUDE.md           # Development guidance
-|-- AGENT.md            # This file
-|-- skills.md           # Required competencies
-```
-
-### Global Styles (`styles.css`)
-
-The project uses a centralized design system. Always reference and extend existing patterns rather than creating new ones.
-
-**Key design tokens:**
-- Primary accent: `#b12a34` (red)
-- Typography: 'Geist' for UI text, Georgia/Times for editorial headers
-- Dark mode: Controlled via `.dark-mode` class on `body`
-- Custom cursor: `circle_cursor.svg` for interactive elements
-
----
-
-## Development Environment
-
-### Running the Site Locally
-
-**Important**: Do NOT use `file://` protocol or `localhost` without a proper server. The site uses extensionless URLs (`href="about"` not `href="about.html"`) which require server-side URL rewriting.
-
-**Primary method - using npx:**
 ```bash
-# Serve extensionless routes like /about -> about.html
-npx --yes http-server -p 3000 --ext html
-
-# Then open http://localhost:3000 in your browser
+python serve.py           # starts on http://localhost:3000
 ```
 
-**Alternative method (same behavior):**
+From Claude Code, use the Preview tool:
+```
+preview_start("troyvex")   # defined in .claude/launch.json
+```
+
+Python executable on this machine: `C:\Users\ryanz\AppData\Local\Programs\Python\Python313\python.exe`
+
+## Verifying All Pages Load
+
+After any server or routing change, confirm all 16 pages return 200:
+
 ```bash
-# Node http-server (omit --yes if already installed)
-npx http-server -p 3000 --ext html
+for path in "/" "/about" "/teams" "/teama" "/teamb" "/teamc" "/teamd" "/teame" \
+            "/teamx" "/teamy" "/sponsors" "/events" "/awards" "/contact" \
+            "/donate" "/gallery"; do
+  code=$(curl -s -o NUL -w "%{http_code}" "http://localhost:3000${path}")
+  echo "$code  http://localhost:3000${path}"
+done
 ```
 
-Do **not** use SPA rewrite mode (`--single`) for this project. It rewrites every route to `index.html` and breaks multi-page navigation.
+All should return `200`.
 
-### Browser Testing
+## JavaScript / CSS Cache Busting
 
-Test at these breakpoints:
-- Mobile: ≤768px
-- Tablet: 769px - 1024px
-- Desktop: ≥1025px
+`darkmode.js` is versioned via query string in every HTML file (`?v=2`). After editing `darkmode.js`, bump the version across all HTML files:
 
----
+```bash
+# Example: increment v=2 to v=3
+sed -i 's|darkmode.js?v=2|darkmode.js?v=3|g' *.html
+```
 
-## Design System
+Then hard-reload the preview: `location.reload(true)` in the browser console.
 
-### Visual Principles
+## Mobile Navigation Architecture
 
-1. **Clean over complex**: Avoid excessive animations, glassmorphism, or trendy effects
-2. **Consistent spacing**: Use the existing `rem`-based spacing scale
-3. **Semantic HTML**: Use proper heading hierarchy, landmark elements, and ARIA labels
-4. **Performance first**: Minimize HTTP requests, optimize images, avoid render-blocking resources
+The hamburger menu is injected by `darkmode.js` at runtime (not in HTML). Key behaviors:
 
-### Component Patterns
+| Behavior | How it works |
+|---|---|
+| Open | Click `.hamburger` → adds `.active` to hamburger, `.nav-links`, `.menu-overlay` + `body.menu-open` |
+| Close via X | Click `.hamburger` again — always visible because `header` z-index (10000) > panel (9998) |
+| Close via overlay | Click the dimmed backdrop (`.menu-overlay.active`) on the left side of screen |
+| Dropdown accordion | Tap dropdown parent link → toggles `.active` on `.dropdown`; collapses any other open one |
+| Close on nav link | Any non-dropdown top-level `<a>` click calls `closeMenu()` |
+| Close on sub-link | Any `.dropdown-menu a` click calls `closeMenu()` |
 
-**Navigation**
-- Fixed header with logo, dropdown menus, and consistent page links
-- Must be identical across all 14 HTML files
-- Mobile hamburger menu with slide-out drawer
+**Critical z-index stack — do not change these without updating all four values together:**
 
-**Content Sections**
-- `.hero`: Centered, prominent header sections
-- `.split-section`: Two-column layouts (text + image)
-- `.card`: Bordered content containers with consistent padding
-- `.page-header`: Section title areas
+```
+header (mobile):     z-index: 10000  ← must be highest so hamburger is always tappable
+.hamburger (mobile): z-index: 9999   ← position: relative required for z-index to apply
+.nav-links (mobile): z-index: 9998   ← slide-in panel from right
+.menu-overlay:       z-index: 9996   ← full-screen dimmed backdrop
+```
 
-**Team Pages**
-- `.team-details`: Main container for team information
-- `.team-info-section`: Grouped content blocks
-- Team roster tables with consistent styling
+## Changelog
 
----
-
-## Development Standards
-
-### Code Quality Rules
-
-1. **No inline styles**: All styling belongs in `styles.css`
-2. **No duplicate CSS**: Extend existing utility classes
-3. **Semantic HTML**: Use `<header>`, `<main>`, `<section>`, `<article>`, `<footer>` appropriately
-4. **Accessibility**: Include `alt` text, proper contrast ratios, keyboard navigation
-5. **No frameworks**: Do not add React, Vue, Tailwind, etc. without explicit approval
-6. **Validate HTML**: Run through W3C validator before committing
-
-### Adding New Pages
-
-1. Create the `.html` file in the root directory
-2. Copy the navigation block from an existing page (lines 17-50 in `index.html`)
-3. Link `styles.css` and `darkmode.js`
-4. Use existing CSS classes for layout and styling
-5. Update all navigation blocks if adding a new top-level link
-6. Test responsive behavior at all breakpoints
-
-### Updating Content
-
-- **Competition Schedule**: Located in `events.html`
-- **Team Info**: Update both `teams.html` and individual team pages
-- **Sponsors**: Maintain tier structure (Platinum/Gold/Silver) in `sponsors.html`
-- **Navigation**: Must be updated in all 14 HTML files simultaneously
-
-### Image Management
-
-- Store images in root directory or appropriate subdirectories
-- Use descriptive filenames (e.g., `teama-robot.jpg` not `IMG_1234.jpg`)
-- Optimize images before committing (compress JPGs, minimize PNGs)
-- Update all HTML references if moving/renaming image files
-
----
-
-## Restrictions
-
-### Do Not
-
-- Install JavaScript frameworks or CSS preprocessors
-- Use inline styles (style attributes) - move to CSS file
-- Add placeholder images - use actual assets or request them
-- Rename or move image files without updating all references
-- Use `!important` in CSS without documentation
-- Add excessive animations or trendy effects
-- Break navigation consistency across pages
-
-### Do
-
-- Test locally with `npx --yes http-server -p 3000 --ext html` before committing
-- Validate HTML and CSS
-- Follow existing naming conventions
-- Maintain mobile-first responsive design
-- Keep the professional, academic tone in all copy
-
----
-
-## Roadmap
-
-- [ ] Audit all pages for inline style removal
-- [ ] Consolidate duplicate CSS patterns
-- [ ] Review sponsors page mobile layout
-- [ ] Standardize team page structures
-- [ ] Optimize image loading with lazy loading
-- [ ] Add print stylesheets for awards/events pages
+| Date | Files | Summary |
+|---|---|---|
+| 2026-03-02 | `serve.py`, `.claude/launch.json` | Added custom Python server with extensionless URL support |
+| 2026-03-02 | `darkmode.js`, `styles.css`, all `*.html` | Fixed mobile menu: hamburger z-index, overlay backdrop, close-on-link-tap, dropdown accordion |

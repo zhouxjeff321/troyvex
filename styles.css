@@ -366,6 +366,11 @@ body.dark-mode .nav-links a::after {
     margin: 0;
 }
 
+/* Overlay: hidden by default, shown only at mobile breakpoint */
+.menu-overlay {
+    display: none;
+}
+
 /* Mobile Navigation Styles */
 .hamburger {
     display: none;
@@ -390,6 +395,8 @@ body.dark-mode .nav-links a::after {
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
+        position: relative;
+        z-index: 9999;
     }
 
     .nav-links {
@@ -453,6 +460,32 @@ body.dark-mode .nav-links a::after {
         font-size: 1rem;
     }
 
+    /* Chevron indicator for expandable items */
+    .nav-links .dropdown > a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links .dropdown > a::after {
+        content: '›';
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        font-size: 1.4rem;
+        line-height: 1;
+        opacity: 0.45;
+        transform: rotate(0deg);
+        transition: transform 0.25s ease, opacity 0.25s ease;
+        flex-shrink: 0;
+    }
+
+    .nav-links .dropdown.active > a::after {
+        transform: rotate(90deg);
+        opacity: 0.9;
+    }
+
     /* Hamburger Animation */
     .hamburger.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 6px);
@@ -469,6 +502,22 @@ body.dark-mode .nav-links a::after {
     /* Prevent body scroll when menu is open */
     body.menu-open {
         overflow: hidden;
+    }
+
+    /* Dark overlay behind the mobile menu panel */
+    .menu-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0);
+        z-index: 9996;
+        pointer-events: none;
+        transition: background-color 0.35s ease;
+    }
+
+    .menu-overlay.active {
+        background: rgba(0, 0, 0, 0.45);
+        pointer-events: auto;
     }
 }
 
@@ -2884,7 +2933,7 @@ body.dark-mode header {
     header {
         position: sticky;
         top: 0;
-        z-index: 9997;
+        z-index: 10000;
         width: 100%;
     }
 
