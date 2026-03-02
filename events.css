@@ -5,7 +5,6 @@
 :root {
     --event-border: rgba(0, 0, 0, 0.09);
     --event-divider: rgba(0, 0, 0, 0.08);
-    --event-panel-bg: rgba(255, 255, 255, 0.94);
     --event-link-bg: rgba(177, 42, 52, 0.04);
     --event-muted: #5e5e5e;
 }
@@ -13,18 +12,23 @@
 body.dark-mode {
     --event-border: rgba(255, 255, 255, 0.12);
     --event-divider: rgba(255, 255, 255, 0.1);
-    --event-panel-bg: rgba(31, 31, 31, 0.9);
     --event-link-bg: rgba(177, 42, 52, 0.12);
     --event-muted: #b5b5b5;
 }
 
+.events-page {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
 .page-header {
     margin: 0 auto 2rem;
-    padding: 5.5rem 2rem 3.25rem;
+    padding: 6.5rem 2rem 4.5rem;
     text-align: center;
     background:
-        radial-gradient(circle at 92% 0%, rgba(177, 42, 52, 0.12), transparent 38%),
-        linear-gradient(180deg, rgba(13, 27, 58, 0.05), transparent 72%);
+        radial-gradient(circle at 92% -8%, rgba(177, 42, 52, 0.18), transparent 44%),
+        linear-gradient(180deg, rgba(13, 27, 58, 0.08) 0%, rgba(13, 27, 58, 0.03) 45%, transparent 100%);
 }
 
 .page-header .season-tag {
@@ -59,18 +63,18 @@ body.dark-mode {
     margin: 0 auto 5rem;
     padding: 0 2rem;
     display: grid;
-    gap: 1.65rem;
+    gap: 2.2rem;
 }
 
 .events-panel {
-    padding: 1.25rem 1.4rem;
-    border: 1px solid var(--event-border);
-    border-radius: 14px;
-    background: var(--event-panel-bg);
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
 }
 
 .group-header {
-    padding: 0.65rem 0.35rem 1rem;
+    padding: 0.35rem 0.35rem 1rem;
     border-bottom: 1px solid var(--event-divider);
 }
 
@@ -91,7 +95,7 @@ body.dark-mode {
     grid-template-columns: 96px 1fr;
     gap: 1.4rem;
     align-items: start;
-    padding: 1.15rem 0.35rem;
+    padding: 1.25rem 0.35rem;
     border-bottom: 1px solid var(--event-divider);
 }
 
@@ -191,17 +195,12 @@ body.dark-mode {
 
 @media (max-width: 860px) {
     .page-header {
-        padding: 4.5rem 1.35rem 2.7rem;
+        padding: 5rem 1.35rem 3rem;
     }
 
     .schedule-section {
         padding: 0 1rem;
-        gap: 1.2rem;
-    }
-
-    .events-panel {
-        padding: 1rem;
-        border-radius: 12px;
+        gap: 1.7rem;
     }
 
     .event-row {

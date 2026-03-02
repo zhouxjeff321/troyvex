@@ -29,47 +29,86 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Mobile Navigation & Hamburger Logic
-    const navbar = document.querySelector('.navbar');
+    // ─── Mobile Navigation ────────────────────────────────────────────────────
+
+    const navbar   = document.querySelector('.navbar');
     const navLinks = document.querySelector('.nav-links');
 
-    // Create Hamburger Button
+    // Backdrop overlay – sits behind the slide-in panel
+    const overlay = document.createElement('div');
+    overlay.className = 'menu-overlay';
+    document.body.appendChild(overlay);
+
+    // Hamburger button (three-bar icon → X when open)
     const hamburger = document.createElement('button');
     hamburger.className = 'hamburger';
     hamburger.setAttribute('aria-label', 'Toggle navigation');
     hamburger.innerHTML = '<span></span><span></span><span></span>';
-
-    // Append hamburger to navbar
     navbar.appendChild(hamburger);
 
-    // Toggle Menu
+    // ── Helpers ──────────────────────────────────────────────────────────────
+
+    function closeAllDropdowns() {
+        document.querySelectorAll('.dropdown.active').forEach(function (d) {
+            d.classList.remove('active');
+        });
+    }
+
+    function closeMenu() {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        closeAllDropdowns();
+    }
+
+    function openMenu() {
+        hamburger.classList.add('active');
+        navLinks.classList.add('active');
+        overlay.classList.add('active');
+        document.body.classList.add('menu-open');
+    }
+
+    // ── Hamburger toggle ─────────────────────────────────────────────────────
+
     hamburger.addEventListener('click', function (e) {
         e.stopPropagation();
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
+        navLinks.classList.contains('active') ? closeMenu() : openMenu();
     });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', function (event) {
-        const isClickInsideNav = navbar.contains(event.target);
-        if (!isClickInsideNav && navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        }
+    // ── Close on overlay tap ─────────────────────────────────────────────────
+
+    overlay.addEventListener('click', closeMenu);
+
+    // ── Close when a regular (non-dropdown) top-level link is tapped ─────────
+
+    navLinks.querySelectorAll('li:not(.dropdown) > a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            if (window.innerWidth <= 768) closeMenu();
+        });
     });
 
-    // Mobile Dropdown Toggle
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-        link.addEventListener('click', function (e) {
+    // ── Close when a dropdown sub-item is tapped ─────────────────────────────
+
+    navLinks.querySelectorAll('.dropdown-menu a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            if (window.innerWidth <= 768) closeMenu();
+        });
+    });
+
+    // ── Mobile dropdown accordion ─────────────────────────────────────────────
+    // Tapping a dropdown parent toggles its submenu; collapses any other open one.
+
+    document.querySelectorAll('.dropdown').forEach(function (dropdown) {
+        const parentLink = dropdown.querySelector(':scope > a');
+        parentLink.addEventListener('click', function (e) {
             if (window.innerWidth <= 768) {
                 const submenu = dropdown.querySelector('.dropdown-menu');
                 if (submenu) {
                     e.preventDefault();
-                    dropdown.classList.toggle('active');
+                    const isOpen = dropdown.classList.contains('active');
+                    closeAllDropdowns();
+                    if (!isOpen) dropdown.classList.add('active');
                 }
             }
         });
