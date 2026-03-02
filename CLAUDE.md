@@ -134,3 +134,33 @@ The `--single` flag (or equivalent) is important for handling the extensionless 
 - **Extensionless URLs**: Links use `href="about"` not `href="about.html"` (requires server config)
 - **Deployment**: Copy all files to any web server or static hosting service
 - **Git**: Repository tracks all source files directly
+
+## Refinement Loop
+
+Use this loop for any non-trivial change to keep edits safe, consistent, and easy to review.
+
+1. **Define target outcome**
+   - State what should be different for a user after the change.
+   - List exactly which files are expected to change.
+2. **Inspect before editing**
+   - Read the current HTML/CSS for the affected section and identify shared patterns.
+   - For navigation edits, identify all pages that must stay in sync.
+3. **Make the smallest useful change**
+   - Apply one focused edit at a time.
+   - Prefer reusing existing classes and layout patterns over creating new ones.
+4. **Verify locally**
+   - Serve the site (`npx serve . --single`) and validate desktop + mobile views.
+   - Check extensionless links, navigation dropdowns, and image paths.
+5. **Review for consistency**
+   - Confirm styling and spacing match surrounding sections.
+   - Confirm repeated structures (especially header/nav) are updated everywhere required.
+6. **Document delta**
+   - Summarize what changed, why it changed, and any follow-up tasks.
+7. **Repeat**
+   - If the result is not yet correct, run the loop again with a narrower scope.
+
+### Done Criteria
+
+- Target behavior is visible in browser on mobile and desktop.
+- No broken links, missing images, or obvious layout regressions.
+- Repeated content remains synchronized across all relevant pages.
