@@ -183,6 +183,57 @@ nav {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* Home hero CTA button */
+.home-teams-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.9rem 1.9rem;
+    background: #b12a34;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border: 1px solid #981f28;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.home-teams-btn::after {
+    content: "\2192";
+    font-size: 0.95rem;
+    line-height: 1;
+    transform: translateX(0);
+    transition: transform 0.2s ease;
+}
+
+.home-teams-btn:hover {
+    background: #9f2430;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+}
+
+.home-teams-btn:hover::after {
+    transform: translateX(2px);
+}
+
+.home-teams-btn:focus-visible {
+    outline: 2px solid rgba(177, 42, 52, 0.55);
+    outline-offset: 2px;
+}
+
+body.dark-mode .home-teams-btn {
+    background: #a62a35;
+    border-color: #c85a63;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .home-teams-btn:hover {
+    background: #b5323e;
+}
+
 /* Serif Header - Curly Font */
 .serif-header {
     font-family: Georgia, 'Times New Roman', serif !important;

@@ -67,25 +67,19 @@ The project uses a centralized design system. Always reference and extend existi
 
 **Primary method - using npx:**
 ```bash
-# Serve the current directory on port 3000
-npx serve . --single
+# Serve extensionless routes like /about -> about.html
+npx --yes http-server -p 3000 --ext html
 
 # Then open http://localhost:3000 in your browser
 ```
 
-**Alternative methods:**
+**Alternative method (same behavior):**
 ```bash
-# Python 3
-python -m http.server 3000
-
-# Node http-server
+# Node http-server (omit --yes if already installed)
 npx http-server -p 3000 --ext html
-
-# PHP
-php -S localhost:3000
 ```
 
-The `--single` flag (or SPA mode) is required to properly handle the extensionless URLs.
+Do **not** use SPA rewrite mode (`--single`) for this project. It rewrites every route to `index.html` and breaks multi-page navigation.
 
 ### Browser Testing
 
@@ -175,7 +169,7 @@ Test at these breakpoints:
 
 ### Do
 
-- Test locally with `npx serve . --single` before committing
+- Test locally with `npx --yes http-server -p 3000 --ext html` before committing
 - Validate HTML and CSS
 - Follow existing naming conventions
 - Maintain mobile-first responsive design
