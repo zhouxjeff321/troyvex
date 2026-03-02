@@ -1454,6 +1454,120 @@ th {
     filter: brightness(0.95);
 }
 
+/* Sponsor Tier Cards */
+.tier-card {
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    transition: border-color 0.2s ease;
+}
+
+.tier-card:hover {
+    border-color: #b12a34;
+}
+
+.tier-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.tier-card .tier-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #111;
+}
+
+.tier-card ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.tier-card li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: #444;
+}
+
+.tier-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 8px;
+    height: 8px;
+    background: #b12a34;
+    border-radius: 50%;
+}
+
+/* Tier Colors */
+.platinum-card h3 {
+    color: #333;
+}
+
+.gold-card h3 {
+    color: #b8860b;
+}
+
+.silver-card h3 {
+    color: #666;
+}
+
+/* Dark Mode */
+body.dark-mode .tier-card {
+    background: #1a1a1a;
+    border-color: #333;
+}
+
+body.dark-mode .tier-card:hover {
+    border-color: #b12a34;
+}
+
+body.dark-mode .tier-card .tier-price {
+    color: #fff;
+}
+
+body.dark-mode .tier-card li {
+    color: #ccc;
+}
+
+/* Sponsor Info Card */
+.sponsor-info-card {
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.sponsor-info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.sponsor-info-card p {
+    color: #666;
+    max-width: 600px;
+}
+
+body.dark-mode .sponsor-info-card {
+    background: #1a1a1a;
+    border-color: #333;
+}
+
+body.dark-mode .sponsor-info-card p {
+    color: #aaa;
+}
+}
+
 .secondary-cta {
     background: var(--section-bg);
     color: var(--accent-color);
@@ -2313,7 +2427,7 @@ body.dark-mode .highlight-label {
 }
 
 
-/* Premium Button Styles */
+/* Premium Button Styles - Clean & Professional */
 .premium-button-container {
     display: flex;
     gap: 1rem;
@@ -2323,69 +2437,59 @@ body.dark-mode .highlight-label {
 }
 
 .premium-btn {
-    display: flex;
+    display: inline-flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem 2.5rem;
-    min-width: 200px;
-    border-radius: 8px;
+    padding: 1rem 2rem;
+    min-width: 180px;
+    border-radius: 6px;
     text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    transition: background-color 0.2s ease, transform 0.1s ease;
     text-align: center;
 }
 
 .premium-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.3);
-}
-
-.premium-btn-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    transform: translateY(-1px);
 }
 
 .premium-btn-text {
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .premium-btn-sub {
-    font-size: 0.85rem;
-    opacity: 0.9;
-    font-weight: 500;
-    margin-top: 0.2rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-top: 0.15rem;
 }
 
-/* Specific Button Themes */
+/* Button Variants */
 .btn-donate {
-    background: linear-gradient(135deg, #b12a34 0%, #d43f4b 100%);
+    background-color: #b12a34;
     color: white;
-    box-shadow: 0 4px 15px rgba(177, 42, 52, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-donate:hover {
-    box-shadow: 0 10px 25px rgba(177, 42, 52, 0.4);
+    background-color: #9a232c;
 }
 
 .btn-packet {
-    background: linear-gradient(135deg, #0d1b3a 0%, #1a3a6e 100%);
+    background-color: #0d1b3a;
     color: white;
-    box-shadow: 0 4px 15px rgba(13, 27, 58, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-packet:hover {
-    box-shadow: 0 10px 25px rgba(13, 27, 58, 0.4);
+    background-color: #1a2a4a;
 }
 
 body.dark-mode .btn-packet {
-    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.25);
+    background-color: #2a3a5a;
+}
+
+body.dark-mode .btn-packet:hover {
+    background-color: #3a4a6a;
 }
 
 

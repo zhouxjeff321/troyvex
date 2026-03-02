@@ -8,7 +8,7 @@ This is a static website for the Troy High School VEX Robotics program. The site
 
 ## Project Structure
 
-- **Static HTML/CSS Website**: No build system, package manager, or JavaScript
+- **Static HTML/CSS Website**: No build system, package manager, or JavaScript framework
 - **Single CSS file**: `styles.css` contains all styling (11,867 bytes)
 - **14 HTML pages** organized into:
   - **Home/About**: `index.html` (home), `about.html` (detailed about)
@@ -18,8 +18,30 @@ This is a static website for the Troy High School VEX Robotics program. The site
 
 ## Development
 
-### Running the Website
-Open any HTML file directly in a web browser. No build process, server, or dependencies required.
+### Running the Website Locally
+
+**IMPORTANT**: Do NOT use `localhost` or simple `file://` URLs. The site uses extensionless URLs (`href="about"` instead of `href="about.html"`) which require a proper static file server.
+
+**Recommended method using npx:**
+```bash
+npx serve . --single
+```
+
+**Alternative methods:**
+```bash
+# Using Python 3
+python -m http.server 3000
+
+# Using Node's http-server
+npx http-server -p 3000 --ext html
+
+# Using PHP
+php -S localhost:3000
+```
+
+Then open `http://localhost:3000` in your browser.
+
+The `--single` flag (or equivalent) is important for handling the extensionless URLs correctly.
 
 ### File Organization
 - **Template-based structure**: All pages share identical navigation header (lines 11-36 in each HTML file)
@@ -42,21 +64,34 @@ Open any HTML file directly in a web browser. No build process, server, or depen
 <header>
     <nav class="navbar">
         <div class="logo-container">
-            <a href="index.html"><img src="NJROTC.jpg" alt="Troy VEX Logo" class="logo"></a>
+            <a href="/"><img src="NJROTC.jpg" alt="Troy VEX Logo" class="logo"></a>
             <span class="logo-text" style="font-size:2rem;">Troy VEX Robotics</span>
         </div>
-        <ul class="nav-links" style="margin-right:12rem;">
-            <li><a href="about.html">About</a></li>
+        <ul class="nav-links">
+            <li><a href="about">About</a></li>
             <li class="dropdown">
-                <a href="about.html">Teams</a>
+                <a href="teams">Teams</a>
                 <ul class="dropdown-menu">
-                    <!-- 7 team links -->
+                    <li><a href="teams">Our Teams</a></li>
+                    <li><a href="teama">Team A - Aegis</a></li>
+                    <li><a href="teamb">Team B - Ouroboros</a></li>
+                    <li><a href="teamc">Team C - Jinx</a></li>
+                    <li><a href="teamd">Team D - Nyx</a></li>
+                    <li><a href="teame">Team E - Eclipse</a></li>
+                    <li><a href="teamx">Team X - Paradox</a></li>
+                    <li><a href="teamy">Team Y - Atlantis</a></li>
                 </ul>
             </li>
-            <li><a href="sponsors.html">Sponsors</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="awards.html">Awards</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="sponsors">Sponsors</a></li>
+            <li class="dropdown">
+                <a href="events">Events</a>
+                <ul class="dropdown-menu">
+                    <li><a href="events">Event List</a></li>
+                    <li><a href="gallery">Gallery</a></li>
+                </ul>
+            </li>
+            <li><a href="awards">Awards</a></li>
+            <li><a href="donate">Donate</a></li>
         </ul>
     </nav>
 </header>
@@ -92,9 +127,10 @@ Open any HTML file directly in a web browser. No build process, server, or depen
 
 ## Technical Notes
 
-- **No JavaScript**: Pure HTML/CSS implementation
+- **No JavaScript**: Pure HTML/CSS implementation (except `darkmode.js`)
 - **No package.json**: Empty `package-lock.json` exists but no dependencies
 - **No build tools**: No webpack, vite, or other build configuration
 - **No frameworks**: No React, Vue, or other JavaScript frameworks
+- **Extensionless URLs**: Links use `href="about"` not `href="about.html"` (requires server config)
 - **Deployment**: Copy all files to any web server or static hosting service
 - **Git**: Repository tracks all source files directly

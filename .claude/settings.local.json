@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx serve:*)",
+      "Bash(curl:*)",
+      "Bash(tasklist:*)"
+    ]
+  }
+}
