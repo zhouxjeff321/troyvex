@@ -3,7 +3,21 @@
     "allow": [
       "Bash(npx serve:*)",
       "Bash(curl:*)",
-      "Bash(tasklist:*)"
+      "Bash(tasklist:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(node --version)",
+      "Bash(where npx)",
+      "Bash(where python)",
+      "Bash(where python3)",
+      "Skill(commit-commands:commit-push-pr)",
+      "Skill(commit-commands:commit-push-pr:*)",
+      "Bash(git checkout -b fix/mobile-nav-improvements)",
+      "Bash(where gh)",
+      "Bash(winget list --name \"GitHub CLI\")",
+      "Bash(ls -la *.html *.css *.js *.py *.jpg *.png *.svg)",
+      "Bash(ls -la */)",
+      "Bash(grep -n \"98601drobot\\\\|98601erobot\" *.html)",
+      "Bash(ls *.jpg *.JPG *.png)"
     ]
   }
 }
