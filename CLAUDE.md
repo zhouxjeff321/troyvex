@@ -9,14 +9,15 @@ This is a static website for the Troy High School VEX Robotics program. The site
 ## Project Structure
 
 - **Static HTML/CSS Website**: No build system, package manager, or JavaScript framework
-- **Single CSS file**: `styles.css` contains all styling
+- **Primary CSS**: `styles.css` — global styles shared across all pages
+- **Page-specific CSS**: `events.css`, `teams.css`, `about.css`, `donate.css` (linked only on their respective pages)
 - **Single JS file**: `darkmode.js` handles dark mode toggle + mobile navigation
 - **16 HTML pages** organized into:
   - **Home/About**: `index.html` (home), `about.html` (detailed about)
   - **Teams**: `teams.html` (overview) + 7 individual team pages (`teama.html` through `teamy.html`)
   - **Program pages**: `sponsors.html`, `events.html`, `awards.html`, `contact.html`
   - **Other**: `donate.html`, `gallery.html`
-- **Image assets**: Team photos (`teama-photo.jpg`, etc.), logos (`NJROTC.jpg`, `troyvexlogo.jpg`)
+- **Image assets**: Team photos (`teamthumbnails/teama.JPG`, etc.), logos (`NJROTC.jpg`), robot photos
 - **Server script**: `serve.py` — custom Python server with extensionless URL support
 
 ## Development
@@ -64,8 +65,19 @@ sed -i 's|darkmode.js?v=2|darkmode.js?v=3|g' *.html
 ### CSS Architecture
 - **Mobile-first**: Media queries at 768px and 1024px breakpoints
 - **Layout systems**: Flexbox for navigation, Grid for content sections
-- **Component classes**: `.hero`, `.team-card`, `.sponsor-level`, `.event-card`, `.page-header`
+- **Global component classes**: `.split-section`, `.glass-card`, `.story-feature`, `.page-header`, `.btn-primary`
 - **Navigation components**: `.navbar`, `.nav-links`, `.dropdown`, `.dropdown-menu`, `.hamburger`, `.menu-overlay`
+- **Page-specific CSS files**:
+  - `events.css` — event list layout, `.page-header` gradient, `.event-row`, `.event-date`, `.featured-event`
+  - `teams.css` — narrative hero, timeline, squad grid, roster grid, `.narrative-hero`, `.stats-widget`, `.squad-card`
+  - `about.css` — about page layout
+  - `donate.css` — donate page layout
+- **Shared header gradient** (used on events, sponsors, teams):
+  ```css
+  background:
+      radial-gradient(circle at 92% -8%, rgba(177, 42, 52, 0.18), transparent 44%),
+      linear-gradient(180deg, rgba(13, 27, 58, 0.08) 0%, rgba(13, 27, 58, 0.03) 45%, transparent 100%);
+  ```
 - **Consistent spacing**: `rem`-based spacing system with `1rem = 16px` base
 
 ### Mobile Navigation — Key z-index Stack
@@ -77,6 +89,12 @@ sed -i 's|darkmode.js?v=2|darkmode.js?v=3|g' *.html
 | `.menu-overlay` (mobile) | 9996 | Dimmed backdrop, closes menu on tap |
 
 **Rule**: Never set `header` z-index below `.nav-links` z-index on mobile — the hamburger button will become unclickable.
+
+**Mobile nav behavior** (implemented in `darkmode.js`):
+- Hamburger toggles slide-in panel from right
+- Overlay backdrop (`div.menu-overlay`) closes menu on tap
+- Dropdown items (Teams, Events) expand as accordion on mobile with a rotating `›` chevron indicator
+- Sub-links and regular nav links auto-close the menu on tap
 
 ## Page Architecture
 
@@ -119,31 +137,40 @@ sed -i 's|darkmode.js?v=2|darkmode.js?v=3|g' *.html
 ```
 
 ### Content Section Patterns
-- **Hero sections**: `.hero` class with centered content
-- **Team cards**: `.team-card` in grid layout on `teams.html`
-- **Team detail pages**: `.team-details` with `.team-info-section`
-- **Sponsor tiers**: `.platinum`, `.gold`, `.silver` classes with distinct styling
-- **Event cards**: `.event-card` with date and location info
+- **Split hero** (`index.html`): `.split-section` with `.split-content` (text) + `.split-visual` (image)
+- **Storytelling section** (`index.html`): `.story-feature` with `.story-container`, `.story-text`, `.story-sub`
+- **Page headers with gradient**: `.page-header` on events/sponsors; `.narrative-hero` on teams — all use shared gradient
+- **Sponsor tiers** (`sponsors.html`): `.tier-card .platinum-card`, `.tier-card .gold-card`, `.tier-card .silver-card`
+- **Event rows** (`events.html`): `.event-row` grid with `.event-date` and `.event-info`; `.featured-event` for highlighted row
+- **Team cards** (`teams.html`): `.squad-card .hover-lift` in `.squad-grid-clean`
+- **Team detail pages**: `.team-hero`, `.team-stats`, `.team-roster` sections
+
+### Key Content Values (keep in sync)
+- **Student count**: 60+ cadets (appears in `index.html`, `about.html`, `sponsors.html`, `teams.html`)
+- **Team count**: 7 teams
+- **World qualified teams**: 4 (appears in `index.html` story section, `sponsors.html`)
+- **Program start**: 10 cadets in a garage, 2023
 
 ## Common Development Tasks
 
 ### Adding New Content
 - **New team page**: Copy `teama.html` structure, update team-specific content
-- **New team card**: Copy `.team-card` div in `teams.html`, update links and info
+- **New team card**: Copy `.squad-card` div in `teams.html`, update links and info
 - **New sponsor**: Add to appropriate tier section in `sponsors.html`
-- **New event**: Copy `.event-card` structure in `events.html`
+- **New event**: Copy `.event-row` structure in `events.html`
 - **Navigation updates**: Must be updated in all 16 HTML files
 
 ### Styling Updates
-- **All styling**: Modify `styles.css` — no other CSS files exist (except `about.css`)
-- **Component styling**: Search for class names (`.team-card`, `.sponsor-level`, etc.)
-- **Responsive adjustments**: Media queries at bottom of `styles.css`
-- **Color changes**: Update CSS custom properties or direct color values
+- **Global styles**: Modify `styles.css`
+- **Page-specific styles**: Modify the relevant CSS file (`events.css`, `teams.css`, `about.css`, `donate.css`)
+- **Responsive adjustments**: Media queries at bottom of each CSS file (768px breakpoint)
+- **Color changes**: Update `#b12a34` (red) or `#0d1b3a` (dark navy) values
 
 ### Maintenance Notes
 - **Navigation consistency**: Any header/nav changes must be replicated across all 16 HTML files
 - **No build process**: Direct file editing only, no compilation or bundling
 - **Browser testing**: Test responsive behavior at mobile (≤768px), tablet (769-1024px), desktop (≥1025px)
+- **Extensionless link rule**: Always use `href="about"` not `href="about.html"` in navigation and internal links
 
 ## Technical Notes
 
