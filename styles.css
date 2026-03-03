@@ -2316,6 +2316,25 @@ footer {
     margin-top: 0.5rem;
 }
 
+.gallery-show-more {
+    display: block;
+    margin: 1rem auto 0;
+    padding: 0.6rem 1.5rem;
+    background: transparent;
+    border: 1.5px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.gallery-show-more:hover {
+    background: var(--accent-color);
+    color: #fff;
+}
+
 @media (max-width: 768px) {
     .events-grid {
         grid-template-columns: 1fr;
