@@ -316,64 +316,37 @@ body.dark-mode .chapter-year {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Leadership Cards Grid --- */
-.leadership-cards-grid {
+/* --- Leadership Plain List --- */
+.leadership-list {
+    list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.9rem 2rem;
+    max-width: 900px;
     margin: 2.5rem auto 0;
 }
 
-.leader-card-item {
+.leadership-list li {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
-    padding: 1.1rem 1.25rem;
-    border: 1px solid rgba(0, 0, 0, 0.07);
-    border-radius: 8px;
-    background: var(--card-bg);
-    border-left: 3px solid var(--primary-dark);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    gap: 0.2rem;
 }
 
-.leader-card-item:hover {
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
-}
-
-.leader-card-item.primary-leader {
-    border-left-color: var(--primary-red);
-}
-
-.leader-card-item.founders-card {
-    grid-column: span 2;
-    border-left-color: rgba(13, 27, 58, 0.4);
-}
-
-.leader-role-tag {
+.l-role {
     font-size: 0.72rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-weight: 700;
     color: var(--text-light);
 }
 
-.leader-name-text {
+.l-name {
     font-size: 1rem;
     font-weight: 600;
     color: var(--primary-dark);
 }
 
-body.dark-mode .leader-card-item {
-    border-color: rgba(255, 255, 255, 0.08);
-    border-left-color: rgba(255, 255, 255, 0.4);
-}
-
-body.dark-mode .leader-card-item.primary-leader {
-    border-left-color: var(--primary-red);
-}
-
-body.dark-mode .leader-name-text {
+body.dark-mode .l-name {
     color: #eee;
 }
 

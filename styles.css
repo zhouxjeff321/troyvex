@@ -2871,6 +2871,18 @@ body.dark-mode header {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2) !important;
 }
 
+/* Mid-range nav fix: prevent link overflow between 769px and ~960px */
+@media (min-width: 769px) and (max-width: 960px) {
+    .logo-text {
+        font-size: 1.3rem !important;
+    }
+
+    .nav-links a {
+        padding: 0.4rem 0.55rem !important;
+        font-size: 0.88rem !important;
+    }
+}
+
 /* Mobile Responsive Layout Adjustments */
 @media (max-width: 768px) {
 
