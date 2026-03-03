@@ -1560,11 +1560,28 @@ th {
     background: #fff;
     border-radius: 8px;
     padding: 2rem;
-    transition: border-color 0.2s ease;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.55s ease, transform 0.55s ease, border-color 0.2s ease, box-shadow 0.25s ease;
+}
+
+.tier-card:nth-child(1) { transition-delay: 0s; }
+.tier-card:nth-child(2) { transition-delay: 0.15s; }
+.tier-card:nth-child(3) { transition-delay: 0.3s; }
+
+.tier-card.tier-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .tier-card:hover {
     border-color: #b12a34;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+}
+
+body.dark-mode .tier-card:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
 
 .tier-card h3 {

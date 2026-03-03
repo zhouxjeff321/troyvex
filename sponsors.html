@@ -8,7 +8,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Sponsors - Troy VEX Robotics</title>
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=3">
     <link rel="icon" type="image/png" href="njrotcupdated.png">
 </head>
 
@@ -181,6 +181,21 @@
         <a href="contact" class="footer-contact-btn">Contact Us</a>
     </footer>
     <script src="darkmode.js?v=2"></script>
+    <script>
+        (function () {
+            var cards = document.querySelectorAll('.tier-card');
+            if (!cards.length) return;
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('tier-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            cards.forEach(function (card) { observer.observe(card); });
+        })();
+    </script>
 </body>
 
 </html>

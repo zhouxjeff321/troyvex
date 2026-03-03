@@ -598,92 +598,34 @@ body.dark-mode .roster-decoration-line {
 }
 
 /* --- Member Card Styling --- */
-/* Override old styles by using the container + class specificity */
 .roster-grid-modern .member-pill {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
     background: var(--card-bg);
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-    /* Force override */
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
     border-radius: 8px !important;
-    padding: 1rem 1.25rem !important;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: 0.85rem 1.1rem !important;
+    transition: border-color 0.2s ease !important;
     cursor: default;
-    position: relative;
-    overflow: hidden;
     color: var(--text-body) !important;
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
     box-shadow: none !important;
 }
 
 body.dark-mode .roster-grid-modern .member-pill {
     border-color: rgba(255, 255, 255, 0.08) !important;
     background: rgba(255, 255, 255, 0.03);
-    color: #ddd !important;
+    color: #ccc !important;
 }
 
-/* Hover Effect */
 .roster-grid-modern .member-pill:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
-    border-color: rgba(13, 27, 58, 0.2) !important;
+    border-color: rgba(13, 27, 58, 0.22) !important;
+    transform: none !important;
+    box-shadow: none !important;
     background: var(--card-bg) !important;
 }
 
 body.dark-mode .roster-grid-modern .member-pill:hover {
-    border-color: rgba(255, 255, 255, 0.3) !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
-    background: rgba(255, 255, 255, 0.05) !important;
-}
-
-/* Avatar Placeholder - Pseudo Element */
-.roster-grid-modern .member-pill::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 32px;
-    background-color: rgba(13, 27, 58, 0.05);
-    border-radius: 50%;
-    /* Simple Personnel Icon SVG */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d1b3a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
-    background-size: 18px;
-    background-position: center;
-    background-repeat: no-repeat;
-    flex-shrink: 0;
-    transition: background-color 0.3s ease;
-}
-
-body.dark-mode .roster-grid-modern .member-pill::before {
-    background-color: rgba(255, 255, 255, 0.1);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dddddd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
-}
-
-.roster-grid-modern .member-pill:hover::before {
-    background-color: rgba(13, 27, 58, 0.1);
-}
-
-body.dark-mode .roster-grid-modern .member-pill:hover::before {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Status Dot (Green) */
-.roster-grid-modern .member-pill::after {
-    content: '';
-    display: block;
-    width: 6px;
-    height: 6px;
-    background-color: #4cd137;
-    border-radius: 50%;
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.roster-grid-modern .member-pill:hover::after {
-    opacity: 1;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
 }
 
 /* Responsive Grid Adjustments */
