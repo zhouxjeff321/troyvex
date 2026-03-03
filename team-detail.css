@@ -1,0 +1,214 @@
+/* =========================================
+   Team Detail Page — Unified Design
+   ========================================= */
+
+/* ── Hero ──────────────────────────────── */
+.td-hero {
+    padding: 5.5rem 2rem 4rem;
+    text-align: center;
+    background:
+        radial-gradient(circle at 92% -8%, rgba(177, 42, 52, 0.18), transparent 44%),
+        linear-gradient(180deg, rgba(13, 27, 58, 0.08) 0%, rgba(13, 27, 58, 0.03) 45%, transparent 100%);
+}
+
+.td-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #b12a34;
+    margin-bottom: 1rem;
+}
+
+.td-hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    font-weight: 400;
+    color: #0d1b3a;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.td-code {
+    font-size: 0.9rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #888;
+    margin-top: 0.25rem;
+}
+
+/* ── Officers Bar ───────────────────────── */
+.td-officers {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    background: #fff;
+    max-width: 100%;
+}
+
+.td-officer {
+    flex: 0 1 auto;
+    text-align: center;
+    padding: 1.4rem 3rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.td-officer:last-child {
+    border-right: none;
+}
+
+.td-officer-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #b12a34;
+    margin-bottom: 0.3rem;
+}
+
+.td-officer-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #0d1b3a;
+}
+
+/* ── Body: About + Robot Photo ──────────── */
+.td-body {
+    max-width: 1100px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 4rem;
+    align-items: start;
+}
+
+.td-about h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.6rem;
+    color: #0d1b3a;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.td-about p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.85;
+    margin-bottom: 1rem;
+}
+
+.td-robot-wrap img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    display: block;
+}
+
+/* ── Members ────────────────────────────── */
+.td-members {
+    max-width: 1100px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+    padding-top: 3rem;
+}
+
+.td-members h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #0d1b3a;
+    margin-bottom: 1.5rem;
+}
+
+.td-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    gap: 0.65rem;
+}
+
+.td-member {
+    padding: 0.7rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #444;
+    background: #fff;
+    transition: border-color 0.18s ease;
+}
+
+.td-member:hover {
+    border-color: rgba(13, 27, 58, 0.2);
+}
+
+/* ── Dark mode ─────────────────────────── */
+body.dark-mode .td-hero h1,
+body.dark-mode .td-officer-name,
+body.dark-mode .td-about h2,
+body.dark-mode .td-members h2 {
+    color: #eee;
+}
+
+body.dark-mode .td-officers {
+    background: #111;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .td-officer {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .td-about p {
+    color: #bbb;
+}
+
+body.dark-mode .td-members {
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .td-member {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: #ccc;
+}
+
+body.dark-mode .td-member:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Responsive ────────────────────────── */
+@media (max-width: 860px) {
+    .td-body {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .td-robot-wrap {
+        max-width: 480px;
+        margin: 0 auto;
+    }
+
+    .td-officers {
+        flex-wrap: wrap;
+    }
+
+    .td-officer {
+        flex: 1 1 140px;
+        padding: 1.1rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .td-hero {
+        padding: 4rem 1.25rem 2.5rem;
+    }
+
+    .td-members-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+}

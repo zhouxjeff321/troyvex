@@ -113,4 +113,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // ── Restore desktop nav on window resize ──────────────────────────────────
+    // Prevents the nav from staying hidden if the window is resized from mobile
+    // back to desktop while the menu was open or the nav-links were toggled.
+
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) closeMenu();
+    });
 });

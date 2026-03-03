@@ -183,6 +183,32 @@ nav {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* Global primary button */
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #b12a34;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-primary:hover {
+    background: #8f1f28;
+    transform: translateY(-1px);
+    color: #fff;
+}
+
+.btn-primary:visited {
+    color: #fff;
+}
+
 /* Home hero CTA button */
 .home-teams-btn {
     display: inline-flex;
