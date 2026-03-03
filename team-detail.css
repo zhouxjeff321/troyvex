@@ -95,23 +95,17 @@
 }
 
 .td-members-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
-    gap: 0.65rem;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    max-width: 480px;
+    background: #fff;
 }
 
 .td-member {
-    padding: 0.7rem 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.07);
-    border-radius: 6px;
-    font-size: 0.9rem;
+    padding: 0.3rem 0;
+    font-size: 0.95rem;
     color: #444;
-    background: #fff;
-    transition: border-color 0.18s ease;
-}
-
-.td-member:hover {
-    border-color: rgba(13, 27, 58, 0.2);
 }
 
 /* ── Dark mode ─────────────────────────── */
@@ -133,14 +127,13 @@ body.dark-mode .td-members {
     border-top-color: rgba(255, 255, 255, 0.08);
 }
 
-body.dark-mode .td-member {
+body.dark-mode .td-members-grid {
     background: rgba(255, 255, 255, 0.04);
     border-color: rgba(255, 255, 255, 0.08);
-    color: #ccc;
 }
 
-body.dark-mode .td-member:hover {
-    border-color: rgba(255, 255, 255, 0.25);
+body.dark-mode .td-member {
+    color: #ccc;
 }
 
 /* ── Responsive ────────────────────────── */
@@ -160,9 +153,5 @@ body.dark-mode .td-member:hover {
 @media (max-width: 480px) {
     .td-hero {
         padding: 4rem 1.25rem 2.5rem;
-    }
-
-    .td-members-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     }
 }
