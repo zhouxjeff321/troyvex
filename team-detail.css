@@ -38,42 +38,10 @@
     margin-top: 0.25rem;
 }
 
-/* ── Officers Bar ───────────────────────── */
-.td-officers {
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.07);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-    background: #fff;
-    max-width: 100%;
-}
-
-.td-officer {
-    flex: 0 1 auto;
-    text-align: center;
-    padding: 1.4rem 3rem;
-    border-right: 1px solid rgba(0, 0, 0, 0.07);
-}
-
-.td-officer:last-child {
-    border-right: none;
-}
-
-.td-officer-label {
-    display: block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #b12a34;
-    margin-bottom: 0.3rem;
-}
-
-.td-officer-name {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #0d1b3a;
+.td-hero-officers {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: #555;
 }
 
 /* ── Body: About + Robot Photo ──────────── */
@@ -148,19 +116,13 @@
 
 /* ── Dark mode ─────────────────────────── */
 body.dark-mode .td-hero h1,
-body.dark-mode .td-officer-name,
 body.dark-mode .td-about h2,
 body.dark-mode .td-members h2 {
     color: #eee;
 }
 
-body.dark-mode .td-officers {
-    background: #111;
-    border-color: rgba(255, 255, 255, 0.08);
-}
-
-body.dark-mode .td-officer {
-    border-color: rgba(255, 255, 255, 0.08);
+body.dark-mode .td-hero-officers {
+    color: #999;
 }
 
 body.dark-mode .td-about p {
@@ -193,14 +155,6 @@ body.dark-mode .td-member:hover {
         margin: 0 auto;
     }
 
-    .td-officers {
-        flex-wrap: wrap;
-    }
-
-    .td-officer {
-        flex: 1 1 140px;
-        padding: 1.1rem 1.5rem;
-    }
 }
 
 @media (max-width: 480px) {
