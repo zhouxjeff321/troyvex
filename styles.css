@@ -379,7 +379,7 @@ body.dark-mode .glass-card {
 }
 
 .nav-links a:hover::after {
-    width: 70%;
+    width: calc(100% - 2rem);
 }
 
 /* Specific highlight for active/hover state when in dark mode */
