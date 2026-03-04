@@ -2618,13 +2618,13 @@ body.dark-mode .highlight-label {
 }
 
 
-/* Premium Button Styles - Clean & Professional */
+/* Premium Button Styles */
 .premium-button-container {
     display: flex;
-    gap: 1rem;
+    gap: 1.25rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 1.5rem;
+    margin-top: 1.75rem;
 }
 
 .premium-btn {
@@ -2632,55 +2632,66 @@ body.dark-mode .highlight-label {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem 2rem;
-    min-width: 180px;
-    border-radius: 6px;
+    padding: 1.1rem 2.25rem;
+    min-width: 200px;
+    border-radius: 10px;
     text-decoration: none;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .premium-btn:hover {
-    transform: translateY(-1px);
+    transform: translateY(-3px);
 }
 
 .premium-btn-text {
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.01em;
     line-height: 1.3;
 }
 
 .premium-btn-sub {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 400;
-    margin-top: 0.15rem;
+    margin-top: 0.2rem;
+    opacity: 0.82;
+    letter-spacing: 0.02em;
 }
 
 /* Button Variants */
 .btn-donate {
-    background-color: #b12a34;
+    background: linear-gradient(135deg, #c9313d 0%, #b12a34 60%, #96222b 100%);
     color: white;
+    box-shadow: 0 4px 18px rgba(177, 42, 52, 0.38), 0 1px 4px rgba(0,0,0,0.12);
+    border: 1px solid rgba(255,255,255,0.12);
 }
 
 .btn-donate:hover {
-    background-color: #9a232c;
+    background: linear-gradient(135deg, #d43540 0%, #b12a34 60%, #9a232c 100%);
+    box-shadow: 0 8px 28px rgba(177, 42, 52, 0.50), 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .btn-packet {
-    background-color: #0d1b3a;
+    background: linear-gradient(135deg, #1e2f55 0%, #0d1b3a 60%, #081226 100%);
     color: white;
+    box-shadow: 0 4px 18px rgba(13, 27, 58, 0.40), 0 1px 4px rgba(0,0,0,0.12);
+    border: 1px solid rgba(255,255,255,0.10);
 }
 
 .btn-packet:hover {
-    background-color: #1a2a4a;
+    background: linear-gradient(135deg, #253566 0%, #122048 60%, #0a172e 100%);
+    box-shadow: 0 8px 28px rgba(13, 27, 58, 0.55), 0 2px 8px rgba(0,0,0,0.18);
 }
 
 body.dark-mode .btn-packet {
-    background-color: #2a3a5a;
+    background: linear-gradient(135deg, #2e4070 0%, #1e2f55 60%, #0d1b3a 100%);
 }
 
 body.dark-mode .btn-packet:hover {
-    background-color: #3a4a6a;
+    background: linear-gradient(135deg, #364a80 0%, #253566 60%, #122048 100%);
 }
 
 
