@@ -1,0 +1,274 @@
+/* =========================================
+   Donate Page Styles
+   ========================================= */
+
+/* Hero Section */
+.donate-hero {
+    background:
+        radial-gradient(circle at 92% -8%, rgba(177, 42, 52, 0.14), transparent 44%),
+        linear-gradient(180deg, rgba(13, 27, 58, 0.07) 0%, rgba(13, 27, 58, 0.02) 45%, transparent 100%);
+    padding: 5rem 2rem 3.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.donate-hero .subtitle {
+    font-family: 'Geist', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    color: #b12a34;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.donate-hero h1 {
+    font-size: 3rem;
+    color: #111111;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.donate-hero .description {
+    font-family: 'Geist', sans-serif;
+    font-size: 1.1rem;
+    color: var(--secondary-text);
+    max-width: 560px;
+    margin: 0 auto 1.25rem;
+}
+
+.ein-bar {
+    display: inline-block;
+    background: rgba(13, 27, 58, 0.06);
+    border: 1px solid rgba(13, 27, 58, 0.12);
+    border-radius: 100px;
+    padding: 0.45rem 1.25rem;
+    font-size: 0.88rem;
+    color: #444;
+    margin-top: 0.25rem;
+}
+
+/* Donation Section */
+.donation-section {
+    max-width: 1100px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.donation-section h2 {
+    text-align: center;
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+    color: #111;
+}
+
+/* Three-column grid */
+.donation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.method-card {
+    padding: 2rem;
+    border-left: 4px solid #0d1b3a;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.method-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.method-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    background: #0d1b3a;
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.method-header h3 {
+    font-size: 1.4rem;
+    color: #111;
+    margin: 0;
+}
+
+.method-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.08);
+    margin: 0.25rem 0;
+}
+
+.method-note {
+    font-size: 0.92rem;
+    color: var(--secondary-text);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.detail-item {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #888;
+    font-weight: 600;
+    display: block;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+}
+
+.detail-value {
+    font-family: 'Courier New', monospace;
+    font-size: 0.98rem;
+    color: #111;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.detail-address {
+    font-style: normal;
+    font-size: 0.95rem;
+    color: #111;
+    font-weight: 500;
+    line-height: 1.6;
+    font-family: inherit;
+}
+
+/* Outreach Section */
+.outreach-section {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.outreach-section p {
+    color: var(--secondary-text);
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border: 1.5px solid #0d1b3a;
+    color: #0d1b3a;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    background: #0d1b3a;
+    color: #fff;
+}
+
+.btn-outline-red {
+    border-color: #b12a34;
+    color: #b12a34;
+}
+
+.btn-outline-red:hover {
+    background: #b12a34;
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .donation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .donate-hero h1 {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .donate-hero {
+        padding: 4rem 1.5rem 2.5rem;
+    }
+
+    .donation-section {
+        padding: 0 1.25rem;
+    }
+
+    .method-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Dark Mode */
+body.dark-mode .donate-hero h1,
+body.dark-mode .donation-section h2,
+body.dark-mode .method-header h3,
+body.dark-mode .detail-value,
+body.dark-mode .detail-address {
+    color: #eee;
+}
+
+body.dark-mode .donate-hero .description,
+body.dark-mode .method-note,
+body.dark-mode .outreach-section p {
+    color: #bbb;
+}
+
+body.dark-mode .donate-hero .subtitle {
+    color: #e05a63;
+}
+
+body.dark-mode .ein-bar {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #bbb;
+}
+
+body.dark-mode .method-icon {
+    background: #1a3060;
+}
+
+body.dark-mode .method-divider {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .outreach-section {
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .btn-outline {
+    color: #aac4ff;
+    border-color: #aac4ff;
+}
+
+body.dark-mode .btn-outline:hover {
+    background: #aac4ff;
+    color: #0d1b3a;
+}
+
+body.dark-mode .btn-outline-red {
+    color: #e05a63;
+    border-color: #e05a63;
+}
+
+body.dark-mode .btn-outline-red:hover {
+    background: #e05a63;
+    color: #fff;
+}
