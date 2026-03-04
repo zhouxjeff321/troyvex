@@ -4,7 +4,7 @@
 
 /* Hero Section */
 .donate-hero {
-    background: linear-gradient(135deg, rgba(85, 139, 47, 0.05) 0%, rgba(13, 27, 58, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(85, 139, 47, 0.05) 0%, rgba(17, 17, 17, 0.05) 100%);
     padding: 6rem 2rem 4rem;
     text-align: center;
     margin-bottom: 2rem;
@@ -24,7 +24,7 @@
 
 .donate-hero h1 {
     font-size: 3.5rem;
-    color: #0d1b3a;
+    color: #111111;
     margin-bottom: 1rem;
 }
 
@@ -55,7 +55,7 @@
     gap: 3rem;
     padding: 3rem;
     align-items: center;
-    border-left: 5px solid #0d1b3a;
+    border-left: 5px solid #111111;
 }
 
 .donation-card .content {
@@ -138,8 +138,8 @@
 .btn-outline {
     display: inline-block;
     padding: 0.8rem 2rem;
-    border: 1px solid #0d1b3a;
-    color: #0d1b3a;
+    border: 1px solid #111111;
+    color: #111111;
     text-decoration: none;
     border-radius: 4px;
     font-weight: 500;
@@ -147,7 +147,7 @@
 }
 
 .btn-outline:hover {
-    background: #0d1b3a;
+    background: #111111;
     color: #fff;
 }
 
