@@ -55,33 +55,50 @@
             color: var(--text-color);
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.25rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .info-card {
+        .fact-sheet {
             background: var(--card-bg, #fff);
             border: 1px solid var(--border-color, #e5e7eb);
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 14px;
+            margin-bottom: 2.5rem;
+            overflow: hidden;
         }
 
-        .info-card .label {
-            font-size: 0.75rem;
+        .fact-row {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            padding: 1.1rem 1.75rem;
+            border-bottom: 1px solid var(--border-color, #e5e7eb);
+        }
+
+        .fact-row:last-child {
+            border-bottom: none;
+        }
+
+        .fact-label {
+            flex: 0 0 160px;
+            font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: #b12a34;
-            margin-bottom: 0.4rem;
         }
 
-        .info-card .value {
-            font-size: 1rem;
+        .fact-value {
+            font-size: 0.97rem;
             color: var(--text-color);
             line-height: 1.5;
+        }
+
+        @media (max-width: 520px) {
+            .fact-row {
+                flex-direction: column;
+                gap: 0.25rem;
+                padding: 1rem 1.25rem;
+            }
+            .fact-label {
+                flex: none;
+            }
         }
 
         .form-placeholder {
@@ -194,22 +211,22 @@
         <section class="join-section">
             <!-- Quick facts -->
             <h2 class="serif-header">What to Expect</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="label">Who Can Join</div>
-                    <div class="value">Troy High School cadets enrolled in NJROTC</div>
+            <div class="fact-sheet">
+                <div class="fact-row">
+                    <span class="fact-label">Who Can Join</span>
+                    <span class="fact-value">Troy High School cadets enrolled in NJROTC</span>
                 </div>
-                <div class="info-card">
-                    <div class="label">Experience Required</div>
-                    <div class="value">None — we train from the ground up</div>
+                <div class="fact-row">
+                    <span class="fact-label">Experience Required</span>
+                    <span class="fact-value">None — we train from the ground up</span>
                 </div>
-                <div class="info-card">
-                    <div class="label">Season</div>
-                    <div class="value">Year-round with competitions Sep – Apr</div>
+                <div class="fact-row">
+                    <span class="fact-label">Season</span>
+                    <span class="fact-value">Year-round with competitions Sep – Apr</span>
                 </div>
-                <div class="info-card">
-                    <div class="label">Location</div>
-                    <div class="value">Troy High School, Room 401<br>Fullerton, CA</div>
+                <div class="fact-row">
+                    <span class="fact-label">Location</span>
+                    <span class="fact-value">Troy High School, Room 401, Fullerton, CA</span>
                 </div>
             </div>
 
