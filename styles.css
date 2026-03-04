@@ -2914,15 +2914,21 @@ body.dark-mode .story-overlay .stat {
 }
 
 
-/* Sticky Header Override */
+/* Fixed Header */
 header {
     background: rgba(255, 255, 255, 0.9) !important;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
+}
+
+body {
+    padding-top: 86px;
 }
 
 body.dark-mode header {
@@ -3045,7 +3051,7 @@ body.dark-mode header {
 
     /* Ensure header stays on top and doesn't wrap weirdly */
     header {
-        position: sticky;
+        position: fixed;
         top: 0;
         z-index: 10000;
         width: 100%;
