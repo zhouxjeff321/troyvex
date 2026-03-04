@@ -6,9 +6,6 @@ import os
 PORT = 3000
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 
-# Subdirectories to search for HTML files (in order)
-SEARCH_DIRS = ['', 'pages', 'teams']
-
 class ExtensionlessHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
@@ -27,18 +24,13 @@ class ExtensionlessHandler(http.server.SimpleHTTPRequestHandler):
             self.path = '/index.html'
             return super().do_GET()
 
-        # Try appending .html in each search directory
+        # Try appending .html (all HTML files are at root)
         if not path.endswith('.html'):
-            base = path.strip('/')
-            for search_dir in SEARCH_DIRS:
-                if search_dir:
-                    candidate = f'{search_dir}/{base}.html'
-                else:
-                    candidate = f'{base}.html'
-                full_html = os.path.join(DIRECTORY, candidate)
-                if os.path.isfile(full_html):
-                    self.path = '/' + candidate
-                    return super().do_GET()
+            html_path = path.rstrip('/') + '.html'
+            full_html = os.path.join(DIRECTORY, html_path.lstrip('/'))
+            if os.path.isfile(full_html):
+                self.path = html_path
+                return super().do_GET()
 
         return super().do_GET()
 

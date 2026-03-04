@@ -1,21 +1,3 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/about", "destination": "/pages/about.html" },
-    { "source": "/sponsors", "destination": "/pages/sponsors.html" },
-    { "source": "/events", "destination": "/pages/events.html" },
-    { "source": "/awards", "destination": "/pages/awards.html" },
-    { "source": "/contact", "destination": "/pages/contact.html" },
-    { "source": "/donate", "destination": "/pages/donate.html" },
-    { "source": "/gallery", "destination": "/pages/gallery.html" },
-    { "source": "/join", "destination": "/pages/join.html" },
-    { "source": "/teams", "destination": "/pages/teams.html" },
-    { "source": "/teama", "destination": "/teams/teama.html" },
-    { "source": "/teamb", "destination": "/teams/teamb.html" },
-    { "source": "/teamc", "destination": "/teams/teamc.html" },
-    { "source": "/teamd", "destination": "/teams/teamd.html" },
-    { "source": "/teame", "destination": "/teams/teame.html" },
-    { "source": "/teamx", "destination": "/teams/teamx.html" },
-    { "source": "/teamy", "destination": "/teams/teamy.html" }
-  ]
+  "cleanUrls": true
 }
