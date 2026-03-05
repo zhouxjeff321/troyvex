@@ -1677,7 +1677,7 @@ body.dark-mode .tier-card:hover {
 
 /* Tier Colors */
 .platinum-card h3 {
-    color: #333;
+    color: #4a3728;
 }
 
 .gold-card h3 {
@@ -1686,6 +1686,20 @@ body.dark-mode .tier-card:hover {
 
 .silver-card h3 {
     color: #666;
+}
+
+.bronze-card h3 {
+    color: #a0522d;
+}
+
+.tier-includes {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--secondary-text);
+    margin: 0.75rem 0 0.5rem;
+    padding: 0;
 }
 
 /* Dark Mode */
