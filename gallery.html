@@ -262,7 +262,7 @@
         const jrotcExtras = document.querySelectorAll('#jrotcnats-section .gallery-extra');
         jrotcBtn.addEventListener('click', () => {
             const isHidden = jrotcExtras[0].style.display === 'none';
-            jrotcExtras.forEach(img => { img.style.display = isHidden ? 'block' : 'none'; });
+            jrotcExtras.forEach(img => { img.style.display = isHidden ? '' : 'none'; });
             jrotcBtn.textContent = isHidden ? 'Show less' : '+ 9 more photos';
         });
 
