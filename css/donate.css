@@ -1,274 +1,392 @@
 /* =========================================
-   Donate Page Styles
+   Donate Page — Clean Editorial Design
    ========================================= */
 
-/* Hero Section */
+/* ── Hero ─────────────────────────────────── */
 .donate-hero {
-    background:
-        radial-gradient(circle at 92% -8%, rgba(177, 42, 52, 0.14), transparent 44%),
-        linear-gradient(180deg, rgba(13, 27, 58, 0.07) 0%, rgba(13, 27, 58, 0.02) 45%, transparent 100%);
-    padding: 5rem 2rem 3.5rem;
-    text-align: center;
+    padding: 6rem 2rem 4rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.donate-hero-inner {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.donate-eyebrow {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #b12a34;
+    font-weight: 600;
     margin-bottom: 1.5rem;
 }
 
-.donate-hero .subtitle {
-    font-family: 'Geist', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 0.8rem;
-    color: #b12a34;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 1rem;
-}
-
-.donate-hero h1 {
+.donate-h1 {
     font-size: 3rem;
-    color: #111111;
-    margin-bottom: 1rem;
-    line-height: 1.1;
+    line-height: 1.08;
+    color: #0d1b3a;
+    margin-bottom: 1.25rem;
 }
 
-.donate-hero .description {
-    font-family: 'Geist', sans-serif;
+.donate-lead {
     font-size: 1.1rem;
-    color: var(--secondary-text);
-    max-width: 560px;
-    margin: 0 auto 1.25rem;
-}
-
-.ein-bar {
-    display: inline-block;
-    background: rgba(13, 27, 58, 0.06);
-    border: 1px solid rgba(13, 27, 58, 0.12);
-    border-radius: 100px;
-    padding: 0.45rem 1.25rem;
-    font-size: 0.88rem;
-    color: #444;
-    margin-top: 0.25rem;
-}
-
-/* Donation Section */
-.donation-section {
-    max-width: 1100px;
-    margin: 0 auto 5rem;
-    padding: 0 2rem;
-}
-
-.donation-section h2 {
-    text-align: center;
-    font-size: 2.25rem;
+    color: #555;
+    line-height: 1.75;
     margin-bottom: 2rem;
-    color: #111;
+    max-width: 560px;
 }
 
-/* Three-column grid */
-.donation-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    align-items: start;
-}
-
-.method-card {
-    padding: 2rem;
-    border-left: 4px solid #0d1b3a;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-}
-
-.method-header {
-    display: flex;
+.donate-tax-tag {
+    display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.25rem;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: #666;
+    background: #f4f4f4;
+    border-radius: 100px;
+    padding: 0.45rem 1.1rem;
 }
 
-.method-icon {
-    width: 2.25rem;
-    height: 2.25rem;
-    background: #0d1b3a;
-    color: #fff;
-    border-radius: 8px;
+.donate-tax-label {
+    font-weight: 600;
+    color: #0d1b3a;
+}
+
+.donate-tax-divider {
+    color: #ccc;
+}
+
+/* ── Impact strip ─────────────────────────── */
+.donate-impact-strip {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    background: #0d1b3a;
+    padding: 2.5rem 2rem;
+}
+
+.donate-impact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 3rem;
+    flex: 1;
+    max-width: 200px;
+}
+
+.impact-num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+}
+
+.impact-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.donate-impact-divider {
+    width: 1px;
+    height: 2.5rem;
+    background: rgba(255, 255, 255, 0.15);
     flex-shrink: 0;
 }
 
-.method-header h3 {
-    font-size: 1.4rem;
-    color: #111;
-    margin: 0;
+/* ── Ways to Give ─────────────────────────── */
+.donate-methods {
+    padding: 5rem 2rem;
 }
 
-.method-divider {
-    height: 1px;
-    background: rgba(0, 0, 0, 0.08);
-    margin: 0.25rem 0;
+.donate-methods-inner {
+    max-width: 680px;
+    margin: 0 auto;
 }
 
-.method-note {
-    font-size: 0.92rem;
-    color: var(--secondary-text);
-    line-height: 1.5;
-    margin: 0;
+.donate-section-title {
+    font-size: 1.6rem;
+    color: #0d1b3a;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #0d1b3a;
 }
 
-.detail-item {
-    margin-bottom: 0;
+/* Each method row */
+.give-row {
+    display: flex;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
 }
 
-.detail-label {
-    font-size: 0.75rem;
+.give-row-label {
+    flex: 0 0 100px;
+    padding-top: 0.15rem;
+}
+
+.give-method-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
     text-transform: uppercase;
-    color: #888;
-    font-weight: 600;
-    display: block;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.2rem;
+    letter-spacing: 0.1em;
+    color: #b12a34;
+    background: rgba(177, 42, 52, 0.08);
+    border: 1px solid rgba(177, 42, 52, 0.2);
+    border-radius: 4px;
+    padding: 0.3rem 0.65rem;
 }
 
-.detail-value {
-    font-family: 'Courier New', monospace;
-    font-size: 0.98rem;
-    color: #111;
-    font-weight: 600;
-    word-break: break-all;
+.give-row-content {
+    flex: 1;
 }
 
-.detail-address {
-    font-style: normal;
-    font-size: 0.95rem;
+.give-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.give-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.give-field-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #999;
+    font-weight: 600;
+}
+
+.give-field-value {
+    font-size: 1rem;
     color: #111;
     font-weight: 500;
-    line-height: 1.6;
-    font-family: inherit;
 }
 
-/* Outreach Section */
-.outreach-section {
-    text-align: center;
-    margin-top: 3rem;
-    padding-top: 2.5rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.07);
+.give-address-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
 }
 
-.outreach-section p {
-    color: var(--secondary-text);
-    margin-bottom: 1.25rem;
+.give-address {
+    font-style: normal;
     font-size: 1rem;
+    color: #111;
+    font-weight: 500;
+    line-height: 1.65;
 }
 
-.btn-outline {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    border: 1.5px solid #0d1b3a;
+.give-note {
+    font-size: 0.92rem;
+    color: #777;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.give-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.07);
+}
+
+/* ── Sponsor CTA ──────────────────────────── */
+.donate-sponsor-cta {
+    background: #f7f7f7;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+    padding: 4rem 2rem;
+}
+
+.donate-sponsor-cta-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.donate-cta-text h3 {
+    font-size: 1.3rem;
     color: #0d1b3a;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: all 0.2s;
+    margin-bottom: 0.4rem;
 }
 
-.btn-outline:hover {
+.donate-cta-text p {
+    font-size: 0.95rem;
+    color: #666;
+    max-width: 360px;
+    line-height: 1.55;
+}
+
+.donate-cta-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.donate-cta-btn {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.donate-cta-btn-primary {
+    background: #b12a34;
+    color: #fff;
+    border: 1.5px solid #b12a34;
+}
+
+.donate-cta-btn-primary:hover {
+    background: #96222b;
+    border-color: #96222b;
+}
+
+.donate-cta-btn-secondary {
+    background: transparent;
+    color: #0d1b3a;
+    border: 1.5px solid #0d1b3a;
+}
+
+.donate-cta-btn-secondary:hover {
     background: #0d1b3a;
     color: #fff;
 }
 
-.btn-outline-red {
-    border-color: #b12a34;
-    color: #b12a34;
-}
-
-.btn-outline-red:hover {
-    background: #b12a34;
-    color: #fff;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-    .donation-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .donate-hero h1 {
-        font-size: 2.25rem;
-    }
-}
-
+/* ── Responsive ───────────────────────────── */
 @media (max-width: 768px) {
     .donate-hero {
-        padding: 4rem 1.5rem 2.5rem;
+        padding: 4rem 1.5rem 3rem;
     }
 
-    .donation-section {
-        padding: 0 1.25rem;
+    .donate-h1 {
+        font-size: 2.1rem;
     }
 
-    .method-card {
-        padding: 1.5rem;
+    .donate-impact-strip {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .donate-impact-item {
+        flex: 0 0 calc(50% - 1.5rem);
+        max-width: none;
+        padding: 0;
+    }
+
+    .donate-impact-divider {
+        display: none;
+    }
+
+    .donate-methods {
+        padding: 3rem 1.5rem;
+    }
+
+    .give-row {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem 0;
+    }
+
+    .give-row-label {
+        flex: none;
+    }
+
+    .donate-sponsor-cta {
+        padding: 3rem 1.5rem;
+    }
+
+    .donate-sponsor-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
-/* Dark Mode */
-body.dark-mode .donate-hero h1,
-body.dark-mode .donation-section h2,
-body.dark-mode .method-header h3,
-body.dark-mode .detail-value,
-body.dark-mode .detail-address {
-    color: #eee;
+/* ── Dark mode ────────────────────────────── */
+body.dark-mode .donate-hero {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
-body.dark-mode .donate-hero .description,
-body.dark-mode .method-note,
-body.dark-mode .outreach-section p {
-    color: #bbb;
+body.dark-mode .donate-h1 {
+    color: #e8eaf0;
 }
 
-body.dark-mode .donate-hero .subtitle {
-    color: #e05a63;
+body.dark-mode .donate-lead {
+    color: #aaa;
 }
 
-body.dark-mode .ein-bar {
+body.dark-mode .donate-tax-tag {
     background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.12);
-    color: #bbb;
+    color: #aaa;
 }
 
-body.dark-mode .method-icon {
-    background: #1a3060;
+body.dark-mode .donate-tax-label {
+    color: #dde;
 }
 
-body.dark-mode .method-divider {
-    background: rgba(255, 255, 255, 0.1);
+body.dark-mode .donate-tax-divider {
+    color: #444;
 }
 
-body.dark-mode .outreach-section {
-    border-top-color: rgba(255, 255, 255, 0.08);
+body.dark-mode .donate-impact-strip {
+    background: #060e1e;
 }
 
-body.dark-mode .btn-outline {
+body.dark-mode .donate-section-title {
+    color: #dde;
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .give-field-value,
+body.dark-mode .give-address {
+    color: #dde;
+}
+
+body.dark-mode .give-note {
+    color: #999;
+}
+
+body.dark-mode .give-divider {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+body.dark-mode .donate-sponsor-cta {
+    background: #0a1020;
+    border-top-color: rgba(255, 255, 255, 0.07);
+}
+
+body.dark-mode .donate-cta-text h3 {
+    color: #dde;
+}
+
+body.dark-mode .donate-cta-text p {
+    color: #999;
+}
+
+body.dark-mode .donate-cta-btn-secondary {
     color: #aac4ff;
     border-color: #aac4ff;
 }
 
-body.dark-mode .btn-outline:hover {
+body.dark-mode .donate-cta-btn-secondary:hover {
     background: #aac4ff;
     color: #0d1b3a;
-}
-
-body.dark-mode .btn-outline-red {
-    color: #e05a63;
-    border-color: #e05a63;
-}
-
-body.dark-mode .btn-outline-red:hover {
-    background: #e05a63;
-    color: #fff;
 }
