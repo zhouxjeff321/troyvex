@@ -118,79 +118,78 @@
     border-bottom: 2px solid #0d1b3a;
 }
 
-/* Each method row */
-.give-row {
+/* Each method block */
+.give-block {
+    padding: 2.25rem 0;
+}
+
+.give-block-header {
     display: flex;
-    gap: 2.5rem;
-    padding: 2.5rem 0;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1.5rem;
 }
 
-.give-row-label {
-    flex: 0 0 100px;
-    padding-top: 0.15rem;
+.give-block-title {
+    font-size: 1.25rem;
+    color: #0d1b3a;
+    margin: 0;
 }
 
-.give-method-tag {
-    display: inline-block;
-    font-size: 0.72rem;
+.give-block-badge {
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     color: #b12a34;
     background: rgba(177, 42, 52, 0.08);
-    border: 1px solid rgba(177, 42, 52, 0.2);
+    border: 1px solid rgba(177, 42, 52, 0.18);
     border-radius: 4px;
-    padding: 0.3rem 0.65rem;
+    padding: 0.2rem 0.55rem;
 }
 
-.give-row-content {
-    flex: 1;
+.give-fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem 2rem;
+    margin-bottom: 1rem;
 }
 
-.give-field-group {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 1.25rem;
+.give-field-full {
+    grid-column: 1 / -1;
 }
 
 .give-field {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0.25rem;
 }
 
 .give-field-label {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #999;
+    color: #aaa;
     font-weight: 600;
 }
 
 .give-field-value {
-    font-size: 1rem;
+    font-size: 0.98rem;
     color: #111;
     font-weight: 500;
-}
-
-.give-address-block {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
 }
 
 .give-address {
     font-style: normal;
-    font-size: 1rem;
+    font-size: 0.98rem;
     color: #111;
     font-weight: 500;
-    line-height: 1.65;
+    line-height: 1.6;
 }
 
 .give-note {
-    font-size: 0.92rem;
-    color: #777;
+    font-size: 0.88rem;
+    color: #888;
     line-height: 1.6;
     margin: 0;
 }
@@ -300,14 +299,12 @@
         padding: 3rem 1.5rem;
     }
 
-    .give-row {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 2rem 0;
+    .give-fields-grid {
+        grid-template-columns: 1fr;
     }
 
-    .give-row-label {
-        flex: none;
+    .give-block {
+        padding: 1.75rem 0;
     }
 
     .donate-sponsor-cta {
@@ -355,13 +352,21 @@ body.dark-mode .donate-section-title {
     border-bottom-color: rgba(255, 255, 255, 0.15);
 }
 
+body.dark-mode .give-block-title {
+    color: #dde;
+}
+
 body.dark-mode .give-field-value,
 body.dark-mode .give-address {
     color: #dde;
 }
 
+body.dark-mode .give-field-label {
+    color: #666;
+}
+
 body.dark-mode .give-note {
-    color: #999;
+    color: #777;
 }
 
 body.dark-mode .give-divider {
