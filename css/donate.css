@@ -118,7 +118,53 @@
     border-bottom: 2px solid #0d1b3a;
 }
 
-/* Each method block */
+/* Cards grid */
+.give-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.give-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.75rem 2rem;
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 14px;
+    background: var(--card-bg, #fff);
+    transition: box-shadow 0.2s;
+}
+
+.give-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.give-card-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(177, 42, 52, 0.07);
+    border-radius: 8px;
+    margin-top: 0.1rem;
+}
+
+.give-card-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.give-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1.25rem;
+}
+
+/* Legacy block styles (kept for compatibility) */
 .give-block {
     padding: 2.25rem 0;
 }
@@ -210,10 +256,10 @@
     max-width: 680px;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
+    text-align: center;
+    gap: 1.5rem;
 }
 
 .donate-cta-text h3 {
@@ -312,8 +358,7 @@
     }
 
     .donate-sponsor-cta-inner {
-        flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 }
 
@@ -371,6 +416,19 @@ body.dark-mode .give-note {
 
 body.dark-mode .give-divider {
     background: rgba(255, 255, 255, 0.07);
+}
+
+body.dark-mode .give-card {
+    background: #111;
+    border-color: #2a2a2a;
+}
+
+body.dark-mode .give-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .give-card-icon {
+    background: rgba(177, 42, 52, 0.12);
 }
 
 body.dark-mode .donate-sponsor-cta {
