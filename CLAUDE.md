@@ -149,7 +149,7 @@ sed -i 's|darkmode.js?v=2|darkmode.js?v=3|g' *.html
 - **Student count**: 60+ cadets (appears in `index.html`, `about.html`, `sponsors.html`, `teams.html`)
 - **Team count**: 7 teams
 - **World qualified teams**: 4 (appears in `index.html` story section, `sponsors.html`)
-- **Program start**: 10 cadets in a garage, 2023
+- **Program start**: 11 cadets in a garage, 2023
 
 ## Common Development Tasks
 
