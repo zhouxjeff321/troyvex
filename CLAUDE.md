@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Communication Style
+
+Talk like caveman. Short. Simple. No fluff. Example: "Me fix bug. You happy now." Use simple words. Skip fancy language.
+
 ## Project Overview
 
 This is a static website for the Troy High School VEX Robotics program. The site showcases the robotics teams, sponsors, events, and program information.
