@@ -42,19 +42,25 @@
     align-items: center;
     gap: 0.6rem;
     font-size: 0.85rem;
-    color: #666;
-    background: #f4f4f4;
+    color: #444;
+    background: #efefef;
     border-radius: 100px;
-    padding: 0.45rem 1.1rem;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.donate-tax-tag strong {
+    color: #0d1b3a;
+    font-weight: 700;
 }
 
 .donate-tax-label {
-    font-weight: 600;
+    font-weight: 700;
     color: #0d1b3a;
 }
 
 .donate-tax-divider {
-    color: #ccc;
+    color: #bbb;
 }
 
 /* ── Impact strip ─────────────────────────── */
@@ -140,7 +146,6 @@
 }
 
 .give-card-icon {
-    font-size: 1.5rem;
     flex-shrink: 0;
     width: 2.5rem;
     height: 2.5rem;
@@ -150,6 +155,7 @@
     background: rgba(177, 42, 52, 0.07);
     border-radius: 8px;
     margin-top: 0.1rem;
+    color: #b12a34;
 }
 
 .give-card-body {
@@ -376,12 +382,17 @@ body.dark-mode .donate-lead {
 }
 
 body.dark-mode .donate-tax-tag {
-    background: rgba(255, 255, 255, 0.06);
-    color: #aaa;
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #bbb;
+}
+
+body.dark-mode .donate-tax-tag strong {
+    color: #e8eaf0;
 }
 
 body.dark-mode .donate-tax-label {
-    color: #dde;
+    color: #e8eaf0;
 }
 
 body.dark-mode .donate-tax-divider {
