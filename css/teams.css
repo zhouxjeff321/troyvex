@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
 /* =========================================
    Narrative Teams Page Design - Styles
    ========================================= */
@@ -552,6 +554,8 @@ body.dark-mode .member-pill {
 
 .typed-title {
     animation: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
 }
 
 .hero-letter {
