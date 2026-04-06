@@ -51,11 +51,11 @@ body {
 
 /* Custom Cursor */
 body {
-    cursor: url('/images/misc/cursors/triangle_light.svg') 1 1, auto;
+    cursor: auto;
 }
 
 body.dark-mode {
-    cursor: url('/images/misc/cursors/triangle_dark.svg') 1 1, auto;
+    cursor: auto;
 }
 
 
@@ -519,7 +519,7 @@ body.dark-mode .nav-links a::after {
     border-bottom: 1px solid var(--dropdown-border);
     font-family: 'Geist', sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
-    cursor: url('/images/misc/cursors/triangle_light.svg') 1 1, auto;
+    cursor: pointer;
 }
 
 .dropdown-menu a:hover {

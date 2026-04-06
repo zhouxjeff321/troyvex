@@ -314,6 +314,39 @@ body.dark-mode .chapter-year {
     width: 100%;
     border-radius: 4px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.staff-caption-card {
+    max-width: 800px;
+    margin: 2.5rem auto 0;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+body.dark-mode .staff-caption-card {
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.staff-names {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 2;
+}
+
+.staff-names strong {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--primary-dark);
+}
+
+body.dark-mode .staff-names strong {
+    color: #eee;
 }
 
 /* --- Leadership Plain List --- */
