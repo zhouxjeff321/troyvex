@@ -1,0 +1,17 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.env.local
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+
+# Local/editor artifacts
+.DS_Store
+Thumbs.db
+.vscode/settings.json

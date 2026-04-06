@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.createElement('button');
     toggleButton.className = 'dark-mode-toggle';
     toggleButton.setAttribute('aria-label', 'Toggle dark mode');
+    toggleButton.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
+    toggleButton.setAttribute('title', currentTheme === 'dark' ? 'Dark mode enabled' : 'Light mode enabled');
     toggleButton.innerHTML = currentTheme === 'dark' ? '🌙' : '☀️';
     document.body.appendChild(toggleButton);
 
@@ -22,12 +24,119 @@ document.addEventListener('DOMContentLoaded', function () {
         // Update icon and save preference
         if (document.body.classList.contains('dark-mode')) {
             toggleButton.innerHTML = '🌙';
+            toggleButton.setAttribute('aria-pressed', 'true');
+            toggleButton.setAttribute('title', 'Dark mode enabled');
             localStorage.setItem('theme', 'dark');
         } else {
             toggleButton.innerHTML = '☀️';
+            toggleButton.setAttribute('aria-pressed', 'false');
+            toggleButton.setAttribute('title', 'Light mode enabled');
             localStorage.setItem('theme', 'light');
         }
     });
+
+    // ─── Analytics Consent ────────────────────────────────────────────────────
+
+    const analyticsConsentKey = 'analytics_consent';
+    const gaMeasurementId = 'G-10QE64BG2M';
+
+    function startAnalyticsIfAvailable() {
+        if (typeof window.gtag !== 'function') {
+            return;
+        }
+
+        window.gtag('config', gaMeasurementId, {
+            anonymize_ip: true,
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false
+        });
+    }
+
+    function removeConsentBanner() {
+        const banner = document.getElementById('analytics-consent-banner');
+        if (banner) {
+            banner.remove();
+        }
+    }
+
+    function renderConsentBanner() {
+        if (document.getElementById('analytics-consent-banner')) {
+            return;
+        }
+
+        const banner = document.createElement('div');
+        banner.id = 'analytics-consent-banner';
+        banner.setAttribute('role', 'dialog');
+        banner.setAttribute('aria-live', 'polite');
+        banner.setAttribute('aria-label', 'Analytics consent');
+        banner.style.position = 'fixed';
+        banner.style.left = '16px';
+        banner.style.right = '16px';
+        banner.style.bottom = '16px';
+        banner.style.zIndex = '12000';
+        banner.style.padding = '14px 16px';
+        banner.style.borderRadius = '12px';
+        banner.style.background = 'rgba(13, 27, 58, 0.96)';
+        banner.style.color = '#ffffff';
+        banner.style.boxShadow = '0 12px 36px rgba(0, 0, 0, 0.35)';
+        banner.style.display = 'flex';
+        banner.style.flexWrap = 'wrap';
+        banner.style.alignItems = 'center';
+        banner.style.gap = '12px';
+
+        const text = document.createElement('p');
+        text.style.margin = '0';
+        text.style.flex = '1 1 320px';
+        text.style.fontSize = '0.95rem';
+        text.textContent = 'Allow anonymous analytics to help improve the website experience?';
+
+        const actions = document.createElement('div');
+        actions.style.display = 'flex';
+        actions.style.gap = '8px';
+        actions.style.flex = '0 0 auto';
+
+        const declineButton = document.createElement('button');
+        declineButton.type = 'button';
+        declineButton.textContent = 'Decline';
+        declineButton.style.background = 'transparent';
+        declineButton.style.color = '#ffffff';
+        declineButton.style.border = '1px solid rgba(255, 255, 255, 0.6)';
+        declineButton.style.padding = '8px 12px';
+        declineButton.style.borderRadius = '8px';
+
+        const allowButton = document.createElement('button');
+        allowButton.type = 'button';
+        allowButton.textContent = 'Allow';
+        allowButton.style.background = '#b12a34';
+        allowButton.style.color = '#ffffff';
+        allowButton.style.border = '1px solid #b12a34';
+        allowButton.style.padding = '8px 12px';
+        allowButton.style.borderRadius = '8px';
+
+        declineButton.addEventListener('click', function () {
+            localStorage.setItem(analyticsConsentKey, 'denied');
+            removeConsentBanner();
+        });
+
+        allowButton.addEventListener('click', function () {
+            localStorage.setItem(analyticsConsentKey, 'granted');
+            startAnalyticsIfAvailable();
+            removeConsentBanner();
+        });
+
+        actions.appendChild(declineButton);
+        actions.appendChild(allowButton);
+        banner.appendChild(text);
+        banner.appendChild(actions);
+        document.body.appendChild(banner);
+    }
+
+    const savedAnalyticsConsent = localStorage.getItem(analyticsConsentKey);
+    if (savedAnalyticsConsent === 'granted') {
+        startAnalyticsIfAvailable();
+    } else if (savedAnalyticsConsent !== 'denied') {
+        renderConsentBanner();
+    }
 
     // ─── Mobile Navigation ────────────────────────────────────────────────────
 

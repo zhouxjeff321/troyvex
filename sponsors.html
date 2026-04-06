@@ -10,6 +10,21 @@
     <title>Sponsors - Troy VEX Robotics</title>
     <link rel="stylesheet" href="/css/styles.css?v=4">
     <link rel="icon" type="image/png" href="/images/logos/njrotcupdated.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-10QE64BG2M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      const analyticsConsent = localStorage.getItem('analytics_consent');
+      if (analyticsConsent === 'granted') {
+        gtag('config', 'G-10QE64BG2M', {
+          anonymize_ip: true,
+          allow_google_signals: false,
+          allow_ad_personalization_signals: false
+        });
+      }
+    </script>
 </head>
 
 <body>
@@ -69,9 +84,9 @@
                         <span class="premium-btn-text">Make a Donation</span>
                         <span class="premium-btn-sub">100% Tax Deductible</span>
                     </a>
-                    <a href="/Troy%20VEX%20Sponsorship%20Proposal.pdf" target="_blank" rel="noopener noreferrer" class="premium-btn btn-pdf">
+                    <a href="/contact" class="premium-btn btn-pdf">
                         <span class="premium-btn-text">Sponsorship Packet</span>
-                        <span class="premium-btn-sub">Download PDF</span>
+                        <span class="premium-btn-sub">Request Packet</span>
                     </a>
                 </div>
             </div>
