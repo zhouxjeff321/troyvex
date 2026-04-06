@@ -58,17 +58,6 @@ body.dark-mode {
     cursor: url('/images/misc/cursors/circle_cursor_white.svg') 12 12, auto;
 }
 
-a,
-button,
-.clickable {
-    cursor: url('/images/misc/cursors/circle_cursor.svg') 12 12, pointer;
-}
-
-body.dark-mode a,
-body.dark-mode button,
-body.dark-mode .clickable {
-    cursor: url('/images/misc/cursors/circle_cursor_white.svg') 12 12, pointer;
-}
 
 /* Global Fade In Animation */
 @keyframes fadeIn {
@@ -87,23 +76,9 @@ body {
     color: var(--text-color);
     background-color: var(--bg-color);
     transition: background-color 0.3s ease, color 0.3s ease;
-    cursor: url('/images/misc/cursors/circle_cursor.svg') 12 12, auto;
     animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Custom Cursor Global Enforce */
-a,
-button,
-[type="button"],
-[type="submit"],
-[role="button"],
-.btn,
-select,
-label,
-.logo-container,
-.dropdown-menu {
-    cursor: url('/images/misc/cursors/circle_cursor.svg') 12 12, auto !important;
-}
 
 header {
     color: var(--header-text);
@@ -225,7 +200,6 @@ body.dark-mode .btn-outline:hover {
 
 .btn-primary:hover {
     background: #8f1f28;
-    transform: translateY(-1px);
     color: #fff;
 }
 
@@ -238,35 +212,19 @@ body.dark-mode .btn-outline:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.55rem;
     padding: 0.9rem 1.9rem;
     background: #b12a34;
     color: #fff;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 6px;
     font-weight: 600;
     letter-spacing: 0.01em;
-    border: 1px solid #981f28;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14);
-    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.home-teams-btn::after {
-    content: "\2192";
-    font-size: 0.95rem;
-    line-height: 1;
-    transform: translateX(0);
-    transition: transform 0.2s ease;
+    border: none;
+    transition: background-color 0.2s ease;
 }
 
 .home-teams-btn:hover {
     background: #9f2430;
-    transform: translateY(-1px);
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
-}
-
-.home-teams-btn:hover::after {
-    transform: translateX(2px);
 }
 
 .home-teams-btn:focus-visible {
@@ -1542,25 +1500,22 @@ th {
     color: var(--accent-color);
     border: 1px solid var(--border-color);
     padding: 1.1rem 2rem;
-    border-radius: 14px;
+    border-radius: 6px;
     font-size: 1.08rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.2s ease;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.2px;
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
     justify-content: center;
     line-height: 1.15;
-    box-shadow: 0 6px 18px var(--card-shadow);
 }
 
 .donation-cta .cta-button:hover {
-    transform: translateY(-1px);
     background: var(--nav-hover);
-    box-shadow: 0 10px 26px var(--card-shadow);
 }
 
 .donation-cta .cta-button:focus {
@@ -2664,16 +2619,14 @@ body.dark-mode .highlight-label {
     justify-content: center;
     padding: 1.1rem 2.25rem;
     min-width: 200px;
-    border-radius: 10px;
+    border-radius: 6px;
     text-decoration: none;
-    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+    transition: opacity 0.2s ease, background 0.2s ease;
     text-align: center;
-    position: relative;
-    overflow: hidden;
 }
 
 .premium-btn:hover {
-    transform: translateY(-3px);
+    opacity: 0.9;
 }
 
 .premium-btn-text {
@@ -2693,41 +2646,28 @@ body.dark-mode .highlight-label {
 
 /* Button Variants */
 .btn-donate {
-    background: linear-gradient(135deg, #c9313d 0%, #b12a34 60%, #96222b 100%);
+    background: #b12a34;
     color: white;
-    box-shadow: 0 4px 18px rgba(177, 42, 52, 0.38), 0 1px 4px rgba(0,0,0,0.12);
-    border: 1px solid rgba(255,255,255,0.12);
+    border: none;
 }
 
 .btn-donate:hover {
-    background: linear-gradient(135deg, #d43540 0%, #b12a34 60%, #9a232c 100%);
-    box-shadow: 0 8px 28px rgba(177, 42, 52, 0.50), 0 2px 8px rgba(0,0,0,0.15);
+    background: #9a232c;
 }
 
 .btn-packet {
-    background: linear-gradient(135deg, #1a3060 0%, #0d1b3a 60%, #080e1e 100%);
+    background: #0d1b3a;
     color: white;
-    box-shadow: 0 4px 18px rgba(13, 27, 58, 0.45), 0 1px 4px rgba(0,0,0,0.12);
-    border: 1px solid rgba(255,255,255,0.12);
+    border: none;
 }
 
 .btn-packet:hover {
-    background: linear-gradient(135deg, #22397a 0%, #122244 60%, #0a1228 100%);
-    box-shadow: 0 8px 28px rgba(13, 27, 58, 0.60), 0 2px 8px rgba(0,0,0,0.18);
-}
-
-body.dark-mode .btn-packet {
-    background: linear-gradient(135deg, #1e3570 0%, #0d1b3a 60%, #060c1a 100%);
-}
-
-body.dark-mode .btn-packet:hover {
-    background: linear-gradient(135deg, #253f85 0%, #112250 60%, #080f25 100%);
+    background: #122244;
 }
 
 .btn-pdf {
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 60%, #d8d8d8 100%);
+    background: #eeeeee;
     color: #0d1b3a;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0,0,0,0.08);
     border: 1px solid rgba(0,0,0,0.10);
 }
 
@@ -2737,12 +2677,11 @@ body.dark-mode .btn-packet:hover {
 }
 
 .btn-pdf:hover {
-    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 60%, #e2e2e2 100%);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0,0,0,0.12);
+    background: #e0e0e0;
 }
 
 body.dark-mode .btn-pdf {
-    background: linear-gradient(135deg, #2a2a2a 0%, #1e1e1e 60%, #141414 100%);
+    background: #222222;
     border-color: rgba(255,255,255,0.15);
 }
 
@@ -2752,7 +2691,7 @@ body.dark-mode .btn-pdf .premium-btn-sub {
 }
 
 body.dark-mode .btn-pdf:hover {
-    background: linear-gradient(135deg, #333333 0%, #272727 60%, #1a1a1a 100%);
+    background: #2e2e2e;
 }
 
 
