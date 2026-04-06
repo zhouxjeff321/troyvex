@@ -117,7 +117,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
-    min-height: 70px;
+    min-height: 84px;
     position: relative;
 }
 
@@ -3010,7 +3010,7 @@ header {
 }
 
 body {
-    padding-top: 86px;
+    padding-top: 100px;
 }
 
 body.dark-mode header {
@@ -3155,7 +3155,7 @@ body.dark-mode header {
         justify-content: space-between !important;
         align-items: center !important;
         width: 100% !important;
-        padding: 0.5rem 1rem !important;
+        padding: 0.75rem 1rem !important;
     }
 
     .logo-container {

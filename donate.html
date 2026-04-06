@@ -17,14 +17,11 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      const analyticsConsent = localStorage.getItem('analytics_consent');
-      if (analyticsConsent === 'granted') {
-        gtag('config', 'G-10QE64BG2M', {
-          anonymize_ip: true,
-          allow_google_signals: false,
-          allow_ad_personalization_signals: false
-        });
-      }
+      gtag('config', 'G-10QE64BG2M', {
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
     </script>
 </head>
 
@@ -190,10 +187,10 @@
             <div class="donate-sponsor-cta-inner">
                 <div class="donate-cta-text">
                     <h3 class="serif-header">Becoming a corporate sponsor?</h3>
-                    <p>Request our sponsorship packet for tier details, logo placement, and partnership benefits.</p>
+                    <p>Download our sponsorship packet for tier details, logo placement, and partnership benefits.</p>
                 </div>
                 <div class="donate-cta-actions">
-                    <a href="/contact" class="donate-cta-btn donate-cta-btn-primary">Request Packet</a>
+                    <a href="/Troy%20VEX%20Sponsorship%20Proposal.pdf" target="_blank" rel="noopener noreferrer" class="donate-cta-btn donate-cta-btn-primary">Download Packet</a>
                     <a href="https://linktr.ee/troyvex" target="_blank" rel="noopener noreferrer" class="donate-cta-btn donate-cta-btn-secondary">linktr.ee/troyvex</a>
                 </div>
             </div>

@@ -17,14 +17,11 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      const analyticsConsent = localStorage.getItem('analytics_consent');
-      if (analyticsConsent === 'granted') {
-        gtag('config', 'G-10QE64BG2M', {
-          anonymize_ip: true,
-          allow_google_signals: false,
-          allow_ad_personalization_signals: false
-        });
-      }
+      gtag('config', 'G-10QE64BG2M', {
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
     </script>
 </head>
 
