@@ -16,3 +16,4 @@
 Thumbs.db
 .vscode/settings.json
 .gstack/
+.env.local

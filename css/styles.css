@@ -51,11 +51,11 @@ body {
 
 /* Custom Cursor */
 body {
-    cursor: url('/images/misc/cursors/circle_cursor.svg') 12 12, auto;
+    cursor: url('/images/misc/cursors/triangle_light.svg') 1 1, auto;
 }
 
 body.dark-mode {
-    cursor: url('/images/misc/cursors/circle_cursor_white.svg') 12 12, auto;
+    cursor: url('/images/misc/cursors/triangle_dark.svg') 1 1, auto;
 }
 
 
@@ -519,7 +519,7 @@ body.dark-mode .nav-links a::after {
     border-bottom: 1px solid var(--dropdown-border);
     font-family: 'Geist', sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
-    cursor: url('/images/misc/cursors/circle_cursor.svg') 12 12, auto;
+    cursor: url('/images/misc/cursors/triangle_light.svg') 1 1, auto;
 }
 
 .dropdown-menu a:hover {

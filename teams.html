@@ -23,6 +23,11 @@
         allow_ad_personalization_signals: false
       });
     </script>
+    <!-- PostHog Analytics -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_wyyXUmDa4h7GRYQvboEfkr4XzRUu9ge2HmLgYGKoUVEN',{api_host:'https://us.i.posthog.com', defaults:'2026-01-30'})
+    </script>
 </head>
 
 <body>
@@ -165,15 +170,74 @@
 
             <div class="staff-featured">
                 <img loading="lazy" src="/images/misc/staff.JPG" alt="Staff Team" class="staff-photo-clean">
-                <div class="staff-caption-card">
-                    <h3>The Leadership</h3>
-                    <p class="staff-names">
-                        <strong>Upper Row:</strong> Joy Lee, Jason Pan, Karthik Sajeev, Ryan Zhou, Avijeet Singh,
-                        Krishna Sivakumar, Sai Arasala, Yucheng Chen, Troy Song, Suhasni Sampath.<br>
-                        <strong>Founders:</strong> Aaron Li &amp; Kausthubh Veldanda.
-                    </p>
-                </div>
             </div>
+
+            <ul class="leadership-list">
+                <li>
+                    <span class="l-role">Overall Commander</span>
+                    <span class="l-name">Ryan Zhou</span>
+                </li>
+                <li>
+                    <span class="l-role">Overall Executive Officer</span>
+                    <span class="l-name">Krishna Sivakumar</span>
+                </li>
+                <li>
+                    <span class="l-role">Overall Executive Officer</span>
+                    <span class="l-name">Avijeet Singh</span>
+                </li>
+                <li>
+                    <span class="l-role">Team A — Aegis CO</span>
+                    <span class="l-name">Ryan Zhou</span>
+                </li>
+                <li>
+                    <span class="l-role">Team A — Aegis XO</span>
+                    <span class="l-name">Lucas Wang</span>
+                </li>
+                <li>
+                    <span class="l-role">Team B — Ouroboros CO</span>
+                    <span class="l-name">Krishna Sivakumar</span>
+                </li>
+                <li>
+                    <span class="l-role">Team B — Ouroboros XO</span>
+                    <span class="l-name">Troy Song</span>
+                </li>
+                <li>
+                    <span class="l-role">Team C — Jinx CO</span>
+                    <span class="l-name">Sai Arasala</span>
+                </li>
+                <li>
+                    <span class="l-role">Team C — Jinx XO</span>
+                    <span class="l-name">Karthik Sajeev</span>
+                </li>
+                <li>
+                    <span class="l-role">Team D — Nyx CO</span>
+                    <span class="l-name">Suhasni Sampath</span>
+                </li>
+                <li>
+                    <span class="l-role">Team D — Nyx XO</span>
+                    <span class="l-name">Yucheng Chen</span>
+                </li>
+                <li>
+                    <span class="l-role">Team E — Eclipse CO</span>
+                    <span class="l-name">Jason Pan</span>
+                </li>
+                <li>
+                    <span class="l-role">Team E — Eclipse XO</span>
+                    <span class="l-name">Joy Lee</span>
+                </li>
+                <li>
+                    <span class="l-role">Team X — Paradox CO</span>
+                    <span class="l-name">Aaron Li</span>
+                </li>
+                <li>
+                    <span class="l-role">Team Y — Atlantis CO</span>
+                    <span class="l-name">Mason Zhong</span>
+                </li>
+                <li>
+                    <span class="l-role">Founders</span>
+                    <span class="l-name">Aaron Li &amp; Kausthubh Veldanda</span>
+                </li>
+            </ul>
         </section>
 
         <!-- Teams Grid - Clean & Interactive -->
