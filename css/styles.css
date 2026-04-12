@@ -328,7 +328,7 @@ body.dark-mode .glass-card {
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: var(--header-text);
+    background-color: #b12a34;
     transition: all 0.3s ease-in-out;
     transform: translateX(-50%);
 }
@@ -343,7 +343,7 @@ body.dark-mode .nav-links a:hover {
 }
 
 body.dark-mode .nav-links a::after {
-    background-color: #fff;
+    background-color: #b12a34;
 }
 
 /* Dropdown Menu Styles */
@@ -352,22 +352,27 @@ body.dark-mode .nav-links a::after {
 }
 
 .dropdown-menu {
-    display: none;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
     position: absolute;
-    top: calc(100% + 10px);
+    top: calc(100% + 4px);
     left: 0;
-    background: rgba(28, 28, 30, 0.88);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background: rgba(252, 252, 254, 0.72);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
     width: max-content;
     min-width: 180px;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14), 0 2px 8px rgba(0, 0, 0, 0.08);
     z-index: 1000;
     list-style: none;
     padding: 6px;
     margin: 0;
+    transform: scale(0.96) translateY(-6px);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s ease 0.25s;
 }
 
 @keyframes dropdownFadeIn {
@@ -376,8 +381,11 @@ body.dark-mode .nav-links a::after {
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
-    animation: dropdownFadeIn 0.15s ease;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1) translateY(0);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s ease 0s;
 }
 
 .nav-links li:last-child .dropdown-menu {
@@ -460,13 +468,18 @@ body.dark-mode .nav-links a::after {
 
     /* Mobile Dropdown Handling */
     .dropdown:hover .dropdown-menu {
-        display: none;
-        /* Disable hover on mobile */
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
     }
 
     .dropdown.active .dropdown-menu {
-        display: block;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
         position: static;
+        transform: none;
+        transition: none;
         box-shadow: none;
         background: rgba(0, 0, 0, 0.06);
         backdrop-filter: none;
@@ -475,7 +488,6 @@ body.dark-mode .nav-links a::after {
         width: 100%;
         margin-top: 0.5rem;
         border-radius: 8px;
-        animation: none;
     }
 
     body.dark-mode .dropdown.active .dropdown-menu {
@@ -528,7 +540,7 @@ body.dark-mode .nav-links a::after {
 .dropdown-menu a {
     display: block;
     padding: 7px 12px;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(0, 0, 0, 0.85);
     text-decoration: none;
     white-space: nowrap;
     border-bottom: none;
@@ -540,7 +552,21 @@ body.dark-mode .nav-links a::after {
 }
 
 .dropdown-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(0, 0, 0, 0.07);
+}
+
+body.dark-mode .dropdown-menu {
+    background: rgba(44, 44, 48, 0.72);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .dropdown-menu a {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+body.dark-mode .dropdown-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Team Detail Page Styles */
