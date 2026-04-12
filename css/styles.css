@@ -346,6 +346,25 @@ body.dark-mode .nav-links a::after {
     background-color: #b12a34;
 }
 
+/* Dark mode navbar text: red */
+body.dark-mode .nav-links > li > a {
+    color: #b12a34;
+}
+
+/* Dark mode desktop dropdown */
+body.dark-mode .dropdown-menu {
+    background: rgba(26, 26, 26, 0.82);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .dropdown-menu a {
+    color: #e0e0e0;
+}
+
+body.dark-mode .dropdown-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
 /* Dropdown Menu Styles */
 .dropdown {
     position: relative;
@@ -359,7 +378,7 @@ body.dark-mode .nav-links a::after {
     position: absolute;
     top: calc(100% + 4px);
     left: 0;
-    background: rgba(252, 252, 254, 0.72);
+    background: rgba(252, 252, 254, 0.55);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
     width: max-content;
