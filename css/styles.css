@@ -353,7 +353,7 @@ body.dark-mode .nav-links > li > a {
 
 /* Dark mode desktop dropdown */
 body.dark-mode .dropdown-menu {
-    background: rgba(26, 26, 26, 0.82);
+    background: rgba(26, 26, 26, 0.95);
     border-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -378,7 +378,7 @@ body.dark-mode .dropdown-menu a:hover {
     position: absolute;
     top: calc(100% + 4px);
     left: 0;
-    background: rgba(252, 252, 254, 0.55);
+    background: rgba(252, 252, 254, 0.95);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
     width: max-content;
