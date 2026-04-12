@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Alumni - Troy VEX Robotics</title>
+    <link rel="stylesheet" href="/css/styles.css?v=4">
+    <link rel="stylesheet" href="/css/about.css">
+    <link rel="icon" type="image/png" href="/images/logos/njrotcupdated.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-10QE64BG2M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-10QE64BG2M', {
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
+    </script>
+    <!-- PostHog Analytics -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_wyyXUmDa4h7GRYQvboEfkr4XzRUu9ge2HmLgYGKoUVEN',{api_host:'https://us.i.posthog.com', defaults:'2026-01-30'})
+    </script>
+    <style>
+        .alumni-hero {
+            text-align: center;
+            padding: 5rem 2rem 3.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .alumni-hero .subtitle {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #b12a34;
+            margin-bottom: 1.25rem;
+        }
+        .alumni-hero h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+            color: var(--text-color);
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+        }
+        .alumni-hero .description {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            line-height: 1.7;
+        }
+        .alumni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto 5rem;
+            padding: 0 2rem;
+        }
+        .alumni-card {
+            background: var(--card-bg, #f9fafb);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border-color, #e5e7eb);
+        }
+        .alumni-card .grad-year {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #b12a34;
+            margin-bottom: 0.75rem;
+        }
+        .alumni-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        .alumni-card .role {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-bottom: 0.75rem;
+        }
+        .alumni-card p {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            line-height: 1.6;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 3rem 0 2rem;
+        }
+        @media (max-width: 768px) {
+            .alumni-hero h1 { font-size: 2rem; }
+            .alumni-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="/"><img src="/images/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo"></a>
+                <span class="logo-text" style="font-size:2rem;">Troy VEX Robotics</span>
+            </div>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="/about">About</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/alumni">Alumni</a></li>
+                        <li><a href="/ourwork">Our Work</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/teams">Teams</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/teams">Our Teams</a></li>
+                        <li><a href="/teama">Team A - Aegis</a></li>
+                        <li><a href="/teamb">Team B - Ouroboros</a></li>
+                        <li><a href="/teamc">Team C - Jinx</a></li>
+                        <li><a href="/teamd">Team D - Nyx</a></li>
+                        <li><a href="/teame">Team E - Eclipse</a></li>
+                        <li><a href="/teamx">Team X - Paradox</a></li>
+                        <li><a href="/teamy">Team Y - Atlantis</a></li>
+                    </ul>
+                </li>
+                <li><a href="/sponsors">Sponsors</a></li>
+                <li class="dropdown">
+                    <a href="/events">Events</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/events">Event List</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
+                    </ul>
+                </li>
+                <li><a href="/awards">Awards</a></li>
+                <li class="dropdown">
+                    <a href="/join">Join Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/donate">Donate</a></li>
+                        <li><a href="/join">Prospective Members</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="alumni-hero">
+            <span class="subtitle">Where Are They Now</span>
+            <h1 class="serif-header">Our Alumni</h1>
+            <p class="description">
+                Troy VEX graduates go on to top universities and careers in engineering, technology, and leadership. Their success is the measure of our program's impact.
+            </p>
+        </section>
+
+        <h2 class="section-title serif-header">Class of 2025</h2>
+        <div class="alumni-grid">
+            <div class="alumni-card">
+                <span class="grad-year">Class of 2025</span>
+                <h3 class="serif-header">Alumni Name</h3>
+                <p class="role">Team Captain &mdash; Team A</p>
+                <p>Going on to study Mechanical Engineering. Led the team to a World Championship qualification in the 2024-25 season.</p>
+            </div>
+            <div class="alumni-card">
+                <span class="grad-year">Class of 2025</span>
+                <h3 class="serif-header">Alumni Name</h3>
+                <p class="role">Build Lead &mdash; Team B</p>
+                <p>Heading to a top-10 engineering program. Designed award-winning robot mechanisms across two competitive seasons.</p>
+            </div>
+            <div class="alumni-card">
+                <span class="grad-year">Class of 2025</span>
+                <h3 class="serif-header">Alumni Name</h3>
+                <p class="role">Programming Lead &mdash; Team E</p>
+                <p>Pursuing Computer Science. Developed the autonomous routines that powered three consecutive tournament wins.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title serif-header">Class of 2024</h2>
+        <div class="alumni-grid">
+            <div class="alumni-card">
+                <span class="grad-year">Class of 2024</span>
+                <h3 class="serif-header">Alumni Name</h3>
+                <p class="role">Program Founder</p>
+                <p>One of the original 11 cadets who started the program in a garage. Now studying at a UC campus.</p>
+            </div>
+            <div class="alumni-card">
+                <span class="grad-year">Class of 2024</span>
+                <h3 class="serif-header">Alumni Name</h3>
+                <p class="role">Drive Team &mdash; Team X</p>
+                <p>Competed at the VEX Robotics World Championship. Now pursuing Aerospace Engineering.</p>
+            </div>
+            <div class="alumni-card">
+                <span class="grad-year">Class of 2024</span>
+                <h3 class="serif-header">Alumni Name</h3>
+                <p class="role">Notebooker &mdash; Team C</p>
+                <p>Won the Excellence Award for outstanding engineering documentation. Studying Business at a top university.</p>
+            </div>
+        </div>
+
+        <section style="text-align:center; padding: 3.5rem 2rem; background: var(--card-bg,#f9fafb); border-radius: 20px; max-width: 900px; margin: 0 auto 4rem;">
+            <h2 class="serif-header" style="font-size:1.75rem; margin-bottom:0.75rem; color:var(--text-color);">Are You an Alum?</h2>
+            <p style="font-size:1.05rem; color:var(--secondary-text); margin:0 auto 2rem; max-width:500px;">We'd love to feature your story. Reach out and let us know where Troy VEX took you.</p>
+            <a href="https://linktr.ee/troyvex" target="_blank" rel="noopener noreferrer" class="btn-primary">Get In Touch</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Troy High School VEX Robotics. All rights reserved.</p>
+        <p>2200 E Dorothy Ln, Fullerton, CA 92831, Room 401</p>
+        <a href="https://linktr.ee/troyvex" target="_blank" rel="noopener noreferrer" class="footer-contact-btn">Contact Us</a>
+    </footer>
+    <script src="/js/darkmode.js?v=2"></script>
+</body>
+
+</html>
