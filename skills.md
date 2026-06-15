@@ -106,7 +106,8 @@ php -S localhost:3000
 
 ### File Structure
 
-- **19 live HTML pages**: `index.html` stays at root; other live pages are grouped under `pages/` by site area
+- **19 live HTML pages**: root `*.html` files are the deployment route files required for clean URLs
+- **Grouped page copies**: `pages/` mirrors pages by site area for organization/reference
 - **Bundled CSS file**: `assets/css/site.css` contains global and page styles
 - **Archived source CSS**: `archive/source-css/css/` preserves the original split CSS files
 - **Single JS file**: `assets/js/darkmode.js` for theme toggle and mobile navigation
@@ -123,7 +124,7 @@ php -S localhost:3000
 
 ### Maintenance Patterns
 
-- **Navigation updates**: Must be synchronized across `index.html` and all live HTML files under `pages/`
+- **Navigation updates**: Must be synchronized across all root route files; update grouped `pages/` copies too if they are kept in sync
 - **Styling**: All changes go in `assets/css/site.css`; move reusable inline styles there when touching related markup
 - **Images**: Optimize before adding, use descriptive filenames, and place them under `assets/images/`
 - **Testing**: Verify all breakpoints, test with local server

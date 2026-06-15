@@ -50,17 +50,17 @@ class ExtensionlessHandler(http.server.SimpleHTTPRequestHandler):
             self.path = '/index.html'
             return super().do_GET()
 
-        # Clean public routes now map to grouped source files under pages/.
-        if path.rstrip('/') in ROUTES:
-            self.path = '/' + ROUTES[path.rstrip('/')]
-            return super().do_GET()
-
-        # Try appending .html for root-level or direct nested HTML requests.
+        # Prefer root route files so local preview matches static deployment.
         if not path.endswith('.html'):
             html_path = path.rstrip('/') + '.html'
             if is_workspace_file(html_path):
                 self.path = html_path
                 return super().do_GET()
+
+        # Fallback for grouped reference copies under pages/.
+        if path.rstrip('/') in ROUTES:
+            self.path = '/' + ROUTES[path.rstrip('/')]
+            return super().do_GET()
 
         return super().do_GET()
 

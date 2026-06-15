@@ -19,14 +19,15 @@ Python executable on this machine: `C:\Users\ryanz\AppData\Local\Programs\Python
 
 ## Source Layout
 
-Live pages are grouped under `pages/` by site area while public routes remain clean:
+Root HTML files are required for production clean URLs. Vercel resolves `/about` from `about.html` when `cleanUrls` is enabled. Keep these root route files in place.
 
-- `index.html` stays at root for `/`
-- `pages/about/` maps `/about`, `/alumni`, `/ourwork`
-- `pages/teams/` maps `/teams`, `/teama`, `/teamb`, `/teamc`, `/teamd`, `/teame`, `/teamx`, `/teamy`
-- `pages/events/` maps `/events`, `/gallery`
-- `pages/program/` maps `/awards`
-- `pages/support/` maps `/sponsors`, `/donate`, `/join`, `/contact`
+Grouped copies remain under `pages/` for organization/reference:
+
+- `pages/about/`: about, alumni, our work
+- `pages/teams/`: teams overview and team profiles
+- `pages/events/`: events and gallery
+- `pages/program/`: awards
+- `pages/support/`: sponsors, donate, join, contact
 
 Image assets are grouped under `assets/images/brand`, `program`, `teams`, `events`, `people`, and `ui`.
 

@@ -1,23 +1,3 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/about", "destination": "/pages/about/about.html" },
-    { "source": "/alumni", "destination": "/pages/about/alumni.html" },
-    { "source": "/ourwork", "destination": "/pages/about/ourwork.html" },
-    { "source": "/teams", "destination": "/pages/teams/teams.html" },
-    { "source": "/teama", "destination": "/pages/teams/teama.html" },
-    { "source": "/teamb", "destination": "/pages/teams/teamb.html" },
-    { "source": "/teamc", "destination": "/pages/teams/teamc.html" },
-    { "source": "/teamd", "destination": "/pages/teams/teamd.html" },
-    { "source": "/teame", "destination": "/pages/teams/teame.html" },
-    { "source": "/teamx", "destination": "/pages/teams/teamx.html" },
-    { "source": "/teamy", "destination": "/pages/teams/teamy.html" },
-    { "source": "/events", "destination": "/pages/events/events.html" },
-    { "source": "/gallery", "destination": "/pages/events/gallery.html" },
-    { "source": "/awards", "destination": "/pages/program/awards.html" },
-    { "source": "/sponsors", "destination": "/pages/support/sponsors.html" },
-    { "source": "/donate", "destination": "/pages/support/donate.html" },
-    { "source": "/join", "destination": "/pages/support/join.html" },
-    { "source": "/contact", "destination": "/pages/support/contact.html" }
-  ]
+  "cleanUrls": true
 }

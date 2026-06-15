@@ -4,12 +4,12 @@ Static website for the Troy High School VEX Robotics program.
 
 ## Structure
 
-- `index.html` - homepage entry point kept at the project root.
-- `pages/about/` - about, alumni, and our work pages.
-- `pages/teams/` - teams overview and individual team profile pages.
-- `pages/events/` - events and gallery pages.
-- `pages/program/` - awards and program-result pages.
-- `pages/support/` - sponsors, donate, join, and contact pages.
+- Root `*.html` files - public route files required for static clean URLs like `/about`.
+- `pages/about/` - grouped reference copies for about, alumni, and our work pages.
+- `pages/teams/` - grouped reference copies for teams overview and individual team profiles.
+- `pages/events/` - grouped reference copies for events and gallery pages.
+- `pages/program/` - grouped reference copy for awards.
+- `pages/support/` - grouped reference copies for sponsors, donate, join, and contact pages.
 - `assets/css/site.css` - bundled stylesheet used by every live page.
 - `assets/js/darkmode.js` - dark mode toggle and mobile navigation behavior.
 - `assets/images/brand/` - logos and editable brand source files.
