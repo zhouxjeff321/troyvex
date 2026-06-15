@@ -27,6 +27,76 @@
         !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
         posthog.init('phc_wyyXUmDa4h7GRYQvboEfkr4XzRUu9ge2HmLgYGKoUVEN',{api_host:'https://us.i.posthog.com', defaults:'2026-01-30'})
     </script>
+    <style>
+        /* ===== Teams + Members redesign (Minimal Clean) ===== */
+        .tm-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .tm-card {
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            background: var(--card-bg);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .tm-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 32px rgba(13, 27, 58, 0.12);
+            border-color: #b12a34;
+        }
+        .tm-card .tm-img { aspect-ratio: 4 / 3; overflow: hidden; }
+        .tm-card .tm-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .tm-card .tm-body { padding: 1rem 1.1rem 1.2rem; }
+        .tm-card .tm-top { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+        .tm-card .tm-top h3 { font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--text-color); }
+        .tm-card .tm-code {
+            font-family: 'Geist Mono', 'Geist', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.05em;
+            color: var(--secondary-text);
+        }
+        .tm-card .tm-leads { margin-top: 0.7rem; font-size: 0.88rem; color: var(--secondary-text); line-height: 1.7; }
+        .tm-card .tm-leads strong { color: var(--text-color); }
+        .tm-card .tm-link {
+            display: inline-block;
+            margin-top: 0.9rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #b12a34;
+            text-decoration: none;
+        }
+        .tm-card .tm-link:hover { text-decoration: underline; }
+
+        /* members — tidy alphabetical columns */
+        .tm-cols {
+            column-count: 5;
+            column-gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .tm-cols .tm-member {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-color);
+            break-inside: avoid;
+        }
+
+        @media (max-width: 1024px) {
+            .tm-grid { grid-template-columns: repeat(3, 1fr); }
+            .tm-cols { column-count: 4; }
+        }
+        @media (max-width: 768px) {
+            .tm-grid { grid-template-columns: repeat(2, 1fr); }
+            .tm-cols { column-count: 2; }
+        }
+    </style>
 </head>
 
 <body>
@@ -192,142 +262,74 @@
                 <p>Seven teams. One mission.</p>
             </div>
 
-            <div class="squad-grid-clean">
+            <div class="tm-grid">
                 <!-- Team A -->
-                <div class="squad-card hover-lift">
-                    <div class="squad-img-container">
-                        <img loading="lazy" src="/assets/images/teams/thumbnails/teama.JPG" alt="Team Aegis">
-                        <div class="squad-overlay">
-                            <a href="/teama" class="view-btn">View Profile</a>
-                        </div>
-                    </div>
-                    <div class="squad-info">
-                        <div class="squad-header">
-                            <h3>Aegis</h3>
-                            <span class="squad-code">98601A</span>
-                        </div>
-                        <div class="squad-leaders">
-                            <p><strong>CO:</strong> Ryan Zhou</p>
-                            <p><strong>XO:</strong> Lucas Wang</p>
-                        </div>
+                <div class="tm-card">
+                    <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teama.JPG" alt="Team Aegis"></div>
+                    <div class="tm-body">
+                        <div class="tm-top"><h3>Aegis</h3><span class="tm-code">98601A</span></div>
+                        <div class="tm-leads"><strong>CO</strong> Ryan Zhou<br><strong>XO</strong> Lucas Wang</div>
+                        <a href="/teama" class="tm-link">View Profile →</a>
                     </div>
                 </div>
 
                 <!-- Team B -->
-                <div class="squad-card hover-lift">
-                    <div class="squad-img-container">
-                        <img loading="lazy" src="/assets/images/teams/thumbnails/teamb.JPG" alt="Team Ouroboros">
-                        <div class="squad-overlay">
-                            <a href="/teamb" class="view-btn">View Profile</a>
-                        </div>
-                    </div>
-                    <div class="squad-info">
-                        <div class="squad-header">
-                            <h3>Ouroboros</h3>
-                            <span class="squad-code">98601B</span>
-                        </div>
-                        <div class="squad-leaders">
-                            <p><strong>CO:</strong> Krishna Sivakumar</p>
-                            <p><strong>XO:</strong> Troy Song</p>
-                        </div>
+                <div class="tm-card">
+                    <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teamb.JPG" alt="Team Ouroboros"></div>
+                    <div class="tm-body">
+                        <div class="tm-top"><h3>Ouroboros</h3><span class="tm-code">98601B</span></div>
+                        <div class="tm-leads"><strong>CO</strong> Krishna Sivakumar<br><strong>XO</strong> Troy Song</div>
+                        <a href="/teamb" class="tm-link">View Profile →</a>
                     </div>
                 </div>
 
                 <!-- Team C -->
-                <div class="squad-card hover-lift">
-                    <div class="squad-img-container">
-                        <img loading="lazy" src="/assets/images/teams/thumbnails/teamc.JPG" alt="Team Jinx">
-                        <div class="squad-overlay">
-                            <a href="/teamc" class="view-btn">View Profile</a>
-                        </div>
-                    </div>
-                    <div class="squad-info">
-                        <div class="squad-header">
-                            <h3>Jinx</h3>
-                            <span class="squad-code">98601C</span>
-                        </div>
-                        <div class="squad-leaders">
-                            <p><strong>CO:</strong> Sai Arasala</p>
-                            <p><strong>XO:</strong> Karthik Sajeev</p>
-                        </div>
+                <div class="tm-card">
+                    <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teamc.JPG" alt="Team Jinx"></div>
+                    <div class="tm-body">
+                        <div class="tm-top"><h3>Jinx</h3><span class="tm-code">98601C</span></div>
+                        <div class="tm-leads"><strong>CO</strong> Sai Arasala<br><strong>XO</strong> Karthik Sajeev</div>
+                        <a href="/teamc" class="tm-link">View Profile →</a>
                     </div>
                 </div>
 
                 <!-- Team D -->
-                <div class="squad-card hover-lift">
-                    <div class="squad-img-container">
-                        <img loading="lazy" src="/assets/images/teams/thumbnails/teamd.JPG" alt="Team Nyx">
-                        <div class="squad-overlay">
-                            <a href="/teamd" class="view-btn">View Profile</a>
-                        </div>
-                    </div>
-                    <div class="squad-info">
-                        <div class="squad-header">
-                            <h3>Nyx</h3>
-                            <span class="squad-code">98601D</span>
-                        </div>
-                        <div class="squad-leaders">
-                            <p><strong>CO:</strong> Suhasni Sampath</p>
-                            <p><strong>XO:</strong> Yucheng Chen</p>
-                        </div>
+                <div class="tm-card">
+                    <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teamd.JPG" alt="Team Nyx"></div>
+                    <div class="tm-body">
+                        <div class="tm-top"><h3>Nyx</h3><span class="tm-code">98601D</span></div>
+                        <div class="tm-leads"><strong>CO</strong> Suhasni Sampath<br><strong>XO</strong> Yucheng Chen</div>
+                        <a href="/teamd" class="tm-link">View Profile →</a>
                     </div>
                 </div>
 
                 <!-- Team E -->
-                <div class="squad-card hover-lift">
-                    <div class="squad-img-container">
-                        <img loading="lazy" src="/assets/images/teams/thumbnails/teame.JPG" alt="Team Eclipse">
-                        <div class="squad-overlay">
-                            <a href="/teame" class="view-btn">View Profile</a>
-                        </div>
-                    </div>
-                    <div class="squad-info">
-                        <div class="squad-header">
-                            <h3>Eclipse</h3>
-                            <span class="squad-code">98601E</span>
-                        </div>
-                        <div class="squad-leaders">
-                            <p><strong>CO:</strong> Jason Pan</p>
-                            <p><strong>XO:</strong> Joy Lee</p>
-                        </div>
+                <div class="tm-card">
+                    <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teame.JPG" alt="Team Eclipse"></div>
+                    <div class="tm-body">
+                        <div class="tm-top"><h3>Eclipse</h3><span class="tm-code">98601E</span></div>
+                        <div class="tm-leads"><strong>CO</strong> Jason Pan<br><strong>XO</strong> Joy Lee</div>
+                        <a href="/teame" class="tm-link">View Profile →</a>
                     </div>
                 </div>
 
                 <!-- Team X -->
-                <div class="squad-card hover-lift">
-                    <div class="squad-img-container">
-                        <img loading="lazy" src="/assets/images/teams/thumbnails/teamx.JPG" alt="Team Paradox">
-                        <div class="squad-overlay">
-                            <a href="/teamx" class="view-btn">View Profile</a>
-                        </div>
-                    </div>
-                    <div class="squad-info">
-                        <div class="squad-header">
-                            <h3>Paradox</h3>
-                            <span class="squad-code">98601X</span>
-                        </div>
-                        <div class="squad-leaders">
-                            <p><strong>CO:</strong> Aaron Li</p>
-                        </div>
+                <div class="tm-card">
+                    <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teamx.JPG" alt="Team Paradox"></div>
+                    <div class="tm-body">
+                        <div class="tm-top"><h3>Paradox</h3><span class="tm-code">98601X</span></div>
+                        <div class="tm-leads"><strong>CO</strong> Aaron Li</div>
+                        <a href="/teamx" class="tm-link">View Profile →</a>
                     </div>
                 </div>
 
                 <!-- Team Y -->
-                <div class="squad-card hover-lift">
-                    <div class="squad-img-container">
-                        <img loading="lazy" src="/assets/images/teams/thumbnails/teamy.JPG" alt="Team Atlantis">
-                        <div class="squad-overlay">
-                            <a href="/teamy" class="view-btn">View Profile</a>
-                        </div>
-                    </div>
-                    <div class="squad-info">
-                        <div class="squad-header">
-                            <h3>Atlantis</h3>
-                            <span class="squad-code">98601Y</span>
-                        </div>
-                        <div class="squad-leaders">
-                            <p><strong>CO:</strong> Mason Zhong</p>
-                        </div>
+                <div class="tm-card">
+                    <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teamy.JPG" alt="Team Atlantis"></div>
+                    <div class="tm-body">
+                        <div class="tm-top"><h3>Atlantis</h3><span class="tm-code">98601Y</span></div>
+                        <div class="tm-leads"><strong>CO</strong> Mason Zhong</div>
+                        <a href="/teamy" class="tm-link">View Profile →</a>
                     </div>
                 </div>
             </div>
@@ -339,78 +341,77 @@
                 <h2 class="serif-title small-margin">Our Members</h2>
                 <div class="roster-decoration-line"></div>
             </div>
-            <div class="roster-grid-modern">
-                <!-- Using P content from original file but styled as pills -->
-                <div class="member-pill">Ryan Zhou</div>
-                <div class="member-pill">Lucas Wang</div>
-                <div class="member-pill">Ellsa Ye</div>
-                <div class="member-pill">Minjun Gal</div>
-                <div class="member-pill">Jeffrey Wang</div>
-                <div class="member-pill">Lucas Le</div>
-                <div class="member-pill">Bella Yuh</div>
-                <div class="member-pill">Milton Tseng</div>
-                <div class="member-pill">Matthias Cheung</div>
-                <div class="member-pill">Aryan Talwar</div>
-                <div class="member-pill">Shri Krishna Sivakumar</div>
-                <div class="member-pill">Troy Song</div>
-                <div class="member-pill">Shreyas Rawat</div>
-                <div class="member-pill">Sean Kang</div>
-                <div class="member-pill">Eric Chen</div>
-                <div class="member-pill">Sai Arasala</div>
-                <div class="member-pill">Karthik Sajeev</div>
-                <div class="member-pill">Benjamin Pham</div>
-                <div class="member-pill">Prajit Manicka</div>
-                <div class="member-pill">Veeram Dugar</div>
-                <div class="member-pill">Aaron Torres</div>
-                <div class="member-pill">Alexander James Chang</div>
-                <div class="member-pill">Shreyas Kolluru</div>
-                <div class="member-pill">Ritvin Rejith</div>
-                <div class="member-pill">Jerome Liu</div>
-                <div class="member-pill">Jason Pan</div>
-                <div class="member-pill">Joy Lee</div>
-                <div class="member-pill">Andy Ahn</div>
-                <div class="member-pill">Ryder Yeh</div>
-                <div class="member-pill">Srisha Sriram</div>
-                <div class="member-pill">Charles Kim</div>
-                <div class="member-pill">Caleb Yang</div>
-                <div class="member-pill">Aaron Li</div>
-                <div class="member-pill">Daniel Tran</div>
-                <div class="member-pill">Avijeet Singh</div>
-                <div class="member-pill">Rohan Chakrabortygupta</div>
-                <div class="member-pill">Eddie Chien</div>
-                <div class="member-pill">Tyler Lu</div>
-                <div class="member-pill">Allen Hsieh</div>
-                <div class="member-pill">Mason Zhong</div>
-                <div class="member-pill">Felix Chen</div>
-                <div class="member-pill">Albert Zhang</div>
-                <div class="member-pill">Nathan Lee</div>
-                <div class="member-pill">Suhasni Sampath</div>
-                <div class="member-pill">Yu-Cheng Chen</div>
-                <div class="member-pill">Stephanie Chen</div>
-                <div class="member-pill">Swasti Dhagat</div>
-                <div class="member-pill">Kevin Zhu</div>
-                <div class="member-pill">Ze Wu</div>
-                <div class="member-pill">Na-Rui Gu</div>
-                <div class="member-pill">Dana Yi</div>
-                <div class="member-pill">Hilly Choe</div>
-                <div class="member-pill">Nihaar Pinninti</div>
-                <div class="member-pill">Shawn Kim</div>
-                <div class="member-pill">Myra Su</div>
-                <div class="member-pill">Jayden Lee</div>
-                <div class="member-pill">Arjun Reddy</div>
-                <div class="member-pill">Ain Kim</div>
-                <div class="member-pill">Preston Loo</div>
-                <div class="member-pill">Sindy Wang</div>
-                <div class="member-pill">Terence Ren</div>
-                <div class="member-pill">Luc Lacroix</div>
-                <div class="member-pill">Daniel Ren</div>
-                <div class="member-pill">Ishan Wazir</div>
-                <div class="member-pill">Emma Gong</div>
-                <div class="member-pill">Souhardyo Saha</div>
-                <div class="member-pill">Ezekial Obena</div>
-                <div class="member-pill">Aditya Gautham</div>
-                <div class="member-pill">Kevin Yin</div>
-                <div class="member-pill">Kausthubh Veldanda</div>
+            <div class="tm-cols">
+                <div class="tm-member">Aaron Li</div>
+                <div class="tm-member">Aaron Torres</div>
+                <div class="tm-member">Aditya Gautham</div>
+                <div class="tm-member">Ain Kim</div>
+                <div class="tm-member">Albert Zhang</div>
+                <div class="tm-member">Alexander James Chang</div>
+                <div class="tm-member">Allen Hsieh</div>
+                <div class="tm-member">Andy Ahn</div>
+                <div class="tm-member">Arjun Reddy</div>
+                <div class="tm-member">Aryan Talwar</div>
+                <div class="tm-member">Avijeet Singh</div>
+                <div class="tm-member">Bella Yuh</div>
+                <div class="tm-member">Benjamin Pham</div>
+                <div class="tm-member">Caleb Yang</div>
+                <div class="tm-member">Charles Kim</div>
+                <div class="tm-member">Dana Yi</div>
+                <div class="tm-member">Daniel Ren</div>
+                <div class="tm-member">Daniel Tran</div>
+                <div class="tm-member">Eddie Chien</div>
+                <div class="tm-member">Ellsa Ye</div>
+                <div class="tm-member">Emma Gong</div>
+                <div class="tm-member">Eric Chen</div>
+                <div class="tm-member">Ezekial Obena</div>
+                <div class="tm-member">Felix Chen</div>
+                <div class="tm-member">Hilly Choe</div>
+                <div class="tm-member">Ishan Wazir</div>
+                <div class="tm-member">Jason Pan</div>
+                <div class="tm-member">Jayden Lee</div>
+                <div class="tm-member">Jeffrey Wang</div>
+                <div class="tm-member">Jerome Liu</div>
+                <div class="tm-member">Joy Lee</div>
+                <div class="tm-member">Karthik Sajeev</div>
+                <div class="tm-member">Kausthubh Veldanda</div>
+                <div class="tm-member">Kevin Yin</div>
+                <div class="tm-member">Kevin Zhu</div>
+                <div class="tm-member">Luc Lacroix</div>
+                <div class="tm-member">Lucas Le</div>
+                <div class="tm-member">Lucas Wang</div>
+                <div class="tm-member">Mason Zhong</div>
+                <div class="tm-member">Matthias Cheung</div>
+                <div class="tm-member">Milton Tseng</div>
+                <div class="tm-member">Minjun Gal</div>
+                <div class="tm-member">Myra Su</div>
+                <div class="tm-member">Na-Rui Gu</div>
+                <div class="tm-member">Nathan Lee</div>
+                <div class="tm-member">Nihaar Pinninti</div>
+                <div class="tm-member">Prajit Manicka</div>
+                <div class="tm-member">Preston Loo</div>
+                <div class="tm-member">Ritvin Rejith</div>
+                <div class="tm-member">Rohan Chakrabortygupta</div>
+                <div class="tm-member">Ryan Zhou</div>
+                <div class="tm-member">Ryder Yeh</div>
+                <div class="tm-member">Sai Arasala</div>
+                <div class="tm-member">Sean Kang</div>
+                <div class="tm-member">Shawn Kim</div>
+                <div class="tm-member">Shreyas Kolluru</div>
+                <div class="tm-member">Shreyas Rawat</div>
+                <div class="tm-member">Shri Krishna Sivakumar</div>
+                <div class="tm-member">Sindy Wang</div>
+                <div class="tm-member">Souhardyo Saha</div>
+                <div class="tm-member">Srisha Sriram</div>
+                <div class="tm-member">Stephanie Chen</div>
+                <div class="tm-member">Suhasni Sampath</div>
+                <div class="tm-member">Swasti Dhagat</div>
+                <div class="tm-member">Terence Ren</div>
+                <div class="tm-member">Troy Song</div>
+                <div class="tm-member">Tyler Lu</div>
+                <div class="tm-member">Veeram Dugar</div>
+                <div class="tm-member">Yu-Cheng Chen</div>
+                <div class="tm-member">Ze Wu</div>
             </div>
         </section>
     </main>

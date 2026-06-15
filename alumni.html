@@ -30,18 +30,9 @@
     <style>
         .alumni-hero {
             text-align: center;
-            padding: 5rem 2rem 3.5rem;
-            max-width: 700px;
+            padding: 5rem 2rem 1rem;
+            max-width: 720px;
             margin: 0 auto;
-        }
-        .alumni-hero .subtitle {
-            display: inline-block;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: #b12a34;
-            margin-bottom: 1.25rem;
         }
         .alumni-hero h1 {
             font-size: 3rem;
@@ -55,46 +46,6 @@
             color: var(--secondary-text);
             line-height: 1.7;
         }
-        .alumni-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 2rem;
-            max-width: 1100px;
-            margin: 0 auto 5rem;
-            padding: 0 2rem;
-        }
-        .alumni-card {
-            background: var(--card-bg, #f9fafb);
-            border-radius: 16px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            border: 1px solid var(--border-color, #e5e7eb);
-        }
-        .alumni-card .grad-year {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #b12a34;
-            margin-bottom: 0.75rem;
-        }
-        .alumni-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-color);
-            margin-bottom: 0.5rem;
-        }
-        .alumni-card .role {
-            font-size: 0.9rem;
-            color: var(--secondary-text);
-            margin-bottom: 0.75rem;
-        }
-        .alumni-card p {
-            font-size: 0.95rem;
-            color: var(--secondary-text);
-            line-height: 1.6;
-        }
         .section-title {
             text-align: center;
             font-size: 1.75rem;
@@ -102,9 +53,86 @@
             color: var(--text-color);
             margin: 3rem 0 2rem;
         }
+
+        /* Hall of Fame cards */
+        .hof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.75rem;
+            max-width: 1100px;
+            margin: 0 auto 5rem;
+            padding: 0 2rem;
+        }
+        .hof-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+        .hof-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 48px rgba(13, 27, 58, 0.16);
+            border-color: rgba(177, 42, 52, 0.35);
+        }
+        .hof-photo {
+            position: relative;
+            height: 190px;
+            background: linear-gradient(135deg, #0d1b3a 0%, #2a1530 55%, #b12a34 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hof-photo::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.16), transparent 55%);
+        }
+        .hof-monogram {
+            position: relative;
+            z-index: 1;
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.12);
+            border: 2px solid rgba(255, 255, 255, 0.45);
+            letter-spacing: 0.02em;
+        }
+        .hof-body {
+            padding: 1.4rem 1.5rem 1.7rem;
+            text-align: center;
+        }
+        .hof-body h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.6rem;
+        }
+        .hof-uni {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+        }
+        .hof-uni::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #b12a34;
+        }
         @media (max-width: 768px) {
             .alumni-hero h1 { font-size: 2rem; }
-            .alumni-grid { grid-template-columns: 1fr; }
+            .hof-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -159,54 +187,48 @@
 
     <main>
         <section class="alumni-hero">
-            <span class="subtitle">Where Are They Now</span>
             <h1 class="serif-header">Our Alumni</h1>
             <p class="description">
                 Troy VEX graduates go on to top universities and careers in engineering, technology, and leadership. Their success is the measure of our program's impact.
             </p>
         </section>
 
-        <h2 class="section-title serif-header">Class of 2025</h2>
-        <div class="alumni-grid">
-            <div class="alumni-card">
-                <span class="grad-year">Class of 2025</span>
-                <h3 class="serif-header">Alumni Name</h3>
-                <p class="role">Team Captain &mdash; Team A</p>
-                <p>Going on to study Mechanical Engineering. Led the team to a World Championship qualification in the 2024-25 season.</p>
+        <h2 class="section-title serif-header">Class of 2026</h2>
+        <div class="hof-grid">
+            <div class="hof-card">
+                <div class="hof-photo"><span class="hof-monogram">AL</span></div>
+                <div class="hof-body">
+                    <h3 class="serif-header">Aaron Li</h3>
+                    <span class="hof-uni">Carnegie Mellon University</span>
+                </div>
             </div>
-            <div class="alumni-card">
-                <span class="grad-year">Class of 2025</span>
-                <h3 class="serif-header">Alumni Name</h3>
-                <p class="role">Build Lead &mdash; Team B</p>
-                <p>Heading to a top-10 engineering program. Designed award-winning robot mechanisms across two competitive seasons.</p>
+            <div class="hof-card">
+                <div class="hof-photo"><span class="hof-monogram">JL</span></div>
+                <div class="hof-body">
+                    <h3 class="serif-header">Joy Lee</h3>
+                    <span class="hof-uni">Carnegie Mellon University</span>
+                </div>
             </div>
-            <div class="alumni-card">
-                <span class="grad-year">Class of 2025</span>
-                <h3 class="serif-header">Alumni Name</h3>
-                <p class="role">Programming Lead &mdash; Team E</p>
-                <p>Pursuing Computer Science. Developed the autonomous routines that powered three consecutive tournament wins.</p>
+            <div class="hof-card">
+                <div class="hof-photo"><span class="hof-monogram">IW</span></div>
+                <div class="hof-body">
+                    <h3 class="serif-header">Ishan Wazir</h3>
+                    <span class="hof-uni">Carnegie Mellon University</span>
+                </div>
             </div>
-        </div>
-
-        <h2 class="section-title serif-header">Class of 2024</h2>
-        <div class="alumni-grid">
-            <div class="alumni-card">
-                <span class="grad-year">Class of 2024</span>
-                <h3 class="serif-header">Alumni Name</h3>
-                <p class="role">Program Founder</p>
-                <p>One of the original 11 cadets who started the program in a garage. Now studying at a UC campus.</p>
+            <div class="hof-card">
+                <div class="hof-photo"><span class="hof-monogram">KV</span></div>
+                <div class="hof-body">
+                    <h3 class="serif-header">Kausthubh Veldanda</h3>
+                    <span class="hof-uni">UC Berkeley</span>
+                </div>
             </div>
-            <div class="alumni-card">
-                <span class="grad-year">Class of 2024</span>
-                <h3 class="serif-header">Alumni Name</h3>
-                <p class="role">Drive Team &mdash; Team X</p>
-                <p>Competed at the VEX Robotics World Championship. Now pursuing Aerospace Engineering.</p>
-            </div>
-            <div class="alumni-card">
-                <span class="grad-year">Class of 2024</span>
-                <h3 class="serif-header">Alumni Name</h3>
-                <p class="role">Notebooker &mdash; Team C</p>
-                <p>Won the Excellence Award for outstanding engineering documentation. Studying Business at a top university.</p>
+            <div class="hof-card">
+                <div class="hof-photo"><span class="hof-monogram">AH</span></div>
+                <div class="hof-body">
+                    <h3 class="serif-header">Allen Hsieh</h3>
+                    <span class="hof-uni">UC Berkeley</span>
+                </div>
             </div>
         </div>
 

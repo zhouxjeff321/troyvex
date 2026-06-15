@@ -1,0 +1,273 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - heading "Teams + Members — Redesigns" [level=1] [ref=e3]
+    - button "A · Poster Cards" [ref=e4] [cursor=pointer]
+    - button "B · Tactical Dossier" [ref=e5] [cursor=pointer]
+    - button "C · Featured Hero" [active] [ref=e6] [cursor=pointer]
+    - button "D · Minimal Clean" [ref=e7] [cursor=pointer]
+  - generic [ref=e599]:
+    - paragraph [ref=e600]: C · Featured Hero — flagship team gets a big split feature, the rest in a tall poster row. Members shown as gradient initial-avatars.
+    - generic [ref=e601]:
+      - generic [ref=e602]:
+        - text: // Our Teams
+        - heading "Our Teams" [level=2] [ref=e603]
+        - paragraph [ref=e604]: Seven teams. One mission.
+      - generic [ref=e605]:
+        - img "Aegis" [ref=e607]
+        - generic [ref=e608]:
+          - generic [ref=e609]: Flagship Team
+          - heading "Aegis" [level=3] [ref=e610]
+          - generic [ref=e611]: 98601A
+          - generic [ref=e612]:
+            - generic [ref=e613]:
+              - generic [ref=e614]: Commander
+              - generic [ref=e615]: Ryan Zhou
+            - generic [ref=e616]:
+              - generic [ref=e617]: Executive
+              - generic [ref=e618]: Lucas Wang
+      - generic [ref=e619]:
+        - generic [ref=e620] [cursor=pointer]:
+          - img "Ouroboros" [ref=e621]
+          - generic [ref=e622]:
+            - text: 98601B
+            - heading "Ouroboros" [level=4] [ref=e623]
+        - generic [ref=e624] [cursor=pointer]:
+          - img "Jinx" [ref=e625]
+          - generic [ref=e626]:
+            - text: 98601C
+            - heading "Jinx" [level=4] [ref=e627]
+        - generic [ref=e628] [cursor=pointer]:
+          - img "Nyx" [ref=e629]
+          - generic [ref=e630]:
+            - text: 98601D
+            - heading "Nyx" [level=4] [ref=e631]
+        - generic [ref=e632] [cursor=pointer]:
+          - img "Eclipse" [ref=e633]
+          - generic [ref=e634]:
+            - text: 98601E
+            - heading "Eclipse" [level=4] [ref=e635]
+        - generic [ref=e636] [cursor=pointer]:
+          - img "Paradox" [ref=e637]
+          - generic [ref=e638]:
+            - text: 98601X
+            - heading "Paradox" [level=4] [ref=e639]
+        - generic [ref=e640] [cursor=pointer]:
+          - img "Atlantis" [ref=e641]
+          - generic [ref=e642]:
+            - text: 98601Y
+            - heading "Atlantis" [level=4] [ref=e643]
+    - generic [ref=e645]:
+      - generic [ref=e646]:
+        - text: // Directory 2025–2026
+        - heading "Our Members" [level=2] [ref=e647]
+      - generic [ref=e648]:
+        - generic [ref=e649]:
+          - generic [ref=e650]: RZ
+          - generic [ref=e651]: Ryan Zhou
+        - generic [ref=e652]:
+          - generic [ref=e653]: LW
+          - generic [ref=e654]: Lucas Wang
+        - generic [ref=e655]:
+          - generic [ref=e656]: EY
+          - generic [ref=e657]: Ellsa Ye
+        - generic [ref=e658]:
+          - generic [ref=e659]: MG
+          - generic [ref=e660]: Minjun Gal
+        - generic [ref=e661]:
+          - generic [ref=e662]: JW
+          - generic [ref=e663]: Jeffrey Wang
+        - generic [ref=e664]:
+          - generic [ref=e665]: LL
+          - generic [ref=e666]: Lucas Le
+        - generic [ref=e667]:
+          - generic [ref=e668]: BY
+          - generic [ref=e669]: Bella Yuh
+        - generic [ref=e670]:
+          - generic [ref=e671]: MT
+          - generic [ref=e672]: Milton Tseng
+        - generic [ref=e673]:
+          - generic [ref=e674]: MC
+          - generic [ref=e675]: Matthias Cheung
+        - generic [ref=e676]:
+          - generic [ref=e677]: AT
+          - generic [ref=e678]: Aryan Talwar
+        - generic [ref=e679]:
+          - generic [ref=e680]: SK
+          - generic [ref=e681]: Shri Krishna Sivakumar
+        - generic [ref=e682]:
+          - generic [ref=e683]: TS
+          - generic [ref=e684]: Troy Song
+        - generic [ref=e685]:
+          - generic [ref=e686]: SR
+          - generic [ref=e687]: Shreyas Rawat
+        - generic [ref=e688]:
+          - generic [ref=e689]: SK
+          - generic [ref=e690]: Sean Kang
+        - generic [ref=e691]:
+          - generic [ref=e692]: EC
+          - generic [ref=e693]: Eric Chen
+        - generic [ref=e694]:
+          - generic [ref=e695]: SA
+          - generic [ref=e696]: Sai Arasala
+        - generic [ref=e697]:
+          - generic [ref=e698]: KS
+          - generic [ref=e699]: Karthik Sajeev
+        - generic [ref=e700]:
+          - generic [ref=e701]: BP
+          - generic [ref=e702]: Benjamin Pham
+        - generic [ref=e703]:
+          - generic [ref=e704]: PM
+          - generic [ref=e705]: Prajit Manicka
+        - generic [ref=e706]:
+          - generic [ref=e707]: VD
+          - generic [ref=e708]: Veeram Dugar
+        - generic [ref=e709]:
+          - generic [ref=e710]: AT
+          - generic [ref=e711]: Aaron Torres
+        - generic [ref=e712]:
+          - generic [ref=e713]: AJ
+          - generic [ref=e714]: Alexander James Chang
+        - generic [ref=e715]:
+          - generic [ref=e716]: SK
+          - generic [ref=e717]: Shreyas Kolluru
+        - generic [ref=e718]:
+          - generic [ref=e719]: RR
+          - generic [ref=e720]: Ritvin Rejith
+        - generic [ref=e721]:
+          - generic [ref=e722]: JL
+          - generic [ref=e723]: Jerome Liu
+        - generic [ref=e724]:
+          - generic [ref=e725]: JP
+          - generic [ref=e726]: Jason Pan
+        - generic [ref=e727]:
+          - generic [ref=e728]: JL
+          - generic [ref=e729]: Joy Lee
+        - generic [ref=e730]:
+          - generic [ref=e731]: AA
+          - generic [ref=e732]: Andy Ahn
+        - generic [ref=e733]:
+          - generic [ref=e734]: RY
+          - generic [ref=e735]: Ryder Yeh
+        - generic [ref=e736]:
+          - generic [ref=e737]: SS
+          - generic [ref=e738]: Srisha Sriram
+        - generic [ref=e739]:
+          - generic [ref=e740]: CK
+          - generic [ref=e741]: Charles Kim
+        - generic [ref=e742]:
+          - generic [ref=e743]: CY
+          - generic [ref=e744]: Caleb Yang
+        - generic [ref=e745]:
+          - generic [ref=e746]: AL
+          - generic [ref=e747]: Aaron Li
+        - generic [ref=e748]:
+          - generic [ref=e749]: DT
+          - generic [ref=e750]: Daniel Tran
+        - generic [ref=e751]:
+          - generic [ref=e752]: AS
+          - generic [ref=e753]: Avijeet Singh
+        - generic [ref=e754]:
+          - generic [ref=e755]: RC
+          - generic [ref=e756]: Rohan Chakrabortygupta
+        - generic [ref=e757]:
+          - generic [ref=e758]: EC
+          - generic [ref=e759]: Eddie Chien
+        - generic [ref=e760]:
+          - generic [ref=e761]: TL
+          - generic [ref=e762]: Tyler Lu
+        - generic [ref=e763]:
+          - generic [ref=e764]: AH
+          - generic [ref=e765]: Allen Hsieh
+        - generic [ref=e766]:
+          - generic [ref=e767]: MZ
+          - generic [ref=e768]: Mason Zhong
+        - generic [ref=e769]:
+          - generic [ref=e770]: FC
+          - generic [ref=e771]: Felix Chen
+        - generic [ref=e772]:
+          - generic [ref=e773]: AZ
+          - generic [ref=e774]: Albert Zhang
+        - generic [ref=e775]:
+          - generic [ref=e776]: NL
+          - generic [ref=e777]: Nathan Lee
+        - generic [ref=e778]:
+          - generic [ref=e779]: SS
+          - generic [ref=e780]: Suhasni Sampath
+        - generic [ref=e781]:
+          - generic [ref=e782]: YC
+          - generic [ref=e783]: Yu-Cheng Chen
+        - generic [ref=e784]:
+          - generic [ref=e785]: SC
+          - generic [ref=e786]: Stephanie Chen
+        - generic [ref=e787]:
+          - generic [ref=e788]: SD
+          - generic [ref=e789]: Swasti Dhagat
+        - generic [ref=e790]:
+          - generic [ref=e791]: KZ
+          - generic [ref=e792]: Kevin Zhu
+        - generic [ref=e793]:
+          - generic [ref=e794]: ZW
+          - generic [ref=e795]: Ze Wu
+        - generic [ref=e796]:
+          - generic [ref=e797]: NG
+          - generic [ref=e798]: Na-Rui Gu
+        - generic [ref=e799]:
+          - generic [ref=e800]: DY
+          - generic [ref=e801]: Dana Yi
+        - generic [ref=e802]:
+          - generic [ref=e803]: HC
+          - generic [ref=e804]: Hilly Choe
+        - generic [ref=e805]:
+          - generic [ref=e806]: NP
+          - generic [ref=e807]: Nihaar Pinninti
+        - generic [ref=e808]:
+          - generic [ref=e809]: SK
+          - generic [ref=e810]: Shawn Kim
+        - generic [ref=e811]:
+          - generic [ref=e812]: MS
+          - generic [ref=e813]: Myra Su
+        - generic [ref=e814]:
+          - generic [ref=e815]: JL
+          - generic [ref=e816]: Jayden Lee
+        - generic [ref=e817]:
+          - generic [ref=e818]: AR
+          - generic [ref=e819]: Arjun Reddy
+        - generic [ref=e820]:
+          - generic [ref=e821]: AK
+          - generic [ref=e822]: Ain Kim
+        - generic [ref=e823]:
+          - generic [ref=e824]: PL
+          - generic [ref=e825]: Preston Loo
+        - generic [ref=e826]:
+          - generic [ref=e827]: SW
+          - generic [ref=e828]: Sindy Wang
+        - generic [ref=e829]:
+          - generic [ref=e830]: TR
+          - generic [ref=e831]: Terence Ren
+        - generic [ref=e832]:
+          - generic [ref=e833]: LL
+          - generic [ref=e834]: Luc Lacroix
+        - generic [ref=e835]:
+          - generic [ref=e836]: DR
+          - generic [ref=e837]: Daniel Ren
+        - generic [ref=e838]:
+          - generic [ref=e839]: IW
+          - generic [ref=e840]: Ishan Wazir
+        - generic [ref=e841]:
+          - generic [ref=e842]: EG
+          - generic [ref=e843]: Emma Gong
+        - generic [ref=e844]:
+          - generic [ref=e845]: SS
+          - generic [ref=e846]: Souhardyo Saha
+        - generic [ref=e847]:
+          - generic [ref=e848]: EO
+          - generic [ref=e849]: Ezekial Obena
+        - generic [ref=e850]:
+          - generic [ref=e851]: AG
+          - generic [ref=e852]: Aditya Gautham
+        - generic [ref=e853]:
+          - generic [ref=e854]: KY
+          - generic [ref=e855]: Kevin Yin
+        - generic [ref=e856]:
+          - generic [ref=e857]: KV
+          - generic [ref=e858]: Kausthubh Veldanda
