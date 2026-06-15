@@ -1,0 +1,266 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "Troy VEX Logo" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img "Troy VEX Logo" [ref=e6]
+        - generic [ref=e7]: Troy VEX Robotics
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - link "About" [ref=e10] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e11]:
+          - link "Teams" [ref=e12] [cursor=pointer]:
+            - /url: /teams
+        - listitem [ref=e13]:
+          - link "Sponsors" [ref=e14] [cursor=pointer]:
+            - /url: /sponsors
+        - listitem [ref=e15]:
+          - link "Events" [ref=e16] [cursor=pointer]:
+            - /url: /events
+        - listitem [ref=e17]:
+          - link "Awards" [ref=e18] [cursor=pointer]:
+            - /url: /awards
+        - listitem [ref=e19]:
+          - link "Join Us" [ref=e20] [cursor=pointer]:
+            - /url: /join
+  - main [ref=e21]:
+    - generic [ref=e23]:
+      - generic [ref=e24]: Our Story
+      - heading "B u i l d i n g a L e g a c y . █" [level=1] [ref=e25]:
+        - generic [ref=e26]: B
+        - generic [ref=e27]: u
+        - generic [ref=e28]: i
+        - generic [ref=e29]: l
+        - generic [ref=e30]: d
+        - generic [ref=e31]: i
+        - generic [ref=e32]: "n"
+        - generic [ref=e33]: g
+        - generic [ref=e34]: a
+        - generic [ref=e35]: L
+        - generic [ref=e36]: e
+        - generic [ref=e37]: g
+        - generic [ref=e38]: a
+        - generic [ref=e39]: c
+        - generic [ref=e40]: "y"
+        - generic [ref=e41]: .
+        - generic [ref=e42]: █
+      - paragraph [ref=e43]: From eleven cadets to a global powerhouse, this is the journey of Troy VEX Robotics.
+      - generic [ref=e45]: Explore
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]: 60+
+        - text: Members
+      - generic [ref=e51]:
+        - generic [ref=e52]: "7"
+        - text: Teams
+      - generic [ref=e54]:
+        - generic [ref=e55]: "2023"
+        - text: Est.
+    - generic [ref=e56]:
+      - generic [ref=e58]:
+        - img "Chapter 1 Squad" [ref=e60]
+        - generic [ref=e61]:
+          - generic [ref=e62]: Chapter I
+          - heading "2023" [level=2] [ref=e63]
+          - paragraph [ref=e64]: 11 cadets, 1 garage. Aaron Li and Kausthubh Veldanda rallied a tight-knit crew. This small, tight-knit family provided the program the values and drive we live by today.
+      - generic [ref=e65]:
+        - img "Chapter 2 Rise" [ref=e67]
+        - generic [ref=e68]:
+          - generic [ref=e69]: Chapter II
+          - heading "2024" [level=2] [ref=e70]
+          - paragraph [ref=e71]: The hard work paid off. In a defining season, the team secured 2 Division Finalist Titles at JROTC Nationals. The program doubled in size to 35.
+      - generic [ref=e72]:
+        - img "Chapter 3 Expansion" [ref=e74]
+        - generic [ref=e75]:
+          - generic [ref=e76]: Chapter III
+          - heading "2025" [level=2] [ref=e77]
+          - paragraph [ref=e78]: Led by student leaders Ryan Zhou, Krishna Sivakumar, and Avijeet Singh, the program headed to new heights. 60+ members, 7 teams. 4 World qualifications. The largest and strongest VEX JROTC organization in the nation.
+    - generic [ref=e79]:
+      - heading "Interested in joining our family?" [level=2] [ref=e80]
+      - paragraph [ref=e81]: We're always looking for dedicated cadets to join Troy VEX Robotics.
+      - link "Learn How to Join" [ref=e82] [cursor=pointer]:
+        - /url: /join
+    - generic [ref=e83]:
+      - heading "Student Leadership" [level=2] [ref=e85]
+      - generic [ref=e87]:
+        - img "Staff Team" [ref=e88]
+        - paragraph [ref=e90]:
+          - strong [ref=e91]: "Upper Row:"
+          - text: Joy Lee, Jason Pan, Karthik Sajeev, Ryan Zhou, Avijeet Singh, Krishna Sivakumar, Sai Arasala, Yucheng Chen, Troy Song, Suhasni Sampath.
+          - strong [ref=e92]: "Founders:"
+          - text: Aaron Li & Kausthubh Veldanda.
+    - generic [ref=e93]:
+      - generic [ref=e94]:
+        - heading "Our Teams" [level=2] [ref=e95]
+        - paragraph [ref=e96]: Seven teams. One mission.
+      - generic [ref=e97]:
+        - generic [ref=e98]:
+          - img "Team Aegis" [ref=e100]
+          - generic [ref=e101]:
+            - generic [ref=e102]:
+              - heading "Aegis" [level=3] [ref=e103]
+              - generic [ref=e104]: 98601A
+            - generic [ref=e105]:
+              - strong [ref=e106]: CO
+              - text: Ryan Zhou
+              - strong [ref=e107]: XO
+              - text: Lucas Wang
+            - link "View Profile →" [ref=e108] [cursor=pointer]:
+              - /url: /teama
+        - generic [ref=e109]:
+          - img "Team Ouroboros" [ref=e111]
+          - generic [ref=e112]:
+            - generic [ref=e113]:
+              - heading "Ouroboros" [level=3] [ref=e114]
+              - generic [ref=e115]: 98601B
+            - generic [ref=e116]:
+              - strong [ref=e117]: CO
+              - text: Krishna Sivakumar
+              - strong [ref=e118]: XO
+              - text: Troy Song
+            - link "View Profile →" [ref=e119] [cursor=pointer]:
+              - /url: /teamb
+        - generic [ref=e120]:
+          - img "Team Jinx" [ref=e122]
+          - generic [ref=e123]:
+            - generic [ref=e124]:
+              - heading "Jinx" [level=3] [ref=e125]
+              - generic [ref=e126]: 98601C
+            - generic [ref=e127]:
+              - strong [ref=e128]: CO
+              - text: Sai Arasala
+              - strong [ref=e129]: XO
+              - text: Karthik Sajeev
+            - link "View Profile →" [ref=e130] [cursor=pointer]:
+              - /url: /teamc
+        - generic [ref=e131]:
+          - img "Team Nyx" [ref=e133]
+          - generic [ref=e134]:
+            - generic [ref=e135]:
+              - heading "Nyx" [level=3] [ref=e136]
+              - generic [ref=e137]: 98601D
+            - generic [ref=e138]:
+              - strong [ref=e139]: CO
+              - text: Suhasni Sampath
+              - strong [ref=e140]: XO
+              - text: Yucheng Chen
+            - link "View Profile →" [ref=e141] [cursor=pointer]:
+              - /url: /teamd
+        - generic [ref=e142]:
+          - img "Team Eclipse" [ref=e144]
+          - generic [ref=e145]:
+            - generic [ref=e146]:
+              - heading "Eclipse" [level=3] [ref=e147]
+              - generic [ref=e148]: 98601E
+            - generic [ref=e149]:
+              - strong [ref=e150]: CO
+              - text: Jason Pan
+              - strong [ref=e151]: XO
+              - text: Joy Lee
+            - link "View Profile →" [ref=e152] [cursor=pointer]:
+              - /url: /teame
+        - generic [ref=e153]:
+          - img "Team Paradox" [ref=e155]
+          - generic [ref=e156]:
+            - generic [ref=e157]:
+              - heading "Paradox" [level=3] [ref=e158]
+              - generic [ref=e159]: 98601X
+            - generic [ref=e160]:
+              - strong [ref=e161]: CO
+              - text: Aaron Li
+            - link "View Profile →" [ref=e162] [cursor=pointer]:
+              - /url: /teamx
+        - generic [ref=e163]:
+          - img "Team Atlantis" [ref=e165]
+          - generic [ref=e166]:
+            - generic [ref=e167]:
+              - heading "Atlantis" [level=3] [ref=e168]
+              - generic [ref=e169]: 98601Y
+            - generic [ref=e170]:
+              - strong [ref=e171]: CO
+              - text: Mason Zhong
+            - link "View Profile →" [ref=e172] [cursor=pointer]:
+              - /url: /teamy
+    - generic [ref=e173]:
+      - generic [ref=e174]:
+        - generic [ref=e175]: Directory // 2025-2026
+        - heading "Our Members" [level=2] [ref=e176]
+      - generic [ref=e178]:
+        - generic [ref=e179]: Aaron Li
+        - generic [ref=e180]: Aaron Torres
+        - generic [ref=e181]: Aditya Gautham
+        - generic [ref=e182]: Ain Kim
+        - generic [ref=e183]: Albert Zhang
+        - generic [ref=e184]: Alexander James Chang
+        - generic [ref=e185]: Allen Hsieh
+        - generic [ref=e186]: Andy Ahn
+        - generic [ref=e187]: Arjun Reddy
+        - generic [ref=e188]: Aryan Talwar
+        - generic [ref=e189]: Avijeet Singh
+        - generic [ref=e190]: Bella Yuh
+        - generic [ref=e191]: Benjamin Pham
+        - generic [ref=e192]: Caleb Yang
+        - generic [ref=e193]: Charles Kim
+        - generic [ref=e194]: Dana Yi
+        - generic [ref=e195]: Daniel Ren
+        - generic [ref=e196]: Daniel Tran
+        - generic [ref=e197]: Eddie Chien
+        - generic [ref=e198]: Ellsa Ye
+        - generic [ref=e199]: Emma Gong
+        - generic [ref=e200]: Eric Chen
+        - generic [ref=e201]: Ezekial Obena
+        - generic [ref=e202]: Felix Chen
+        - generic [ref=e203]: Hilly Choe
+        - generic [ref=e204]: Ishan Wazir
+        - generic [ref=e205]: Jason Pan
+        - generic [ref=e206]: Jayden Lee
+        - generic [ref=e207]: Jeffrey Wang
+        - generic [ref=e208]: Jerome Liu
+        - generic [ref=e209]: Joy Lee
+        - generic [ref=e210]: Karthik Sajeev
+        - generic [ref=e211]: Kausthubh Veldanda
+        - generic [ref=e212]: Kevin Yin
+        - generic [ref=e213]: Kevin Zhu
+        - generic [ref=e214]: Luc Lacroix
+        - generic [ref=e215]: Lucas Le
+        - generic [ref=e216]: Lucas Wang
+        - generic [ref=e217]: Mason Zhong
+        - generic [ref=e218]: Matthias Cheung
+        - generic [ref=e219]: Milton Tseng
+        - generic [ref=e220]: Minjun Gal
+        - generic [ref=e221]: Myra Su
+        - generic [ref=e222]: Na-Rui Gu
+        - generic [ref=e223]: Nathan Lee
+        - generic [ref=e224]: Nihaar Pinninti
+        - generic [ref=e225]: Prajit Manicka
+        - generic [ref=e226]: Preston Loo
+        - generic [ref=e227]: Ritvin Rejith
+        - generic [ref=e228]: Rohan Chakrabortygupta
+        - generic [ref=e229]: Ryan Zhou
+        - generic [ref=e230]: Ryder Yeh
+        - generic [ref=e231]: Sai Arasala
+        - generic [ref=e232]: Sean Kang
+        - generic [ref=e233]: Shawn Kim
+        - generic [ref=e234]: Shreyas Kolluru
+        - generic [ref=e235]: Shreyas Rawat
+        - generic [ref=e236]: Shri Krishna Sivakumar
+        - generic [ref=e237]: Sindy Wang
+        - generic [ref=e238]: Souhardyo Saha
+        - generic [ref=e239]: Srisha Sriram
+        - generic [ref=e240]: Stephanie Chen
+        - generic [ref=e241]: Suhasni Sampath
+        - generic [ref=e242]: Swasti Dhagat
+        - generic [ref=e243]: Terence Ren
+        - generic [ref=e244]: Troy Song
+        - generic [ref=e245]: Tyler Lu
+        - generic [ref=e246]: Veeram Dugar
+        - generic [ref=e247]: Yu-Cheng Chen
+        - generic [ref=e248]: Ze Wu
+  - contentinfo [ref=e249]:
+    - paragraph [ref=e250]: © 2026 Troy High School VEX Robotics. All rights reserved.
+    - paragraph [ref=e251]: 2200 E Dorothy Ln, Fullerton, CA 92831, Room 401
+    - link "Contact Us" [ref=e252] [cursor=pointer]:
+      - /url: https://linktr.ee/troyvex
+  - button "Toggle dark mode" [ref=e253] [cursor=pointer]: ☀️

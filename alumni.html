@@ -54,10 +54,10 @@
             margin: 3rem 0 2rem;
         }
 
-        /* Hall of Fame cards */
+        /* Hall of Fame cards (matches mockup) */
         .hof-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1.75rem;
             max-width: 1100px;
             margin: 0 auto 5rem;
@@ -66,69 +66,39 @@
         .hof-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
+            border-radius: 18px;
             overflow: hidden;
-            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-        }
-        .hof-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 22px 48px rgba(13, 27, 58, 0.16);
-            border-color: rgba(177, 42, 52, 0.35);
         }
         .hof-photo {
-            position: relative;
-            height: 190px;
-            background: linear-gradient(135deg, #0d1b3a 0%, #2a1530 55%, #b12a34 100%);
+            height: 220px;
+            background: linear-gradient(135deg, #0d1b3a 0%, #b12a34 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .hof-photo::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.16), transparent 55%);
-        }
-        .hof-monogram {
-            position: relative;
-            z-index: 1;
-            width: 84px;
-            height: 84px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 3rem;
             font-weight: 800;
-            color: #fff;
-            background: rgba(255, 255, 255, 0.12);
-            border: 2px solid rgba(255, 255, 255, 0.45);
-            letter-spacing: 0.02em;
         }
         .hof-body {
             padding: 1.4rem 1.5rem 1.7rem;
-            text-align: center;
         }
         .hof-body h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.2rem;
             color: var(--text-color);
             margin-bottom: 0.6rem;
         }
-        .hof-uni {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.9rem;
-            font-weight: 600;
+        .hof-body p {
+            font-size: 0.92rem;
             color: var(--secondary-text);
+            line-height: 1.6;
         }
-        .hof-uni::before {
-            content: "";
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #b12a34;
+        .hof-uni {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-color);
+            font-weight: 600;
         }
         @media (max-width: 768px) {
             .alumni-hero h1 { font-size: 2rem; }
@@ -196,38 +166,41 @@
         <h2 class="section-title serif-header">Class of 2026</h2>
         <div class="hof-grid">
             <div class="hof-card">
-                <div class="hof-photo"><span class="hof-monogram">AL</span></div>
+                <div class="hof-photo">AL</div>
                 <div class="hof-body">
                     <h3 class="serif-header">Aaron Li</h3>
-                    <span class="hof-uni">Carnegie Mellon University</span>
+                    <p>Aaron founded Troy VEX Robotics with Kausthubh Veldanda out of a garage in 2023, serving as the Overall Team Commander at the start of the program. He loves eating and hanging with friends, and will be attending CMU in the fall.</p>
+                    <div class="hof-uni">Carnegie Mellon University</div>
                 </div>
             </div>
             <div class="hof-card">
-                <div class="hof-photo"><span class="hof-monogram">JL</span></div>
-                <div class="hof-body">
-                    <h3 class="serif-header">Joy Lee</h3>
-                    <span class="hof-uni">Carnegie Mellon University</span>
-                </div>
-            </div>
-            <div class="hof-card">
-                <div class="hof-photo"><span class="hof-monogram">IW</span></div>
-                <div class="hof-body">
-                    <h3 class="serif-header">Ishan Wazir</h3>
-                    <span class="hof-uni">Carnegie Mellon University</span>
-                </div>
-            </div>
-            <div class="hof-card">
-                <div class="hof-photo"><span class="hof-monogram">KV</span></div>
+                <div class="hof-photo">KV</div>
                 <div class="hof-body">
                     <h3 class="serif-header">Kausthubh Veldanda</h3>
-                    <span class="hof-uni">UC Berkeley</span>
+                    <p>Kausthubh cofounded Troy VEX with Aaron Li. He was pivotal to the beginning years of the program and dearly loved by the members. He enjoys physics and math, and is attending UC Berkeley in the fall.</p>
+                    <div class="hof-uni">UC Berkeley</div>
                 </div>
             </div>
             <div class="hof-card">
-                <div class="hof-photo"><span class="hof-monogram">AH</span></div>
+                <div class="hof-photo">AH</div>
                 <div class="hof-body">
                     <h3 class="serif-header">Allen Hsieh</h3>
-                    <span class="hof-uni">UC Berkeley</span>
+                    <p>Allen was one of the founding members of Troy VEX and helped lead its first ever team to JROTC Nationals. He loves engineering and also does cybersecurity. He is attending UC Berkeley.</p>
+                    <div class="hof-uni">UC Berkeley</div>
+                </div>
+            </div>
+            <div class="hof-card">
+                <div class="hof-photo">JL</div>
+                <div class="hof-body">
+                    <h3 class="serif-header">Joy Lee</h3>
+                    <div class="hof-uni">Carnegie Mellon University</div>
+                </div>
+            </div>
+            <div class="hof-card">
+                <div class="hof-photo">IW</div>
+                <div class="hof-body">
+                    <h3 class="serif-header">Ishan Wazir</h3>
+                    <div class="hof-uni">Carnegie Mellon University</div>
                 </div>
             </div>
         </div>
