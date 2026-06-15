@@ -8,7 +8,7 @@ DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 
 ROUTES = {
     '/about': 'pages/about/about.html',
-    '/alumni': 'pages/about/alumni.html',
+    # '/alumni': 'pages/about/alumni.html',  # hidden — page not finished
     '/ourwork': 'pages/about/ourwork.html',
     '/teams': 'pages/teams/teams.html',
     '/teama': 'pages/teams/teama.html',
