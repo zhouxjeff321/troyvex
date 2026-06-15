@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1808 700" role="img" aria-labelledby="title desc">
+    <title id="title">Troy VEX sponsorship tiers</title>
+    <desc id="desc">Bronze under one thousand dollars includes website feature and social media and school advertisement. Silver one thousand dollars or more includes thank you video. Gold five thousand dollars or more includes team apparel and pit area banner. Platinum ten thousand dollars or more includes logo on robot.</desc>
+    <defs>
+        <linearGradient id="rose-wash" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="0.52" stop-color="#fff6f7"/>
+            <stop offset="1" stop-color="#f8dada"/>
+        </linearGradient>
+        <linearGradient id="panel-wash" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+            <stop offset="1" stop-color="#fffafa" stop-opacity="0.72"/>
+        </linearGradient>
+        <filter id="soft-grain" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="2" seed="17" result="noise"/>
+            <feColorMatrix in="noise" type="saturate" values="0"/>
+            <feComponentTransfer in="noise" result="grain">
+                <feFuncA type="table" tableValues="0 0.07"/>
+            </feComponentTransfer>
+            <feBlend in="SourceGraphic" in2="grain" mode="multiply"/>
+        </filter>
+        <style>
+            .eyebrow { fill: #9f9395; font: 700 18px/1.2 "Inter", "Arial", sans-serif; letter-spacing: 0.18em; }
+            .price { fill: #151923; font: 800 48px/1.1 "Inter", "Arial", sans-serif; letter-spacing: -0.02em; }
+            .body { fill: #8f8586; font: 400 22px/1.2 "Inter", "Arial", sans-serif; }
+            .item { fill: #454547; font: 400 25px/1.35 "Inter", "Arial", sans-serif; }
+            .check { fill: #b12a34; font: 700 24px/1 "Inter", "Arial", sans-serif; }
+        </style>
+    </defs>
+
+    <rect width="1808" height="700" fill="#f7f7f7"/>
+    <rect x="40" y="40" width="1728" height="620" rx="28" fill="url(#rose-wash)" filter="url(#soft-grain)"/>
+
+    <path d="M1400 118 C1495 82 1610 46 1732 28" fill="none" stroke="#e7adb0" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 27"/>
+    <path d="M615 602 C575 652 535 682 488 704" fill="none" stroke="#e7adb0" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 27"/>
+    <circle cx="1632" cy="178" r="86" fill="none" stroke="#d6aab0" stroke-width="4" opacity="0.58"/>
+    <circle cx="1632" cy="178" r="58" fill="none" stroke="#d6aab0" stroke-width="2" opacity="0.45"/>
+
+    <rect x="132" y="130" width="1544" height="474" rx="22" fill="url(#panel-wash)" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="518" y1="130" x2="518" y2="604" stroke="#e8dddd" stroke-width="1"/>
+    <line x1="904" y1="130" x2="904" y2="604" stroke="#e8dddd" stroke-width="1"/>
+    <line x1="1290" y1="130" x2="1290" y2="604" stroke="#e8dddd" stroke-width="1"/>
+
+    <g transform="translate(177 0)">
+        <text class="eyebrow" x="0" y="204">BRONZE</text>
+        <text class="price" x="0" y="280">Under $1,000</text>
+        <line x1="0" y1="334" x2="298" y2="334" stroke="#e4dddd" stroke-width="2"/>
+        <text class="body" x="0" y="390">Includes</text>
+        <text class="check" x="0" y="449">✓</text>
+        <text class="item" x="42" y="449">Website Feature</text>
+        <text class="check" x="0" y="505">✓</text>
+        <text class="item" x="42" y="505">Social Media &amp; School</text>
+        <text class="item" x="42" y="542">Advertisement</text>
+    </g>
+
+    <g transform="translate(563 0)">
+        <text class="eyebrow" x="0" y="204">SILVER</text>
+        <text class="price" x="0" y="280">$1,000+</text>
+        <line x1="0" y1="334" x2="298" y2="334" stroke="#e4dddd" stroke-width="2"/>
+        <text class="body" x="0" y="390">Everything in Bronze, plus</text>
+        <text class="check" x="0" y="449">✓</text>
+        <text class="item" x="42" y="449">Thank You Video</text>
+    </g>
+
+    <g transform="translate(949 0)">
+        <text class="eyebrow" x="0" y="204">GOLD</text>
+        <text class="price" x="0" y="280">$5,000+</text>
+        <line x1="0" y1="334" x2="298" y2="334" stroke="#e4dddd" stroke-width="2"/>
+        <text class="body" x="0" y="390">Everything in Silver, plus</text>
+        <text class="check" x="0" y="449">✓</text>
+        <text class="item" x="42" y="449">Team Apparel</text>
+        <text class="check" x="0" y="505">✓</text>
+        <text class="item" x="42" y="505">Pit Area Banner</text>
+    </g>
+
+    <g transform="translate(1335 0)">
+        <text class="eyebrow" x="0" y="204">PLATINUM</text>
+        <text class="price" x="0" y="280">$10,000+</text>
+        <line x1="0" y1="334" x2="298" y2="334" stroke="#e4dddd" stroke-width="2"/>
+        <text class="body" x="0" y="390">Everything in Gold, plus</text>
+        <text class="check" x="0" y="449">✓</text>
+        <text class="item" x="42" y="449">Logo on Robot</text>
+    </g>
+</svg>

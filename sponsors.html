@@ -8,7 +8,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Sponsors - Troy VEX Robotics</title>
-    <link rel="stylesheet" href="/assets/css/site.css?v=5">
+    <link rel="stylesheet" href="/assets/css/site.css?v=6">
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-10QE64BG2M"></script>
@@ -77,19 +77,18 @@
     </header>
 
     <main>
-        <section class="page-header" style="padding: 4rem 0; margin-bottom: 2rem; background: radial-gradient(circle at 92% -8%, rgba(177, 42, 52, 0.18), transparent 44%), linear-gradient(180deg, rgba(17, 17, 17, 0.08) 0%, rgba(17, 17, 17, 0.03) 45%, transparent 100%);">
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <h1 class="serif-header" style="font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Fuel the
-                    Next Generation of <br><span style="color: #b12a34;">Engineers</span></h1>
-                <p
-                    style="font-size: 1.25rem; color: var(--secondary-text); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    Your support directly impacts 60+ students, funding robotics parts, competition travel, and STEM
+        <section class="page-header sponsor-top-hero">
+            <div class="sponsor-top-hero-inner">
+                <p class="sponsor-hero-eyebrow">PARTNER WITH TROY VEX</p>
+                <h1 class="sponsor-hero-title">Fuel the next generation of <span>engineers.</span></h1>
+                <p class="sponsor-hero-copy">
+                    Your support directly impacts 60+ students &mdash; funding robotics parts, competition travel, and STEM
                     outreach.
                 </p>
-                <div class="premium-button-container">
+                <div class="premium-button-container sponsor-hero-actions">
                     <a href="/donate" class="premium-btn btn-donate">
                         <span class="premium-btn-text">Make a Donation</span>
-                        <span class="premium-btn-sub">100% Tax Deductible</span>
+                        <span class="premium-btn-sub">100% tax deductible</span>
                     </a>
                     <a href="/docs/troy-vex-sponsorship-proposal.pdf" target="_blank" rel="noopener noreferrer" class="premium-btn btn-pdf">
                         <span class="premium-btn-text">Sponsorship Packet</span>
@@ -140,51 +139,11 @@
                         onerror="this.onerror=null; this.src='/assets/images/program/history/teamphotos.jpg';">
                 </div>
             </section>
-            <h2 class="serif-header" style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">Sponsorship
-                Tiers</h2>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem;">
-                <!-- Bronze -->
-                <div class="tier-card bronze-card">
-                    <h3 class="serif-header">Bronze</h3>
-                    <div class="tier-price">&lt;$1,000</div>
-                    <ul>
-                        <li>Website Feature</li>
-                        <li>Social Media &amp; School Advertisement</li>
-                    </ul>
-                </div>
-
-                <!-- Silver -->
-                <div class="tier-card silver-card">
-                    <h3 class="serif-header">Silver</h3>
-                    <div class="tier-price">$1,000+</div>
-                    <p class="tier-includes">Everything in Bronze, plus:</p>
-                    <ul>
-                        <li>Thank You Video</li>
-                    </ul>
-                </div>
-
-                <!-- Gold -->
-                <div class="tier-card gold-card">
-                    <h3 class="serif-header">Gold</h3>
-                    <div class="tier-price">$5,000+</div>
-                    <p class="tier-includes">Everything in Silver, plus:</p>
-                    <ul>
-                        <li>Team Apparel</li>
-                        <li>Pit Area Banner</li>
-                    </ul>
-                </div>
-
-                <!-- Platinum -->
-                <div class="tier-card platinum-card">
-                    <h3 class="serif-header">Platinum</h3>
-                    <div class="tier-price">$10,000+</div>
-                    <p class="tier-includes">Everything in Gold, plus:</p>
-                    <ul>
-                        <li>Logo on Robot</li>
-                    </ul>
-                </div>
-            </div>
+            <section class="sponsorship-tiers-visual" aria-labelledby="sponsorship-tiers-heading">
+                <h2 id="sponsorship-tiers-heading" class="sr-only">Sponsorship Tiers</h2>
+                <img class="sponsorship-tiers-image" src="/assets/images/support/sponsorship-tiers-rose-wash.svg"
+                    alt="Sponsorship tiers: Bronze under $1,000 includes website feature and social media and school advertisement. Silver $1,000 or more includes thank you video. Gold $5,000 or more includes team apparel and pit area banner. Platinum $10,000 or more includes logo on robot.">
+            </section>
 
             <div class="sponsor-info-card"
                 style="margin-top: 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
@@ -228,22 +187,6 @@
         <a href="https://linktr.ee/troyvex" target="_blank" rel="noopener noreferrer" class="footer-contact-btn">Contact Us</a>
     </footer>
     <script src="/assets/js/darkmode.js?v=3"></script>
-    <script>
-        (function () {
-            var cards = document.querySelectorAll('.tier-card');
-            if (!cards.length) return;
-            var observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('tier-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.12 });
-            cards.forEach(function (card) { observer.observe(card); });
-        })();
-    </script>
 </body>
 
 </html>
-
