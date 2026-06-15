@@ -1358,6 +1358,44 @@ body.dark-mode .awards-list tbody tr {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.awards-list .rainbow-award-text {
+    display: inline-block;
+    font-weight: 700;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(
+        90deg,
+        #ff2d55,
+        #ff9500,
+        #ffcc00,
+        #34c759,
+        #32ade6,
+        #5856d6,
+        #af52de,
+        #ff2d55
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: rainbow-award-sweep 3s linear infinite;
+}
+
+@keyframes rainbow-award-sweep {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 300% 50%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .awards-list .rainbow-award-text {
+        animation: none;
+    }
+}
+
 .program-highlights {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
