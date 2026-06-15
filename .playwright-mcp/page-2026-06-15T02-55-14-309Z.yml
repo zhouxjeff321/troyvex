@@ -1,0 +1,22 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - heading "Join CTA — Redesigns" [level=1] [ref=e3]
+    - button "1 · Split Panel" [ref=e4] [cursor=pointer]
+    - button "2 · Bold Banner" [ref=e5] [cursor=pointer]
+    - button "3 · Benefit Cards" [ref=e6] [cursor=pointer]
+    - button "4 · Minimal" [active] [ref=e7] [cursor=pointer]
+    - button "5 · Overlay Card" [ref=e8] [cursor=pointer]
+  - generic [ref=e9]:
+    - generic [ref=e68]:
+      - generic [ref=e69]: Join Troy VEX
+      - heading "Every champion started by showing up." [level=2] [ref=e71]:
+        - text: Every champion started by
+        - emphasis [ref=e72]: showing up.
+      - paragraph [ref=e73]: We're always looking for dedicated cadets to join our family. No experience required — just bring the drive.
+      - generic [ref=e74]:
+        - link "Learn How to Join" [ref=e75] [cursor=pointer]:
+          - /url: /join
+        - link "Ask a Question" [ref=e76] [cursor=pointer]:
+          - /url: /contact
+    - paragraph [ref=e77]: Mockup 4 — Clean and minimal. Refined typography, accent rule, and a softer secondary action. Closest to current layout.
+    - text: ✓ ✓ ✓

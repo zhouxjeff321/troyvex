@@ -1,0 +1,20 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - heading "Join CTA — Redesigns" [level=1] [ref=e3]
+    - button "1 · Split Panel" [ref=e4] [cursor=pointer]
+    - button "2 · Bold Banner" [ref=e5] [cursor=pointer]
+    - button "3 · Benefit Cards" [ref=e6] [cursor=pointer]
+    - button "4 · Minimal" [ref=e7] [cursor=pointer]
+    - button "5 · Overlay Card" [active] [ref=e8] [cursor=pointer]
+  - generic [ref=e9]:
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - heading "Your team is waiting." [level=2] [ref=e81]
+        - paragraph [ref=e82]: Troy VEX Robotics is always looking for dedicated cadets ready to learn, build, and compete.
+        - generic [ref=e83]: ✓ No experience required
+        - generic [ref=e84]: ✓ Mentorship from veteran cadets
+        - generic [ref=e85]: ✓ Compete on a world-qualified program
+        - link "Learn How to Join" [ref=e86] [cursor=pointer]:
+          - /url: /join
+      - generic [ref=e87]: (background = team photo)
+    - paragraph [ref=e88]: Mockup 5 — Photo background (placeholder gradient) with a floating glass card and a quick checklist of perks.

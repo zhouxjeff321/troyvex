@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>Alumni Page Mockups - Troy VEX Robotics</title>
+    <link rel="stylesheet" href="/assets/css/site.css?v=5">
+    <link rel="icon" type="image/png" href="/assets/images/logos/njrotcupdated.png">
+    <style>
+        :root {
+            --vx-red: #b12a34;
+            --vx-navy: #0d1b3a;
+        }
+
+        /* ===== Mockup switcher bar ===== */
+        .mock-bar {
+            position: sticky;
+            top: 0;
+            z-index: 5000;
+            background: #0d1b3a;
+            color: #fff;
+            padding: 0.9rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+        .mock-bar .mock-title {
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            margin-right: auto;
+        }
+        .mock-bar .mock-title span {
+            color: #ffb3b9;
+            font-weight: 500;
+            font-size: 0.82rem;
+            display: block;
+        }
+        .mock-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .mock-tab {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            padding: 0.5rem 1.15rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: inherit;
+        }
+        .mock-tab:hover { background: rgba(255, 255, 255, 0.16); }
+        .mock-tab.active {
+            background: var(--vx-red);
+            border-color: var(--vx-red);
+        }
+        .mock-stage { display: none; }
+        .mock-stage.active { display: block; }
+        .mock-caption {
+            max-width: 1100px;
+            margin: 1.75rem auto 0;
+            padding: 0 2rem;
+            color: #6b7280;
+            font-size: 0.92rem;
+            text-align: center;
+        }
+        .mock-caption strong { color: var(--vx-red); }
+
+        /* =================================================================
+           VERSION 1 — HALL OF FAME (photo cards, grouped by class)
+           ================================================================= */
+        .v1-hero {
+            text-align: center;
+            padding: 4.5rem 2rem 1rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .v1-hero .eyebrow {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--vx-red);
+            margin-bottom: 1rem;
+        }
+        .v1-hero h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 1rem; color: var(--text-color); }
+        .v1-hero p { font-size: 1.1rem; color: var(--secondary-text); line-height: 1.7; }
+
+        .v1-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            padding: 2.5rem 2rem 3.5rem;
+        }
+        .v1-stat { text-align: center; }
+        .v1-stat .num { font-size: 2.5rem; font-weight: 800; color: var(--vx-red); line-height: 1; }
+        .v1-stat .lbl { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--secondary-text); margin-top: 0.4rem; }
+
+        .v1-class-head {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .v1-class-head h2 { font-size: 1.6rem; color: var(--text-color); white-space: nowrap; }
+        .v1-class-head::after { content: ""; flex: 1; height: 1px; background: var(--border-color); }
+
+        .v1-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.75rem;
+            max-width: 1100px;
+            margin: 1.5rem auto 3.5rem;
+            padding: 0 2rem;
+        }
+        .v1-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .v1-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.12); }
+        .v1-photo {
+            height: 220px;
+            background: linear-gradient(135deg, #0d1b3a 0%, #b12a34 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.85);
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        .v1-body { padding: 1.4rem 1.5rem 1.7rem; }
+        .v1-body h3 { font-size: 1.2rem; color: var(--text-color); margin-bottom: 0.25rem; }
+        .v1-role { font-size: 0.85rem; color: var(--vx-red); font-weight: 600; margin-bottom: 0.75rem; }
+        .v1-body p { font-size: 0.92rem; color: var(--secondary-text); line-height: 1.6; }
+        .v1-uni {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .v1-uni span { color: var(--secondary-text); font-weight: 400; }
+
+        /* =================================================================
+           VERSION 2 — JOURNEY TIMELINE (editorial, alternating rows)
+           ================================================================= */
+        .v2-wrap { background: var(--bg-color); }
+        .v2-hero {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            background:
+                radial-gradient(circle at 92% -8%, rgba(177, 42, 52, 0.18), transparent 44%),
+                linear-gradient(180deg, rgba(13, 27, 58, 0.08) 0%, rgba(13, 27, 58, 0.03) 45%, transparent 100%);
+        }
+        .v2-hero .eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--vx-red); }
+        .v2-hero h1 { font-size: 3rem; margin: 1rem auto; color: var(--text-color); max-width: 800px; line-height: 1.1; }
+        .v2-hero p { font-size: 1.1rem; color: var(--secondary-text); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+
+        .v2-timeline {
+            max-width: 880px;
+            margin: 3rem auto 4rem;
+            padding: 0 2rem;
+            position: relative;
+        }
+        .v2-timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+            transform: translateX(-50%);
+        }
+        .v2-year {
+            text-align: center;
+            position: relative;
+            margin: 0 auto 2rem;
+            z-index: 2;
+        }
+        .v2-year span {
+            display: inline-block;
+            background: var(--vx-navy);
+            color: #fff;
+            font-weight: 700;
+            padding: 0.45rem 1.4rem;
+            border-radius: 999px;
+            font-size: 0.95rem;
+        }
+        .v2-row {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .v2-row .v2-entry {
+            width: calc(50% - 2.5rem);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.4rem 1.6rem;
+        }
+        .v2-row.left { justify-content: flex-start; }
+        .v2-row.right { justify-content: flex-end; }
+        .v2-row::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 1.6rem;
+            width: 14px;
+            height: 14px;
+            background: var(--vx-red);
+            border: 3px solid var(--bg-color);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        .v2-entry h3 { font-size: 1.15rem; color: var(--text-color); margin-bottom: 0.2rem; }
+        .v2-entry .v2-role { font-size: 0.82rem; color: var(--vx-red); font-weight: 600; margin-bottom: 0.6rem; }
+        .v2-entry p { font-size: 0.9rem; color: var(--secondary-text); line-height: 1.6; }
+        .v2-entry .v2-dest { margin-top: 0.7rem; font-size: 0.85rem; font-weight: 600; color: var(--text-color); }
+
+        @media (max-width: 768px) {
+            .v2-timeline::before { left: 18px; }
+            .v2-year { text-align: left; padding-left: 0; }
+            .v2-row .v2-entry { width: calc(100% - 3rem); margin-left: auto; }
+            .v2-row::before { left: 18px; }
+        }
+
+        /* =================================================================
+           VERSION 3 — SPOTLIGHT + DIRECTORY (featured alum + filter list)
+           ================================================================= */
+        .v3-hero {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .v3-hero .eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--vx-red); }
+        .v3-hero h1 { font-size: 3rem; margin: 1rem 0; color: var(--text-color); line-height: 1.1; }
+        .v3-hero p { font-size: 1.1rem; color: var(--secondary-text); line-height: 1.7; }
+
+        .v3-spotlight {
+            max-width: 1000px;
+            margin: 1rem auto 3.5rem;
+            padding: 0 2rem;
+        }
+        .v3-spot-card {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 22px;
+            overflow: hidden;
+        }
+        .v3-spot-photo {
+            background: linear-gradient(150deg, #0d1b3a, #b12a34);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.9);
+            font-size: 4rem;
+            font-weight: 800;
+            min-height: 300px;
+        }
+        .v3-spot-body { padding: 2.5rem; }
+        .v3-spot-body .tag {
+            display: inline-block;
+            background: rgba(177,42,52,0.1);
+            color: var(--vx-red);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+        }
+        .v3-spot-body h2 { font-size: 1.9rem; color: var(--text-color); margin-bottom: 0.4rem; }
+        .v3-spot-body .v3-role { color: var(--vx-red); font-weight: 600; margin-bottom: 1rem; }
+        .v3-spot-body p { color: var(--secondary-text); line-height: 1.7; font-size: 1rem; }
+        .v3-spot-body .v3-dest { margin-top: 1.2rem; font-weight: 700; color: var(--text-color); }
+
+        .v3-dir { max-width: 1000px; margin: 0 auto 4rem; padding: 0 2rem; }
+        .v3-dir h2 { font-size: 1.5rem; color: var(--text-color); margin-bottom: 1.25rem; }
+        .v3-filters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .v3-chip {
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            border-radius: 999px;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .v3-chip.active { background: var(--vx-navy); color: #fff; border-color: var(--vx-navy); }
+        .v3-list { border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden; }
+        .v3-item {
+            display: grid;
+            grid-template-columns: 1.4fr 1.3fr 0.7fr;
+            gap: 1rem;
+            align-items: center;
+            padding: 1.1rem 1.6rem;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--card-bg);
+        }
+        .v3-item:last-child { border-bottom: none; }
+        .v3-item .v3-name { font-weight: 700; color: var(--text-color); }
+        .v3-item .v3-name small { display: block; color: var(--vx-red); font-weight: 600; font-size: 0.78rem; }
+        .v3-item .v3-uni { color: var(--secondary-text); font-size: 0.92rem; }
+        .v3-item .v3-yr { text-align: right; color: var(--secondary-text); font-size: 0.85rem; font-weight: 600; }
+        @media (max-width: 768px) {
+            .v3-spot-card { grid-template-columns: 1fr; }
+            .v3-spot-photo { min-height: 200px; }
+            .v3-item { grid-template-columns: 1fr; gap: 0.3rem; }
+            .v3-item .v3-yr { text-align: left; }
+        }
+
+        @media (max-width: 768px) {
+            .v1-hero h1, .v2-hero h1, .v3-hero h1 { font-size: 2.1rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== Mockup switcher ===== -->
+    <div class="mock-bar">
+        <div class="mock-title">
+            Alumni Page Mockups
+            <span>Pick a version — click to preview</span>
+        </div>
+        <div class="mock-tabs">
+            <button class="mock-tab active" data-stage="v1">1 · Hall of Fame</button>
+            <button class="mock-tab" data-stage="v2">2 · Journey Timeline</button>
+            <button class="mock-tab" data-stage="v3">3 · Spotlight + Directory</button>
+        </div>
+    </div>
+
+    <!-- ============================ VERSION 1 ============================ -->
+    <main class="mock-stage active" id="v1">
+        <p class="mock-caption"><strong>Version 1 — Hall of Fame.</strong> Photo cards grouped by graduating class, with a stat banner up top. Best if you have headshots and want a clean, proud showcase.</p>
+        <section class="v1-hero">
+            <span class="eyebrow">Where Are They Now</span>
+            <h1 class="serif-header">Our Alumni</h1>
+            <p>From a garage in Fullerton to top universities and engineering careers — these cadets built the foundation Troy VEX stands on today.</p>
+        </section>
+        <div class="v1-stats">
+            <div class="v1-stat"><div class="num">40+</div><div class="lbl">Graduates</div></div>
+            <div class="v1-stat"><div class="num">4</div><div class="lbl">Worlds Teams</div></div>
+            <div class="v1-stat"><div class="num">15+</div><div class="lbl">Universities</div></div>
+            <div class="v1-stat"><div class="num">2023</div><div class="lbl">Founded</div></div>
+        </div>
+
+        <div class="v1-class-head"><h2 class="serif-header">Class of 2025</h2></div>
+        <div class="v1-grid">
+            <div class="v1-card">
+                <div class="v1-photo">AN</div>
+                <div class="v1-body">
+                    <h3 class="serif-header">Alumni Name</h3>
+                    <div class="v1-role">Team Captain — Team A</div>
+                    <p>Led the team to a World Championship qualification in the 2024-25 season.</p>
+                    <div class="v1-uni">Mechanical Engineering <span>· UC Berkeley</span></div>
+                </div>
+            </div>
+            <div class="v1-card">
+                <div class="v1-photo">AN</div>
+                <div class="v1-body">
+                    <h3 class="serif-header">Alumni Name</h3>
+                    <div class="v1-role">Build Lead — Team B</div>
+                    <p>Designed award-winning robot mechanisms across two competitive seasons.</p>
+                    <div class="v1-uni">Aerospace Eng. <span>· Georgia Tech</span></div>
+                </div>
+            </div>
+            <div class="v1-card">
+                <div class="v1-photo">AN</div>
+                <div class="v1-body">
+                    <h3 class="serif-header">Alumni Name</h3>
+                    <div class="v1-role">Programming Lead — Team E</div>
+                    <p>Built the autonomous routines that powered three straight tournament wins.</p>
+                    <div class="v1-uni">Computer Science <span>· UCLA</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="v1-class-head"><h2 class="serif-header">Class of 2024</h2></div>
+        <div class="v1-grid">
+            <div class="v1-card">
+                <div class="v1-photo">AN</div>
+                <div class="v1-body">
+                    <h3 class="serif-header">Alumni Name</h3>
+                    <div class="v1-role">Program Founder</div>
+                    <p>One of the original 11 cadets who started the program in a garage.</p>
+                    <div class="v1-uni">Electrical Eng. <span>· UC Irvine</span></div>
+                </div>
+            </div>
+            <div class="v1-card">
+                <div class="v1-photo">AN</div>
+                <div class="v1-body">
+                    <h3 class="serif-header">Alumni Name</h3>
+                    <div class="v1-role">Drive Team — Team X</div>
+                    <p>Competed at the VEX Robotics World Championship in Dallas.</p>
+                    <div class="v1-uni">Aerospace Eng. <span>· Purdue</span></div>
+                </div>
+            </div>
+            <div class="v1-card">
+                <div class="v1-photo">AN</div>
+                <div class="v1-body">
+                    <h3 class="serif-header">Alumni Name</h3>
+                    <div class="v1-role">Notebooker — Team C</div>
+                    <p>Won the Excellence Award for outstanding engineering documentation.</p>
+                    <div class="v1-uni">Business <span>· USC</span></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================ VERSION 2 ============================ -->
+    <main class="mock-stage" id="v2">
+        <p class="mock-caption"><strong>Version 2 — Journey Timeline.</strong> A vertical timeline that reads like a story, alternating left and right by class year. Best for emphasizing the program's growth over time.</p>
+        <div class="v2-wrap">
+            <section class="v2-hero">
+                <span class="eyebrow">Where Are They Now</span>
+                <h1 class="serif-header">The Alumni Journey</h1>
+                <p>Every graduating class added a chapter. Follow the cadets who turned late-night builds into careers.</p>
+            </section>
+            <div class="v2-timeline">
+                <div class="v2-year"><span>Class of 2025</span></div>
+                <div class="v2-row left">
+                    <div class="v2-entry">
+                        <h3 class="serif-header">Alumni Name</h3>
+                        <div class="v2-role">Team Captain — Team A</div>
+                        <p>Led the team to a World Championship qualification in the 2024-25 season.</p>
+                        <div class="v2-dest">→ Mechanical Engineering, UC Berkeley</div>
+                    </div>
+                </div>
+                <div class="v2-row right">
+                    <div class="v2-entry">
+                        <h3 class="serif-header">Alumni Name</h3>
+                        <div class="v2-role">Programming Lead — Team E</div>
+                        <p>Built the autonomous routines behind three straight tournament wins.</p>
+                        <div class="v2-dest">→ Computer Science, UCLA</div>
+                    </div>
+                </div>
+
+                <div class="v2-year"><span>Class of 2024</span></div>
+                <div class="v2-row left">
+                    <div class="v2-entry">
+                        <h3 class="serif-header">Alumni Name</h3>
+                        <div class="v2-role">Program Founder</div>
+                        <p>One of the original 11 cadets who started the program in a garage.</p>
+                        <div class="v2-dest">→ Electrical Engineering, UC Irvine</div>
+                    </div>
+                </div>
+                <div class="v2-row right">
+                    <div class="v2-entry">
+                        <h3 class="serif-header">Alumni Name</h3>
+                        <div class="v2-role">Drive Team — Team X</div>
+                        <p>Competed at the VEX Robotics World Championship in Dallas.</p>
+                        <div class="v2-dest">→ Aerospace Engineering, Purdue</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================ VERSION 3 ============================ -->
+    <main class="mock-stage" id="v3">
+        <p class="mock-caption"><strong>Version 3 — Spotlight + Directory.</strong> One featured alum up top, then a scannable, filterable directory of everyone. Best once the list grows large and you want quick browsing.</p>
+        <section class="v3-hero">
+            <span class="eyebrow">Where Are They Now</span>
+            <h1 class="serif-header">Our Alumni</h1>
+            <p>Meet the graduates carrying Troy VEX into the world's best engineering programs.</p>
+        </section>
+
+        <div class="v3-spotlight">
+            <div class="v3-spot-card">
+                <div class="v3-spot-photo">AN</div>
+                <div class="v3-spot-body">
+                    <span class="tag">Featured Alum</span>
+                    <h2 class="serif-header">Alumni Name</h2>
+                    <div class="v3-role">Program Founder · Class of 2024</div>
+                    <p>One of the original 11 cadets who started Troy VEX in a garage in 2023. Built the team's first competition robot, mentored two rookie squads, and set the engineering-notebook standard still used today.</p>
+                    <div class="v3-dest">Now studying Electrical Engineering at UC Irvine</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="v3-dir">
+            <h2 class="serif-header">Alumni Directory</h2>
+            <div class="v3-filters">
+                <button class="v3-chip active">All</button>
+                <button class="v3-chip">Class of 2025</button>
+                <button class="v3-chip">Class of 2024</button>
+            </div>
+            <div class="v3-list">
+                <div class="v3-item">
+                    <div class="v3-name">Alumni Name <small>Team Captain — Team A</small></div>
+                    <div class="v3-uni">Mechanical Engineering · UC Berkeley</div>
+                    <div class="v3-yr">2025</div>
+                </div>
+                <div class="v3-item">
+                    <div class="v3-name">Alumni Name <small>Build Lead — Team B</small></div>
+                    <div class="v3-uni">Aerospace Engineering · Georgia Tech</div>
+                    <div class="v3-yr">2025</div>
+                </div>
+                <div class="v3-item">
+                    <div class="v3-name">Alumni Name <small>Programming Lead — Team E</small></div>
+                    <div class="v3-uni">Computer Science · UCLA</div>
+                    <div class="v3-yr">2025</div>
+                </div>
+                <div class="v3-item">
+                    <div class="v3-name">Alumni Name <small>Drive Team — Team X</small></div>
+                    <div class="v3-uni">Aerospace Engineering · Purdue</div>
+                    <div class="v3-yr">2024</div>
+                </div>
+                <div class="v3-item">
+                    <div class="v3-name">Alumni Name <small>Notebooker — Team C</small></div>
+                    <div class="v3-uni">Business · USC</div>
+                    <div class="v3-yr">2024</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const tabs = document.querySelectorAll('.mock-tab');
+        const stages = document.querySelectorAll('.mock-stage');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                stages.forEach(s => s.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.stage).classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+        // Directory filter chips (visual demo)
+        document.querySelectorAll('.v3-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                document.querySelectorAll('.v3-chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
+

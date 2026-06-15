@@ -13,15 +13,17 @@ This is a static website for the Troy High School VEX Robotics program. The site
 ## Project Structure
 
 - **Static HTML/CSS Website**: No build system, package manager, or JavaScript framework
-- **Primary CSS**: `styles.css` — global styles shared across all pages
-- **Page-specific CSS**: `events.css`, `teams.css`, `about.css`, `donate.css` (linked only on their respective pages)
-- **Single JS file**: `darkmode.js` handles dark mode toggle + mobile navigation
-- **16 HTML pages** organized into:
-  - **Home/About**: `index.html` (home), `about.html` (detailed about)
+- **Primary CSS**: `assets/css/site.css` — bundled styles shared across all pages
+- **Source CSS archive**: `archive/source-css/css/` keeps the original pre-bundle CSS files for reference
+- **Single JS file**: `assets/js/darkmode.js` handles dark mode toggle + mobile navigation
+- **19 live HTML pages** organized into:
+  - **Home/About**: `index.html` (home), `about.html` (detailed about), `alumni.html`, `ourwork.html`
   - **Teams**: `teams.html` (overview) + 7 individual team pages (`teama.html` through `teamy.html`)
-  - **Program pages**: `sponsors.html`, `events.html`, `awards.html`, `contact.html`
+  - **Program pages**: `sponsors.html`, `events.html`, `awards.html`, `contact.html`, `join.html`
   - **Other**: `donate.html`, `gallery.html`
-- **Image assets**: Team photos (`teamthumbnails/teama.JPG`, etc.), logos (`NJROTC.jpg`), robot photos
+- **Image assets**: `assets/images/` contains team photos, logos, robot photos, gallery media, and source image files
+- **Documents**: `docs/troy-vex-sponsorship-proposal.pdf`
+- **Archive**: `archive/mockups/` for non-live mockups and `archive/screenshots/` for old screenshots
 - **Server script**: `serve.py` — custom Python server with extensionless URL support
 
 ## Development
@@ -54,15 +56,15 @@ Then open `http://localhost:3000` in your browser.
 
 ### Cache-Busting
 
-All HTML files reference `darkmode.js` with a version query string (`?v=2`). When `darkmode.js` changes, increment the version in all 16 HTML files:
+All HTML files reference `assets/css/site.css` and `assets/js/darkmode.js` with version query strings. When either file changes, increment the matching version in all HTML files:
 ```bash
-sed -i 's|darkmode.js?v=2|darkmode.js?v=3|g' *.html
+powershell -NoProfile -Command "Get-ChildItem -Recurse -Filter *.html | ForEach-Object { (Get-Content $_.FullName -Raw) -replace 'darkmode.js\\?v=3','darkmode.js?v=4' | Set-Content $_.FullName }"
 ```
 
 ### File Organization
 - **Template-based structure**: All pages share identical navigation header
 - **Navigation pattern**: Fixed header with logo, dropdown menu for teams, and consistent page links
-- **Responsive design**: Mobile-first CSS with media queries in `styles.css`
+- **Responsive design**: Mobile-first CSS with media queries in `assets/css/site.css`
 - **Color scheme**: Black/white theme with red accents (`#b12a34` for highlights)
 - **Typography**: Google Fonts 'Geist' family throughout
 
@@ -71,11 +73,13 @@ sed -i 's|darkmode.js?v=2|darkmode.js?v=3|g' *.html
 - **Layout systems**: Flexbox for navigation, Grid for content sections
 - **Global component classes**: `.split-section`, `.glass-card`, `.story-feature`, `.page-header`, `.btn-primary`
 - **Navigation components**: `.navbar`, `.nav-links`, `.dropdown`, `.dropdown-menu`, `.hamburger`, `.menu-overlay`
-- **Page-specific CSS files**:
-  - `events.css` — event list layout, `.page-header` gradient, `.event-row`, `.event-date`, `.featured-event`
-  - `teams.css` — narrative hero, timeline, squad grid, roster grid, `.narrative-hero`, `.stats-widget`, `.squad-card`
-  - `about.css` — about page layout
-  - `donate.css` — donate page layout
+- **Bundled source sections**:
+  - `styles.css` section — global styles, navigation, gallery, shared components
+  - `events.css` section — event list layout, `.page-header` gradient, `.event-row`, `.event-date`, `.featured-event`
+  - `teams.css` section — narrative hero, timeline, squad grid, roster grid, `.narrative-hero`, `.stats-widget`, `.squad-card`
+  - `about.css` section — about page layout
+  - `donate.css` section — donate and join page layout
+  - `team-detail.css` section — individual team pages
 - **Shared header gradient** (used on events, sponsors, teams):
   ```css
   background:
@@ -94,7 +98,7 @@ sed -i 's|darkmode.js?v=2|darkmode.js?v=3|g' *.html
 
 **Rule**: Never set `header` z-index below `.nav-links` z-index on mobile — the hamburger button will become unclickable.
 
-**Mobile nav behavior** (implemented in `darkmode.js`):
+**Mobile nav behavior** (implemented in `assets/js/darkmode.js`):
 - Hamburger toggles slide-in panel from right
 - Overlay backdrop (`div.menu-overlay`) closes menu on tap
 - Dropdown items (Teams, Events) expand as accordion on mobile with a rotating `›` chevron indicator
@@ -107,34 +111,34 @@ sed -i 's|darkmode.js?v=2|darkmode.js?v=3|g' *.html
 <header>
     <nav class="navbar">
         <div class="logo-container">
-            <a href="/"><img src="NJROTC.jpg" alt="Troy VEX Logo" class="logo"></a>
-            <span class="logo-text" style="font-size:2rem;">Troy VEX Robotics</span>
+            <a href="/"><img src="/assets/images/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo"></a>
+            <span class="logo-text">Troy VEX Robotics</span>
         </div>
         <ul class="nav-links">
-            <li><a href="about">About</a></li>
+            <li><a href="/about">About</a></li>
             <li class="dropdown">
-                <a href="teams">Teams</a>
+                <a href="/teams">Teams</a>
                 <ul class="dropdown-menu">
-                    <li><a href="teams">Our Teams</a></li>
-                    <li><a href="teama">Team A - Aegis</a></li>
-                    <li><a href="teamb">Team B - Ouroboros</a></li>
-                    <li><a href="teamc">Team C - Jinx</a></li>
-                    <li><a href="teamd">Team D - Nyx</a></li>
-                    <li><a href="teame">Team E - Eclipse</a></li>
-                    <li><a href="teamx">Team X - Paradox</a></li>
-                    <li><a href="teamy">Team Y - Atlantis</a></li>
+                    <li><a href="/teams">Our Teams</a></li>
+                    <li><a href="/teama">Team A - Aegis</a></li>
+                    <li><a href="/teamb">Team B - Ouroboros</a></li>
+                    <li><a href="/teamc">Team C - Jinx</a></li>
+                    <li><a href="/teamd">Team D - Nyx</a></li>
+                    <li><a href="/teame">Team E - Eclipse</a></li>
+                    <li><a href="/teamx">Team X - Paradox</a></li>
+                    <li><a href="/teamy">Team Y - Atlantis</a></li>
                 </ul>
             </li>
-            <li><a href="sponsors">Sponsors</a></li>
+            <li><a href="/sponsors">Sponsors</a></li>
             <li class="dropdown">
-                <a href="events">Events</a>
+                <a href="/events">Events</a>
                 <ul class="dropdown-menu">
-                    <li><a href="events">Event List</a></li>
-                    <li><a href="gallery">Gallery</a></li>
+                    <li><a href="/events">Event List</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
                 </ul>
             </li>
-            <li><a href="awards">Awards</a></li>
-            <li><a href="donate">Donate</a></li>
+            <li><a href="/awards">Awards</a></li>
+            <li><a href="/donate">Donate</a></li>
         </ul>
     </nav>
 </header>
@@ -162,23 +166,23 @@ sed -i 's|darkmode.js?v=2|darkmode.js?v=3|g' *.html
 - **New team card**: Copy `.squad-card` div in `teams.html`, update links and info
 - **New sponsor**: Add to appropriate tier section in `sponsors.html`
 - **New event**: Copy `.event-row` structure in `events.html`
-- **Navigation updates**: Must be updated in all 16 HTML files
+- **Navigation updates**: Must be updated in all live root HTML files
 
 ### Styling Updates
-- **Global styles**: Modify `styles.css`
-- **Page-specific styles**: Modify the relevant CSS file (`events.css`, `teams.css`, `about.css`, `donate.css`)
-- **Responsive adjustments**: Media queries at bottom of each CSS file (768px breakpoint)
+- **Global and page styles**: Modify `assets/css/site.css`
+- **Source reference**: Use `archive/source-css/css/` only as historical reference unless intentionally rebuilding the bundle
+- **Responsive adjustments**: Media queries live inside `assets/css/site.css` (768px breakpoint)
 - **Color changes**: Update `#b12a34` (red) or `#0d1b3a` (dark navy) values
 
 ### Maintenance Notes
-- **Navigation consistency**: Any header/nav changes must be replicated across all 16 HTML files
-- **No build process**: Direct file editing only, no compilation or bundling
+- **Navigation consistency**: Any header/nav changes must be replicated across all live root HTML files
+- **No build process**: Direct file editing only; CSS is currently bundled manually in `assets/css/site.css`
 - **Browser testing**: Test responsive behavior at mobile (≤768px), tablet (769-1024px), desktop (≥1025px)
-- **Extensionless link rule**: Always use `href="about"` not `href="about.html"` in navigation and internal links
+- **Extensionless link rule**: Use extensionless routes such as `href="/about"` rather than `href="/about.html"` in navigation and internal links
 
 ## Technical Notes
 
-- **Minimal JavaScript**: `darkmode.js` only — handles dark mode + mobile hamburger nav
+- **Minimal JavaScript**: `assets/js/darkmode.js` only — handles dark mode + mobile hamburger nav
 - **No package.json**: No runtime dependencies
 - **No build tools**: No webpack, vite, or other build configuration
 - **No frameworks**: No React, Vue, or other JavaScript frameworks

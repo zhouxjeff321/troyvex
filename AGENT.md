@@ -19,12 +19,12 @@ Python executable on this machine: `C:\Users\ryanz\AppData\Local\Programs\Python
 
 ## Verifying All Pages Load
 
-After any server or routing change, confirm all 16 pages return 200:
+After any server or routing change, confirm all live pages return 200:
 
 ```bash
-for path in "/" "/about" "/teams" "/teama" "/teamb" "/teamc" "/teamd" "/teame" \
-            "/teamx" "/teamy" "/sponsors" "/events" "/awards" "/contact" \
-            "/donate" "/gallery"; do
+for path in "/" "/about" "/alumni" "/teams" "/teama" "/teamb" "/teamc" "/teamd" \
+            "/teame" "/teamx" "/teamy" "/sponsors" "/events" "/awards" \
+            "/contact" "/donate" "/gallery" "/join" "/ourwork"; do
   code=$(curl -s -o NUL -w "%{http_code}" "http://localhost:3000${path}")
   echo "$code  http://localhost:3000${path}"
 done
@@ -34,11 +34,11 @@ All should return `200`.
 
 ## JavaScript / CSS Cache Busting
 
-`darkmode.js` is versioned via query string in every HTML file (`?v=2`). After editing `darkmode.js`, bump the version across all HTML files:
+`assets/js/darkmode.js` and `assets/css/site.css` are versioned via query string in every HTML file. After editing either file, bump its version across all HTML files:
 
 ```bash
-# Example: increment v=2 to v=3
-sed -i 's|darkmode.js?v=2|darkmode.js?v=3|g' *.html
+# Example: increment darkmode.js v=3 to v=4
+powershell -NoProfile -Command "Get-ChildItem -Recurse -Filter *.html | ForEach-Object { (Get-Content $_.FullName -Raw) -replace 'darkmode.js\\?v=3','darkmode.js?v=4' | Set-Content $_.FullName }"
 ```
 
 Then hard-reload the preview: `location.reload(true)` in the browser console.
@@ -71,3 +71,4 @@ header (mobile):     z-index: 10000  ← must be highest so hamburger is always 
 |---|---|---|
 | 2026-03-02 | `serve.py`, `.claude/launch.json` | Added custom Python server with extensionless URL support |
 | 2026-03-02 | `darkmode.js`, `styles.css`, all `*.html` | Fixed mobile menu: hamburger z-index, overlay backdrop, close-on-link-tap, dropdown accordion |
+| 2026-06-15 | `assets/`, `docs/`, `archive/`, all `*.html` | Bundled CSS into `assets/css/site.css`, moved site assets under `assets/`, moved sponsorship packet to `docs/`, and archived mockups/screenshots |

@@ -24,7 +24,7 @@ class ExtensionlessHandler(http.server.SimpleHTTPRequestHandler):
             self.path = '/index.html'
             return super().do_GET()
 
-        # Try appending .html (all HTML files are at root)
+        # Try appending .html (all live HTML pages are at root)
         if not path.endswith('.html'):
             html_path = path.rstrip('/') + '.html'
             full_html = os.path.realpath(os.path.join(DIRECTORY, html_path.lstrip('/')))

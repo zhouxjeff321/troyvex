@@ -1,0 +1,20 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - heading "Join CTA — Redesigns" [level=1] [ref=e3]
+    - button "1 · Split Panel" [ref=e4] [cursor=pointer]
+    - button "2 · Bold Banner" [active] [ref=e5] [cursor=pointer]
+    - button "3 · Benefit Cards" [ref=e6] [cursor=pointer]
+    - button "4 · Minimal" [ref=e7] [cursor=pointer]
+    - button "5 · Overlay Card" [ref=e8] [cursor=pointer]
+  - generic [ref=e9]:
+    - generic [ref=e39]:
+      - generic [ref=e40]: Recruitment Open
+      - heading "Ready to build something great?" [level=2] [ref=e41]
+      - paragraph [ref=e42]: We're always looking for dedicated cadets to join Troy VEX Robotics. Your seat on a team is waiting.
+      - generic [ref=e43]:
+        - link "Learn How to Join" [ref=e44] [cursor=pointer]:
+          - /url: /join
+        - link "Contact a Captain" [ref=e45] [cursor=pointer]:
+          - /url: /contact
+    - paragraph [ref=e46]: Mockup 2 — Full-bleed navy banner with red accents. Big bold headline, dual call-to-action.
+    - text: ✓ ✓ ✓

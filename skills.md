@@ -37,18 +37,15 @@ This document outlines the skills, tools, and methodologies required to effectiv
 
 ### Local Development Server
 
-**Required**: The site uses extensionless URLs (`href="about"` not `href="about.html"`), requiring proper server configuration.
+**Required**: The site uses extensionless URLs (`href="/about"` not `href="/about.html"`), requiring proper server configuration.
 
 **Primary command:**
 ```bash
-npx serve . --single
+python serve.py
 ```
 
 **Alternatives:**
 ```bash
-# Python 3
-python -m http.server 3000
-
 # Node http-server
 npx http-server -p 3000 --ext html
 
@@ -56,7 +53,7 @@ npx http-server -p 3000 --ext html
 php -S localhost:3000
 ```
 
-**Why `--single` is required:** The extensionless URLs need URL rewriting to work. The `--single` flag treats all routes as the index file, allowing the server to resolve `href="about"` to `about.html`.
+**Why `serve.py` is required:** The extensionless URLs need `.html` fallback routing. Plain `python -m http.server` does not provide that fallback.
 
 ### Version Control (Git)
 
@@ -109,10 +106,13 @@ php -S localhost:3000
 
 ### File Structure
 
-- **14 HTML pages**: All in root directory
-- **Single CSS file**: `styles.css` contains all styling
-- **Single JS file**: `darkmode.js` for theme toggle
-- **Assets**: Root-level images, subdirectories for team/event photos
+- **19 live HTML pages**: All live pages remain in the root directory for clean URLs
+- **Bundled CSS file**: `assets/css/site.css` contains global and page styles
+- **Archived source CSS**: `archive/source-css/css/` preserves the original split CSS files
+- **Single JS file**: `assets/js/darkmode.js` for theme toggle and mobile navigation
+- **Assets**: `assets/images/` contains logos, team/event photos, robots, and source image files
+- **Docs**: `docs/troy-vex-sponsorship-proposal.pdf` is the live sponsorship packet
+- **Archive**: `archive/mockups/` and `archive/screenshots/` hold non-live reference material
 
 ### Content Organization
 
@@ -123,9 +123,9 @@ php -S localhost:3000
 
 ### Maintenance Patterns
 
-- **Navigation updates**: Must be synchronized across all 14 HTML files
-- **Styling**: All changes go in `styles.css`, no inline styles
-- **Images**: Optimize before adding, use descriptive filenames
+- **Navigation updates**: Must be synchronized across all live root HTML files
+- **Styling**: All changes go in `assets/css/site.css`; move reusable inline styles there when touching related markup
+- **Images**: Optimize before adding, use descriptive filenames, and place them under `assets/images/`
 - **Testing**: Verify all breakpoints, test with local server
 
 ---
@@ -145,13 +145,13 @@ Before submitting changes:
 - [ ] Images optimized and properly referenced
 - [ ] No broken links
 - [ ] Dark mode tested (if applicable)
-- [ ] Site runs correctly with `npx serve . --single`
+- [ ] Site runs correctly with `python serve.py`
 
 ### Anti-Patterns to Avoid
 
 - **Vibecoding**: Avoid trendy effects (excessive animations, glassmorphism, parallax)
 - **Framework bloat**: Don't add React, Vue, Tailwind, etc.
-- **Inline styles**: Keep all CSS in `styles.css`
+- **Inline styles**: Avoid adding new inline styles; move reusable styles to `assets/css/site.css`
 - **Magic numbers**: Use CSS variables for repeated values
 - **Deep nesting**: Keep selectors shallow (max 3 levels)
 - **Placeholder content**: Use real content or request it
