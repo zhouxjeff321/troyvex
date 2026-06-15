@@ -17,11 +17,12 @@ This is a static website for the Troy High School VEX Robotics program. The site
 - **Source CSS archive**: `archive/source-css/css/` keeps the original pre-bundle CSS files for reference
 - **Single JS file**: `assets/js/darkmode.js` handles dark mode toggle + mobile navigation
 - **19 live HTML pages** organized into:
-  - **Home/About**: `index.html` (home), `about.html` (detailed about), `alumni.html`, `ourwork.html`
-  - **Teams**: `teams.html` (overview) + 7 individual team pages (`teama.html` through `teamy.html`)
-  - **Program pages**: `sponsors.html`, `events.html`, `awards.html`, `contact.html`, `join.html`
-  - **Other**: `donate.html`, `gallery.html`
-- **Image assets**: `assets/images/` contains team photos, logos, robot photos, gallery media, and source image files
+  - **Home**: `index.html` at root
+  - **About**: `pages/about/about.html`, `pages/about/alumni.html`, `pages/about/ourwork.html`
+  - **Teams**: `pages/teams/teams.html` + 7 individual team pages (`teama.html` through `teamy.html`)
+  - **Events/Program**: `pages/events/events.html`, `pages/events/gallery.html`, `pages/program/awards.html`
+  - **Support**: `pages/support/sponsors.html`, `pages/support/donate.html`, `pages/support/join.html`, `pages/support/contact.html`
+- **Image assets**: `assets/images/brand`, `program`, `teams`, `events`, `people`, and `ui`
 - **Documents**: `docs/troy-vex-sponsorship-proposal.pdf`
 - **Archive**: `archive/mockups/` for non-live mockups and `archive/screenshots/` for old screenshots
 - **Server script**: `serve.py` — custom Python server with extensionless URL support
@@ -36,7 +37,7 @@ This is a static website for the Troy High School VEX Robotics program. The site
 ```bash
 python serve.py
 ```
-`serve.py` (project root) maps extensionless requests to `.html` files automatically and serves on port 3000. This is the only method guaranteed to work on this machine.
+`serve.py` (project root) maps extensionless requests to grouped files under `pages/` and serves on port 3000. This is the only method guaranteed to work on this machine.
 
 **Claude Preview integration** — `.claude/launch.json` is configured to start `serve.py` via the `preview_start("troyvex")` tool. Python path used: `C:\Users\ryanz\AppData\Local\Programs\Python\Python313\python.exe`.
 
@@ -111,7 +112,7 @@ powershell -NoProfile -Command "Get-ChildItem -Recurse -Filter *.html | ForEach-
 <header>
     <nav class="navbar">
         <div class="logo-container">
-            <a href="/"><img src="/assets/images/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo"></a>
+            <a href="/"><img src="/assets/images/brand/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo"></a>
             <span class="logo-text">Troy VEX Robotics</span>
         </div>
         <ul class="nav-links">
@@ -166,7 +167,7 @@ powershell -NoProfile -Command "Get-ChildItem -Recurse -Filter *.html | ForEach-
 - **New team card**: Copy `.squad-card` div in `teams.html`, update links and info
 - **New sponsor**: Add to appropriate tier section in `sponsors.html`
 - **New event**: Copy `.event-row` structure in `events.html`
-- **Navigation updates**: Must be updated in all live root HTML files
+- **Navigation updates**: Must be updated in `index.html` and all live HTML files under `pages/`
 
 ### Styling Updates
 - **Global and page styles**: Modify `assets/css/site.css`
@@ -175,10 +176,10 @@ powershell -NoProfile -Command "Get-ChildItem -Recurse -Filter *.html | ForEach-
 - **Color changes**: Update `#b12a34` (red) or `#0d1b3a` (dark navy) values
 
 ### Maintenance Notes
-- **Navigation consistency**: Any header/nav changes must be replicated across all live root HTML files
+- **Navigation consistency**: Any header/nav changes must be replicated across `index.html` and all live HTML files under `pages/`
 - **No build process**: Direct file editing only; CSS is currently bundled manually in `assets/css/site.css`
 - **Browser testing**: Test responsive behavior at mobile (≤768px), tablet (769-1024px), desktop (≥1025px)
-- **Extensionless link rule**: Use extensionless routes such as `href="/about"` rather than `href="/about.html"` in navigation and internal links
+- **Extensionless link rule**: Use extensionless routes such as `href="/about"` rather than linking to the `.html` filename in navigation and internal links
 
 ## Technical Notes
 
@@ -219,3 +220,4 @@ Use this loop for any non-trivial change to keep edits safe, consistent, and eas
 - Target behavior is visible in browser on mobile and desktop.
 - No broken links, missing images, or obvious layout regressions.
 - Repeated content remains synchronized across all relevant pages.
+

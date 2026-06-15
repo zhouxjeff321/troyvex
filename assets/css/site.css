@@ -1600,7 +1600,7 @@ th {
     padding: 2rem;
     opacity: 0;
     transform: translateY(28px);
-    transition: opacity 0.55s ease, transform 0.55s ease, border-color 0.2s ease, box-shadow 0.25s ease;
+    transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
 .tier-card:nth-child(1) { transition-delay: 0s; }
@@ -1610,16 +1610,6 @@ th {
 .tier-card.tier-visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-.tier-card:hover {
-    border-color: #b12a34;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-    transform: translateY(-4px);
-}
-
-body.dark-mode .tier-card:hover {
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
 
 .tier-card h3 {
@@ -1689,10 +1679,6 @@ body.dark-mode .tier-card:hover {
 body.dark-mode .tier-card {
     background: #1a1a1a;
     border-color: #333;
-}
-
-body.dark-mode .tier-card:hover {
-    border-color: #b12a34;
 }
 
 body.dark-mode .tier-card .tier-price {

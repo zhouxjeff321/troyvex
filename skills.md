@@ -37,7 +37,7 @@ This document outlines the skills, tools, and methodologies required to effectiv
 
 ### Local Development Server
 
-**Required**: The site uses extensionless URLs (`href="/about"` not `href="/about.html"`), requiring proper server configuration.
+**Required**: The site uses extensionless URLs such as `href="/about"` rather than direct `.html` filename links, requiring proper server configuration.
 
 **Primary command:**
 ```bash
@@ -106,11 +106,11 @@ php -S localhost:3000
 
 ### File Structure
 
-- **19 live HTML pages**: All live pages remain in the root directory for clean URLs
+- **19 live HTML pages**: `index.html` stays at root; other live pages are grouped under `pages/` by site area
 - **Bundled CSS file**: `assets/css/site.css` contains global and page styles
 - **Archived source CSS**: `archive/source-css/css/` preserves the original split CSS files
 - **Single JS file**: `assets/js/darkmode.js` for theme toggle and mobile navigation
-- **Assets**: `assets/images/` contains logos, team/event photos, robots, and source image files
+- **Assets**: `assets/images/` is grouped into `brand`, `program`, `teams`, `events`, `people`, and `ui`
 - **Docs**: `docs/troy-vex-sponsorship-proposal.pdf` is the live sponsorship packet
 - **Archive**: `archive/mockups/` and `archive/screenshots/` hold non-live reference material
 
@@ -123,7 +123,7 @@ php -S localhost:3000
 
 ### Maintenance Patterns
 
-- **Navigation updates**: Must be synchronized across all live root HTML files
+- **Navigation updates**: Must be synchronized across `index.html` and all live HTML files under `pages/`
 - **Styling**: All changes go in `assets/css/site.css`; move reusable inline styles there when touching related markup
 - **Images**: Optimize before adding, use descriptive filenames, and place them under `assets/images/`
 - **Testing**: Verify all breakpoints, test with local server

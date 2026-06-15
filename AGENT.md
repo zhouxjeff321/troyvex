@@ -17,6 +17,19 @@ preview_start("troyvex")   # defined in .claude/launch.json
 
 Python executable on this machine: `C:\Users\ryanz\AppData\Local\Programs\Python\Python313\python.exe`
 
+## Source Layout
+
+Live pages are grouped under `pages/` by site area while public routes remain clean:
+
+- `index.html` stays at root for `/`
+- `pages/about/` maps `/about`, `/alumni`, `/ourwork`
+- `pages/teams/` maps `/teams`, `/teama`, `/teamb`, `/teamc`, `/teamd`, `/teame`, `/teamx`, `/teamy`
+- `pages/events/` maps `/events`, `/gallery`
+- `pages/program/` maps `/awards`
+- `pages/support/` maps `/sponsors`, `/donate`, `/join`, `/contact`
+
+Image assets are grouped under `assets/images/brand`, `program`, `teams`, `events`, `people`, and `ui`.
+
 ## Verifying All Pages Load
 
 After any server or routing change, confirm all live pages return 200:
@@ -72,3 +85,4 @@ header (mobile):     z-index: 10000  ← must be highest so hamburger is always 
 | 2026-03-02 | `serve.py`, `.claude/launch.json` | Added custom Python server with extensionless URL support |
 | 2026-03-02 | `darkmode.js`, `styles.css`, all `*.html` | Fixed mobile menu: hamburger z-index, overlay backdrop, close-on-link-tap, dropdown accordion |
 | 2026-06-15 | `assets/`, `docs/`, `archive/`, all `*.html` | Bundled CSS into `assets/css/site.css`, moved site assets under `assets/`, moved sponsorship packet to `docs/`, and archived mockups/screenshots |
+| 2026-06-15 | `pages/`, `assets/images/`, `serve.py`, `vercel.json` | Grouped live pages by site area and reorganized images into brand/program/teams/events/people/ui folders |
