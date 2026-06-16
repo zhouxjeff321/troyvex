@@ -1642,19 +1642,146 @@ th {
     border: 0;
 }
 
-.sponsorship-tiers-visual {
+.sponsorship-tiers {
     max-width: 1360px;
     margin: 2rem auto 0;
     padding: 0 1rem;
-    overflow-x: auto;
 }
 
-.sponsorship-tiers-image {
+.tier-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    background:
+        radial-gradient(circle at 92% -8%, rgba(177, 42, 52, 0.14), transparent 44%),
+        linear-gradient(135deg, #ffffff 0%, #fff6f7 52%, #f8dada 100%);
+    border-radius: 24px;
+    padding: 2.5rem 2.25rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.tier-card {
+    padding: 0 1.4rem;
+    color: #454547;
+}
+
+.tier-card + .tier-card {
+    border-left: 1px solid #e8dddd;
+}
+
+.tier-eyebrow {
     display: block;
-    width: 100%;
-    min-width: 760px;
-    height: auto;
-    border-radius: 18px;
+    font-family: 'Geist', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9f9395;
+}
+
+.tier-price {
+    font-family: 'Geist', sans-serif;
+    font-weight: 400;
+    font-size: 2.15rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #151923;
+    margin: 0.6rem 0 1.1rem;
+    white-space: nowrap;
+}
+
+.tier-divider {
+    border: none;
+    border-top: 1px solid #e4dddd;
+    margin: 0 0 1.4rem;
+}
+
+.tier-note {
+    font-family: 'Geist', sans-serif;
+    color: #8f8586;
+    font-size: 0.95rem;
+    margin: 0 0 1.1rem;
+}
+
+.tier-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.tier-list li {
+    position: relative;
+    padding-left: 1.7rem;
+    font-family: 'Geist', sans-serif;
+    color: #454547;
+    line-height: 1.35;
+}
+
+.tier-list li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #b12a34;
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .tier-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tier-card {
+        padding: 1.4rem 1.4rem;
+    }
+
+    .tier-card + .tier-card {
+        border-left: none;
+    }
+
+    /* vertical divider between the two columns */
+    .tier-card:nth-child(even) {
+        border-left: 1px solid #e8dddd;
+    }
+
+    /* horizontal divider above the second row */
+    .tier-card:nth-child(n + 3) {
+        border-top: 1px solid #ece3e3;
+    }
+}
+
+@media (max-width: 768px) {
+    .tier-grid {
+        grid-template-columns: 1fr;
+        padding: 1.25rem 1.5rem;
+    }
+
+    .tier-card {
+        padding: 1.5rem 0;
+        border-bottom: 1px solid #ece3e3;
+    }
+
+    .tier-card + .tier-card,
+    .tier-card:nth-child(even) {
+        border-left: none;
+    }
+
+    .tier-card:nth-child(n + 3) {
+        border-top: none;
+    }
+
+    .tier-card:last-child {
+        border-bottom: none;
+    }
+
+    .tier-price {
+        font-size: 2rem;
+        margin: 0.4rem 0 1rem;
+        white-space: normal;
+    }
 }
 
 /* Sponsor Info Card */
@@ -3478,6 +3605,31 @@ body.dark-mode .student-card:hover {
 
     .coach-card h3 {
         font-size: 1.8rem;
+    }
+
+    /* Images: never overflow, never crop the subject too tight on mobile */
+    .about-split img,
+    .coach-photo img,
+    .student-photo {
+        max-width: 100%;
+    }
+
+    .coach-photo {
+        flex: none;
+        width: 100%;
+    }
+
+    .coach-photo img {
+        height: auto;
+        max-height: 420px;
+        object-fit: contain;
+    }
+
+    .student-photo {
+        height: auto;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: center 20%;
     }
 
     .cta-buttons {

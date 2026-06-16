@@ -20,11 +20,11 @@
             <feBlend in="SourceGraphic" in2="grain" mode="multiply"/>
         </filter>
         <style>
-            .eyebrow { fill: #9f9395; font: 700 18px/1.2 "Inter", "Arial", sans-serif; letter-spacing: 0.18em; }
-            .price { fill: #151923; font: 800 48px/1.1 "Inter", "Arial", sans-serif; letter-spacing: -0.02em; }
-            .body { fill: #8f8586; font: 400 22px/1.2 "Inter", "Arial", sans-serif; }
-            .item { fill: #454547; font: 400 25px/1.35 "Inter", "Arial", sans-serif; }
-            .check { fill: #b12a34; font: 700 24px/1 "Inter", "Arial", sans-serif; }
+            .eyebrow { fill: #9f9395; font: 600 18px/1.2 "Geist", "Inter", "Arial", sans-serif; letter-spacing: 0.18em; }
+            .price { fill: #151923; font: 400 44px/1.1 "Geist", "Inter", "Arial", sans-serif; letter-spacing: -0.01em; }
+            .body { fill: #8f8586; font: 400 22px/1.2 "Geist", "Inter", "Arial", sans-serif; }
+            .item { fill: #454547; font: 400 25px/1.35 "Geist", "Inter", "Arial", sans-serif; }
+            .check { fill: #b12a34; font: 600 24px/1 "Geist", "Inter", "Arial", sans-serif; }
         </style>
     </defs>
 
@@ -43,7 +43,7 @@
 
     <g transform="translate(177 0)">
         <text class="eyebrow" x="0" y="204">BRONZE</text>
-        <text class="price" x="0" y="280">Under $1,000</text>
+        <text class="price" x="0" y="278">Under $1,000</text>
         <line x1="0" y1="334" x2="298" y2="334" stroke="#e4dddd" stroke-width="2"/>
         <text class="body" x="0" y="390">Includes</text>
         <text class="check" x="0" y="449">✓</text>
@@ -55,7 +55,7 @@
 
     <g transform="translate(563 0)">
         <text class="eyebrow" x="0" y="204">SILVER</text>
-        <text class="price" x="0" y="280">$1,000+</text>
+        <text class="price" x="0" y="278">$1,000+</text>
         <line x1="0" y1="334" x2="298" y2="334" stroke="#e4dddd" stroke-width="2"/>
         <text class="body" x="0" y="390">Everything in Bronze, plus</text>
         <text class="check" x="0" y="449">✓</text>
@@ -64,7 +64,7 @@
 
     <g transform="translate(949 0)">
         <text class="eyebrow" x="0" y="204">GOLD</text>
-        <text class="price" x="0" y="280">$5,000+</text>
+        <text class="price" x="0" y="278">$5,000+</text>
         <line x1="0" y1="334" x2="298" y2="334" stroke="#e4dddd" stroke-width="2"/>
         <text class="body" x="0" y="390">Everything in Silver, plus</text>
         <text class="check" x="0" y="449">✓</text>
@@ -75,7 +75,7 @@
 
     <g transform="translate(1335 0)">
         <text class="eyebrow" x="0" y="204">PLATINUM</text>
-        <text class="price" x="0" y="280">$10,000+</text>
+        <text class="price" x="0" y="278">$10,000+</text>
         <line x1="0" y1="334" x2="298" y2="334" stroke="#e4dddd" stroke-width="2"/>
         <text class="body" x="0" y="390">Everything in Gold, plus</text>
         <text class="check" x="0" y="449">✓</text>
