@@ -146,7 +146,7 @@ powershell -NoProfile -Command "Get-ChildItem -Recurse -Filter *.html | ForEach-
 - **Split hero** (`index.html`): `.split-section` with `.split-content` (text) + `.split-visual` (image)
 - **Storytelling section** (`index.html`): `.story-feature` with `.story-container`, `.story-text`, `.story-sub`
 - **Page headers with gradient**: `.page-header` on events/sponsors; `.narrative-hero` on teams — all use shared gradient
-- **Sponsor tiers** (`sponsors.html`): `.tier-card .platinum-card`, `.tier-card .gold-card`, `.tier-card .silver-card`
+- **Sponsor tiers** (`sponsors.html`): image-based `.sponsorship-tiers-visual` section using `assets/images/support/sponsorship-tiers-rose-wash.svg`
 - **Event rows** (`events.html`): `.event-row` grid with `.event-date` and `.event-info`; `.featured-event` for highlighted row
 - **Team cards** (`teams.html`): `.squad-card .hover-lift` in `.squad-grid-clean`
 - **Team detail pages**: `.team-hero`, `.team-stats`, `.team-roster` sections

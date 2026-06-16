@@ -5168,7 +5168,7 @@ body.dark-mode .roster-grid-modern .member-pill:hover {
 .page-header.sponsor-top-hero {
     width: calc(100vw - 3rem);
     max-width: none;
-    margin: -6.6rem 0 2rem calc(50% - 50vw + 1.5rem);
+    margin: -3rem 0 2rem calc(50% - 50vw + 1.5rem);
     padding: 7.25rem 2rem 7.6rem;
     border-radius: 28px;
     overflow: hidden;
@@ -5331,9 +5331,8 @@ body.dark-mode .sponsor-hero-actions .btn-pdf .premium-btn-sub {
 
 @media (max-width: 768px) {
     .page-header.sponsor-top-hero {
-        width: calc(100vw - 1.5rem);
-        margin-top: -4.25rem;
-        margin-left: calc(50% - 50vw + 0.75rem);
+        width: 100%;
+        margin: -2rem 0 2rem;
         padding: 4.5rem 1.25rem 4.75rem;
         border-radius: 22px;
     }
@@ -5344,19 +5343,30 @@ body.dark-mode .sponsor-hero-actions .btn-pdf .premium-btn-sub {
     }
 
     .page-header.sponsor-top-hero .sponsor-hero-title {
+        max-width: calc(100vw - 4rem);
         margin-bottom: 1.35rem;
         font-size: 3.1rem !important;
         line-height: 1.08;
     }
 
     .sponsor-hero-copy {
+        width: 100%;
+        max-width: calc(100vw - 4rem);
         margin-bottom: 2rem;
         font-size: 1.05rem;
         line-height: 1.55;
     }
 
+    .sponsor-hero-actions {
+        width: 100%;
+        max-width: calc(100vw - 4rem);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .sponsor-hero-actions .premium-btn {
         width: 100%;
+        max-width: 100%;
         min-width: 0;
         min-height: 82px;
         padding: 1rem 1.2rem !important;
