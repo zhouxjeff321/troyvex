@@ -166,8 +166,15 @@
         .dn-impact .dn-wrap{grid-template-columns:1fr}
         .dn-impact-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
       }
-      /* mobile: ways-to-give cards go horizontal (swipeable row) */
+      /* mobile: more edge breathing room + ways-to-give cards go horizontal (swipeable row) */
       @media(max-width:640px){
+        .dn-wrap{padding-left:1.85rem;padding-right:1.85rem}
+        .dn-hero-inner{padding:3.5rem 0 2.75rem}
+        .dn-section{padding:3rem 0}
+        .dn-section-head{margin-bottom:1.6rem}
+        .dn-sponsor{padding:2.5rem 0}
+        .dn-sponsor-inner{padding:1.75rem}
+        .dn-give-card{padding:1.4rem}
         .dn-give{flex-direction:row;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.6rem;-webkit-overflow-scrolling:touch}
         .dn-give-card{flex:0 0 84%;scroll-snap-align:start}
       }
@@ -289,7 +296,7 @@
             <div class="dn-wrap dn-sched-grid">
                 <div class="dn-sched-copy">
                     <p class="dn-eyebrow">Let's talk</p>
-                    <h2>Book a 20-minute call</h2>
+                    <h2>Book a quick call</h2>
                     <p>Considering a major gift or a corporate sponsorship? Grab a time with our program team. We'll walk you through impact, tiers, and recognition.</p>
                     <ul>
                         <li>Meet the leadership behind the #1 JROTC program</li>
@@ -298,7 +305,7 @@
                     </ul>
                 </div>
                 <div class="dn-cal">
-                    <!-- Cal.com inline embed. Replace calLink "troyvex/sponsor-meeting" with the real Cal username/event-type. -->
+                    <!-- Cal.com inline embed — booking event: cal.com/ryzo1224/quick-chat -->
                     <div class="dn-cal-fallback">
                         <strong>Scheduler loading…</strong>
                         <span>If it doesn't appear, email <a href="mailto:wlauper@fjuhsd.org">wlauper@fjuhsd.org</a> or visit <a href="https://linktr.ee/troyvex" target="_blank" rel="noopener">linktr.ee/troyvex</a> to book.</span>
@@ -339,7 +346,7 @@
       Cal.ns["sponsor-meeting"]("inline", {
         elementOrId: "cal-inline",
         config: { layout: "month_view" },
-        calLink: "troyvex/sponsor-meeting"
+        calLink: "ryzo1224/quick-chat"
       });
       Cal.ns["sponsor-meeting"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
     </script>
