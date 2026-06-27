@@ -5538,3 +5538,106 @@ body.dark-mode .sponsor-hero-actions .btn-pdf .premium-btn-sub {
         font-size: 2.55rem !important;
     }
 }
+
+/* ─── Dark mode: redesigned Events page (.evp) ──────────────────────────────
+   The events page is scoped to .evp and drives all colors from CSS variables.
+   Override those variables in dark mode so the whole page flips at once. */
+body.dark-mode .evp {
+    --graphite: #e0e0e0;
+    --fog: #9a9a9f;
+    --cloud: #1a1a1a;
+    --bone: #2f2f33;
+    --paper: #252525;
+    background: var(--cloud);
+    color: var(--graphite);
+}
+
+body.dark-mode .evp .seg a.on {
+    background: #3a3a3f;
+}
+
+body.dark-mode .evp .ev {
+    border-bottom-color: #333;
+}
+
+body.dark-mode .evp .cal-head button {
+    background: #333;
+}
+
+body.dark-mode .evp .cal-cell {
+    background: #1f1f1f;
+}
+
+body.dark-mode .evp .cal-has {
+    background: #2a2a2a;
+}
+
+body.dark-mode .evp .ev-major .ev-tag,
+body.dark-mode .evp .cal-ev.ev-major {
+    color: #fff;
+    background: #3a4a78;
+}
+
+/* ─── Dark mode: redesigned Sponsors page ───────────────────────────────────
+   New hero + tier-card markup hardcodes light colors; override them here. */
+body.dark-mode .page-header.sponsor-top-hero {
+    background:
+        radial-gradient(circle at 91% -8%, rgba(177, 42, 52, 0.22), transparent 42%),
+        linear-gradient(135deg, #1f1f1f 0%, #252525 48%, #2a1e1f 100%);
+}
+
+body.dark-mode .page-header.sponsor-top-hero .sponsor-hero-title {
+    color: #f0f0f0;
+}
+
+body.dark-mode .sponsor-hero-copy {
+    color: #b0b0b0;
+}
+
+body.dark-mode .sponsor-hero-actions .btn-pdf {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.18);
+    color: #f0f0f0;
+}
+
+body.dark-mode .sponsor-hero-actions .btn-pdf:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.28);
+}
+
+body.dark-mode .tier-grid {
+    background:
+        radial-gradient(circle at 92% -8%, rgba(177, 42, 52, 0.2), transparent 44%),
+        linear-gradient(135deg, #252525 0%, #2a1e1f 100%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .tier-card {
+    color: #cfcfcf;
+}
+
+body.dark-mode .tier-card + .tier-card,
+body.dark-mode .tier-card:nth-child(even),
+body.dark-mode .tier-card:nth-child(n + 3) {
+    border-color: #3a3a3a;
+}
+
+body.dark-mode .tier-eyebrow {
+    color: #9a9a9f;
+}
+
+body.dark-mode .tier-price {
+    color: #f0f0f0;
+}
+
+body.dark-mode .tier-note {
+    color: #a0989a;
+}
+
+body.dark-mode .tier-divider {
+    border-top-color: #3a3a3a;
+}
+
+body.dark-mode .tier-list li {
+    color: #cfcfcf;
+}
