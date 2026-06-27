@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troy VEX Homepage Concept 3 - Team Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #15161a;
+    --muted: #686d76;
+    --paper: #f6f7f8;
+    --card: #ffffff;
+    --line: #dde1e6;
+    --red: #b12a34;
+    --blue: #24516a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Geist", system-ui, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  header {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; }
+  .brand img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+  .nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  .nav a {
+    color: var(--muted);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 8px 11px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .nav a:hover { color: var(--ink); border-color: var(--line); background: #fff; }
+  main { max-width: 1240px; margin: 0 auto; padding: 0 24px 70px; }
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: stretch;
+  }
+  .intro {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: clamp(28px, 5vw, 58px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 520px;
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    color: var(--red);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  h1 { margin: 18px 0; font-size: clamp(42px, 7vw, 78px); line-height: .96; letter-spacing: -.06em; }
+  .intro p { margin: 0; color: var(--muted); font-size: clamp(17px, 2vw, 22px); max-width: 600px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 14px;
+  }
+  .btn.primary { background: var(--red); color: #fff; }
+  .btn.secondary { border: 1px solid var(--line); background: #fff; }
+  .hero-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .photo-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    min-height: 250px;
+    border: 1px solid var(--line);
+    background: var(--card);
+  }
+  .photo-card.large { grid-column: span 2; }
+  .photo-card img { width: 100%; height: 100%; object-fit: cover; }
+  .caption {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border-radius: 6px;
+    background: rgba(255,255,255,.88);
+    padding: 10px 12px;
+    font-weight: 800;
+    backdrop-filter: blur(10px);
+  }
+  .caption span { display: block; color: var(--muted); font-weight: 600; font-size: 13px; }
+  .stats {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px;
+  }
+  .stat b { display: block; font-size: 42px; line-height: 1; letter-spacing: -.05em; }
+  .stat span { color: var(--muted); font-weight: 700; }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: end;
+    margin: 54px 0 16px;
+  }
+  .section-head h2 { margin: 0; font-size: clamp(30px, 5vw, 52px); line-height: 1; letter-spacing: -.05em; }
+  .section-head p { margin: 0; color: var(--muted); max-width: 440px; }
+  .teams {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .team {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 0;
+  }
+  .team img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .team-body { padding: 14px; display: grid; gap: 8px; }
+  .team-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .team h3 { margin: 0; font-size: 20px; letter-spacing: -.02em; }
+  .code { color: var(--red); font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 700; }
+  .team p { margin: 0; color: var(--muted); font-size: 14px; }
+  .team.featured { grid-column: span 2; display: grid; grid-template-columns: 1.1fr .9fr; }
+  .team.featured img { aspect-ratio: auto; height: 100%; min-height: 280px; }
+  .team.featured .team-body { padding: 22px; align-content: center; }
+  .team.featured h3 { font-size: 34px; }
+  @media (max-width: 960px) {
+    .hero { grid-template-columns: 1fr; }
+    .intro { min-height: auto; }
+    .teams { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 660px) {
+    header { align-items: flex-start; }
+    .nav { display: none; }
+    main { padding: 0 16px 48px; }
+    .hero-stack { grid-template-columns: 1fr; }
+    .photo-card.large { grid-column: auto; }
+    .section-head { display: grid; }
+    .teams, .stats { grid-template-columns: 1fr; }
+    .team.featured { grid-column: auto; grid-template-columns: 1fr; }
+    .team.featured img { min-height: 240px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="/"><img src="/assets/images/brand/logos/NJROTC.jpg" alt="Troy VEX logo">Troy VEX Robotics</a>
+  <nav class="nav" aria-label="Primary navigation">
+    <a href="/teams">Teams</a>
+    <a href="/events">Events</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/awards">Awards</a>
+    <a href="/join">Join</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="intro">
+      <div>
+        <span class="eyebrow">Seven teams - one program</span>
+        <h1>Meet the cadets building Troy VEX.</h1>
+        <p>A homepage direction that puts the roster first: team photos, robot shots, awards, and a clear path into every squad page.</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn primary" href="/teams">Browse all teams</a>
+        <a class="btn secondary" href="/gallery">Open gallery</a>
+      </div>
+    </div>
+    <div class="hero-stack">
+      <div class="photo-card large"><img src="/assets/images/program/history/teamphotos.jpg" alt="Troy VEX full team photo"><div class="caption">60+ cadets<span>Troy High School, Fullerton</span></div></div>
+      <div class="photo-card"><img src="/assets/images/teams/robots/98601yrobot.jpg" alt="Team Y robot"><div class="caption">Atlantis<span>National champion</span></div></div>
+      <div class="photo-card"><img src="/assets/images/teams/robots/98601crobot.jpg" alt="Team C robot"><div class="caption">Jinx<span>Worlds Build Award</span></div></div>
+    </div>
+  </section>
+  <section class="stats" aria-label="Program numbers">
+    <div class="stat"><b>7</b><span>Teams</span></div>
+    <div class="stat"><b>60+</b><span>Cadets</span></div>
+    <div class="stat"><b>4</b><span>World qualified</span></div>
+    <div class="stat"><b>1st</b><span>JROTC Nationals</span></div>
+  </section>
+  <div class="section-head">
+    <h2>Team directory</h2>
+    <p>Each card becomes a direct route into the live team profile, making the front page feel active instead of purely introductory.</p>
+  </div>
+  <section class="teams" aria-label="Team directory">
+    <a class="team featured" href="/teamy">
+      <img src="/assets/images/teams/photos/teamy-photo.jpg" alt="Team Y Atlantis">
+      <div class="team-body"><div class="team-top"><h3>Atlantis</h3><span class="code">98601Y</span></div><p>National Champion, Excellence Award, and Robot Skills Champion at JROTC Nationals.</p></div>
+    </a>
+    <a class="team" href="/teamc"><img src="/assets/images/teams/photos/teamc-photo.jpg" alt="Team C Jinx"><div class="team-body"><div class="team-top"><h3>Jinx</h3><span class="code">98601C</span></div><p>Worlds Build Award and Innovate Award.</p></div></a>
+    <a class="team" href="/teamx"><img src="/assets/images/teams/photos/teamx-photo.jpg" alt="Team X Paradox"><div class="team-body"><div class="team-top"><h3>Paradox</h3><span class="code">98601X</span></div><p>Worlds Judges Award and Think Award.</p></div></a>
+    <a class="team" href="/teama"><img src="/assets/images/teams/photos/teama-photo.jpg" alt="Team A Aegis"><div class="team-body"><div class="team-top"><h3>Aegis</h3><span class="code">98601A</span></div><p>Engineering fundamentals and competition reps.</p></div></a>
+    <a class="team" href="/teamb"><img src="/assets/images/teams/photos/teamb-photo.jpg" alt="Team B Ouroboros"><div class="team-body"><div class="team-top"><h3>Ouroboros</h3><span class="code">98601B</span></div><p>Design, coding, and match strategy.</p></div></a>
+    <a class="team" href="/teamd"><img src="/assets/images/teams/photos/teamd-photo.jpg" alt="Team D Nyx"><div class="team-body"><div class="team-top"><h3>Nyx</h3><span class="code">98601D</span></div><p>Build team depth across the roster.</p></div></a>
+    <a class="team" href="/teame"><img src="/assets/images/teams/photos/teame-photo.jpg" alt="Team E Eclipse"><div class="team-body"><div class="team-top"><h3>Eclipse</h3><span class="code">98601E</span></div><p>Competition development and pit discipline.</p></div></a>
+  </section>
+</main>
+</body>
+</html>

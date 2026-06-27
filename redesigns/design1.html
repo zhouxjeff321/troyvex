@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troy VEX Homepage Concept 1 - Command Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #f7f7f4;
+    --muted: #b9b8ae;
+    --paper: #121312;
+    --panel: #1b1c1a;
+    --line: rgba(255,255,255,.12);
+    --red: #d7333f;
+    --gold: #d8b55b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Geist", system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .page {
+    min-height: 100vh;
+    background:
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px) 0 0 / 86px 86px,
+      linear-gradient(180deg, rgba(215,51,63,.16), transparent 42rem);
+  }
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(18,19,18,.86);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(16px);
+  }
+  .nav {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 22px;
+    align-items: center;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+  }
+  .brand img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .navlinks {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .navlinks a {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+  .navlinks a:hover { background: rgba(255,255,255,.08); color: var(--ink); }
+  .navcta {
+    border: 1px solid rgba(215,51,63,.55);
+    color: #fff;
+    background: rgba(215,51,63,.18);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  main { max-width: 1220px; margin: 0 auto; padding: 34px 24px 64px; }
+  .hero {
+    min-height: 620px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 390px;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .hero-media {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    min-height: 560px;
+  }
+  .hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(.98) contrast(1.04);
+  }
+  .hero-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(18,19,18,.94), rgba(18,19,18,.58) 42%, rgba(18,19,18,.08));
+  }
+  .hero-copy {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    padding: clamp(28px, 6vw, 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 790px;
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  h1 {
+    margin: 18px 0 18px;
+    max-width: 760px;
+    font-size: clamp(44px, 7vw, 92px);
+    line-height: .92;
+    letter-spacing: -.06em;
+  }
+  .hero-copy p {
+    max-width: 590px;
+    margin: 0;
+    color: #e4e1d8;
+    font-size: clamp(18px, 2vw, 23px);
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .btn {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    padding: 12px 18px;
+    font-weight: 800;
+    font-size: 14px;
+  }
+  .btn.primary { background: var(--red); color: #fff; }
+  .btn.secondary { border: 1px solid rgba(255,255,255,.24); color: #fff; }
+  .sidepanel {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 14px;
+  }
+  .scoreboard, .nextup, .quicklinks {
+    background: rgba(27,28,26,.84);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px;
+  }
+  .scoreboard h2, .nextup h2, .quicklinks h2 {
+    margin: 0 0 14px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--muted);
+  }
+  .metric {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+  }
+  .metric:first-of-type { border-top: 0; padding-top: 0; }
+  .metric strong {
+    font-size: 36px;
+    line-height: 1;
+    letter-spacing: -.04em;
+  }
+  .metric span { color: var(--muted); font-size: 14px; }
+  .nextup img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 14px;
+  }
+  .event { display: grid; gap: 8px; }
+  .event b { font-size: 20px; line-height: 1.1; }
+  .event span { color: var(--muted); }
+  .quicklinks { display: grid; gap: 8px; }
+  .quicklinks a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--line);
+    padding: 12px 0;
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .quicklinks a:first-of-type { border-top: 0; }
+  .section {
+    display: grid;
+    grid-template-columns: 310px 1fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+  .section-title {
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(27,28,26,.64);
+  }
+  .section-title h2 { margin: 8px 0 0; font-size: 34px; line-height: 1; letter-spacing: -.04em; }
+  .team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .team {
+    background: rgba(27,28,26,.76);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .team img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .team div { padding: 12px; }
+  .team b { display: block; font-size: 16px; }
+  .team span { color: var(--muted); font-size: 13px; }
+  @media (max-width: 980px) {
+    .hero, .section { grid-template-columns: 1fr; }
+    .sidepanel { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: none; }
+    .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 720px) {
+    .nav { grid-template-columns: 1fr auto; }
+    .navlinks { display: none; }
+    main { padding: 20px 16px 46px; }
+    .hero-media { min-height: 560px; }
+    .sidepanel { grid-template-columns: 1fr; }
+    .metric { grid-template-columns: 70px 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="nav">
+      <a class="brand" href="/"><img src="/assets/images/brand/logos/NJROTC.jpg" alt="Troy VEX logo">Troy VEX</a>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="/about">About</a>
+        <a href="/teams">Teams</a>
+        <a href="/events">Events</a>
+        <a href="/awards">Awards</a>
+        <a href="/sponsors">Sponsors</a>
+      </nav>
+      <a class="navcta" href="/join">Join</a>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-label="Troy VEX command deck concept">
+      <div class="hero-media">
+        <img src="/assets/images/events/2026/jrotc-nationals/5X9A4998.jpg" alt="Troy VEX team at JROTC Nationals">
+        <div class="hero-copy">
+          <span class="eyebrow">Troy High School - Fullerton, CA</span>
+          <h1>Build like a team. Compete like a program.</h1>
+          <p>The nation's largest JROTC VEX program, built from seven teams, sixty cadets, and a championship standard.</p>
+          <div class="actions">
+            <a class="btn primary" href="/teams">Meet the teams</a>
+            <a class="btn secondary" href="/awards">View awards</a>
+          </div>
+        </div>
+      </div>
+      <aside class="sidepanel" aria-label="Program dashboard">
+        <div class="scoreboard">
+          <h2>Program readout</h2>
+          <div class="metric"><strong>7</strong><span>active teams across the Troy VEX roster</span></div>
+          <div class="metric"><strong>60+</strong><span>cadets learning design, build, code, and compete</span></div>
+          <div class="metric"><strong>4</strong><span>world-qualified teams in the 2025-2026 season</span></div>
+        </div>
+        <div class="nextup">
+          <h2>Featured result</h2>
+          <img src="/assets/images/events/2026/jrotc-nationals/5X9A5630.JPG" alt="Team members celebrating at the championship">
+          <div class="event">
+            <b>JROTC National Championship</b>
+            <span>Team Y - Atlantis: National Champion, Excellence Award, Robot Skills Champion.</span>
+          </div>
+        </div>
+        <div class="quicklinks">
+          <h2>Explore</h2>
+          <a href="/events"><span>Competition schedule</span><span>Open</span></a>
+          <a href="/sponsors"><span>Support the mission</span><span>Open</span></a>
+          <a href="/join"><span>Prospective members</span><span>Open</span></a>
+        </div>
+      </aside>
+    </section>
+    <section class="section">
+      <div class="section-title">
+        <span class="eyebrow">Teams</span>
+        <h2>Seven squads, one standard.</h2>
+      </div>
+      <div class="team-grid">
+        <a class="team" href="/teama"><img src="/assets/images/teams/photos/teama-photo.jpg" alt="Team A"><div><b>Aegis</b><span>98601A</span></div></a>
+        <a class="team" href="/teamb"><img src="/assets/images/teams/photos/teamb-photo.jpg" alt="Team B"><div><b>Ouroboros</b><span>98601B</span></div></a>
+        <a class="team" href="/teamc"><img src="/assets/images/teams/photos/teamc-photo.jpg" alt="Team C"><div><b>Jinx</b><span>98601C - Worlds Build Award</span></div></a>
+        <a class="team" href="/teamy"><img src="/assets/images/teams/photos/teamy-photo.jpg" alt="Team Y"><div><b>Atlantis</b><span>98601Y - National Champion</span></div></a>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A — Sidebar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#111317;--mut:#6b7280;--faint:#9aa0a8;--line:#ebedf0;--bg:#fff;--red:#b12a34;--soft:#f7f8f9;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:15px}
+  a{color:inherit;text-decoration:none}
+  .lbl{font-size:.7rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
+  .shell{display:grid;grid-template-columns:264px 1fr;min-height:100vh}
+  aside{position:sticky;top:0;height:100vh;border-right:1px solid var(--line);padding:1.6rem 1.4rem;display:flex;flex-direction:column}
+  .brand{display:flex;align-items:center;gap:.6rem;font-weight:700;letter-spacing:-.01em}
+  .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:.78rem;font-weight:700}
+  .brand small{display:block;font-weight:450;font-size:.66rem;letter-spacing:.1em;color:var(--faint);text-transform:uppercase}
+  nav{margin-top:2rem;display:flex;flex-direction:column;gap:.1rem}
+  nav a{padding:.5rem .6rem;border-radius:7px;color:var(--mut);font-weight:500;font-size:.92rem}
+  nav a.on{background:var(--soft);color:var(--ink)}
+  nav a:hover{background:var(--soft);color:var(--ink)}
+  .side-facts{margin-top:auto;border-top:1px solid var(--line);padding-top:1.1rem;display:grid;gap:.8rem}
+  .sf{display:flex;justify-content:space-between;align-items:baseline}
+  .sf b{font-size:1.05rem;font-weight:600}
+  .sf span{font-size:.8rem;color:var(--mut)}
+  .joinbtn{margin-top:1.1rem;display:block;text-align:center;background:var(--ink);color:#fff;border-radius:8px;padding:.6rem;font-weight:500;font-size:.9rem}
+  main{padding:0}
+  .inner{max-width:760px;padding:3.2rem 2.4rem}
+  .hero h1{font-size:2.5rem;font-weight:700;letter-spacing:-.025em;line-height:1.12;margin:.9rem 0}
+  .hero h1 .r{color:var(--red)}
+  .hero p{font-size:1.1rem;color:var(--mut);max-width:54ch}
+  .statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:12px;margin:2.2rem 0;overflow:hidden}
+  .statrow div{padding:1.1rem 1.2rem;border-right:1px solid var(--line)}
+  .statrow div:last-child{border-right:none}
+  .statrow .n{font-size:1.7rem;font-weight:700;letter-spacing:-.02em}
+  .statrow .t{font-size:.76rem;color:var(--mut);margin-top:.1rem}
+  section{padding:2.2rem 0;border-top:1px solid var(--line)}
+  .sechead{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.1rem}
+  .sechead h2{font-size:1.05rem;font-weight:600}
+  .sechead a{font-size:.82rem;color:var(--mut)}
+  .row{display:grid;grid-template-columns:64px 1fr auto;gap:1rem;align-items:center;padding:.75rem 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .date{font-size:.72rem;font-weight:600;color:var(--faint);letter-spacing:.04em;line-height:1.3}
+  .ev{font-weight:550}
+  .ev small{display:block;color:var(--mut);font-weight:400;font-size:.84rem}
+  .tagchip{font-size:.72rem;font-weight:600;color:var(--red);background:rgba(177,42,52,.08);padding:.25rem .6rem;border-radius:20px;white-space:nowrap}
+  .tagchip.n{color:var(--mut);background:var(--soft)}
+  .teamgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
+  .tm{display:flex;align-items:center;gap:.8rem;padding:.7rem .9rem;border:1px solid var(--line);border-radius:10px}
+  .tm:hover{border-color:#d7dadf;background:var(--soft)}
+  .tm .L{width:30px;height:30px;border-radius:7px;background:var(--soft);display:grid;place-items:center;font-weight:700;font-size:.9rem;color:var(--red)}
+  .tm .nm{font-weight:550;font-size:.92rem}
+  .tm .id{font-size:.74rem;color:var(--faint)}
+  .tm .wq{margin-left:auto;font-size:.66rem;font-weight:600;letter-spacing:.06em;color:var(--red);border:1px solid rgba(177,42,52,.3);border-radius:5px;padding:.1rem .35rem}
+  .award{padding:.8rem 0;border-bottom:1px solid var(--line);display:flex;gap:1rem}
+  .award:last-child{border-bottom:none}
+  .award .who{font-weight:600;width:130px;flex:0 0 auto}
+  .award .what{color:var(--mut);font-size:.92rem}
+  .award .what b{color:var(--ink);font-weight:550}
+  @media(max-width:860px){.shell{grid-template-columns:1fr}aside{position:static;height:auto;flex-direction:row;align-items:center;flex-wrap:wrap;gap:1rem}nav{flex-direction:row;margin-top:0;flex-wrap:wrap}.side-facts{display:none}.inner{padding:2rem 1.4rem}.statrow{grid-template-columns:repeat(2,1fr)}.teamgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <a class="brand"><span class="mark">TV</span>Troy VEX<small>Robotics</small></a>
+      <nav>
+        <a class="on">Overview</a>
+        <a>Teams</a>
+        <a>Schedule</a>
+        <a>Awards</a>
+        <a>Sponsors</a>
+        <a>About</a>
+      </nav>
+      <div class="side-facts">
+        <div class="sf"><span>Teams</span><b>7</b></div>
+        <div class="sf"><span>Cadets</span><b>60+</b></div>
+        <div class="sf"><span>World qualified</span><b>4</b></div>
+        <div class="sf"><span>Founded</span><b>2023</b></div>
+        <a class="joinbtn">Join the program</a>
+      </div>
+    </aside>
+
+    <main>
+      <div class="inner">
+        <div class="hero">
+          <span class="lbl">Troy High School · Fullerton, CA</span>
+          <h1>The nation's largest <span class="r">JROTC VEX</span> robotics program.</h1>
+          <p>From eleven cadets in a garage in 2023 to a national champion on the world stage. Seven teams, sixty cadets, one NJROTC family.</p>
+        </div>
+
+        <div class="statrow">
+          <div><div class="n">7</div><div class="t">Teams</div></div>
+          <div><div class="n">60+</div><div class="t">Cadets</div></div>
+          <div><div class="n">4</div><div class="t">World qualified</div></div>
+          <div><div class="n">1st</div><div class="t">JROTC Nationals</div></div>
+        </div>
+
+        <section>
+          <div class="sechead"><h2>Recent results</h2><a>Full schedule →</a></div>
+          <div class="row"><div class="date">JAN 25<br>2026</div><div class="ev">JROTC National Championship<small>Sandusky, Ohio</small></div><span class="tagchip">Team Y · Champion</span></div>
+          <div class="row"><div class="date">DEC 30<br>2025</div><div class="ev">Diamond in the Desert<small>Arizona</small></div><span class="tagchip">Team Y · Tournament Champion</span></div>
+          <div class="row"><div class="date">NOV 15<br>2025</div><div class="ev">Beach Brawl @ McBride<small>Long Beach, CA</small></div><span class="tagchip">Team Y · Excellence</span></div>
+          <div class="row"><div class="date">NOV 12<br>2025</div><div class="ev">One World @ UC Berkeley<small>Berkeley, CA</small></div><span class="tagchip n">Team Y · Finalist</span></div>
+        </section>
+
+        <section>
+          <div class="sechead"><h2>Teams</h2><a>All teams →</a></div>
+          <div class="teamgrid">
+            <a class="tm"><span class="L">A</span><span><div class="nm">Aegis</div><div class="id">98601A</div></span></a>
+            <a class="tm"><span class="L">B</span><span><div class="nm">Ouroboros</div><div class="id">98601B</div></span></a>
+            <a class="tm"><span class="L">C</span><span><div class="nm">Jinx</div><div class="id">98601C</div></span><span class="wq">WQ</span></a>
+            <a class="tm"><span class="L">D</span><span><div class="nm">Nyx</div><div class="id">98601D</div></span></a>
+            <a class="tm"><span class="L">E</span><span><div class="nm">Eclipse</div><div class="id">98601E</div></span></a>
+            <a class="tm"><span class="L">X</span><span><div class="nm">Paradox</div><div class="id">98601X</div></span><span class="wq">WQ</span></a>
+            <a class="tm"><span class="L">Y</span><span><div class="nm">Atlantis</div><div class="id">98601Y</div></span><span class="wq">WQ</span></a>
+          </div>
+        </section>
+
+        <section>
+          <div class="sechead"><h2>Award highlights · 2025–26</h2><a>All awards →</a></div>
+          <div class="award"><div class="who">Team Y · Atlantis</div><div class="what"><b>National Champion</b> &amp; Excellence + Robot Skills Champion at JROTC Nationals</div></div>
+          <div class="award"><div class="who">Team C · Jinx</div><div class="what"><b>Worlds Build Award</b> · Innovate Award (World Qualified)</div></div>
+          <div class="award"><div class="who">Team X · Paradox</div><div class="what"><b>Worlds Judges Award</b> · Think Award (World Qualified)</div></div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

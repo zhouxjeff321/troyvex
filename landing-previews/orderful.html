@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troy VEX — Orderful style</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--red:#b12a34;--red-deep:#8e1f28;--navy:#0d1b3a;--ink:#101828;--steel:#4a5565;--slate:#364153;
+    --paper:#fff;--vellum:#f5f5f5;--frost:#e5e7eb;--panel:#1f1f1f;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Space Grotesk',sans-serif;background:var(--vellum);color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--frost);height:64px;display:flex;align-items:center;gap:30px}
+  nav .b{font-size:20px;font-weight:600}
+  nav .b sup{color:var(--red)}
+  nav .links{display:flex;gap:22px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.3px;color:var(--slate)}
+  nav .links a:hover{color:var(--ink)}
+  nav .right{margin-left:auto;display:flex;gap:12px;align-items:center;font-size:14px}
+  .ghost{font-weight:500}
+  .grad{color:#fff;font-weight:500;border-radius:8px;padding:11px 20px;font-size:13px;text-transform:uppercase;letter-spacing:.4px;
+    background:linear-gradient(94deg,var(--red) -10%,var(--navy) 60%,var(--red) 120%)}
+  .hero{padding:46px 0}
+  .herocard{background:var(--paper);border:1px solid var(--frost);border-radius:8px;display:grid;grid-template-columns:45% 55%;overflow:hidden}
+  .herocard .left{padding:56px 48px}
+  .ey{font-size:12px;text-transform:uppercase;letter-spacing:.3px;font-weight:500;color:var(--steel);margin-bottom:18px}
+  .herocard h1{font-size:64px;line-height:1.0;letter-spacing:-1.9px;font-weight:300;margin-bottom:22px}
+  .herocard p{font-size:18px;color:var(--steel);max-width:42ch;line-height:1.45;margin-bottom:28px}
+  .vbtn{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;border-radius:8px;padding:14px 22px;font-size:15px;font-weight:500}
+  .vbtn:hover{background:var(--red-deep)}
+  .visual{background:var(--panel);position:relative;min-height:380px;display:grid;place-items:center;padding:30px}
+  .node{background:#2a2a2a;border:1px solid #3a3a3a;border-radius:8px;padding:18px 20px;width:100%;max-width:320px}
+  .node .h{font-size:11px;text-transform:uppercase;letter-spacing:.3px;color:#9aa3b2;margin-bottom:12px}
+  .nrow{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-top:1px solid #333;color:#e7e9ec;font-size:14px}
+  .nrow:first-of-type{border:none}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block;margin-right:8px}
+  .strip{background:var(--paper);border-top:1px solid var(--frost);border-bottom:1px solid var(--frost)}
+  .strip .row{display:flex;justify-content:space-between;align-items:center;padding:30px 0;flex-wrap:wrap;gap:18px;color:var(--slate);font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.3px}
+  section{padding:64px 0}
+  .center{text-align:center}
+  .center .ey{margin-bottom:10px}
+  .center h2{font-size:52px;font-weight:300;letter-spacing:-1.5px;line-height:1.02}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:42px}
+  .fcard{background:var(--paper);border:1px solid var(--frost);border-radius:8px;padding:28px}
+  .fcard .n{font-size:48px;font-weight:300;letter-spacing:-1.5px}
+  .fcard .n .r{color:var(--red)}
+  .fcard .t{font-weight:600;margin:10px 0 6px;text-transform:uppercase;letter-spacing:.3px;font-size:13px}
+  .fcard p{color:var(--steel);font-size:14px;line-height:1.5;font-family:'Inter'}
+  footer{background:var(--paper);border-top:1px solid var(--frost);padding:40px 24px;text-align:center;color:var(--steel);font-size:13px}
+  @media(max-width:880px){nav .links{display:none}.herocard{grid-template-columns:1fr}.herocard h1{font-size:44px}.center h2{font-size:36px}.grid3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <nav class="wrap" style="max-width:none"><div class="wrap" style="display:flex;align-items:center;gap:30px">
+    <span class="b">Troy VEX<sup>*</sup></span>
+    <div class="links"><a>About</a><a>Teams</a><a>Sponsors</a><a>Events</a><a>Awards</a></div>
+    <div class="right"><a class="ghost">Login</a><a class="grad">Join</a></div>
+  </div></nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="herocard">
+        <div class="left">
+          <div class="ey">The nation's largest JROTC VEX program</div>
+          <h1>Command deck for a championship program.</h1>
+          <p>Seven teams. Sixty cadets. Every result tracked from the pit to the podium — a B2B-grade operation built on honor, courage, and commitment.</p>
+          <a class="vbtn">Meet the teams →</a>
+        </div>
+        <div class="visual">
+          <div class="node">
+            <div class="h">Season control · 2025–26</div>
+            <div class="nrow"><span><span class="dot"></span>Team Y · Atlantis</span><span>National Champion</span></div>
+            <div class="nrow"><span><span class="dot"></span>Team C · Jinx</span><span>World Qualified</span></div>
+            <div class="nrow"><span><span class="dot"></span>Team X · Paradox</span><span>World Qualified</span></div>
+            <div class="nrow"><span><span class="dot"></span>Active teams</span><span>7</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="strip"><div class="wrap"><div class="row"><span>JROTC Nationals</span><span>VEX Worlds</span><span>CA State</span><span>Kalahari</span><span>Diamond in the Desert</span><span>UC Berkeley</span></div></div></div>
+
+  <div class="wrap">
+    <section class="center">
+      <div class="ey">By the numbers</div>
+      <h2>Information-rich. Single signal.</h2>
+      <div class="grid3">
+        <div class="fcard"><div class="n">7</div><div class="t">Teams</div><p>Squads A through Y, each with its own identity on the competition field.</p></div>
+        <div class="fcard"><div class="n"><span class="r">4</span></div><div class="t">World qualified</div><p>The only red on the page — because qualifying for worlds is the signal that matters.</p></div>
+        <div class="fcard"><div class="n">60+</div><div class="t">Cadets</div><p>One NJROTC family of builders, programmers, drivers, and strategists.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <footer>© 2026 Troy High School VEX Robotics<sup style="color:var(--red)">*</sup> · Fullerton, CA · Room 401</footer>
+</body>
+</html>

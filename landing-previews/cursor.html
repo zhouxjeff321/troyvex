@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troy VEX — Cursor style</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root{--red:#b12a34;--red-deep:#8e1f28;--espresso:#26251e;--clay:#7a7974;--parch:#f7f7f4;--stone:#e6e5e0;--line:#dedcd5;--paper:#fff;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter Tight',sans-serif;background:var(--parch);color:var(--espresso);-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .mono{font-family:'JetBrains Mono',monospace}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  nav{display:flex;align-items:center;gap:28px;height:64px;border-bottom:1px solid var(--line)}
+  nav .b{font-weight:600;font-size:18px;letter-spacing:-.02em}
+  nav .links{display:flex;gap:22px;font-size:14px;color:var(--clay)}
+  nav .links a:hover{color:var(--espresso)}
+  nav .right{margin-left:auto;display:flex;gap:14px;align-items:center;font-size:14px}
+  .btn{border-radius:9999px;padding:9px 16px;font-size:14px;font-weight:500}
+  .fill{background:var(--espresso);color:var(--parch)}
+  .red{background:var(--red);color:#fff}.red:hover{background:var(--red-deep)}
+  .ghost{border:1px solid var(--line);color:var(--espresso)}
+  .hero{text-align:center;padding:80px 0 40px}
+  .hero .ey{font-size:13px;color:var(--red);text-transform:uppercase;letter-spacing:.12em;font-weight:500}
+  .hero h1{font-size:72px;line-height:1.0;letter-spacing:-2.16px;font-weight:400;margin:18px 0 20px}
+  .hero .lead{font-size:18px;color:var(--clay);line-height:1.5;max-width:540px;margin:0 auto 28px}
+  .hero .lead em{font-family:'EB Garamond';font-style:italic;color:var(--espresso)}
+  .hero .cta{display:flex;gap:12px;justify-content:center}
+  .shot{margin:50px auto 0;max-width:1000px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--paper);box-shadow:0 24px 60px -30px rgba(38,37,30,.4)}
+  .shotbar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);background:var(--parch)}
+  .shotbar i{width:11px;height:11px;border-radius:50%;background:var(--stone)}
+  .shotbar .path{margin-left:10px;font-size:12px;color:var(--clay)}
+  .shot img{width:100%;display:block}
+  .logos{text-align:center;padding:40px 0;border-bottom:1px solid var(--line)}
+  .logos span{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--clay)}
+  .logos .row{display:flex;justify-content:center;gap:40px;margin-top:18px;font-size:15px;color:var(--clay);font-weight:500;flex-wrap:wrap}
+  .feat{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:64px 0;border-bottom:1px solid var(--line)}
+  .feat:nth-child(even){background:var(--stone)}
+  .feat h2{font-size:34px;letter-spacing:-.04em;font-weight:500;margin-bottom:14px}
+  .feat p{color:var(--clay);font-size:16px;line-height:1.5;max-width:480px;margin-bottom:10px}
+  .feat .stat{display:flex;gap:30px;margin-top:18px}
+  .feat .stat .n{font-size:40px;letter-spacing:-.03em}
+  .feat .stat .n .r{color:var(--red)}
+  .feat .stat .t{font-size:13px;color:var(--clay)}
+  .feat img{width:100%;border-radius:8px;border:1px solid var(--line)}
+  footer{padding:46px 24px;text-align:center;color:var(--clay);font-size:13px}
+  footer .mono{color:var(--espresso)}
+  @media(max-width:860px){nav .links{display:none}.hero h1{font-size:46px;letter-spacing:-1px}.feat{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <span class="b">Troy VEX</span>
+      <div class="links"><a>About</a><a>Teams</a><a>Events</a><a>Awards</a></div>
+      <div class="right"><a>Sign in</a><a class="btn red">Join the program</a></div>
+    </nav>
+
+    <section class="hero">
+      <div class="ey">The nation's largest JROTC VEX program</div>
+      <h1>Built like a journal,<br>run like a championship.</h1>
+      <p class="lead">Eleven cadets in a garage, three years ago. Today, a national champion — <em>honor, courage, commitment</em> in every build.</p>
+      <div class="cta"><a class="btn red">Meet the teams</a><a class="btn ghost">Become a sponsor</a></div>
+      <div class="shot">
+        <div class="shotbar"><i></i><i></i><i></i><span class="path mono">~/troyvex/season-2026</span></div>
+        <img src="/assets/images/program/history/JROTCEXCEL.JPG" alt="Troy VEX national champions">
+      </div>
+    </section>
+  </div>
+
+  <div class="logos"><span>Competing across the country</span><div class="row"><span>JROTC Nationals</span><span>VEX Worlds</span><span>CA State</span><span>Kalahari</span><span>Diamond in the Desert</span></div></div>
+
+  <div class="wrap">
+    <section class="feat">
+      <div>
+        <h2>From a garage to the world stage.</h2>
+        <p>Seven teams, sixty cadets, one NJROTC family. The Navy JROTC values carry into every design review and every match.</p>
+        <div class="stat"><div><div class="n">7</div><div class="t">Teams</div></div><div><div class="n">60+</div><div class="t">Cadets</div></div><div><div class="n"><span class="r">4</span></div><div class="t">World qualified</div></div></div>
+      </div>
+      <img src="/assets/images/program/history/teamphotos.jpg" alt="Team photo">
+    </section>
+    <section class="feat">
+      <img src="/assets/images/teams/thumbnails/teamy.JPG" alt="Team Atlantis">
+      <div>
+        <h2>Team Y — Atlantis, <span style="color:var(--red)">National Champion.</span></h2>
+        <p>Excellence Award and Robot Skills Champion at the 2026 JROTC National Championship — one of four Troy teams qualified for the world stage.</p>
+        <p class="mono" style="font-size:13px;color:var(--clay)">98601Y · WQ · Robot Skills Champion</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>© 2026 <span class="mono">Troy High School VEX Robotics</span> · Fullerton, CA · Room 401</footer>
+</body>
+</html>

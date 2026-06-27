@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troy VEX — ElevenLabs style</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--red:#b12a34;--navy:#0d1b3a;--ink:#000;--mut:#555;--canvas:#fdfcfc;--parch:#f5f3f1;--line:#e5e5e5;--paper:#fff;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:var(--canvas);color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .disp{font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:-.02em}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  nav{display:flex;align-items:center;gap:26px;height:66px}
+  nav .b{font-family:'DM Sans';font-weight:400;letter-spacing:.05em;text-transform:uppercase;font-size:15px}
+  nav .links{display:flex;gap:20px;font-size:15px;color:var(--mut)}
+  nav .links a:hover{color:var(--ink)}
+  nav .right{margin-left:auto;display:flex;gap:10px;align-items:center}
+  .pill{border-radius:9999px;font-size:15px;font-weight:500;padding:9px 16px}
+  .pdark{background:var(--ink);color:#fff;border:1px solid var(--ink)}
+  .plight{background:var(--canvas);color:var(--ink);border:1px solid var(--line);box-shadow:rgba(0,0,0,.06) 0 0 0 1px,rgba(0,0,0,.04) 0 1px 2px 0}
+  .hero{position:relative;border-radius:24px;background:var(--parch);margin-top:14px;padding:80px 40px;text-align:center;overflow:hidden}
+  .orb{position:absolute;border-radius:50%;filter:blur(48px);opacity:.55}
+  .orb.a{width:280px;height:280px;background:var(--red);top:-60px;left:-40px}
+  .orb.b{width:240px;height:240px;background:var(--navy);bottom:-70px;right:-30px}
+  .hero .inner{position:relative;z-index:2}
+  .hero .ey{font-size:14px;color:var(--mut)}
+  .hero h1{font-size:64px;line-height:1.02;margin:16px auto 18px;max-width:16ch}
+  .hero p{font-size:18px;color:var(--mut);max-width:46ch;margin:0 auto 26px;line-height:1.5}
+  .hero .cta{display:flex;gap:12px;justify-content:center}
+  section{padding:90px 0}
+  .shead{font-size:40px;text-align:center;line-height:1.08}
+  .slead{text-align:center;color:var(--mut);margin-top:12px;font-size:17px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
+  .pcard{background:var(--paper);border-radius:20px;padding:28px;box-shadow:rgba(0,0,0,.4) 0 0 1px 0,rgba(0,0,0,.04) 0 2px 4px 0}
+  .pcard .n{font-family:'DM Sans';font-weight:300;font-size:50px;letter-spacing:-.02em}
+  .pcard .n .r{color:var(--red)}
+  .pcard .t{font-size:15px;color:var(--mut);margin-top:6px}
+  .feat{background:var(--parch);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center;margin-top:18px}
+  .feat .pad{padding:48px}
+  .feat h3{font-family:'DM Sans';font-weight:300;font-size:38px;letter-spacing:-.02em;line-height:1.05;margin-bottom:14px}
+  .feat p{color:var(--mut);font-size:16px;line-height:1.5}
+  .feat .tag{display:inline-block;margin-top:16px;font-size:13px;color:var(--red);border:1px solid var(--line);background:var(--paper);border-radius:9999px;padding:6px 14px}
+  .feat img{width:100%;height:100%;object-fit:cover;min-height:320px}
+  footer{padding:46px 24px;text-align:center;color:var(--mut);font-size:13px}
+  @media(max-width:860px){nav .links{display:none}.hero h1,.shead{font-size:40px}.grid{grid-template-columns:1fr}.feat{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <span class="b">Troy VEX</span>
+      <div class="links"><a>Teams</a><a>Events</a><a>Awards</a><a>Sponsors</a></div>
+      <div class="right"><a class="pill plight">Sign in</a><a class="pill pdark">Join the program</a></div>
+    </nav>
+
+    <header class="hero">
+      <span class="orb a"></span><span class="orb b"></span>
+      <div class="inner">
+        <div class="ey">The nation's largest JROTC VEX program</div>
+        <h1 class="disp">Engineering, made visible.</h1>
+        <p>Seven teams and sixty cadets turning honor, courage, and commitment into championship robots.</p>
+        <div class="cta"><a class="pill pdark">Meet the teams</a><a class="pill plight">Become a sponsor</a></div>
+      </div>
+    </header>
+
+    <section>
+      <h2 class="shead disp">A program in four figures.</h2>
+      <p class="slead">From a garage in 2023 to the world stage.</p>
+      <div class="grid">
+        <div class="pcard"><div class="n">7</div><div class="t">Active teams, A through Y</div></div>
+        <div class="pcard"><div class="n">60+</div><div class="t">Cadets in one NJROTC family</div></div>
+        <div class="pcard"><div class="n"><span class="r">4</span></div><div class="t">Teams qualified for worlds</div></div>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="feat">
+        <div class="pad">
+          <h3 class="disp">Team Y — Atlantis,<br>National Champion.</h3>
+          <p>Excellence Award and Robot Skills Champion at the 2026 JROTC National Championship — one of four Troy teams on the VEX world stage.</p>
+          <span class="tag">98601Y · World Qualified</span>
+        </div>
+        <img src="/assets/images/teams/thumbnails/teamy.JPG" alt="Atlantis">
+      </div>
+    </section>
+  </div>
+
+  <footer>© 2026 Troy High School VEX Robotics · Fullerton, CA</footer>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troy VEX — Apple style</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#b12a34;--red-deep:#8e1f28;--navy:#0d1b3a;
+    --graphite:#1d1d1f;--slate:#333;--fog:#707070;
+    --cloud:#f5f5f7;--bone:#e2e2e5;--paper:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--cloud);color:var(--graphite);-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .nav{position:sticky;top:0;z-index:20;height:44px;display:flex;align-items:center;justify-content:center;gap:34px;background:rgba(251,251,253,.8);backdrop-filter:blur(18px);font-size:12px;font-weight:400}
+  .nav .logo{font-weight:700;letter-spacing:-.02em}
+  .nav a{color:var(--graphite);opacity:.85}.nav a:hover{opacity:1}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+  .hero{text-align:center;padding:64px 0 28px}
+  .hero .ey{color:var(--red);font-size:21px;font-weight:600;letter-spacing:-.01em}
+  .hero h1{font-size:56px;line-height:1.07;letter-spacing:-1.23px;font-weight:700;margin:.1em 0 .15em}
+  .hero .sub{font-size:21px;font-weight:300;color:var(--graphite);max-width:30ch;margin:0 auto}
+  .btns{display:flex;gap:18px;justify-content:center;margin-top:26px}
+  .pill{border-radius:980px;padding:8px 18px;font-size:17px;font-weight:400}
+  .fill{background:var(--red);color:#fff}.fill:hover{background:var(--red-deep)}
+  .ghost{border:1px solid var(--red);color:var(--red)}.ghost:hover{border-color:var(--red-deep);color:var(--red-deep)}
+  .heroimg{margin:40px auto 0;max-width:740px}
+  .heroimg img{width:100%;border-radius:18px;box-shadow:rgba(0,0,0,.22) 3px 5px 30px 0}
+  .band{padding:90px 0;text-align:center}
+  .band.tint{background:var(--bone)}
+  .band h2{font-size:40px;letter-spacing:-.6px;font-weight:700;line-height:1.1}
+  .band h2 .r{color:var(--red)}
+  .band p{font-size:21px;font-weight:300;color:var(--slate);max-width:46ch;margin:18px auto 0}
+  .stats{display:flex;justify-content:center;gap:0;margin-top:52px}
+  .stats div{flex:1;max-width:220px}
+  .stats .n{font-size:56px;font-weight:700;letter-spacing:-1px;color:var(--graphite)}
+  .stats .n .r{color:var(--red)}
+  .stats .t{font-size:17px;color:var(--fog);margin-top:4px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+  .card{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:3/4}
+  .card img{width:100%;height:100%;object-fit:cover}
+  .card .ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.66));display:flex;flex-direction:column;justify-content:flex-end;padding:18px;color:#fff;text-align:left}
+  .card .ov b{font-size:24px;font-weight:600;letter-spacing:-.4px}
+  .card .ov span{font-size:14px;opacity:.85}
+  .card .tag{position:absolute;top:14px;left:14px;background:var(--red);color:#fff;font-size:12px;font-weight:600;padding:3px 9px;border-radius:980px}
+  footer{padding:40px 22px;text-align:center;color:var(--fog);font-size:12px;background:var(--cloud)}
+  @media(max-width:760px){.hero h1{font-size:40px;letter-spacing:-.7px}.band h2{font-size:30px}.stats{flex-wrap:wrap;gap:30px}.cards{grid-template-columns:1fr}.nav a:not(.logo){display:none}}
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="logo">Troy VEX</a>
+    <a>About</a><a>Teams</a><a>Sponsors</a><a>Events</a><a>Awards</a><a style="color:var(--red)">Join</a>
+  </nav>
+
+  <section class="hero wrap">
+    <div class="ey">Troy VEX Robotics</div>
+    <h1>The nation's largest<br>JROTC VEX program.</h1>
+    <p class="sub">Now competing on the world stage.</p>
+    <div class="btns"><a class="pill fill">Meet the teams</a><a class="pill ghost">Become a sponsor ›</a></div>
+    <div class="heroimg"><img src="/assets/images/program/history/teamphotos.jpg" alt="Troy VEX team"></div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>From a garage to <span class="r">national champions.</span></h2>
+      <p>Eleven cadets started in 2023. Today, seven teams and sixty cadets carry the Navy JROTC values onto every field.</p>
+      <div class="stats">
+        <div><div class="n">7</div><div class="t">Teams</div></div>
+        <div><div class="n">60+</div><div class="t">Cadets</div></div>
+        <div><div class="n"><span class="r">4</span></div><div class="t">World qualified</div></div>
+        <div><div class="n">2023</div><div class="t">Founded</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tint">
+    <div class="wrap">
+      <h2>Seven teams. One family.</h2>
+      <p>Each squad brings its own identity to the competition field.</p>
+      <div class="cards">
+        <div class="card"><span class="tag">National Champion</span><img src="/assets/images/teams/thumbnails/teamy.JPG" alt="Atlantis"><div class="ov"><b>Atlantis</b><span>Team Y · 98601Y</span></div></div>
+        <div class="card"><span class="tag">World Qualified</span><img src="/assets/images/teams/thumbnails/teamc.JPG" alt="Jinx"><div class="ov"><b>Jinx</b><span>Team C · 98601C</span></div></div>
+        <div class="card"><span class="tag">World Qualified</span><img src="/assets/images/teams/thumbnails/teamx.JPG" alt="Paradox"><div class="ov"><b>Paradox</b><span>Team X · 98601X</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Troy High School VEX Robotics · Fullerton, CA · Room 401</footer>
+</body>
+</html>

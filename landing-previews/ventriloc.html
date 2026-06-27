@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troy VEX — Ventriloc style</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--red:#b12a34;--red-soft:rgba(177,42,52,.16);--carbon:#202020;--mut:#4d4d4d;--mist:#efefef;--line:#cfcfcf;--paper:#fff;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:var(--mist);color:var(--carbon);-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .disp{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+  .navcap{position:sticky;top:18px;z-index:20;margin:18px auto 0;width:max-content;max-width:94%;display:flex;align-items:center;gap:6px;background:var(--paper);border:1px solid var(--line);border-radius:200px;padding:8px 8px 8px 18px}
+  .navcap .b{font-family:'Space Grotesk';font-weight:700;margin-right:8px}
+  .navcap a{font-size:14px;font-weight:500;color:var(--carbon);padding:8px 11px;border-radius:200px}
+  .navcap a:hover{background:var(--mist)}
+  .navcap .cta{background:var(--carbon);color:#fff}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:70px 0}
+  .hero h1{font-size:66px;line-height:.91;letter-spacing:-1.32px;font-weight:400}
+  .hero h1 .r{color:var(--red)}
+  .hero p{font-size:16px;color:var(--mut);line-height:1.5;max-width:46ch;margin:22px 0 26px}
+  .btns{display:flex;gap:10px}
+  .pill{border-radius:20px;padding:9px 18px;font-size:15px;font-weight:500}
+  .fill{background:var(--carbon);color:#fff}
+  .out{border:1px solid var(--carbon);color:var(--carbon)}
+  .stage{position:relative;height:380px}
+  .dcard{position:absolute;background:var(--paper);border-radius:8px;border:1px solid var(--line);padding:16px}
+  .dcard h4{font-size:12px;color:var(--mut);font-weight:500;margin-bottom:10px;text-transform:uppercase;letter-spacing:.04em}
+  .c1{top:10px;left:0;width:60%}
+  .c2{bottom:10px;right:0;width:58%}
+  .chart{height:90px;display:flex;align-items:flex-end;gap:6px}
+  .chart i{flex:1;background:var(--red-soft);border-top:2px solid var(--red);border-radius:2px 2px 0 0}
+  .big{font-family:'Space Grotesk';font-size:34px;font-weight:600;letter-spacing:-.02em}
+  .big .r{color:var(--red)}
+  .sub{font-size:13px;color:var(--mut)}
+  section{padding:80px 0}
+  .shead{font-family:'Space Grotesk';font-size:34px;font-weight:400;letter-spacing:-.02em;margin-bottom:8px}
+  .slead{color:var(--mut);margin-bottom:30px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .tile{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:20px}
+  .tile .k{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
+  .tile .v{font-family:'Space Grotesk';font-size:40px;font-weight:600;letter-spacing:-.02em;margin-top:6px}
+  .tile .v .r{color:var(--red)}
+  .tile .d{font-size:13px;color:var(--mut);margin-top:4px}
+  .results{background:var(--paper);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .row{display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--mist)}
+  .row:last-child{border:none}
+  .row .date{font-size:12px;color:var(--mut);width:80px;font-weight:500}
+  .row .t{font-weight:500;flex:1}
+  .row .t span{display:block;font-size:13px;color:var(--mut);font-weight:400}
+  .row .tag{font-size:12px;font-weight:600;color:var(--red);background:var(--red-soft);padding:4px 10px;border-radius:20px}
+  footer{padding:40px 24px;text-align:center;color:var(--mut);font-size:13px}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}.hero h1{font-size:46px}.stage{height:320px}.grid3{grid-template-columns:1fr}.navcap a:not(.cta){display:none}}
+</style>
+</head>
+<body>
+  <nav class="navcap">
+    <span class="b disp">Troy&nbsp;VEX</span>
+    <a>Teams</a><a>Schedule</a><a>Awards</a><a>Sponsors</a><a class="cta">Join ›</a>
+  </nav>
+
+  <header class="wrap hero">
+    <div>
+      <h1 class="disp">JROTC robotics, <span class="r">measured in wins.</span></h1>
+      <p>The nation's largest JROTC VEX program runs like a console — seven teams, sixty cadets, every result tracked from local scrimmage to the world stage.</p>
+      <div class="btns"><a class="pill fill">Meet the teams</a><a class="pill out">Become a sponsor</a></div>
+    </div>
+    <div class="stage">
+      <div class="dcard c1"><h4>Season results</h4><div class="chart"><i style="height:40%"></i><i style="height:62%"></i><i style="height:55%"></i><i style="height:80%"></i><i style="height:72%"></i><i style="height:100%"></i></div></div>
+      <div class="dcard c2"><h4>World qualified</h4><div class="big"><span class="r">4</span> teams</div><div class="sub">Jinx · Paradox · Atlantis · +1</div></div>
+    </div>
+  </header>
+
+  <section class="wrap">
+    <h2 class="shead">The program at a glance</h2>
+    <p class="slead">Built on honor, courage, and commitment since 2023.</p>
+    <div class="grid3">
+      <div class="tile"><div class="k">Teams</div><div class="v">7</div><div class="d">Squads A through Y</div></div>
+      <div class="tile"><div class="k">Cadets</div><div class="v">60+</div><div class="d">One NJROTC family</div></div>
+      <div class="tile"><div class="k">World qualified</div><div class="v"><span class="r">4</span></div><div class="d">2025–26 season</div></div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:0">
+    <h2 class="shead">Recent results</h2>
+    <p class="slead">A live log of the 2025–26 campaign.</p>
+    <div class="results">
+      <div class="row"><span class="date">JAN 2026</span><span class="t">JROTC National Championship<span>Sandusky, Ohio</span></span><span class="tag">Champion</span></div>
+      <div class="row"><span class="date">DEC 2025</span><span class="t">Diamond in the Desert<span>Arizona</span></span><span class="tag">Tournament Champion</span></div>
+      <div class="row"><span class="date">NOV 2025</span><span class="t">Beach Brawl @ McBride<span>Long Beach, CA</span></span><span class="tag">Excellence</span></div>
+      <div class="row"><span class="date">NOV 2025</span><span class="t">One World @ UC Berkeley<span>Berkeley, CA</span></span><span class="tag">Finalist</span></div>
+    </div>
+  </section>
+
+  <footer>© 2026 Troy High School VEX Robotics · Fullerton, CA</footer>
+</body>
+</html>
