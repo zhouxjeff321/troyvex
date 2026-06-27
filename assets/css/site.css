@@ -351,9 +351,9 @@ body.dark-mode .nav-links a::after {
     background-color: #b12a34;
 }
 
-/* Dark mode navbar text: red */
+/* Dark mode navbar text */
 body.dark-mode .nav-links > li > a {
-    color: #b12a34;
+    color: #fff;
 }
 
 /* Dark mode desktop dropdown */

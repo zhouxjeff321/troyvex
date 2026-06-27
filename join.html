@@ -8,182 +8,122 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Join Us - Troy VEX Robotics</title>
-    <link rel="stylesheet" href="/assets/css/site.css?v=11">
+    <link rel="stylesheet" href="/assets/css/site.css?v=12">
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        .join-hero {
-            text-align: center;
-            padding: 5rem 2rem 3.5rem;
-            max-width: 680px;
-            margin: 0 auto;
+        /* ─── Prospective Members — Stat Console (Ventriloc style, scoped to .jm) ─── */
+        .jm {
+            --signal-orange: #ff682c;
+            --carbon: #202020;
+            --graphite: #4d4d4d;
+            --slate: #828282;
+            --fog: #f5f5f5;
+            --mist: #efefef;
+            --chalk: #e8e8e8;
+            --paper: #ffffff;
+            --jm-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+            --jm-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+            --jm-shadow: 0 1px 3px rgba(32, 32, 32, 0.04), 0 4px 12px rgba(32, 32, 32, 0.03);
+
+            background: var(--mist);
+            color: var(--carbon);
+            font-family: var(--jm-body) !important;
+            padding: 3.5rem 1.5rem 6rem;
         }
 
-        .join-hero .subtitle {
-            display: inline-block;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
+        .jm-wrap { max-width: 1200px; margin: 0 auto; }
+        .jm h1, .jm h2, .jm h3, .jm h4, .jm .display {
+            font-family: var(--jm-display) !important;
+            letter-spacing: -0.02em;
+        }
+
+        .jm-eyebrow {
+            font-family: var(--jm-body) !important;
+            font-size: 0.82rem;
+            font-weight: 600;
             text-transform: uppercase;
-            color: #b12a34;
-            margin-bottom: 1.25rem;
+            color: var(--signal-orange);
         }
 
-        .join-hero h1 {
-            font-size: 3rem;
-            line-height: 1.1;
-            color: var(--text-color);
-            margin-bottom: 1.25rem;
-            font-weight: 700;
+        /* Head */
+        .jm-head { text-align: center; max-width: 640px; margin: 0 auto; }
+        .jm-head h1 { font-size: 3.25rem; line-height: 0.96; font-weight: 500; margin: 0.85rem 0 0; color: var(--carbon); }
+        .jm-head p { font-size: 1.06rem; color: var(--graphite); margin-top: 1.1rem; line-height: 1.55; }
+
+        /* KPI tiles */
+        .jm-kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.75rem; }
+        .jm-card { background: var(--paper); border-radius: 8px; box-shadow: var(--jm-shadow); }
+        .jm-kpi { padding: 1.75rem; }
+        .jm-kpi .k-icon {
+            width: 30px; height: 30px; border-radius: 50%;
+            background: rgba(255, 104, 44, 0.12); color: var(--signal-orange);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem; margin-bottom: 1rem;
         }
+        .jm-kpi .k-val { font-family: var(--jm-display) !important; font-size: 2.35rem; font-weight: 500; letter-spacing: -0.8px; color: var(--carbon); line-height: 1; }
+        .jm-kpi .k-lbl { font-size: 0.88rem; color: var(--slate); margin-top: 0.4rem; }
 
-        .join-hero .description {
-            font-size: 1.1rem;
-            color: var(--secondary-text);
-            line-height: 1.7;
-            max-width: 520px;
-            margin: 0 auto;
+        /* Console card */
+        .jm-console { padding: 2.5rem; margin-top: 1rem; }
+        .jm-console h3 { font-size: 1.5rem; font-weight: 500; margin: 0 0 0.35rem; color: var(--carbon); }
+        .jm-console .sub { color: var(--slate); font-size: 0.9rem; margin-bottom: 1.75rem; }
+        .jm-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+        .jm-step { position: relative; padding-right: 1.1rem; }
+        .jm-step .s-n { font-family: var(--jm-display) !important; font-size: 0.8rem; color: var(--signal-orange); font-weight: 600; }
+        .jm-step h4 { font-size: 1rem; font-weight: 600; margin: 0.5rem 0 0.4rem; color: var(--carbon); }
+        .jm-step p { font-size: 0.82rem; color: var(--graphite); margin: 0; line-height: 1.5; }
+        .jm-step:not(:last-child)::after { content: "\2192"; position: absolute; right: 0.25rem; top: 0; color: var(--chalk); font-size: 1.1rem; }
+
+        /* Buttons */
+        .jm-actions { text-align: center; margin-top: 2.5rem; }
+        .jm-btn-fill {
+            display: inline-block; background: var(--carbon); color: #fff;
+            font-family: var(--jm-body) !important; font-size: 0.95rem; font-weight: 600;
+            padding: 0.75rem 1.5rem; border-radius: 20px;
+            text-decoration: none;
+            transition: transform 0.15s, background 0.15s;
         }
+        .jm-btn-fill:hover { background: #000; transform: translateY(-1px); }
 
-        .join-body {
-            max-width: 820px;
-            margin: 0 auto 5rem;
-            padding: 0 2rem;
+        /* Meeting / Cal.com */
+        .jm-meet { margin-top: 4rem; text-align: center; }
+        .jm-meet .jm-eyebrow { display: inline-block; }
+        .jm-meet h2 { font-size: 1.9rem; font-weight: 500; color: var(--carbon); margin: 0.6rem 0 0.5rem; }
+        .jm-meet p { color: var(--graphite); font-size: 0.98rem; margin: 0 auto 1.75rem; max-width: 480px; line-height: 1.55; }
+        .jm-cal-card { background: var(--paper); border-radius: 8px; box-shadow: var(--jm-shadow); padding: 0.5rem; max-width: 920px; margin: 0 auto; overflow: hidden; }
+        .jm-cal-fallback { color: var(--slate); font-size: 0.9rem; padding: 1.25rem; }
+        .jm-cal-fallback a { color: var(--signal-orange); }
+        #cal-inline-join { min-height: 600px; width: 100%; }
+        .jm-cal-note { font-size: 0.85rem; color: var(--slate); margin-top: 1rem; }
+        .jm-cal-note a { color: var(--signal-orange); }
+
+        /* Dark mode */
+        body.dark-mode .jm { background: #161616; color: #e8e8e8; }
+        body.dark-mode .jm-head h1 { color: #f2f2f2; }
+        body.dark-mode .jm-head p { color: #b0b0b0; }
+        body.dark-mode .jm-card { background: #222; box-shadow: none; border: 1px solid #2f2f2f; }
+        body.dark-mode .jm-kpi .k-val,
+        body.dark-mode .jm-console h3,
+        body.dark-mode .jm-step h4 { color: #f2f2f2; }
+        body.dark-mode .jm-step p { color: #b0b0b0; }
+        body.dark-mode .jm-step:not(:last-child)::after { color: #3a3a3a; }
+        body.dark-mode .jm-btn-fill { background: var(--signal-orange); color: #fff; text-decoration: none; }
+        body.dark-mode .jm-btn-fill:hover { background: #e85f29; color: #fff; }
+        body.dark-mode .jm-meet h2 { color: #f2f2f2; }
+        body.dark-mode .jm-meet p { color: #b0b0b0; }
+        body.dark-mode .jm-cal-card { background: #222; box-shadow: none; border: 1px solid #2f2f2f; }
+
+        @media (max-width: 860px) {
+            .jm-kpi-grid, .jm-steps { grid-template-columns: 1fr 1fr; }
+            .jm-head h1 { font-size: 2.4rem; }
+            .jm-console { padding: 1.75rem; }
+            .jm-step:nth-child(2)::after { display: none; }
         }
-
-        /* Section label */
-        .section-label {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #b12a34;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        /* Divider line */
-        .join-divider {
-            border: none;
-            border-top: 1px solid var(--border-color, #e5e7eb);
-            margin: 3.5rem 0;
-        }
-
-        /* Fact list */
-        .fact-list {
-            display: grid;
-            gap: 0;
-        }
-
-        .fact-item {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 2rem;
-            padding: 1.25rem 0;
-            border-bottom: 1px solid var(--border-color, #e5e7eb);
-            align-items: baseline;
-        }
-
-        .fact-item:first-child {
-            border-top: 1px solid var(--border-color, #e5e7eb);
-        }
-
-        .fact-item-label {
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--secondary-text);
-        }
-
-        .fact-item-value {
-            font-size: 0.97rem;
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        /* Why join columns */
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-        }
-
-        .why-item {}
-
-        .why-item-num {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            color: #b12a34;
-            margin-bottom: 0.75rem;
-            display: block;
-        }
-
-        .why-item h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-color);
-            margin-bottom: 0.6rem;
-            line-height: 1.3;
-        }
-
-        .why-item p {
-            font-size: 0.9rem;
-            color: var(--secondary-text);
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        /* CTA block */
-        .join-cta {
-            background: var(--text-color, #111);
-            color: var(--bg-color, #fff);
-            border-radius: 12px;
-            padding: 3rem 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-        }
-
-        .join-cta-text h2 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-
-        .join-cta-text p {
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.65);
-            margin: 0;
-        }
-
-        .join-cta .btn-primary {
-            white-space: nowrap;
-            flex-shrink: 0;
-            background: #b12a34;
-        }
-
-        .join-cta .btn-primary:hover {
-            background: #9a232c;
-        }
-
-        body.dark-mode .join-cta {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid var(--border-color);
-        }
-
-        body.dark-mode .join-cta-text h2 {
-            color: var(--text-color);
-        }
-
-        @media (max-width: 768px) {
-            .join-hero h1 { font-size: 2.2rem; }
-            .fact-item { grid-template-columns: 1fr; gap: 0.3rem; }
-            .fact-item:first-child { border-top: 1px solid var(--border-color, #e5e7eb); }
-            .why-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .join-cta { flex-direction: column; align-items: flex-start; padding: 2rem; }
+        @media (max-width: 520px) {
+            .jm-kpi-grid, .jm-steps { grid-template-columns: 1fr; }
+            .jm-step::after { display: none !important; }
+            .jm-step { padding-bottom: 0.5rem; }
         }
     </style>
     <!-- Google tag (gtag.js) -->
@@ -252,87 +192,58 @@
         </nav>
     </header>
 
-    <main>
-        <!-- Hero -->
-        <section class="join-hero">
-            <span class="subtitle">Prospective Members</span>
-            <h1 class="serif-header">Join Troy VEX Robotics</h1>
-            <p class="description">
-                Open to all Troy High School cadets enrolled in NJROTC. No prior experience required. Just show up ready to work.
-            </p>
-        </section>
+    <main class="jm">
+        <div class="jm-wrap">
 
-        <section class="join-body">
-
-            <!-- Facts -->
-            <span class="section-label">What to Expect</span>
-            <div class="fact-list">
-                <div class="fact-item">
-                    <span class="fact-item-label">Who Can Join</span>
-                    <span class="fact-item-value">Any Troy High School cadet enrolled in NJROTC. All grades welcome.</span>
-                </div>
-                <div class="fact-item">
-                    <span class="fact-item-label">Experience</span>
-                    <span class="fact-item-value">None required. Most members joined with zero robotics background. We teach building, programming, and strategy from scratch.</span>
-                </div>
-                <div class="fact-item">
-                    <span class="fact-item-label">Time</span>
-                    <span class="fact-item-value">3 to 5 hours per week during build season. Competition weekends require travel. Summer sessions are optional.</span>
-                </div>
-                <div class="fact-item">
-                    <span class="fact-item-label">Season</span>
-                    <span class="fact-item-value">Year-round. Build season runs September through December. Competitions run January through April. Summer is for prototyping and skill development.</span>
-                </div>
-                <div class="fact-item">
-                    <span class="fact-item-label">Competitions</span>
-                    <span class="fact-item-value">Local scrimmages, SoCal regionals, JROTC Nationals, and the VEX World Championship for qualified teams.</span>
-                </div>
-                <div class="fact-item">
-                    <span class="fact-item-label">Skills</span>
-                    <span class="fact-item-value">Mechanical engineering, C++ programming, CAD, game strategy, and working under pressure as a team.</span>
-                </div>
-                <div class="fact-item">
-                    <span class="fact-item-label">Location</span>
-                    <span class="fact-item-value">Room 401, Troy High School, 2200 E Dorothy Ln, Fullerton, CA 92831</span>
-                </div>
+            <!-- Head -->
+            <div class="jm-head">
+                <span class="jm-eyebrow">Prospective Members</span>
+                <h1>A program built on results.</h1>
+                <p>Any Troy cadet in NJROTC can join. We teach building, programming, and strategy from scratch.</p>
             </div>
 
-            <hr class="join-divider">
-
-            <!-- Why join -->
-            <span class="section-label">Why Join</span>
-            <div class="why-grid">
-                <div class="why-item">
-                    <span class="why-item-num">01</span>
-                    <h3>Compete at the Highest Level</h3>
-                    <p>JROTC National Champions. Four World-qualified teams. You will compete against the best programs in the country alongside people who take it seriously.</p>
-                </div>
-                <div class="why-item">
-                    <span class="why-item-num">02</span>
-                    <h3>Real Engineering Skills</h3>
-                    <p>Hands-on work with mechanical design, C++ programming, and CAD. The skills you build here carry into college coursework and engineering careers.</p>
-                </div>
-                <div class="why-item">
-                    <span class="why-item-num">03</span>
-                    <h3>Alumni Who Go Far</h3>
-                    <p>Troy VEX alumni have interned at Boeing, JPL, and Raytheon and been accepted to Yale, Stanford, and Carnegie Mellon. The program opens doors.</p>
-                </div>
+            <!-- KPI tiles -->
+            <div class="jm-kpi-grid">
+                <div class="jm-card jm-kpi"><div class="k-icon">&#9679;</div><div class="k-val">60+</div><div class="k-lbl">Active cadets</div></div>
+                <div class="jm-card jm-kpi"><div class="k-icon">&#9650;</div><div class="k-val">7</div><div class="k-lbl">Competing teams</div></div>
+                <div class="jm-card jm-kpi"><div class="k-icon">&#9733;</div><div class="k-val">4</div><div class="k-lbl">World-qualified</div></div>
+                <div class="jm-card jm-kpi"><div class="k-icon">&#9670;</div><div class="k-val">#1</div><div class="k-lbl">JROTC National rank</div></div>
             </div>
 
-            <hr class="join-divider">
+            <!-- Console: path to joining -->
+            <div class="jm-card jm-console">
+                <h3>Your path to joining</h3>
+                <p class="sub">From interest form to your first competition.</p>
+                <div class="jm-steps">
+                    <div class="jm-step"><div class="s-n">STEP 01</div><h4>Apply</h4><p>Fill out the interest form &mdash; takes two minutes.</p></div>
+                    <div class="jm-step"><div class="s-n">STEP 02</div><h4>Tryout</h4><p>Meet the team, see the lab, no experience needed.</p></div>
+                    <div class="jm-step"><div class="s-n">STEP 03</div><h4>Get placed</h4><p>Join one of seven teams that fits your goals.</p></div>
+                    <div class="jm-step"><div class="s-n">STEP 04</div><h4>Compete</h4><p>Regionals, JROTC Nationals, and Worlds.</p></div>
+                </div>
+            </div>
 
             <!-- CTA -->
-            <div class="join-cta">
-                <div class="join-cta-text">
-                    <h2>Ready to Apply?</h2>
-                    <p>Fill out the interest form and we will reach out with tryout details and what to expect.</p>
-                </div>
-                <a href="https://forms.gle/wZjbP3yKXqb4RRqL9" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                    Submit Your Interest
-                </a>
+            <div class="jm-actions">
+                <a href="https://forms.gle/wZjbP3yKXqb4RRqL9" target="_blank" rel="noopener noreferrer" class="jm-btn-fill">Submit Your Interest</a>
             </div>
 
-        </section>
+            <!-- Meeting / Cal.com -->
+            <div class="jm-meet">
+                <span class="jm-eyebrow">Talk to us</span>
+                <h2>Set up a meeting</h2>
+                <p>Have questions before you apply? Grab a time with our program team and we'll walk you through everything.</p>
+                <div class="jm-cal-card">
+                    <!-- Cal.com inline embed - booking event: cal.com/ryzo1224/quick-chat -->
+                    <div class="jm-cal-fallback">
+                        <strong>Scheduler loading&hellip;</strong>
+                        If it doesn't appear, book directly at <a href="https://cal.com/ryzo1224/quick-chat" target="_blank" rel="noopener">cal.com/ryzo1224/quick-chat</a>.
+                    </div>
+                    <div id="cal-inline-join"></div>
+                </div>
+                <p class="jm-cal-note">Trouble booking? Open the full page: <a href="https://cal.com/ryzo1224/quick-chat" target="_blank" rel="noopener">cal.com/ryzo1224/quick-chat</a></p>
+            </div>
+
+        </div>
     </main>
 
     <footer>
@@ -340,6 +251,17 @@
         <p>2200 E Dorothy Ln, Fullerton, CA 92831, Room 401</p>
         <a href="https://linktr.ee/troyvex" target="_blank" rel="noopener noreferrer" class="footer-contact-btn">Contact Us</a>
     </footer>
+    <!-- Cal.com embed -->
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "join-meeting", { origin: "https://cal.com" });
+      Cal.ns["join-meeting"]("inline", {
+        elementOrSelector: "#cal-inline-join",
+        config: { layout: "month_view" },
+        calLink: "ryzo1224/quick-chat"
+      });
+      Cal.ns["join-meeting"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    </script>
     <script src="/assets/js/darkmode.js?v=3"></script>
 </body>
 
