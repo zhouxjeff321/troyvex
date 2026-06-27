@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events — ElevenLabs style</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--red:#b12a34;--navy:#0d1b3a;--ink:#000;--mut:#555;--canvas:#fdfcfc;--parch:#f5f3f1;--line:#e5e5e5;--paper:#fff;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:var(--canvas);color:var(--ink);-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .disp{font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:-.02em}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px}
+  nav{height:66px;display:flex;align-items:center;gap:24px}
+  nav .b{font-family:'DM Sans';text-transform:uppercase;letter-spacing:.05em;font-size:15px}
+  nav .links{display:flex;gap:18px;font-size:15px;color:var(--mut)}nav .right{margin-left:auto}
+  .pill{border-radius:9999px;font-size:14px;font-weight:500;padding:9px 16px;border:1px solid var(--line)}
+  .pdark{background:#000;color:#fff;border-color:#000}
+  .hero{position:relative;overflow:hidden;background:var(--parch);border-radius:24px;margin-top:12px;padding:64px 36px;text-align:center}
+  .orb{position:absolute;border-radius:50%;filter:blur(46px);opacity:.5}
+  .orb.a{width:240px;height:240px;background:var(--red);top:-60px;left:-30px}
+  .orb.b{width:220px;height:220px;background:var(--navy);bottom:-70px;right:-20px}
+  .hero .in{position:relative;z-index:2}
+  .hero .ey{font-size:14px;color:var(--mut)}
+  .hero h1{font-size:54px;margin:14px 0 14px}
+  .hero p{font-size:17px;color:var(--mut);max-width:46ch;margin:0 auto}
+  .seg{display:inline-flex;gap:8px;margin-top:24px}
+  /* list */
+  #ev-list{margin:34px 0 0;display:flex;flex-direction:column;gap:12px}
+  .ev{display:grid;grid-template-columns:70px 1fr auto;gap:20px;align-items:center;background:var(--paper);border-radius:20px;padding:20px 24px;box-shadow:rgba(0,0,0,.4) 0 0 1px 0,rgba(0,0,0,.04) 0 2px 4px 0}
+  .ev-date{text-align:center}
+  .ev-mo{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--mut)}
+  .ev-day{display:block;font-family:'DM Sans';font-weight:300;font-size:30px;line-height:1}
+  .ev-yr{display:block;font-size:11px;color:#999}
+  .ev-name{font-family:'DM Sans';font-weight:400;font-size:20px}
+  .ev-loc{font-size:14px;color:var(--mut);margin-top:2px}
+  .ev-detail{font-size:13px;color:#777;margin-top:3px}
+  .ev-tag{font-size:12px;font-weight:500;color:#000;border:1px solid var(--line);border-radius:9999px;padding:5px 12px;white-space:nowrap}
+  .ev-major .ev-tag,.ev-win .ev-tag{background:#000;color:#fff;border-color:#000}
+  /* calendar */
+  #cal-view{padding:60px 0 80px}
+  #cal-view h2{font-family:'DM Sans';font-weight:300;font-size:34px;text-align:center;margin-bottom:6px}
+  #cal-view .sub{text-align:center;color:var(--mut);margin-bottom:24px}
+  #cal{background:var(--parch);border-radius:24px;padding:26px}
+  .cal-head{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:18px}
+  .cal-title{font-family:'DM Sans';font-weight:400;font-size:19px;min-width:185px;text-align:center}
+  .cal-head button{width:34px;height:34px;border:1px solid var(--line);background:#fff;border-radius:9999px;cursor:pointer}
+  .cal-head button:disabled{opacity:.35}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+  .cal-dow{text-align:center;font-size:11px;color:var(--mut);font-weight:600;padding-bottom:6px}
+  .cal-cell{min-height:76px;background:var(--paper);border-radius:14px;padding:7px 8px}
+  .cal-empty{background:transparent}
+  .cal-has{box-shadow:rgba(0,0,0,.4) 0 0 1px 0,rgba(0,0,0,.05) 0 2px 5px 0}
+  .cal-num{font-size:12px;color:#999}
+  .cal-has .cal-num{color:#000;font-weight:600}
+  .cal-ev{display:block;font-size:10px;line-height:1.25;margin-top:4px;color:var(--red);font-weight:500}
+  .cal-ev.ev-major{color:var(--navy)}
+  footer{text-align:center;padding:30px;color:var(--mut);font-size:13px}
+  @media(max-width:680px){nav .links{display:none}.hero h1,#cal-view h2{font-size:36px}.ev{grid-template-columns:58px 1fr}.ev-tag{display:none}.cal-cell{min-height:54px}.cal-ev{font-size:0;height:6px;width:6px;border-radius:50%;background:var(--red);margin-top:3px}.cal-ev.ev-major{background:var(--navy)}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav><span class="b">Troy VEX</span><span class="links"><a>Teams</a><a>Events</a><a>Awards</a></span><span class="right"><a class="pill pdark">Donate</a></span></nav>
+    <header class="hero">
+      <span class="orb a"></span><span class="orb b"></span>
+      <div class="in">
+        <div class="ey">2025–26 Season</div>
+        <h1 class="disp">Competition Schedule</h1>
+        <p>A season made visible — every qualifier, signature event, and championship.</p>
+        <div class="seg"><a class="pill pdark">List</a><a class="pill" data-scroll-cal href="#cal-view">Calendar</a></div>
+      </div>
+    </header>
+    <main id="ev-list"></main>
+    <section id="cal-view">
+      <h2 class="disp">Season Calendar</h2>
+      <p class="sub">Month by month, the road to Worlds.</p>
+      <div id="cal">
+        <div class="cal-head"><button data-prev>‹</button><span class="cal-title"></span><button data-next>›</button></div>
+        <div class="cal-grid"></div>
+      </div>
+    </section>
+  </div>
+  <footer>© 2026 Troy High School VEX Robotics · Fullerton, CA</footer>
+  <script src="shared.js"></script>
+</body>
+</html>

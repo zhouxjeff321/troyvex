@@ -9,6 +9,7 @@
     <meta http-equiv="Expires" content="0">
     <title>Events - Troy VEX Robotics</title>
     <link rel="stylesheet" href="/assets/css/site.css?v=10">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-10QE64BG2M"></script>
@@ -27,6 +28,63 @@
         !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
         posthog.init('phc_wyyXUmDa4h7GRYQvboEfkr4XzRUu9ge2HmLgYGKoUVEN',{api_host:'https://us.i.posthog.com', defaults:'2026-01-30'})
     </script>
+
+    <!-- Events page (Apple-style) — scoped to .evp so nav/footer are untouched -->
+    <style>
+      .evp{--red:#b12a34;--navy:#0d1b3a;--graphite:#1d1d1f;--fog:#707070;--cloud:#f5f5f7;--bone:#e2e2e5;--paper:#fff;
+           font-family:'Inter',sans-serif;background:var(--cloud);color:var(--graphite);-webkit-font-smoothing:antialiased}
+      .evp *{box-sizing:border-box}
+      .evp a{text-decoration:none;color:inherit}
+      .evp .evp-wrap{max-width:880px;margin:0 auto;padding:0 22px}
+      .evp h1,.evp h2,.evp h3,.evp .ev-day{font-family:'Inter',sans-serif !important}
+      /* hero */
+      .evp .evp-hero{text-align:center;padding:64px 0 30px}
+      .evp .evp-hero .ey{color:var(--red);font-size:19px;font-weight:600}
+      .evp .evp-hero h1{font-size:46px;letter-spacing:-1px;font-weight:700;margin:.2em 0 .15em;color:var(--graphite);line-height:1.08}
+      .evp .evp-hero p{font-size:19px;font-weight:300;color:var(--fog)}
+      .evp .seg{display:inline-flex;background:var(--bone);border-radius:980px;padding:3px;margin-top:26px}
+      .evp .seg a{font-size:14px;font-weight:500;padding:7px 18px;border-radius:980px;color:var(--graphite);cursor:pointer}
+      .evp .seg a.on{background:var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+      /* list */
+      .evp #ev-list{margin:40px 0 0;background:var(--paper);border-radius:18px;overflow:hidden}
+      .evp .ev{display:grid;grid-template-columns:64px 1fr auto;gap:22px;align-items:center;padding:22px 26px;border-bottom:1px solid var(--cloud)}
+      .evp .ev:last-child{border-bottom:none}
+      .evp .ev-date{text-align:center}
+      .evp .ev-mo{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--red)}
+      .evp .ev-day{display:block;font-size:26px;font-weight:600;line-height:1;letter-spacing:-.02em}
+      .evp .ev-yr{display:block;font-size:11px;color:var(--fog)}
+      .evp .ev-name{font-size:18px;font-weight:600;letter-spacing:-.01em}
+      .evp .ev-loc{font-size:14px;color:var(--fog);margin-top:2px}
+      .evp .ev-detail{font-size:13px;color:var(--graphite);opacity:.7;margin-top:4px}
+      .evp .ev-tag{font-size:12px;font-weight:600;color:var(--red);background:rgba(177,42,52,.08);padding:4px 12px;border-radius:980px;white-space:nowrap}
+      .evp .ev-major .ev-tag{color:#fff;background:var(--navy)}
+      /* calendar */
+      .evp #cal-view{padding:60px 0 80px}
+      .evp #cal-view h2{text-align:center;font-size:28px;letter-spacing:-.5px;margin-bottom:6px;color:var(--graphite)}
+      .evp #cal-view .sub{text-align:center;color:var(--fog);font-size:15px;margin-bottom:26px}
+      .evp #cal{background:var(--paper);border-radius:18px;padding:26px}
+      .evp .cal-head{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:18px}
+      .evp .cal-title{font-size:19px;font-weight:600;min-width:190px;text-align:center}
+      .evp .cal-head button{width:34px;height:34px;border:none;background:var(--cloud);border-radius:980px;cursor:pointer;font-size:16px;color:var(--graphite)}
+      .evp .cal-head button:disabled{opacity:.3;cursor:default}
+      .evp .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+      .evp .cal-dow{text-align:center;font-size:11px;color:var(--fog);font-weight:600;padding-bottom:6px}
+      .evp .cal-cell{min-height:78px;border-radius:10px;background:var(--cloud);padding:7px 8px}
+      .evp .cal-empty{background:transparent}
+      .evp .cal-has{background:#fff;box-shadow:inset 0 0 0 1.5px var(--red)}
+      .evp .cal-num{font-size:12px;color:var(--fog)}
+      .evp .cal-has .cal-num{color:var(--graphite);font-weight:600}
+      .evp .cal-ev{display:block;font-size:10px;line-height:1.2;margin-top:4px;color:var(--red);font-weight:500}
+      .evp .cal-ev.ev-major{color:var(--navy)}
+      @media(max-width:680px){
+        .evp .evp-hero h1{font-size:34px}
+        .evp .ev{grid-template-columns:54px 1fr;gap:14px}
+        .evp .ev-tag{display:none}
+        .evp .cal-cell{min-height:56px}
+        .evp .cal-ev{font-size:0;height:6px;width:6px;border-radius:50%;background:var(--red);margin-top:3px}
+        .evp .cal-ev.ev-major{background:var(--navy)}
+      }
+    </style>
 </head>
 
 <body>
@@ -76,131 +134,26 @@
         </nav>
     </header>
 
-    <main class="events-page">
-        <section class="page-header">
-            <span class="season-tag">2025-2026 Season</span>
-            <h1 class="serif-header">Competition Schedule</h1>
-            <p class="header-desc">
-                Follow the completed season from California events to the championship stage.
-            </p>
-        </section>
+    <main class="evp">
+        <div class="evp-wrap">
+            <header class="evp-hero">
+                <div class="ey">2025–26 Season</div>
+                <h1>Competition Schedule</h1>
+                <p>Every event from California qualifiers to the world stage.</p>
+                <div class="seg"><a class="on">List</a><a data-scroll-cal href="#cal-view">Calendar</a></div>
+            </header>
 
-        <section class="schedule-section">
-            <div class="events-panel season-results-group">
-                <div class="group-header">
-                    <h2 class="serif-header">Past Events</h2>
-                    <p class="group-subtext">Highlights and placements from completed competitions.</p>
+            <section id="ev-list"></section>
+
+            <section id="cal-view">
+                <h2>Season Calendar</h2>
+                <p class="sub">Browse the season month by month.</p>
+                <div id="cal">
+                    <div class="cal-head"><button data-prev>‹</button><span class="cal-title"></span><button data-next>›</button></div>
+                    <div class="cal-grid"></div>
                 </div>
-
-                <article class="event-row featured-event">
-                    <div class="event-date">
-                        <span class="date-month">APR</span>
-                        <span class="date-day">21</span>
-                        <span class="date-year">2026</span>
-                    </div>
-                    <div class="event-info">
-                        <h3 class="serif-header">VEX World Championship</h3>
-                        <p class="event-meta">St. Louis, Missouri</p>
-                        <p class="event-detail">High school qualifying teams competed at the world stage April 21-24.</p>
-                    </div>
-                </article>
-
-                <article class="event-row">
-                    <div class="event-date">
-                        <span class="date-month">FEB</span>
-                        <span class="date-day">27</span>
-                        <span class="date-year">2026</span>
-                    </div>
-                    <div class="event-info">
-                        <h3 class="serif-header">California State Championship</h3>
-                        <p class="event-meta">Los Angeles, CA</p>
-                        <p class="event-detail">Qualified teams from Troy VEX advance.</p>
-                    </div>
-                </article>
-
-                <article class="event-row">
-                    <div class="event-date">
-                        <span class="date-month">FEB</span>
-                        <span class="date-day">13</span>
-                        <span class="date-year">2026</span>
-                    </div>
-                    <div class="event-info">
-                        <h3 class="serif-header">NorCal Signature Event</h3>
-                        <p class="event-meta">Silicon Valley, CA</p>
-                        <p class="event-detail">Attending teams: B, C, D, E, X</p>
-                    </div>
-                </article>
-
-                <article class="event-row">
-                    <div class="event-date">
-                        <span class="date-month">JAN</span>
-                        <span class="date-day">25</span>
-                        <span class="date-year">2026</span>
-                    </div>
-                    <div class="event-info">
-                        <h3 class="serif-header">JROTC National Championship</h3>
-                        <p class="event-meta">Sandusky, Ohio</p>
-                    </div>
-                </article>
-
-                <article class="event-row">
-                    <div class="event-date">
-                        <span class="date-month">JAN</span>
-                        <span class="date-day">23</span>
-                        <span class="date-year">2026</span>
-                    </div>
-                    <div class="event-info">
-                        <h3 class="serif-header">Kalahari Signature Event</h3>
-                        <p class="event-meta">Sandusky, Ohio</p>
-                    </div>
-                </article>
-
-                <article class="event-row">
-                    <div class="event-date">
-                        <span class="date-month">DEC</span>
-                        <span class="date-day">30</span>
-                        <span class="date-year">2025</span>
-                    </div>
-                    <div class="event-info">
-                        <h3 class="serif-header">Diamond in the Desert</h3>
-                        <p class="event-meta">Arizona</p>
-                        <div class="event-results">
-                            <p class="result-item"><strong>Team Y:</strong> Tournament Champion & Robot Skills Champion
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="event-row">
-                    <div class="event-date">
-                        <span class="date-month">NOV</span>
-                        <span class="date-day">15</span>
-                        <span class="date-year">2025</span>
-                    </div>
-                    <div class="event-info">
-                        <h3 class="serif-header">Beach Brawl @ McBride High</h3>
-                        <div class="event-results">
-                            <p class="result-item"><strong>Team Y:</strong> Excellence Award & Finalist</p>
-                            <p class="result-item"><strong>Team C:</strong> Innovate Award</p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="event-row">
-                    <div class="event-date">
-                        <span class="date-month">NOV</span>
-                        <span class="date-day">12</span>
-                        <span class="date-year">2025</span>
-                    </div>
-                    <div class="event-info">
-                        <h3 class="serif-header">One World @ UC Berkeley</h3>
-                        <div class="event-results">
-                            <p class="result-item"><strong>Team Y:</strong> Tournament Finalists</p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <footer>
@@ -208,8 +161,68 @@
         <p>2200 E Dorothy Ln, Fullerton, CA 92831, Room 401</p>
         <a href="https://linktr.ee/troyvex" target="_blank" rel="noopener noreferrer" class="footer-contact-btn">Contact Us</a>
     </footer>
+
+    <!-- Events list + season calendar -->
+    <script>
+      (function(){
+        const EVENTS = [
+          { y:2026, m:4,  d:21, name:'VEX World Championship',       loc:'St. Louis, Missouri', detail:'World stage · April 21–24',                   tag:'Worlds',     kind:'major' },
+          { y:2026, m:2,  d:27, name:'California State Championship', loc:'Los Angeles, CA',     detail:'Qualified teams advance',                     tag:'States',     kind:'plain' },
+          { y:2026, m:2,  d:13, name:'NorCal Signature Event',       loc:'Silicon Valley, CA',  detail:'Teams B · C · D · E · X',                     tag:'Signature',  kind:'plain' },
+          { y:2026, m:1,  d:25, name:'JROTC National Championship',  loc:'Sandusky, Ohio',      detail:'Team Y — National Champion',                  tag:'Champion',   kind:'win'   },
+          { y:2026, m:1,  d:23, name:'Kalahari Signature Event',     loc:'Sandusky, Ohio',      detail:'Robot Skills Champion',                       tag:'Signature',  kind:'plain' },
+          { y:2025, m:12, d:30, name:'Diamond in the Desert',        loc:'Arizona',             detail:'Team Y — Tournament & Robot Skills Champion', tag:'Champion',   kind:'win'   },
+          { y:2025, m:11, d:15, name:'Beach Brawl @ McBride',        loc:'Long Beach, CA',      detail:'Team Y — Excellence · Team C — Innovate',     tag:'Excellence', kind:'win'   },
+          { y:2025, m:11, d:12, name:'One World @ UC Berkeley',      loc:'Berkeley, CA',        detail:'Team Y — Tournament Finalists',               tag:'Finalist',   kind:'plain' },
+        ];
+        const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+        const MO3=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+        const SEASON=[{y:2025,m:11},{y:2025,m:12},{y:2026,m:1},{y:2026,m:2},{y:2026,m:3},{y:2026,m:4}];
+        let calIdx=2;
+
+        function renderList(el){
+          if(!el) return;
+          el.innerHTML = EVENTS.map(function(e){ return ''+
+            '<a class="ev ev-'+e.kind+'">'+
+              '<div class="ev-date"><span class="ev-mo">'+MO3[e.m-1]+'</span><span class="ev-day">'+e.d+'</span><span class="ev-yr">'+e.y+'</span></div>'+
+              '<div class="ev-main"><h3 class="ev-name">'+e.name+'</h3><div class="ev-loc">'+e.loc+'</div><div class="ev-detail">'+e.detail+'</div></div>'+
+              (e.tag ? '<span class="ev-tag">'+e.tag+'</span>' : '')+
+            '</a>'; }).join('');
+        }
+        function renderCal(host){
+          if(!host) return;
+          const cur=SEASON[calIdx];
+          host.querySelector('.cal-title').textContent=MONTHS[cur.m-1]+' '+cur.y;
+          const first=new Date(cur.y,cur.m-1,1).getDay();
+          const days=new Date(cur.y,cur.m,0).getDate();
+          let cells='';
+          ['S','M','T','W','T','F','S'].forEach(function(d){cells+='<div class="cal-dow">'+d+'</div>';});
+          for(let i=0;i<first;i++) cells+='<div class="cal-cell cal-empty"></div>';
+          for(let day=1;day<=days;day++){
+            const evs=EVENTS.filter(function(e){return e.y===cur.y&&e.m===cur.m&&e.d===day;});
+            cells+='<div class="cal-cell'+(evs.length?' cal-has':'')+'"><span class="cal-num">'+day+'</span>'+
+              evs.map(function(e){return '<span class="cal-ev ev-'+e.kind+'" title="'+e.name+'">'+e.name+'</span>';}).join('')+'</div>';
+          }
+          host.querySelector('.cal-grid').innerHTML=cells;
+          host.querySelector('[data-prev]').disabled=calIdx===0;
+          host.querySelector('[data-next]').disabled=calIdx===SEASON.length-1;
+        }
+        function init(){
+          renderList(document.querySelector('#ev-list'));
+          const host=document.querySelector('#cal');
+          if(host){
+            host.querySelector('[data-prev]').onclick=function(){if(calIdx>0){calIdx--;renderCal(host);}};
+            host.querySelector('[data-next]').onclick=function(){if(calIdx<SEASON.length-1){calIdx++;renderCal(host);}};
+            renderCal(host);
+          }
+          document.querySelectorAll('[data-scroll-cal]').forEach(function(b){
+            b.onclick=function(ev){ev.preventDefault();document.querySelector('#cal-view').scrollIntoView({behavior:'smooth'});};
+          });
+        }
+        if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
+      })();
+    </script>
     <script src="/assets/js/darkmode.js?v=3"></script>
 </body>
 
 </html>
-
