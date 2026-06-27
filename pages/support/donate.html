@@ -9,6 +9,7 @@
     <meta http-equiv="Expires" content="0">
     <title>Donate - Troy VEX Robotics</title>
     <link rel="stylesheet" href="/assets/css/site.css?v=10">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-10QE64BG2M"></script>
@@ -27,6 +28,150 @@
         !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
         posthog.init('phc_wyyXUmDa4h7GRYQvboEfkr4XzRUu9ge2HmLgYGKoUVEN',{api_host:'https://us.i.posthog.com', defaults:'2026-01-30'})
     </script>
+
+    <!-- Donate page redesign — scoped styles -->
+    <style>
+      .dn{--red:#b12a34;--red-deep:#8e1f28;--navy:#0d1b3a;--ink:#16203a;--mut:#5d6b86;
+          --line:#e7e9f0;--paper:#fff;--canvas:#f7f8fb;--soft:#f1f3f8;
+          font-family:'Inter',sans-serif;color:var(--ink);background:var(--canvas);line-height:1.6}
+      .dn *{box-sizing:border-box}
+      .dn-wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+      .dn-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+      .dn h1,.dn h2,.dn h3,.dn .dn-impact-num,.dn .dn-tier .amt{font-family:'Outfit',sans-serif;font-weight:600;letter-spacing:-.02em}
+      .dn a{text-decoration:none}
+
+      /* gradient hero (Stripe-style halo) */
+      .dn-hero{position:relative;overflow:hidden;background:var(--paper);border-bottom:1px solid var(--line)}
+      .dn-halo{position:absolute;inset:-30% -10% auto auto;width:820px;height:680px;z-index:0;pointer-events:none;
+        background:
+          radial-gradient(closest-side,rgba(177,42,52,.45),transparent 70%),
+          radial-gradient(closest-side at 65% 55%,rgba(13,27,58,.42),transparent 70%),
+          radial-gradient(closest-side at 30% 80%,rgba(224,101,109,.40),transparent 70%);
+        filter:blur(28px);transform:skewY(-8deg)}
+      .dn-hero-inner{position:relative;z-index:2;padding:5rem 0 3.5rem;max-width:42rem}
+      .dn-h1{font-size:clamp(2.4rem,5.5vw,3.8rem);line-height:1.06;margin:1.1rem 0 1.2rem;color:var(--navy)}
+      .dn-lead{font-size:1.2rem;color:var(--mut);max-width:34rem}
+      .dn-cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem}
+      .dn-btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;padding:.85rem 1.5rem;font-size:.98rem;font-weight:600;transition:.15s}
+      .dn-btn-primary{background:var(--red);color:#fff}
+      .dn-btn-primary:hover{background:var(--red-deep)}
+      .dn-btn-ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
+      .dn-btn-ghost:hover{border-color:var(--navy)}
+      .dn-tax{display:inline-flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:1.8rem;font-size:.86rem;color:var(--mut);
+        background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:.6rem 1rem}
+      .dn-tax strong{color:var(--ink)}
+      .dn-tax-label{font-weight:700;color:var(--red)}
+      .dn-tax-dot{color:var(--line)}
+
+      /* impact strip */
+      .dn-impact{background:var(--navy);color:#fff}
+      .dn-impact .dn-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding-top:0;padding-bottom:0}
+      .dn-impact-item{padding:2rem 1rem;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
+      .dn-impact-item:last-child{border-right:none}
+      .dn-impact-num{display:block;font-size:2.4rem;font-weight:700;line-height:1;letter-spacing:-.02em}
+      .dn-impact-num .r{color:#ff6b6b}
+      .dn-impact-label{display:block;font-size:.8rem;color:#aeb8cc;margin-top:.5rem;letter-spacing:.02em}
+
+      /* section shell */
+      .dn-section{padding:4rem 0}
+      .dn-section-head{max-width:40rem;margin-bottom:2.2rem}
+      .dn-section-title{font-size:2rem;color:var(--navy);margin:.6rem 0 .6rem}
+      .dn-section-sub{color:var(--mut);font-size:1.05rem}
+
+      /* where money goes — budget */
+      .dn-budget{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center}
+      .dn-bar{display:flex;height:18px;border-radius:9999px;overflow:hidden;margin-bottom:1.4rem}
+      .dn-bar i{display:block;height:100%}
+      .dn-breakdown{display:grid;gap:.2rem}
+      .dn-brow{display:grid;grid-template-columns:14px 1fr auto;gap:.8rem;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--line)}
+      .dn-brow:last-child{border-bottom:none}
+      .dn-swatch{width:14px;height:14px;border-radius:4px}
+      .dn-brow .lbl{font-weight:500}
+      .dn-brow .lbl span{display:block;font-size:.84rem;color:var(--mut);font-weight:400}
+      .dn-brow .pct{font-weight:700;color:var(--navy)}
+      .dn-budget-aside{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:1.8rem}
+      .dn-budget-aside h3{font-size:1.1rem;color:var(--navy);margin-bottom:.6rem}
+      .dn-budget-aside p{color:var(--mut);font-size:.95rem;margin-bottom:1.2rem}
+      .dn-budget-aside .big{font-size:2.6rem;font-weight:700;color:var(--red);line-height:1}
+      .dn-budget-aside .big small{display:block;font-size:.85rem;color:var(--mut);font-weight:500;margin-top:.4rem}
+
+      /* gift tiers */
+      .dn-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
+      .dn-tier{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:1.4rem 1.1rem;transition:.15s;display:flex;flex-direction:column}
+      .dn-tier:hover{border-color:var(--red);transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(13,27,58,.4)}
+      .dn-tier .amt{font-size:1.5rem;font-weight:700;color:var(--navy)}
+      .dn-tier.feat{background:var(--navy)}
+      .dn-tier.feat .amt,.dn-tier.feat .what{color:#fff}
+      .dn-tier.feat .tag{color:#ff6b6b}
+      .dn-tier .tag{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:.6rem}
+      .dn-tier .what{font-size:.92rem;color:var(--mut);margin-top:.5rem}
+
+      /* mission (ElevenLabs orbs) */
+      .dn-mission{position:relative;overflow:hidden;background:#f5f3f1;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+      .dn-orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;pointer-events:none}
+      .dn-orb.a{width:320px;height:320px;background:var(--red);top:-80px;left:-60px}
+      .dn-orb.b{width:300px;height:300px;background:var(--navy);bottom:-110px;right:-40px}
+      .dn-mission-inner{position:relative;z-index:2;text-align:center;max-width:46rem;margin:0 auto;padding:4.5rem 0}
+      .dn-mission-inner h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--navy);line-height:1.12}
+      .dn-mission-inner p{font-size:1.12rem;color:var(--mut);margin-top:1.2rem}
+      .dn-mission-points{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+      .dn-mp{display:flex;align-items:center;gap:.6rem;font-weight:500;color:var(--ink)}
+      .dn-mp .tick{width:24px;height:24px;border-radius:7px;background:var(--red);color:#fff;display:grid;place-items:center;font-size:.8rem}
+
+      /* ways to give */
+      /* webpage: vertical stack of cards; mobile: horizontal swipe row */
+      .dn-give{display:flex;flex-direction:column;gap:1rem;max-width:680px}
+      .dn-give-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:1.6rem}
+      .dn-give-card h3{font-size:1.15rem;color:var(--navy);display:flex;align-items:center;gap:.6rem}
+      .dn-give-icon{width:34px;height:34px;border-radius:9px;background:var(--soft);color:var(--red);display:grid;place-items:center;flex:0 0 auto}
+      .dn-badge{font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--red);border-radius:6px;padding:.2rem .5rem;margin-left:auto}
+      .dn-field{margin-top:1.1rem}
+      .dn-field .k{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:.15rem}
+      .dn-field .v{font-weight:500;word-break:break-word}
+      .dn-give-note{font-size:.86rem;color:var(--mut);margin-top:1.1rem}
+      .dn-give address{font-style:normal;font-weight:500;line-height:1.5}
+
+      /* scheduler */
+      .dn-sched{background:var(--paper);border-top:1px solid var(--line)}
+      .dn-sched-grid{display:grid;grid-template-columns:.9fr 1.4fr;gap:2.5rem;align-items:start}
+      .dn-sched-copy h2{font-size:2rem;color:var(--navy);margin:.6rem 0}
+      .dn-sched-copy p{color:var(--mut);margin-bottom:1rem}
+      .dn-sched-copy ul{list-style:none;padding:0;margin:1.2rem 0 0;display:grid;gap:.7rem}
+      .dn-sched-copy li{display:flex;gap:.6rem;align-items:flex-start;color:var(--ink)}
+      .dn-sched-copy li::before{content:"→";color:var(--red);font-weight:700}
+      .dn-cal{border:1px solid var(--line);border-radius:18px;overflow:hidden;min-height:560px;background:var(--soft);position:relative}
+      .dn-cal-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;gap:.8rem;color:var(--mut)}
+      .dn-cal-fallback a{color:var(--red);font-weight:600}
+      #cal-inline{position:relative;z-index:2;width:100%;height:560px;overflow:auto}
+
+      /* sponsor cta */
+      .dn-sponsor{padding:3.5rem 0}
+      .dn-sponsor-inner{background:var(--navy);border-radius:22px;padding:2.6rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;position:relative;overflow:hidden}
+      .dn-sponsor-inner::after{content:"";position:absolute;inset:auto -10% -60% auto;width:420px;height:420px;border-radius:50%;background:radial-gradient(closest-side,rgba(177,42,52,.5),transparent 70%);filter:blur(30px)}
+      .dn-sponsor-text{position:relative;z-index:2;max-width:34rem}
+      .dn-sponsor-text h3{color:#fff;font-size:1.5rem}
+      .dn-sponsor-text p{color:#aeb8cc;margin-top:.5rem}
+      .dn-sponsor-actions{position:relative;z-index:2;display:flex;gap:.7rem;flex-wrap:wrap}
+      .dn-sponsor-actions .dn-btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+      .dn-sponsor-actions .dn-btn-ghost:hover{border-color:#fff}
+
+      @media(max-width:900px){
+        .dn-budget,.dn-sched-grid{grid-template-columns:1fr}
+        .dn-tiers{grid-template-columns:repeat(2,1fr)}
+        .dn-impact .dn-wrap{grid-template-columns:repeat(2,1fr)}
+        .dn-impact-item:nth-child(2){border-right:none}
+      }
+      @media(max-width:520px){
+        .dn-tiers{grid-template-columns:1fr}
+        .dn-impact .dn-wrap{grid-template-columns:1fr}
+        .dn-impact-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
+      }
+      /* mobile: ways-to-give cards go horizontal (swipeable row) */
+      @media(max-width:640px){
+        .dn-give{flex-direction:row;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.6rem;-webkit-overflow-scrolling:touch}
+        .dn-give-card{flex:0 0 84%;scroll-snap-align:start}
+      }
+    </style>
 </head>
 
 <body>
@@ -76,145 +221,105 @@
         </nav>
     </header>
 
-    <main>
+    <main class="dn">
 
-        <!-- Hero -->
-        <section class="donate-hero">
-            <div class="donate-hero-inner">
-                <p class="donate-eyebrow">Troy VEX Robotics &nbsp;·&nbsp; Fullerton, CA</p>
-                <h1 class="serif-header donate-h1">Every dollar goes<br>directly to our cadets.</h1>
-                <p class="donate-lead">We're 100% funded by sponsors and community supporters. Your contribution covers parts, competition travel, and gives students a pathway to top universities and careers in STEM.</p>
-                <div class="donate-tax-tag">
-                    <span class="donate-tax-label">Tax Exempt</span>
-                    <span class="donate-tax-divider">·</span>
+        <!-- Hero with gradient halo -->
+        <section class="dn-hero">
+            <div class="dn-halo"></div>
+            <div class="dn-wrap dn-hero-inner">
+                <p class="dn-eyebrow">Support Troy VEX &nbsp;·&nbsp; Fullerton, CA</p>
+                <h1 class="dn-h1">Fuel the next<br>generation of engineers.</h1>
+                <p class="dn-lead">Troy VEX is 100% funded by sponsors and community supporters. Every dollar buys parts, sends cadets to national competition, and opens a pathway to top universities and STEM careers.</p>
+                <div class="dn-cta-row">
+                    <a href="#ways-to-give" class="dn-btn dn-btn-primary">Give now</a>
+                    <a href="#schedule" class="dn-btn dn-btn-ghost">Schedule a meeting</a>
+                </div>
+                <div class="dn-tax">
+                    <span class="dn-tax-label">Tax-deductible</span>
+                    <span class="dn-tax-dot">•</span>
                     <span>EIN <strong>46-1758921</strong></span>
-                    <span class="donate-tax-divider">·</span>
-                    <span>NJROTC Booster Club</span>
+                    <span class="dn-tax-dot">•</span>
+                    <span>NJROTC Booster Club (501c3)</span>
                 </div>
             </div>
         </section>
 
         <!-- Impact strip -->
-        <div class="donate-impact-strip">
-            <div class="donate-impact-item">
-                <span class="impact-num">60+</span>
-                <span class="impact-label">Students Supported</span>
+        <section class="dn-impact">
+            <div class="dn-wrap">
+                <div class="dn-impact-item"><span class="dn-impact-num">60+</span><span class="dn-impact-label">Cadets supported</span></div>
+                <div class="dn-impact-item"><span class="dn-impact-num"><span class="r">4</span></span><span class="dn-impact-label">World-qualified teams</span></div>
+                <div class="dn-impact-item"><span class="dn-impact-num">#1</span><span class="dn-impact-label">JROTC National Champions</span></div>
+                <div class="dn-impact-item"><span class="dn-impact-num">100%</span><span class="dn-impact-label">Goes to students</span></div>
             </div>
-            <div class="donate-impact-divider"></div>
-            <div class="donate-impact-item">
-                <span class="impact-num">4</span>
-                <span class="impact-label">World-Qualified Teams</span>
-            </div>
-            <div class="donate-impact-divider"></div>
-            <div class="donate-impact-item">
-                <span class="impact-num">#1</span>
-                <span class="impact-label">JROTC National Champions</span>
-            </div>
-            <div class="donate-impact-divider"></div>
-            <div class="donate-impact-item">
-                <span class="impact-num">100%</span>
-                <span class="impact-label">Goes to Students</span>
-            </div>
-        </div>
+        </section>
 
-        <!-- Ways to Give -->
-        <section class="donate-methods">
-            <div class="donate-methods-inner">
-                <h2 class="serif-header donate-section-title">Ways to Give</h2>
-
-                <div class="give-cards">
-
-                    <!-- Check -->
-                    <div class="give-card">
-                        <div class="give-card-icon">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="5" width="16" height="12" rx="2"/>
-                                <path d="M2 7l8 5 8-5"/>
-                            </svg>
-                        </div>
-                        <div class="give-card-body">
-                            <div class="give-card-header">
-                                <h3 class="give-block-title">Check</h3>
-                                <span class="give-block-badge">Most Common</span>
-                            </div>
-                            <div class="give-fields-grid">
-                                <div class="give-field">
-                                    <span class="give-field-label">Payable To</span>
-                                    <span class="give-field-value">NJROTC Booster Club</span>
-                                </div>
-                                <div class="give-field">
-                                    <span class="give-field-label">Memo Line</span>
-                                    <span class="give-field-value">Troy VEX Robotics</span>
-                                </div>
-                                <div class="give-field give-field-full">
-                                    <span class="give-field-label">Mail or Deliver To</span>
-                                    <address class="give-address">Troy High School NJROTC — Room 401<br>2200 E Dorothy Ln, Fullerton, CA 92831</address>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Ways to give -->
+        <section class="dn-section" id="ways-to-give">
+            <div class="dn-wrap">
+                <div class="dn-section-head">
+                    <p class="dn-eyebrow">Make a gift</p>
+                    <h2 class="dn-section-title">Ways to give</h2>
+                    <p class="dn-section-sub">Pick whatever's easiest. All gifts route through the NJROTC Booster Club.</p>
+                </div>
+                <div class="dn-give">
+                    <div class="dn-give-card">
+                        <h3><span class="dn-give-icon"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="16" height="12" rx="2"/><path d="M2 7l8 5 8-5"/></svg></span> Check <span class="dn-badge">Most common</span></h3>
+                        <div class="dn-field"><span class="k">Payable to</span><span class="v">NJROTC Booster Club</span></div>
+                        <div class="dn-field"><span class="k">Memo line</span><span class="v">Troy VEX Robotics</span></div>
+                        <div class="dn-field"><span class="k">Mail or deliver to</span><address>Troy High School NJROTC — Room 401<br>2200 E Dorothy Ln, Fullerton, CA 92831</address></div>
                     </div>
-
-                    <!-- Zelle -->
-                    <div class="give-card">
-                        <div class="give-card-icon">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 10h12M12 5l5 5-5 5"/>
-                            </svg>
-                        </div>
-                        <div class="give-card-body">
-                            <div class="give-card-header">
-                                <h3 class="give-block-title">Zelle</h3>
-                            </div>
-                            <div class="give-fields-grid">
-                                <div class="give-field">
-                                    <span class="give-field-label">Send To</span>
-                                    <span class="give-field-value">troynjrotctreasury@gmail.com</span>
-                                </div>
-                                <div class="give-field">
-                                    <span class="give-field-label">Memo</span>
-                                    <span class="give-field-value">Troy VEX Robotics</span>
-                                </div>
-                            </div>
-                            <p class="give-note">Include "Troy VEX Robotics" in the memo so funds are routed to the right program.</p>
-                        </div>
+                    <div class="dn-give-card">
+                        <h3><span class="dn-give-icon"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12M12 5l5 5-5 5"/></svg></span> Zelle</h3>
+                        <div class="dn-field"><span class="k">Send to</span><span class="v">troynjrotctreasury@gmail.com</span></div>
+                        <div class="dn-field"><span class="k">Memo</span><span class="v">Troy VEX Robotics</span></div>
+                        <p class="dn-give-note">Add "Troy VEX Robotics" in the memo so funds route to the right program.</p>
                     </div>
-
-                    <!-- Other -->
-                    <div class="give-card">
-                        <div class="give-card-icon">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="10" cy="10" r="8"/>
-                                <path d="M10 9v5M10 7h.01"/>
-                            </svg>
-                        </div>
-                        <div class="give-card-body">
-                            <div class="give-card-header">
-                                <h3 class="give-block-title">Other</h3>
-                            </div>
-                            <p class="give-note" style="margin-bottom: 1.25rem;">For other arrangements or corporate partnership inquiries, contact our SNSI directly.</p>
-                            <div class="give-fields-grid">
-                                <div class="give-field">
-                                    <span class="give-field-label">Commander Lauper — SNSI</span>
-                                    <span class="give-field-value">wlauper@fjuhsd.org</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="dn-give-card">
+                        <h3><span class="dn-give-icon"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="8"/><path d="M10 9v5M10 7h.01"/></svg></span> Other</h3>
+                        <p class="dn-give-note" style="margin-top:0">Employer match, stock gifts, or corporate partnerships — reach our SNSI directly and we'll handle the rest.</p>
+                        <div class="dn-field"><span class="k">Commander Lauper — SNSI</span><span class="v">wlauper@fjuhsd.org</span></div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- Sponsor CTA -->
-        <section class="donate-sponsor-cta">
-            <div class="donate-sponsor-cta-inner">
-                <div class="donate-cta-text">
-                    <h3 class="serif-header">Becoming a corporate sponsor?</h3>
-                    <p>Download our sponsorship packet for tier details, logo placement, and partnership benefits.</p>
+        <!-- Scheduler -->
+        <section class="dn-sched dn-section" id="schedule">
+            <div class="dn-wrap dn-sched-grid">
+                <div class="dn-sched-copy">
+                    <p class="dn-eyebrow">Let's talk</p>
+                    <h2>Book a 20-minute call</h2>
+                    <p>Considering a major gift or a corporate sponsorship? Grab a time with our program team. We'll walk you through impact, tiers, and recognition.</p>
+                    <ul>
+                        <li>Meet the leadership behind the #1 JROTC program</li>
+                        <li>See exactly where your support goes</li>
+                        <li>Get a custom sponsorship proposal</li>
+                    </ul>
                 </div>
-                <div class="donate-cta-actions">
-                    <a href="/docs/troy-vex-sponsorship-proposal.pdf" target="_blank" rel="noopener noreferrer" class="donate-cta-btn donate-cta-btn-primary">Download Packet</a>
-                    <a href="https://linktr.ee/troyvex" target="_blank" rel="noopener noreferrer" class="donate-cta-btn donate-cta-btn-secondary">linktr.ee/troyvex</a>
+                <div class="dn-cal">
+                    <!-- Cal.com inline embed. Replace calLink "troyvex/sponsor-meeting" with the real Cal username/event-type. -->
+                    <div class="dn-cal-fallback">
+                        <strong>Scheduler loading…</strong>
+                        <span>If it doesn't appear, email <a href="mailto:wlauper@fjuhsd.org">wlauper@fjuhsd.org</a> or visit <a href="https://linktr.ee/troyvex" target="_blank" rel="noopener">linktr.ee/troyvex</a> to book.</span>
+                    </div>
+                    <div id="cal-inline"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsor packet CTA -->
+        <section class="dn-sponsor">
+            <div class="dn-wrap">
+                <div class="dn-sponsor-inner">
+                    <div class="dn-sponsor-text">
+                        <h3>Becoming a corporate sponsor?</h3>
+                        <p>Download our sponsorship packet for tier details, logo placement, and partnership benefits.</p>
+                    </div>
+                    <div class="dn-sponsor-actions">
+                        <a href="/docs/troy-vex-sponsorship-proposal.pdf" target="_blank" rel="noopener noreferrer" class="dn-btn dn-btn-primary">Download packet</a>
+                        <a href="https://linktr.ee/troyvex" target="_blank" rel="noopener noreferrer" class="dn-btn dn-btn-ghost">linktr.ee/troyvex</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -226,9 +331,19 @@
         <p>2200 E Dorothy Ln, Fullerton, CA 92831, Room 401</p>
         <a href="https://linktr.ee/troyvex" target="_blank" rel="noopener noreferrer" class="footer-contact-btn">Contact Us</a>
     </footer>
+
+    <!-- Cal.com embed -->
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "sponsor-meeting", { origin: "https://cal.com" });
+      Cal.ns["sponsor-meeting"]("inline", {
+        elementOrId: "cal-inline",
+        config: { layout: "month_view" },
+        calLink: "troyvex/sponsor-meeting"
+      });
+      Cal.ns["sponsor-meeting"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    </script>
     <script src="/assets/js/darkmode.js?v=3"></script>
 </body>
 
 </html>
-
-
