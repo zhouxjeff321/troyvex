@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Mockups — Troy VEX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Geist', -apple-system, sans-serif; background: #f3f4f6; color: #0d1b3a; }
+
+        .page-wrap { max-width: 1280px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+        .page-title { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; }
+        .page-sub { color: #6b7280; margin-top: 0.5rem; margin-bottom: 2.5rem; font-size: 1rem; }
+
+        .mock { margin-bottom: 3.5rem; border-radius: 18px; overflow: hidden; box-shadow: 0 12px 40px rgba(13, 27, 58, 0.12); }
+        .mock-label { display: flex; align-items: baseline; gap: 0.75rem; padding: 0 0.25rem 0.85rem; }
+        .mock-num { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #b12a34; }
+        .mock-name { font-size: 1.05rem; font-weight: 700; }
+        .mock-desc { color: #6b7280; font-size: 0.9rem; }
+
+        /* shared footer link reset */
+        .mock a { text-decoration: none; transition: all 0.2s ease; }
+        .mock h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; }
+
+        /* ============================================================
+           1 — WAVE RISE (dark navy + coral arc rising from bottom)
+        ============================================================ */
+        .m1 { position: relative; overflow: hidden; isolation: isolate; background: linear-gradient(180deg, #0a142e 0%, #0d1b3a 60%); color: #fff; padding: 4rem 3rem 7rem; }
+        .m1::after { content: ""; position: absolute; left: -18%; right: -18%; bottom: -58%; width: 136%; height: 95%; background: linear-gradient(118deg, #e0563f 0%, #ff7a59 46%, #ffc6a0 100%); border-radius: 50% 50% 0 0 / 26% 26% 0 0; opacity: 0.5; filter: blur(8px); z-index: -2; }
+        .m1 .m1-glow { position: absolute; left: -10%; right: -10%; bottom: -52%; width: 120%; height: 88%; background: linear-gradient(112deg, #8f1f29 0%, #b12a34 26%, #e0563f 58%, #ff8a63 85%, #ffae84 100%); border-radius: 50% 50% 0 0 / 24% 24% 0 0; box-shadow: 0 -30px 80px rgba(177, 42, 52, 0.35); z-index: -1; }
+        .m1-inner { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
+        .m1-top { display: grid; grid-template-columns: 1.4fr 2fr; gap: 3rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.12); }
+        .m1-brand-head { display: flex; align-items: center; gap: 0.7rem; }
+        .m1-logo { width: 38px; height: 38px; border-radius: 8px; background: linear-gradient(135deg,#b12a34,#ff8a63); }
+        .m1-name { font-size: 1.15rem; font-weight: 700; }
+        .m1-tag { margin-top: 0.85rem; max-width: 30ch; color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.55; }
+        .m1-cols { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+        .m1 .m1-cols h4 { color: #ff9a78; margin-bottom: 0.7rem; }
+        .m1-cols a { display: block; color: rgba(255,255,255,0.78); font-size: 0.9rem; padding: 0.18rem 0; }
+        .m1-cols a:hover { color: #fff; transform: translateX(3px); }
+        .m1-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+        .m1-bottom p { color: rgba(255,255,255,0.72); font-size: 0.84rem; }
+
+        /* ============================================================
+           2 — TALLY CREAM (light bg, literal gradient wave at bottom)
+        ============================================================ */
+        .m2 { position: relative; overflow: hidden; background: #f7f5ef; color: #2b2f3a; padding: 3.5rem 3rem 8rem; }
+        .m2-inner { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
+        .m2-cols { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(43,47,58,0.12); }
+        .m2 .m2-cols h4 { color: #9aa0ad; margin-bottom: 0.8rem; }
+        .m2-cols a { display: block; color: #3a3f4d; font-size: 0.95rem; padding: 0.22rem 0; }
+        .m2-cols a:hover { color: #b12a34; }
+        .m2-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+        .m2-bottom p { color: #8a8f9b; font-size: 0.85rem; }
+        .m2-wave { position: absolute; left: -10%; right: -10%; bottom: -62%; width: 120%; height: 80%; background: linear-gradient(108deg, #f0563c 0%, #ff6a4d 40%, #ff8a63 70%, #ffb184 100%); border-radius: 50% 50% 0 0 / 30% 30% 0 0; z-index: 1; }
+        .m2-wave::before { content: ""; position: absolute; left: 8%; right: -14%; bottom: -22%; width: 116%; height: 100%; background: linear-gradient(120deg, #ff7a59 0%, #ffaa80 100%); border-radius: 50% 50% 0 0 / 34% 34% 0 0; opacity: 0.85; }
+
+        /* ============================================================
+           3 — AURORA MESH (dark, blurred multi-blob mesh gradient)
+        ============================================================ */
+        .m3 { position: relative; overflow: hidden; background: #0b1430; color: #fff; padding: 4rem 3rem 3.5rem; }
+        .m3::before { content: ""; position: absolute; top: -30%; left: -10%; width: 55%; height: 130%; background: radial-gradient(circle, rgba(177,42,52,0.55), transparent 60%); filter: blur(50px); }
+        .m3::after { content: ""; position: absolute; bottom: -40%; right: -8%; width: 60%; height: 150%; background: radial-gradient(circle, rgba(255,138,99,0.5), transparent 62%); filter: blur(55px); }
+        .m3-inner { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
+        .m3-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.14); }
+        .m3-name { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(90deg,#fff,#ffc6a0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .m3-tag { margin-top: 0.6rem; color: rgba(255,255,255,0.62); font-size: 0.92rem; max-width: 32ch; line-height: 1.55; }
+        .m3-links { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+        .m3 .m3-links h4 { color: #ff9a78; margin-bottom: 0.7rem; }
+        .m3-links a { display: block; color: rgba(255,255,255,0.8); font-size: 0.9rem; padding: 0.2rem 0; }
+        .m3-links a:hover { color: #fff; }
+        .m3-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+        .m3-bottom p { color: rgba(255,255,255,0.65); font-size: 0.84rem; }
+        .m3-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: #ffd9c4; }
+        .m3-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 8px #4ade80; }
+
+        /* ============================================================
+           4 — GRADIENT CTA PANEL (full warm gradient, big wordmark)
+        ============================================================ */
+        .m4 { position: relative; overflow: hidden; background: linear-gradient(125deg, #7d1b25 0%, #b12a34 32%, #e0563f 62%, #ff8a5f 88%, #ffb184 100%); color: #fff; padding: 3.5rem 3rem 2.5rem; }
+        .m4::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 85% 110%, rgba(255,255,255,0.25), transparent 45%); }
+        .m4-inner { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
+        .m4-cta { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; padding-bottom: 2.25rem; border-bottom: 1px solid rgba(255,255,255,0.25); }
+        .m4-head { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.025em; line-height: 1.05; }
+        .m4-head span { opacity: 0.7; }
+        .m4-btn { background: #fff; color: #b12a34; font-weight: 700; padding: 0.85rem 1.8rem; border-radius: 999px; font-size: 0.95rem; white-space: nowrap; }
+        .m4-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+        .m4-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1.75rem; }
+        .m4-nav { display: flex; gap: 1.6rem; flex-wrap: wrap; }
+        .m4-nav a { color: rgba(255,255,255,0.92); font-size: 0.92rem; font-weight: 500; }
+        .m4-nav a:hover { color: #fff; text-decoration: underline; }
+        .m4-copy { color: rgba(255,255,255,0.8); font-size: 0.84rem; }
+
+        /* ============================================================
+           5 — UNDERGLOW MINIMAL (clean dark, thin gradient bar + glow)
+        ============================================================ */
+        .m5 { position: relative; overflow: hidden; background: #0d1b3a; color: #fff; padding: 3.5rem 3rem 3rem; }
+        .m5-bar { position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #b12a34, #e0563f, #ff8a63, #ffb184); }
+        .m5::after { content: ""; position: absolute; bottom: -50%; left: 50%; transform: translateX(-50%); width: 80%; height: 80%; background: radial-gradient(ellipse at center, rgba(224,86,63,0.45), transparent 65%); filter: blur(40px); }
+        .m5-inner { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; text-align: center; }
+        .m5-name { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
+        .m5-tag { margin-top: 0.6rem; color: rgba(255,255,255,0.6); font-size: 0.92rem; }
+        .m5-nav { display: flex; justify-content: center; gap: 1.8rem; flex-wrap: wrap; margin: 1.75rem 0; }
+        .m5-nav a { color: rgba(255,255,255,0.82); font-size: 0.94rem; font-weight: 500; }
+        .m5-nav a:hover { color: #ff9a78; }
+        .m5-divider { height: 1px; background: rgba(255,255,255,0.12); margin: 0 auto 1.5rem; max-width: 420px; }
+        .m5-copy { color: rgba(255,255,255,0.55); font-size: 0.83rem; }
+
+        /* ============================================================
+           6 — SPLIT DIAGONAL (navy left, gradient diagonal wedge right)
+        ============================================================ */
+        .m6 { position: relative; overflow: hidden; background: #0a142e; color: #fff; padding: 3.75rem 3rem 3rem; }
+        .m6::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 60%; background: linear-gradient(115deg, transparent 0%, transparent 30%, #b12a34 55%, #e0563f 78%, #ff8a63 100%); clip-path: polygon(35% 0, 100% 0, 100% 100%, 12% 100%); opacity: 0.92; }
+        .m6-inner { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: center; }
+        .m6-name { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; }
+        .m6-tag { margin-top: 0.6rem; color: rgba(255,255,255,0.62); font-size: 0.9rem; max-width: 34ch; line-height: 1.55; }
+        .m6-meta { margin-top: 1.5rem; color: rgba(255,255,255,0.5); font-size: 0.82rem; line-height: 1.7; }
+        .m6-right { text-align: right; }
+        .m6-right h4 { color: rgba(255,255,255,0.9); margin-bottom: 0.9rem; letter-spacing: 0.1em; }
+        .m6-nav a { display: block; color: #fff; font-size: 1.02rem; font-weight: 600; padding: 0.28rem 0; }
+        .m6-nav a:hover { color: #ffd9c4; }
+        .m6-btn { display: inline-block; margin-top: 1rem; background: #fff; color: #b12a34; font-weight: 700; padding: 0.7rem 1.5rem; border-radius: 999px; font-size: 0.9rem; }
+
+        @media (max-width: 760px) {
+            .m1-top, .m6-inner { grid-template-columns: 1fr; }
+            .m2-cols, .m1-cols { grid-template-columns: repeat(2,1fr); }
+            .m6-right { text-align: left; }
+            .m6::after { display: none; }
+            .m4-head { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrap">
+        <h1 class="page-title">Footer Mockups</h1>
+        <p class="page-sub">Six directions, all using warm gradient shades (red → coral → orange → peach) like your reference. Pick one (or mix-and-match) and I'll roll it out to every page.</p>
+
+        <!-- 1 -->
+        <div>
+            <div class="mock-label"><span class="mock-num">01</span><span class="mock-name">Wave Rise</span><span class="mock-desc">Dark navy with a coral gradient arc swelling up from the bottom — closest to your image, but on-brand dark.</span></div>
+            <footer class="mock m1">
+                <div class="m1-inner">
+                    <div class="m1-top">
+                        <div>
+                            <div class="m1-brand-head"><span class="m1-logo"></span><span class="m1-name">Troy VEX Robotics</span></div>
+                            <p class="m1-tag">From 11 cadets in a garage to a world-qualifying program. Built in Fullerton, competing everywhere.</p>
+                        </div>
+                        <div class="m1-cols">
+                            <div><h4>Program</h4><a href="#">About</a><a href="#">Teams</a><a href="#">Awards</a></div>
+                            <div><h4>Compete</h4><a href="#">Events</a><a href="#">Gallery</a><a href="#">Sponsors</a></div>
+                            <div><h4>Get Involved</h4><a href="#">Join</a><a href="#">Donate</a><a href="#">Contact</a></div>
+                        </div>
+                    </div>
+                    <div class="m1-bottom"><p>&copy; 2026 Troy High School VEX Robotics. All rights reserved.</p><p>2200 E Dorothy Ln, Fullerton, CA 92831, Room 401</p></div>
+                </div>
+                <div class="m1-glow" aria-hidden="true"></div>
+            </footer>
+        </div>
+
+        <!-- 2 -->
+        <div>
+            <div class="mock-label"><span class="mock-num">02</span><span class="mock-name">Tally Cream</span><span class="mock-desc">Light cream background with the literal layered gradient wave blob at the bottom — the most faithful copy of your reference.</span></div>
+            <footer class="mock m2">
+                <div class="m2-inner">
+                    <div class="m2-cols">
+                        <div><h4>Program</h4><a href="#">About</a><a href="#">Teams</a><a href="#">Awards</a></div>
+                        <div><h4>Compete</h4><a href="#">Events</a><a href="#">Gallery</a><a href="#">Sponsors</a></div>
+                        <div><h4>Support</h4><a href="#">Donate</a><a href="#">Join</a><a href="#">Sponsorship</a></div>
+                        <div><h4>Connect</h4><a href="#">Contact</a><a href="#">Instagram</a><a href="#">Linktree</a></div>
+                    </div>
+                    <div class="m2-bottom"><p>&copy; 2026 Troy High School VEX Robotics. All rights reserved.</p><p>Built in Fullerton · Competing worldwide.</p></div>
+                </div>
+                <div class="m2-wave" aria-hidden="true"></div>
+            </footer>
+        </div>
+
+        <!-- 3 -->
+        <div>
+            <div class="mock-label"><span class="mock-num">03</span><span class="mock-name">Aurora Mesh</span><span class="mock-desc">Dark footer lit by soft blurred gradient blobs — modern, moody, with a "systems operational" status pill.</span></div>
+            <footer class="mock m3">
+                <div class="m3-inner">
+                    <div class="m3-top">
+                        <div>
+                            <div class="m3-name">Troy VEX Robotics</div>
+                            <p class="m3-tag">Seven teams. Four world qualifiers. One garage where it all started.</p>
+                            <div class="m3-pill" style="margin-top:1rem;"><span class="m3-dot"></span> All teams active · Season 2026</div>
+                        </div>
+                        <div class="m3-links">
+                            <div><h4>Program</h4><a href="#">About</a><a href="#">Teams</a><a href="#">Awards</a></div>
+                            <div><h4>Compete</h4><a href="#">Events</a><a href="#">Gallery</a><a href="#">Sponsors</a></div>
+                            <div><h4>Involve</h4><a href="#">Join</a><a href="#">Donate</a><a href="#">Contact</a></div>
+                        </div>
+                    </div>
+                    <div class="m3-bottom"><p>&copy; 2026 Troy High School VEX Robotics. All rights reserved.</p><p>2200 E Dorothy Ln, Fullerton, CA 92831</p></div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- 4 -->
+        <div>
+            <div class="mock-label"><span class="mock-num">04</span><span class="mock-name">Gradient CTA Panel</span><span class="mock-desc">The whole footer IS the gradient — a bold full-bleed red-to-peach panel with a join call-to-action.</span></div>
+            <footer class="mock m4">
+                <div class="m4-inner">
+                    <div class="m4-cta">
+                        <div class="m4-head">Ready to build?<br><span>Join Troy VEX Robotics.</span></div>
+                        <a href="#" class="m4-btn">Join a Team →</a>
+                    </div>
+                    <div class="m4-row">
+                        <nav class="m4-nav"><a href="#">About</a><a href="#">Teams</a><a href="#">Events</a><a href="#">Gallery</a><a href="#">Sponsors</a><a href="#">Awards</a><a href="#">Donate</a></nav>
+                        <span class="m4-copy">&copy; 2026 Troy High School VEX Robotics</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- 5 -->
+        <div>
+            <div class="mock-label"><span class="mock-num">05</span><span class="mock-name">Underglow Minimal</span><span class="mock-desc">Restrained and centered — a thin gradient top-bar and a soft warm glow rising from below. Least busy.</span></div>
+            <footer class="mock m5">
+                <div class="m5-bar" aria-hidden="true"></div>
+                <div class="m5-inner">
+                    <div class="m5-name">Troy VEX Robotics</div>
+                    <p class="m5-tag">From 11 cadets in a garage to a world-qualifying program.</p>
+                    <nav class="m5-nav"><a href="#">About</a><a href="#">Teams</a><a href="#">Events</a><a href="#">Gallery</a><a href="#">Sponsors</a><a href="#">Awards</a><a href="#">Donate</a></nav>
+                    <div class="m5-divider"></div>
+                    <p class="m5-copy">&copy; 2026 Troy High School VEX Robotics. All rights reserved. · 2200 E Dorothy Ln, Fullerton, CA 92831</p>
+                </div>
+            </footer>
+        </div>
+
+        <!-- 6 -->
+        <div>
+            <div class="mock-label"><span class="mock-num">06</span><span class="mock-name">Split Diagonal</span><span class="mock-desc">Navy on the left, a gradient diagonal wedge slicing in from the right with bold nav links.</span></div>
+            <footer class="mock m6">
+                <div class="m6-inner">
+                    <div>
+                        <div class="m6-name">Troy VEX Robotics</div>
+                        <p class="m6-tag">Seven teams. Four world qualifiers. Built in a Fullerton garage in 2023.</p>
+                        <p class="m6-meta">&copy; 2026 Troy High School VEX Robotics<br>2200 E Dorothy Ln, Fullerton, CA 92831, Room 401</p>
+                    </div>
+                    <div class="m6-right">
+                        <h4>EXPLORE</h4>
+                        <nav class="m6-nav"><a href="#">Teams</a><a href="#">Events</a><a href="#">Sponsors</a></nav>
+                        <a href="#" class="m6-btn">Contact Us →</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+</body>
+
+</html>

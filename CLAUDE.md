@@ -6,6 +6,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Talk like caveman. Short. Simple. No fluff. Example: "Me fix bug. You happy now." Use simple words. Skip fancy language.
 
+## Design-Level Changes — ALWAYS Use the Mockup Skill
+
+**Any time the user asks for a design-level / visual change, invoke the `mockup` skill FIRST.** Do NOT edit live pages straight away.
+
+This covers: redesigns, restyles, new layouts, "make it look like [image/site]", footer/header/hero/section redesigns, color or gradient changes, or any request for "mockups" / "options". (Plain bug fixes, copy edits, link fixes, and content swaps are NOT design changes — edit those directly.)
+
+The skill builds one self-contained `mockups/<thing>-mockups.html` page with at least 5 distinct variants, serves it via `serve.py`, and lets the user pick before anything touches the live site. Roll the chosen variant out to all pages (root `*.html` + `pages/` copies) and bump the `site.css?v=N` cache-buster only after the user picks.
+
+**Note:** `serve.py` uses `ThreadingHTTPServer` — the single-threaded `HTTPServer` hangs on requests on this Windows machine. Do not revert that.
+
 ## Project Overview
 
 This is a static website for the Troy High School VEX Robotics program. The site showcases the robotics teams, sponsors, events, and program information.

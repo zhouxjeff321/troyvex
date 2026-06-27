@@ -69,6 +69,6 @@ class ExtensionlessHandler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == '__main__':
     os.chdir(DIRECTORY)
-    with http.server.HTTPServer(('', PORT), ExtensionlessHandler) as httpd:
+    with http.server.ThreadingHTTPServer(('', PORT), ExtensionlessHandler) as httpd:
         print(f"Serving Troy VEX site at http://localhost:{PORT}", flush=True)
         httpd.serve_forever()
