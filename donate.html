@@ -34,6 +34,29 @@
       .dn{--red:#b12a34;--red-deep:#8e1f28;--navy:#0d1b3a;--ink:#16203a;--mut:#5d6b86;
           --line:#e7e9f0;--paper:#fff;--canvas:#f7f8fb;--soft:#f1f3f8;
           font-family:'Inter',sans-serif;color:var(--ink);background:var(--canvas);line-height:1.6}
+      body.dark-mode .dn{--red:#ff6b6b;--red-deep:#e0525c;--navy:#f4f7ff;--ink:#e8ecf8;--mut:#aeb8cc;
+          --line:rgba(255,255,255,.13);--paper:#191b22;--canvas:#111318;--soft:#222631;
+          color:var(--ink)!important;background:var(--canvas);color-scheme:dark}
+      body.dark-mode .dn h1,body.dark-mode .dn h2,body.dark-mode .dn h3{color:var(--navy)!important}
+      body.dark-mode .dn p,body.dark-mode .dn li,body.dark-mode .dn span{color:var(--mut)!important}
+      body.dark-mode .dn strong,body.dark-mode .dn address,body.dark-mode .dn .v,body.dark-mode .dn .lbl{color:var(--ink)!important}
+      body.dark-mode .dn a{color:var(--red)}
+      body.dark-mode .dn .dn-eyebrow,body.dark-mode .dn .dn-tax-label,body.dark-mode .dn .dn-brow .pct,
+      body.dark-mode .dn .dn-tier .tag,body.dark-mode .dn .dn-cal-note a,body.dark-mode .dn .dn-cal-fallback a{color:var(--red)!important}
+      body.dark-mode .dn .dn-hero,body.dark-mode .dn .dn-sched{background:var(--paper);border-color:var(--line)}
+      body.dark-mode .dn .dn-give-card,body.dark-mode .dn .dn-budget-aside,body.dark-mode .dn .dn-tier,
+      body.dark-mode .dn .dn-cal,body.dark-mode .dn .dn-tax{background:var(--soft);border-color:var(--line)}
+      body.dark-mode .dn .dn-btn-primary{background:var(--red);color:#fff!important}
+      body.dark-mode .dn .dn-btn-primary:hover{background:var(--red-deep)}
+      body.dark-mode .dn .dn-btn-ghost{background:rgba(255,255,255,.06);color:var(--navy)!important;border-color:var(--line)}
+      body.dark-mode .dn .dn-btn-ghost:hover{border-color:rgba(255,255,255,.34)}
+      body.dark-mode .dn .dn-halo{opacity:.55}
+      body.dark-mode .dn .dn-impact,body.dark-mode .dn .dn-tier.feat,body.dark-mode .dn .dn-sponsor-inner{background:#0d1831}
+      body.dark-mode .dn .dn-tier.feat .amt,body.dark-mode .dn .dn-tier.feat .what{color:#fff!important}
+      body.dark-mode .dn .dn-mission{background:#171a21;border-color:var(--line)}
+      body.dark-mode .dn .dn-give-icon{background:rgba(255,255,255,.08);color:var(--red)}
+      body.dark-mode .dn .dn-sponsor-text h3{color:#fff!important}
+      body.dark-mode .dn .dn-sponsor-text p,body.dark-mode .dn .dn-impact-label{color:#aeb8cc!important}
       .dn *{box-sizing:border-box}
       .dn-wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
       .dn-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
@@ -139,11 +162,14 @@
       .dn-sched-copy ul{list-style:none;padding:0;margin:1.2rem 0 0;display:grid;gap:.7rem}
       .dn-sched-copy li{display:flex;gap:.6rem;align-items:flex-start;color:var(--ink)}
       .dn-sched-copy li::before{content:"→";color:var(--red);font-weight:700}
+      .dn-cal-wrap{min-width:0}
       .dn-cal{border:1px solid var(--line);border-radius:18px;overflow:hidden;min-height:560px;background:var(--soft);position:relative}
       .dn-cal-fallback{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;gap:.8rem;color:var(--mut)}
       .dn-cal-fallback a{color:var(--red);font-weight:600}
       #cal-inline{position:relative;z-index:2;width:100%;height:560px;overflow:auto}
       #cal-inline:empty{pointer-events:none}
+      .dn-cal-note{margin:.8rem .25rem 0;text-align:center;color:var(--mut);font-size:.9rem}
+      .dn-cal-note a{color:var(--red);font-weight:600;word-break:break-all}
 
       /* sponsor cta */
       .dn-sponsor{padding:3.5rem 0}
@@ -169,6 +195,8 @@
       }
       /* mobile: ways-to-give cards go horizontal swipe row; roomier text inside each card */
       @media(max-width:640px){
+        /* inset only the hero TEXT (gradient stays full-bleed to the edges) */
+        .dn-hero-inner{padding-left:2rem;padding-right:2rem}
         .dn-give{display:flex;flex-direction:row;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.6rem;-webkit-overflow-scrolling:touch}
         .dn-give-card{flex:0 0 84%;scroll-snap-align:start;padding:1.9rem}
       }
@@ -298,13 +326,16 @@
                         <li>Get a custom sponsorship proposal</li>
                     </ul>
                 </div>
-                <div class="dn-cal">
-                    <!-- Cal.com inline embed - booking event: cal.com/ryzo1224/quick-chat -->
-                    <div class="dn-cal-fallback">
-                        <strong>Scheduler loading…</strong>
-                        <span>If it doesn't appear, book directly at <a href="https://cal.com/ryzo1224/quick-chat" target="_blank" rel="noopener">cal.com/ryzo1224/quick-chat</a> or email <a href="mailto:wlauper@fjuhsd.org">wlauper@fjuhsd.org</a>.</span>
+                <div class="dn-cal-wrap">
+                    <div class="dn-cal">
+                        <!-- Cal.com inline embed - booking event: cal.com/ryzo1224/quick-chat -->
+                        <div class="dn-cal-fallback">
+                            <strong>Scheduler loading…</strong>
+                            <span>If it doesn't appear, book directly at <a href="https://cal.com/ryzo1224/quick-chat" target="_blank" rel="noopener">cal.com/ryzo1224/quick-chat</a> or email <a href="mailto:wlauper@fjuhsd.org">wlauper@fjuhsd.org</a>.</span>
+                        </div>
+                        <div id="cal-inline"></div>
                     </div>
-                    <div id="cal-inline"></div>
+                    <p class="dn-cal-note">If it doesn't work, click this full booking link: <a href="https://cal.com/ryzo1224/quick-chat" target="_blank" rel="noopener">https://cal.com/ryzo1224/quick-chat</a></p>
                 </div>
             </div>
         </section>
