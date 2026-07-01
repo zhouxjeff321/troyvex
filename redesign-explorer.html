@@ -191,7 +191,10 @@
   tabs.forEach((tab, index) => tab.addEventListener("click", () => setActive(index)));
   document.getElementById("prev").addEventListener("click", () => setActive(active - 1));
   document.getElementById("next").addEventListener("click", () => setActive(active + 1));
-  document.getElementById("open").addEventListener("click", () => window.open(tabs[active].dataset.src, "_blank", "noopener"));
+  document.getElementById("open").addEventListener("click", () => {
+    const opened = window.open(tabs[active].dataset.src, "_blank", "noopener,noreferrer");
+    if (opened) opened.opener = null;
+  });
 
   document.querySelectorAll("[data-device]").forEach((button) => {
     button.addEventListener("click", () => {

@@ -4,7 +4,33 @@ import http.server
 import os
 
 PORT = 3000
-DIRECTORY = os.path.dirname(os.path.abspath(__file__))
+DIRECTORY = os.path.realpath(os.path.dirname(os.path.abspath(__file__)))
+
+SECURITY_HEADERS = {
+    "Content-Security-Policy": (
+        "default-src 'self'; "
+        "base-uri 'self'; "
+        "object-src 'none'; "
+        "frame-ancestors 'self'; "
+        "img-src 'self' data: https:; "
+        "font-src 'self' https://fonts.gstatic.com data:; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com "
+        "https://www.google-analytics.com https://us-assets.i.posthog.com https://app.cal.com; "
+        "script-src-attr 'none'; "
+        "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com "
+        "https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com "
+        "https://stats.g.doubleclick.net https://*.g.doubleclick.net https://us.i.posthog.com "
+        "https://us-assets.i.posthog.com https://app.cal.com https://api.cal.com https://cal.com; "
+        "frame-src 'self' https://www.google.com https://cal.com https://app.cal.com; "
+        "form-action 'self' https://forms.gle https://cal.com; "
+        "worker-src 'self' blob:"
+    ),
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+}
 
 ROUTES = {
     '/about': 'pages/about/about.html',
@@ -30,12 +56,21 @@ ROUTES = {
 
 def is_workspace_file(relative_path):
     full_path = os.path.realpath(os.path.join(DIRECTORY, relative_path.lstrip('/')))
-    return full_path.startswith(DIRECTORY + os.sep) and os.path.isfile(full_path)
+    try:
+        is_inside_workspace = os.path.commonpath([DIRECTORY, full_path]) == DIRECTORY
+    except ValueError:
+        return False
+    return is_inside_workspace and os.path.isfile(full_path)
 
 
 class ExtensionlessHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
+
+    def end_headers(self):
+        for header, value in SECURITY_HEADERS.items():
+            self.send_header(header, value)
+        super().end_headers()
 
     def do_GET(self):
         path = self.path.split('?')[0].split('#')[0]

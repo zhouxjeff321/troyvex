@@ -83,7 +83,10 @@
       Object.keys(devs).forEach(x=>document.getElementById(x).classList.toggle('on',x===id));
     };
   });
-  document.getElementById('open').onclick=()=>window.open(tabs[idx].dataset.src,'_blank');
+  document.getElementById('open').onclick=()=>{
+    const opened = window.open(tabs[idx].dataset.src, '_blank', 'noopener,noreferrer');
+    if (opened) opened.opener = null;
+  };
 </script>
 </body>
 </html>

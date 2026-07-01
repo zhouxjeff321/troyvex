@@ -18,20 +18,46 @@ let calIdx = 2; // default to January 2026 (busiest month)
 
 function renderList(el){
   if(!el) return;
-  el.innerHTML = EVENTS.map(e => `
-    <a class="ev ev-${e.kind}">
-      <div class="ev-date">
-        <span class="ev-mo">${MO3[e.m-1]}</span>
-        <span class="ev-day">${e.d}</span>
-        <span class="ev-yr">${e.y}</span>
-      </div>
-      <div class="ev-main">
-        <h3 class="ev-name">${e.name}</h3>
-        <div class="ev-loc">${e.loc}</div>
-        <div class="ev-detail">${e.detail}</div>
-      </div>
-      ${e.tag ? `<span class="ev-tag">${e.tag}</span>` : ''}
-    </a>`).join('');
+  el.replaceChildren();
+  EVENTS.forEach(e => {
+    const item = document.createElement('article');
+    item.className = `ev ev-${e.kind}`;
+
+    const date = document.createElement('div');
+    date.className = 'ev-date';
+    const month = document.createElement('span');
+    month.className = 'ev-mo';
+    month.textContent = MO3[e.m - 1];
+    const day = document.createElement('span');
+    day.className = 'ev-day';
+    day.textContent = e.d;
+    const year = document.createElement('span');
+    year.className = 'ev-yr';
+    year.textContent = e.y;
+    date.append(month, day, year);
+
+    const main = document.createElement('div');
+    main.className = 'ev-main';
+    const name = document.createElement('h3');
+    name.className = 'ev-name';
+    name.textContent = e.name;
+    const loc = document.createElement('div');
+    loc.className = 'ev-loc';
+    loc.textContent = e.loc;
+    const detail = document.createElement('div');
+    detail.className = 'ev-detail';
+    detail.textContent = e.detail;
+    main.append(name, loc, detail);
+
+    item.append(date, main);
+    if(e.tag){
+      const tag = document.createElement('span');
+      tag.className = 'ev-tag';
+      tag.textContent = e.tag;
+      item.appendChild(tag);
+    }
+    el.appendChild(item);
+  });
 }
 
 function renderCal(host){
@@ -40,17 +66,36 @@ function renderCal(host){
   host.querySelector('.cal-title').textContent = MONTHS[cur.m-1] + ' ' + cur.y;
   const first = new Date(cur.y, cur.m-1, 1).getDay();
   const days  = new Date(cur.y, cur.m, 0).getDate();
-  let cells = '';
-  ['S','M','T','W','T','F','S'].forEach(d => cells += `<div class="cal-dow">${d}</div>`);
-  for(let i=0;i<first;i++) cells += `<div class="cal-cell cal-empty"></div>`;
+  const grid = host.querySelector('.cal-grid');
+  grid.replaceChildren();
+  ['S','M','T','W','T','F','S'].forEach(d => {
+    const dow = document.createElement('div');
+    dow.className = 'cal-dow';
+    dow.textContent = d;
+    grid.appendChild(dow);
+  });
+  for(let i=0;i<first;i++){
+    const empty = document.createElement('div');
+    empty.className = 'cal-cell cal-empty';
+    grid.appendChild(empty);
+  }
   for(let day=1; day<=days; day++){
     const evs = EVENTS.filter(e => e.y===cur.y && e.m===cur.m && e.d===day);
-    cells += `<div class="cal-cell${evs.length?' cal-has':''}">
-      <span class="cal-num">${day}</span>
-      ${evs.map(e => `<span class="cal-ev ev-${e.kind}" title="${e.name}">${e.name}</span>`).join('')}
-    </div>`;
+    const cell = document.createElement('div');
+    cell.className = `cal-cell${evs.length ? ' cal-has' : ''}`;
+    const num = document.createElement('span');
+    num.className = 'cal-num';
+    num.textContent = day;
+    cell.appendChild(num);
+    evs.forEach(e => {
+      const ev = document.createElement('span');
+      ev.className = `cal-ev ev-${e.kind}`;
+      ev.title = e.name;
+      ev.textContent = e.name;
+      cell.appendChild(ev);
+    });
+    grid.appendChild(cell);
   }
-  host.querySelector('.cal-grid').innerHTML = cells;
   host.querySelector('[data-prev]').disabled = calIdx===0;
   host.querySelector('[data-next]').disabled = calIdx===SEASON.length-1;
 }

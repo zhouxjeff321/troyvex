@@ -1,55 +1,106 @@
 // Dark mode toggle functionality
 document.addEventListener('DOMContentLoaded', function () {
+    function getStoredTheme() {
+        try {
+            return localStorage.getItem('theme');
+        } catch (error) {
+            return null;
+        }
+    }
+
+    function setStoredTheme(theme) {
+        try {
+            localStorage.setItem('theme', theme);
+        } catch (error) {
+            // Storage can be disabled in private browsing or hardened browsers.
+        }
+    }
+
     // Check for saved theme preference or default to 'light'
-    const currentTheme = localStorage.getItem('theme') || 'light';
+    const currentTheme = getStoredTheme() === 'dark' ? 'dark' : 'light';
 
     // Apply saved theme on page load
     if (currentTheme === 'dark') {
         document.body.classList.add('dark-mode');
     }
 
+    function updateToggleState(isDark) {
+        toggleButton.textContent = isDark ? '🌙' : '☀️';
+        toggleButton.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+        toggleButton.setAttribute('title', isDark ? 'Dark mode enabled' : 'Light mode enabled');
+    }
+
     // Create toggle button
     const toggleButton = document.createElement('button');
     toggleButton.className = 'dark-mode-toggle';
     toggleButton.setAttribute('aria-label', 'Toggle dark mode');
-    toggleButton.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
-    toggleButton.setAttribute('title', currentTheme === 'dark' ? 'Dark mode enabled' : 'Light mode enabled');
-    toggleButton.innerHTML = currentTheme === 'dark' ? '🌙' : '☀️';
+    updateToggleState(currentTheme === 'dark');
     document.body.appendChild(toggleButton);
 
     // Toggle theme on button click
     toggleButton.addEventListener('click', function () {
-        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.toggle('dark-mode');
+        updateToggleState(isDark);
+        setStoredTheme(isDark ? 'dark' : 'light');
+    });
 
-        // Update icon and save preference
-        if (document.body.classList.contains('dark-mode')) {
-            toggleButton.innerHTML = '🌙';
-            toggleButton.setAttribute('aria-pressed', 'true');
-            toggleButton.setAttribute('title', 'Dark mode enabled');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            toggleButton.innerHTML = '☀️';
-            toggleButton.setAttribute('aria-pressed', 'false');
-            toggleButton.setAttribute('title', 'Light mode enabled');
-            localStorage.setItem('theme', 'light');
+    // Image fallbacks are configured with data-fallback-src instead of inline handlers.
+    document.querySelectorAll('img[data-fallback-src]').forEach(function (img) {
+        function applyFallback() {
+            const fallback = img.getAttribute('data-fallback-src');
+            if (!fallback) return;
+            img.removeAttribute('data-fallback-src');
+            img.src = fallback;
         }
+
+        img.addEventListener('error', applyFallback, { once: true });
+        if (img.complete && img.naturalWidth === 0) {
+            applyFallback();
+        }
+    });
+
+    // Normalize target=_blank links so every external new-tab link is opener-safe.
+    document.querySelectorAll('a[target="_blank"]').forEach(function (link) {
+        const rel = new Set((link.getAttribute('rel') || '').split(/\s+/).filter(Boolean));
+        rel.add('noopener');
+        rel.add('noreferrer');
+        link.setAttribute('rel', Array.from(rel).join(' '));
     });
 
     // ─── Mobile Navigation ────────────────────────────────────────────────────
 
-    const navbar   = document.querySelector('.navbar');
+    const navbar = document.querySelector('.navbar');
     const navLinks = document.querySelector('.nav-links');
 
-    // Backdrop overlay – sits behind the slide-in panel
-    const overlay = document.createElement('div');
-    overlay.className = 'menu-overlay';
-    document.body.appendChild(overlay);
+    if (!navbar || !navLinks) {
+        return;
+    }
 
-    // Hamburger button (three-bar icon → X when open)
+    if (!navLinks.id) {
+        navLinks.id = 'site-navigation';
+    }
+
+    if (navbar.querySelector('.hamburger')) {
+        return;
+    }
+
+    // Backdrop overlay - sits behind the slide-in panel
+    let overlay = document.querySelector('.menu-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'menu-overlay';
+        document.body.appendChild(overlay);
+    }
+
+    // Hamburger button (three-bar icon -> X when open)
     const hamburger = document.createElement('button');
     hamburger.className = 'hamburger';
     hamburger.setAttribute('aria-label', 'Toggle navigation');
-    hamburger.innerHTML = '<span></span><span></span><span></span>';
+    hamburger.setAttribute('aria-controls', navLinks.id);
+    hamburger.setAttribute('aria-expanded', 'false');
+    for (let i = 0; i < 3; i++) {
+        hamburger.appendChild(document.createElement('span'));
+    }
     navbar.appendChild(hamburger);
 
     // ── Helpers ──────────────────────────────────────────────────────────────
@@ -57,11 +108,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function closeAllDropdowns() {
         document.querySelectorAll('.dropdown.active').forEach(function (d) {
             d.classList.remove('active');
+            const parentLink = d.querySelector(':scope > a');
+            if (parentLink) parentLink.setAttribute('aria-expanded', 'false');
         });
     }
 
     function closeMenu() {
         hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
         navLinks.classList.remove('active');
         overlay.classList.remove('active');
         document.body.classList.remove('menu-open');
@@ -70,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function openMenu() {
         hamburger.classList.add('active');
+        hamburger.setAttribute('aria-expanded', 'true');
         navLinks.classList.add('active');
         overlay.classList.add('active');
         document.body.classList.add('menu-open');
@@ -107,6 +162,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelectorAll('.dropdown').forEach(function (dropdown) {
         const parentLink = dropdown.querySelector(':scope > a');
+        if (!parentLink) return;
+        parentLink.setAttribute('aria-haspopup', 'true');
+        parentLink.setAttribute('aria-expanded', 'false');
         parentLink.addEventListener('click', function (e) {
             if (window.innerWidth <= 768) {
                 const submenu = dropdown.querySelector('.dropdown-menu');
@@ -114,7 +172,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     e.preventDefault();
                     const isOpen = dropdown.classList.contains('active');
                     closeAllDropdowns();
-                    if (!isOpen) dropdown.classList.add('active');
+                    if (!isOpen) {
+                        dropdown.classList.add('active');
+                        parentLink.setAttribute('aria-expanded', 'true');
+                    }
                 }
             }
         });
