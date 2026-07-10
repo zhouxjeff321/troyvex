@@ -50,6 +50,7 @@ ROUTES = {
     '/sponsors': 'pages/support/sponsors.html',
     '/donate': 'pages/support/donate.html',
     '/join': 'pages/support/join.html',
+    '/summercamp': 'pages/support/summercamp.html',
     '/contact': 'pages/support/contact.html',
 }
 

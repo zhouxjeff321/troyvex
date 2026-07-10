@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Summer Camp - Troy VEX Robotics</title>
+    <link rel="stylesheet" href="/assets/css/site.css?v=13">
+    <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
+    <style>
+        /* ─── Summer Camp page (scoped to .sc) ─── */
+        .sc { color: #111; }
+        .sc-wrap { max-width: 1050px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Header — shared site gradient */
+        .sc-header {
+            text-align: center;
+            padding: 4.5rem 2rem 3rem;
+            background:
+                radial-gradient(circle at 92% -8%, rgba(177, 42, 52, 0.18), transparent 44%),
+                linear-gradient(180deg, rgba(13, 27, 58, 0.08) 0%, rgba(13, 27, 58, 0.03) 45%, transparent 100%);
+        }
+        .sc-eyebrow {
+            color: #b12a34;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.85rem;
+        }
+        .sc-header h1 { font-size: 3rem; margin: 0.6rem 0 0.8rem; color: #111; }
+        .sc-header > p { color: #555; max-width: 620px; margin: 0 auto 1.8rem; font-size: 1.15rem; line-height: 1.55; }
+        .sc-note { display: block; margin-top: 0.9rem; color: #b12a34; font-weight: 600; font-size: 0.95rem; }
+
+        /* Quick facts */
+        .sc-facts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 3rem auto;
+        }
+        .sc-fact {
+            background: #f9fafb;
+            border: 1px solid #eee;
+            border-radius: 14px;
+            padding: 1.4rem 1.2rem;
+            text-align: center;
+        }
+        .sc-fact .v { font-family: 'Geist', sans-serif; font-weight: 800; font-size: 1.6rem; color: #b12a34; }
+        .sc-fact .l { color: #666; font-size: 0.92rem; margin-top: 0.3rem; }
+
+        /* Info split */
+        .sc-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            margin: 3rem auto;
+        }
+        .sc-split h2 { font-size: 1.8rem; margin-bottom: 1rem; color: #111; }
+        .sc-split ul { list-style: none; padding: 0; margin: 0; }
+        .sc-split li {
+            padding: 0.45rem 0 0.45rem 1.7rem;
+            position: relative;
+            color: #333;
+            font-size: 1.03rem;
+            line-height: 1.5;
+        }
+        .sc-split li::before { content: "\2713"; position: absolute; left: 0; color: #b12a34; font-weight: 800; }
+        .sc-split img { width: 100%; border-radius: 16px; box-shadow: 0 16px 34px rgba(0, 0, 0, 0.12); }
+        .sc-split .sc-subhead {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #b12a34;
+            margin: 1.6rem 0 0.4rem;
+        }
+
+        /* Schedule */
+        .sc-sched { margin: 3.5rem auto; }
+        .sc-sched h2 { font-size: 1.8rem; text-align: center; margin-bottom: 1.6rem; color: #111; }
+        .sc-days { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.9rem; }
+        .sc-day {
+            border: 1px solid #eee;
+            border-top: 4px solid #b12a34;
+            border-radius: 12px;
+            padding: 1rem 0.9rem;
+            background: #fff;
+        }
+        .sc-day .d { font-family: 'Geist', sans-serif; font-weight: 800; color: #b12a34; font-size: 0.85rem; }
+        .sc-day p { font-size: 0.94rem; color: #333; margin-top: 0.35rem; font-weight: 600; line-height: 1.4; }
+
+        /* Sessions + register */
+        .sc-cta {
+            background: #0d1b3a;
+            color: #fff;
+            text-align: center;
+            padding: 3.2rem 2rem;
+            margin-top: 3.5rem;
+        }
+        .sc-cta h2 { font-size: 2rem; margin-bottom: 0.4rem; color: #fff; }
+        .sc-cta .cost { font-family: 'Geist', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff; margin-bottom: 1.2rem; }
+        .sc-sessions {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin: 1.4rem 0 1.8rem;
+        }
+        .sc-session {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 1.1rem 1.8rem;
+            min-width: 240px;
+        }
+        .sc-session h3 { color: #fff; font-size: 1.05rem; margin-bottom: 0.3rem; }
+        .sc-session p { color: #cbd5e8; font-size: 0.98rem; margin: 0; }
+        .sc-cta .spots { color: #cbd5e8; font-size: 0.95rem; margin-top: 1.1rem; }
+        .sc-contact { text-align: center; color: #555; padding: 2rem 1rem 3rem; font-size: 0.98rem; }
+        .sc-contact a { color: #b12a34; font-weight: 600; text-decoration: none; }
+        .sc-contact a:hover { text-decoration: underline; }
+
+        /* Dark mode */
+        body.dark-mode .sc-header h1, body.dark-mode .sc-split h2,
+        body.dark-mode .sc-sched h2 { color: #f2f2f2; }
+        body.dark-mode .sc-header > p { color: #b0b0b0; }
+        body.dark-mode .sc-fact { background: #222; border-color: #2f2f2f; }
+        body.dark-mode .sc-fact .l { color: #b0b0b0; }
+        body.dark-mode .sc-split li { color: #cfcfcf; }
+        body.dark-mode .sc-day { background: #222; border-color: #2f2f2f; border-top-color: #b12a34; }
+        body.dark-mode .sc-day p { color: #cfcfcf; }
+        body.dark-mode .sc-contact { color: #b0b0b0; }
+
+        @media (max-width: 860px) {
+            .sc-facts { grid-template-columns: repeat(2, 1fr); }
+            .sc-days { grid-template-columns: repeat(2, 1fr); }
+            .sc-split { grid-template-columns: 1fr; }
+            .sc-header h1 { font-size: 2.2rem; }
+        }
+        @media (max-width: 520px) {
+            .sc-days { grid-template-columns: 1fr; }
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-10QE64BG2M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-10QE64BG2M', {
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
+    </script>
+    <!-- PostHog Analytics -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_wyyXUmDa4h7GRYQvboEfkr4XzRUu9ge2HmLgYGKoUVEN',{api_host:'https://us.i.posthog.com', defaults:'2026-01-30'})
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="/"><img src="/assets/images/brand/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo"></a>
+                <span class="logo-text">Troy VEX Robotics</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/about">About</a></li>
+                <li class="dropdown">
+                    <a href="/teams">Teams</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/teams">Our Teams</a></li>
+                        <li><a href="/teama">Team A - Aegis</a></li>
+                        <li><a href="/teamb">Team B - Ouroboros</a></li>
+                        <li><a href="/teamc">Team C - Jinx</a></li>
+                        <li><a href="/teamd">Team D - Nyx</a></li>
+                        <li><a href="/teame">Team E - Eclipse</a></li>
+                        <li><a href="/teamx">Team X - Paradox</a></li>
+                        <li><a href="/teamy">Team Y - Atlantis</a></li>
+                    </ul>
+                </li>
+                <li><a href="/sponsors">Sponsors</a></li>
+                <li class="dropdown">
+                    <a href="/events">Events</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/events">Event List</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
+                    </ul>
+                </li>
+                <li><a href="/awards">Awards</a></li>
+                <li class="dropdown">
+                    <a href="/join">Join Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/donate">Donate</a></li>
+                        <li><a href="/join">Prospective Members</a></li>
+                        <li><a href="/summercamp">Summer Camp</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="sc">
+        <!-- Header -->
+        <section class="sc-header">
+            <span class="sc-eyebrow">Summer Session 2026 &middot; By Troy VEX Robotics 98601</span>
+            <h1>VEX Robotics Summer Camp</h1>
+            <p>Five days of lectures, activities, labs, and a mini-competition at Troy High School. Build, program, and compete &mdash; no experience required.</p>
+            <a href="https://forms.gle/aQRuszeFDVhHZTJ77" target="_blank" rel="noopener noreferrer" class="btn-primary">Register Now &mdash; $275</a>
+            <span class="sc-note">Spots limited, sign up fast!</span>
+        </section>
+
+        <div class="sc-wrap">
+            <!-- Quick facts -->
+            <div class="sc-facts">
+                <div class="sc-fact"><div class="v">Grades 5&ndash;12</div><div class="l">Open to all, no experience required</div></div>
+                <div class="sc-fact"><div class="v">5:1</div><div class="l">Student to instructor ratio</div></div>
+                <div class="sc-fact"><div class="v">20 hours</div><div class="l">Total hands-on instruction</div></div>
+                <div class="sc-fact"><div class="v">July 20&ndash;24</div><div class="l">AM &amp; PM sessions available</div></div>
+                <div class="sc-fact"><div class="v">$275</div><div class="l">Cost per camper</div></div>
+                <div class="sc-fact"><div class="v">Room 402</div><div class="l">Troy High School, Fullerton, CA</div></div>
+            </div>
+
+            <!-- Curriculum + highlights -->
+            <div class="sc-split">
+                <div>
+                    <h2>What campers learn</h2>
+                    <ul>
+                        <li>Engineering design and robot building</li>
+                        <li>Programming and sensors</li>
+                        <li>Driver control and autonomous coding</li>
+                        <li>Practice competition</li>
+                    </ul>
+                    <div class="sc-subhead">Taught by a championship program</div>
+                    <ul>
+                        <li>National Champions</li>
+                        <li>4 World Championship qualified teams</li>
+                        <li>Worlds Build + Judges Award holders</li>
+                        <li>25+ awards</li>
+                    </ul>
+                </div>
+                <img src="/assets/images/events/2025/summer-camp/PXL_20250731_012807227.jpg" alt="Campers building VEX robots at the 2025 summer camp">
+            </div>
+
+            <!-- Schedule -->
+            <div class="sc-sched">
+                <h2>The five-day schedule</h2>
+                <div class="sc-days">
+                    <div class="sc-day"><div class="d">DAY 1</div><p>Engineering Design and Labs</p></div>
+                    <div class="sc-day"><div class="d">DAY 2</div><p>Robot Building and Labs</p></div>
+                    <div class="sc-day"><div class="d">DAY 3</div><p>Code Fundamentals and Labs</p></div>
+                    <div class="sc-day"><div class="d">DAY 4</div><p>Code Labs and Mini-Competition</p></div>
+                    <div class="sc-day"><div class="d">DAY 5</div><p>Mini-Competition and Awards</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sessions + register -->
+        <section class="sc-cta">
+            <h2>July 20&ndash;24, 2026</h2>
+            <div class="cost">$275 per camper</div>
+            <div class="sc-sessions">
+                <div class="sc-session"><h3>AM Session</h3><p>9 AM &ndash; 1 PM</p></div>
+                <div class="sc-session"><h3>PM Session</h3><p>2 PM &ndash; 6 PM</p></div>
+            </div>
+            <a href="https://forms.gle/aQRuszeFDVhHZTJ77" target="_blank" rel="noopener noreferrer" class="btn-primary">Sign Up for Camp</a>
+            <p class="spots">Spots limited, sign up fast!</p>
+        </section>
+
+        <p class="sc-contact">Questions? Email <a href="mailto:troyvexrobotics@gmail.com">troyvexrobotics@gmail.com</a></p>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4>Program</h4>
+                    <a href="/about">About</a>
+                    <a href="/teams">Teams</a>
+                    <a href="/awards">Awards</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Compete</h4>
+                    <a href="/events">Events</a>
+                    <a href="/gallery">Gallery</a>
+                    <a href="/sponsors">Sponsors</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="/donate">Donate</a>
+                    <a href="/join">Join</a>
+                    <a href="/contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://instagram.com/troyvexrobotics" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://linktr.ee/troyvex" target="_blank" rel="noopener noreferrer">Linktree</a>
+                    <a href="mailto:troyvexrobotics@gmail.com">Email</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Troy High School VEX Robotics. All rights reserved.</p>
+                <p>2200 E Dorothy Ln, Fullerton, CA 92831, Room 401</p>
+            </div>
+        </div>
+        <div class="footer-wave" aria-hidden="true"></div>
+    </footer>
+    <script src="/assets/js/darkmode.js?v=4"></script>
+</body>
+
+</html>
