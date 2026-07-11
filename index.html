@@ -11,7 +11,7 @@
     <title>Home - Troy VEX Robotics</title>
     <link rel="stylesheet" href="/assets/css/site.css?v=13">
     <!-- Landing page: regular text in Inter (Ventriloc mockup font); display headers unchanged -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet">
     <style>
       body { font-family: 'Inter', sans-serif !important; }
       /* keep display headings on their existing faces */
@@ -23,6 +23,43 @@
       .btn-primary, .btn-outline, .home-teams-btn, .footer-contact-btn,
       .story-sub, footer, footer p {
         font-family: 'Inter', sans-serif !important;
+      }
+
+      /* Summer camp banner (mini ElevenLabs, matches /summercamp) */
+      .camp-banner {
+        position: relative; overflow: hidden;
+        background: #f5f3f1; border-radius: 14px;
+        width: min(1200px, calc(100% - 2rem));
+        margin: 4.5rem auto 3rem;
+        padding: 2.6rem 2.5rem;
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 1.8rem; flex-wrap: wrap;
+      }
+      .camp-banner .orb { position: absolute; border-radius: 50%; filter: blur(40px); opacity: 0.45; }
+      .camp-banner .orb.a { width: 180px; height: 180px; background: #b12a34; top: -50px; left: -40px; }
+      .camp-banner .orb.b { width: 160px; height: 160px; background: #0d1b3a; bottom: -60px; right: -30px; }
+      .camp-banner .txt { position: relative; z-index: 2; flex: 1 1 380px; }
+      .camp-banner .ey { font-size: 0.82rem; color: #555; margin-bottom: 0.5rem; }
+      .camp-banner h2 { font-family: 'DM Sans', sans-serif !important; font-weight: 300; letter-spacing: -0.02em; font-size: 2.2rem; color: #000; margin-bottom: 0.5rem; }
+      .camp-banner p { color: #555; font-size: 1rem; line-height: 1.55; margin: 0; }
+      .camp-banner p b { color: #000; font-weight: 600; }
+      .camp-banner .act { position: relative; z-index: 2; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 0.55rem; }
+      .camp-banner .pill {
+        background: #fff; color: #000; border: 1px solid #e5e5e5;
+        box-shadow: rgba(0,0,0,0.06) 0 0 0 1px, rgba(0,0,0,0.04) 0 1px 2px 0;
+        border-radius: 9999px; padding: 0.75rem 1.6rem;
+        font-weight: 500; font-size: 0.95rem; display: inline-block;
+      }
+      .camp-banner .pill:hover { background: #f5f3f1; }
+      .camp-banner .spots { color: #b12a34; font-size: 0.82rem; font-weight: 500; }
+      body.dark-mode .camp-banner { background: #222; }
+      body.dark-mode .camp-banner h2, body.dark-mode .camp-banner p b { color: #f2f2f2; }
+      body.dark-mode .camp-banner .ey, body.dark-mode .camp-banner p { color: #b0b0b0; }
+      body.dark-mode .camp-banner .pill { background: #2a2a2a; color: #f2f2f2; border-color: #3a3a3a; box-shadow: none; }
+      body.dark-mode .camp-banner .orb { opacity: 0.3; }
+      @media (max-width: 700px) {
+        .camp-banner { flex-direction: column; align-items: flex-start; }
+        .camp-banner .act { align-items: flex-start; }
       }
     </style>
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
@@ -132,13 +169,17 @@
         </section>
 
         <!-- Summer Camp signup -->
-        <section style="max-width: 900px; margin: 0 auto 3rem; padding: 2.5rem 2rem; background: var(--card-bg,#f9fafb); border-radius: 20px; border-left: 5px solid #b12a34; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;">
-            <div style="flex: 1 1 320px;">
-                <p style="color:#b12a34; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; font-size:0.82rem; margin-bottom:0.4rem;">Summer 2026</p>
-                <h2 style="font-size:1.7rem; margin-bottom:0.5rem; color:var(--text-color);">Troy VEX Summer Camp</h2>
-                <p style="color:var(--secondary-text); font-size:1.02rem; margin:0;">July 20&ndash;24 at Troy High School. Grades 5&ndash;12, no experience required &mdash; build, code, and compete in five days.</p>
+        <section class="camp-banner">
+            <span class="orb a"></span><span class="orb b"></span>
+            <div class="txt">
+                <div class="ey">Summer 2026 &middot; By Troy VEX Robotics 98601</div>
+                <h2>Troy VEX Summer Camp</h2>
+                <p><b>July 20&ndash;24</b> at Troy High School. Grades 5&ndash;12, no experience required. Build, code, and compete in five days.</p>
             </div>
-            <a href="/summercamp" class="btn-primary" style="flex-shrink:0;">Learn More &amp; Sign Up</a>
+            <div class="act">
+                <a class="pill" href="/summercamp">Learn More &amp; Sign Up</a>
+                <span class="spots">Spots limited, sign up fast!</span>
+            </div>
         </section>
 
         <!-- Interested? CTA -->
@@ -198,7 +239,7 @@
         </div>
         <div class="footer-wave" aria-hidden="true"></div>
     </footer>
-    <script src="/assets/js/darkmode.js?v=4"></script>
+    <script src="/assets/js/darkmode.js?v=7"></script>
 </body>
 
 </html>

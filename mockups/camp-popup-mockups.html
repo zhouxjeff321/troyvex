@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summer Camp Popup — Mockups</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:#e8e8ec; color:#111; }
+  a { text-decoration:none; color:inherit; }
+  .disp { font-family:'DM Sans',sans-serif; font-weight:300; letter-spacing:-0.02em; }
+
+  .mock-label { max-width:1000px; margin:3rem auto 0.8rem; padding:0 1.25rem; }
+  .mock-label .num { display:inline-block; background:#111; color:#fff; font-weight:800; padding:0.25rem 0.7rem; border-radius:6px; margin-right:0.6rem; }
+  .mock-label .name { font-weight:800; font-size:1.2rem; }
+  .mock-label p { color:#555; margin-top:0.3rem; font-size:0.95rem; }
+  .picker { position:sticky; top:0; z-index:50; background:#111; color:#fff; padding:0.7rem 1.25rem; display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; }
+  .picker span { font-weight:700; margin-right:0.5rem; }
+  .picker a { color:#fff; background:#333; padding:0.35rem 0.8rem; border-radius:999px; font-size:0.85rem; }
+  .picker a:hover { background:#b12a34; }
+
+  /* fake page behind each popup */
+  .stage { max-width:1000px; margin:0 auto; height:430px; position:relative; overflow:hidden; border-radius:14px; background:#fff; box-shadow:0 12px 32px rgba(0,0,0,0.13); }
+  .fake { padding:2rem; opacity:0.9; }
+  .fake .nav { height:38px; border-bottom:1px solid #eee; display:flex; align-items:center; gap:14px; margin-bottom:1.6rem; }
+  .fake .nav i { display:block; height:9px; border-radius:5px; background:#e8e8ea; width:52px; }
+  .fake .nav i.logo { width:90px; background:#d8d8dc; }
+  .fake h { display:block; height:26px; width:52%; border-radius:6px; background:#e3e3e7; margin-bottom:0.9rem; }
+  .fake t { display:block; height:11px; border-radius:5px; background:#eeeef1; margin-bottom:0.55rem; }
+  .fake t.w1 { width:88%; } .fake t.w2 { width:72%; } .fake t.w3 { width:80%; } .fake t.w4 { width:46%; }
+  .fake .img { height:150px; border-radius:10px; background:#ececef; margin-top:1.2rem; }
+  .dim { position:absolute; inset:0; background:rgba(13,27,58,0.4); }
+
+  .x { position:absolute; top:10px; right:12px; font-size:15px; color:#999; cursor:pointer; line-height:1; font-weight:500; }
+  .x:hover { color:#000; }
+
+  /* ===== 1 · Cream corner toast (ElevenLabs) ===== */
+  .p1 {
+    position:absolute; right:20px; bottom:20px; width:330px;
+    background:#f5f3f1; border-radius:14px; padding:1.4rem 1.5rem;
+    box-shadow:0 18px 44px rgba(13,27,58,0.22); overflow:hidden;
+  }
+  .p1 .orb { position:absolute; border-radius:50%; filter:blur(30px); opacity:0.4; }
+  .p1 .orb.a { width:110px; height:110px; background:#b12a34; top:-40px; left:-30px; }
+  .p1 .orb.b { width:100px; height:100px; background:#0d1b3a; bottom:-45px; right:-25px; }
+  .p1 .in { position:relative; z-index:2; }
+  .p1 .ey { font-size:0.72rem; color:#555; margin-bottom:0.3rem; }
+  .p1 h3 { font-size:1.35rem; color:#000; margin-bottom:0.35rem; }
+  .p1 p { font-size:0.86rem; color:#555; line-height:1.5; margin-bottom:0.9rem; }
+  .p1 .pill { background:#000; color:#fff; border-radius:9999px; padding:0.55rem 1.2rem; font-size:0.85rem; font-weight:500; display:inline-block; }
+  .p1 .spots { display:block; margin-top:0.55rem; color:#b12a34; font-size:0.75rem; font-weight:500; }
+
+  /* ===== 2 · Center modal ===== */
+  .p2 {
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:440px; max-width:90%;
+    background:#f5f3f1; border-radius:18px; padding:2.2rem 2.2rem 2rem;
+    box-shadow:0 30px 70px rgba(0,0,0,0.35); overflow:hidden; text-align:center;
+  }
+  .p2 .orb { position:absolute; border-radius:50%; filter:blur(36px); opacity:0.45; }
+  .p2 .orb.a { width:150px; height:150px; background:#b12a34; top:-50px; left:-40px; }
+  .p2 .orb.b { width:130px; height:130px; background:#0d1b3a; bottom:-55px; right:-35px; }
+  .p2 .in { position:relative; z-index:2; }
+  .p2 .ey { font-size:0.78rem; color:#555; margin-bottom:0.4rem; }
+  .p2 h3 { font-size:1.8rem; color:#000; margin-bottom:0.5rem; }
+  .p2 p { font-size:0.95rem; color:#555; line-height:1.55; margin-bottom:1.2rem; }
+  .p2 p b { color:#000; font-weight:600; }
+  .p2 .pill { background:#000; color:#fff; border-radius:9999px; padding:0.7rem 1.5rem; font-size:0.92rem; font-weight:500; display:inline-block; }
+  .p2 .later { display:block; margin-top:0.7rem; color:#888; font-size:0.8rem; cursor:pointer; }
+  .p2 .later:hover { color:#000; }
+
+  /* ===== 3 · Top announcement bar ===== */
+  .p3 {
+    position:absolute; top:0; left:0; right:0;
+    background:#0d1b3a; color:#fff;
+    display:flex; align-items:center; justify-content:center; gap:0.9rem;
+    padding:0.6rem 2.5rem; font-size:0.88rem; flex-wrap:wrap;
+  }
+  .p3 .chip { background:#b12a34; border-radius:999px; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; padding:0.2rem 0.7rem; }
+  .p3 b { font-weight:600; }
+  .p3 .go { color:#fff; background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.25); border-radius:999px; padding:0.28rem 0.9rem; font-size:0.8rem; font-weight:500; }
+  .p3 .go:hover { background:#b12a34; border-color:#b12a34; }
+  .p3 .x { position:static; color:#8fa0c4; margin-left:0.4rem; }
+  .p3 .x:hover { color:#fff; }
+
+  /* ===== 4 · Photo slide-in ===== */
+  .p4 {
+    position:absolute; left:20px; bottom:20px; width:360px;
+    background:#fff; border-radius:14px; overflow:hidden;
+    box-shadow:0 18px 44px rgba(13,27,58,0.25); display:flex;
+  }
+  .p4 img { width:118px; object-fit:cover; }
+  .p4 .in { padding:1.1rem 1.2rem; position:relative; flex:1; }
+  .p4 .ey { color:#b12a34; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.25rem; }
+  .p4 h3 { font-size:1.05rem; font-weight:700; color:#111; margin-bottom:0.3rem; }
+  .p4 p { font-size:0.8rem; color:#555; line-height:1.45; margin-bottom:0.7rem; }
+  .p4 .btn { background:#b12a34; color:#fff; border-radius:8px; padding:0.45rem 0.9rem; font-size:0.8rem; font-weight:600; display:inline-block; }
+  .p4 .btn:hover { background:#8e1f28; }
+
+  /* ===== 5 · Navy corner toast ===== */
+  .p5 {
+    position:absolute; right:20px; bottom:20px; width:330px;
+    background:linear-gradient(135deg,#0d1b3a,#16294f); color:#fff;
+    border-radius:14px; padding:1.4rem 1.5rem;
+    box-shadow:0 18px 44px rgba(13,27,58,0.35); overflow:hidden;
+  }
+  .p5::before { content:""; position:absolute; top:-50px; right:-40px; width:170px; height:170px; border-radius:50%; background:radial-gradient(circle, rgba(177,42,52,0.55), transparent 70%); }
+  .p5 .in { position:relative; z-index:2; }
+  .p5 .chip { display:inline-block; background:rgba(177,42,52,0.9); border-radius:999px; font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.07em; padding:0.22rem 0.7rem; margin-bottom:0.5rem; }
+  .p5 h3 { font-size:1.3rem; font-weight:700; margin-bottom:0.35rem; color:#fff; }
+  .p5 p { font-size:0.85rem; color:#cbd5e8; line-height:1.5; margin-bottom:0.9rem; }
+  .p5 .btn { background:#fff; color:#0d1b3a; border-radius:9999px; padding:0.55rem 1.2rem; font-size:0.85rem; font-weight:700; display:inline-block; }
+  .p5 .x { color:#8fa0c4; }
+  .p5 .x:hover { color:#fff; }
+</style>
+</head>
+<body>
+
+<div class="picker">
+  <span>Camp Popup</span>
+  <a href="#m1">1 Cream Toast</a>
+  <a href="#m2">2 Center Modal</a>
+  <a href="#m3">3 Top Bar</a>
+  <a href="#m4">4 Photo Card</a>
+  <a href="#m5">5 Navy Toast</a>
+</div>
+
+<!-- ========== 1 ========== -->
+<div class="mock-label" id="m1">
+  <span class="num">1</span><span class="name">Cream Corner Toast</span>
+  <p>Slides in bottom-right. Mini ElevenLabs card, orbs, black pill. Quiet, no page block, X to close.</p>
+</div>
+<div class="stage">
+  <div class="fake">
+    <div class="nav"><i class="logo"></i><i></i><i></i><i></i><i></i></div>
+    <h></h><t class="w1"></t><t class="w2"></t><t class="w3"></t><t class="w4"></t>
+    <div class="img"></div>
+  </div>
+  <div class="p1">
+    <span class="orb a"></span><span class="orb b"></span>
+    <span class="x">&#10005;</span>
+    <div class="in">
+      <div class="ey">Summer 2026</div>
+      <h3 class="disp">Troy VEX Summer Camp</h3>
+      <p>July 20&ndash;24 at Troy HS. Grades 5&ndash;12, no experience required.</p>
+      <a class="pill" href="/summercamp">Sign Up</a>
+      <span class="spots">Spots limited, sign up fast!</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 2 ========== -->
+<div class="mock-label" id="m2">
+  <span class="num">2</span><span class="name">Center Modal</span>
+  <p>Full-attention popup with dimmed page behind. Shows once per visitor, "Maybe later" to dismiss.</p>
+</div>
+<div class="stage">
+  <div class="fake">
+    <div class="nav"><i class="logo"></i><i></i><i></i><i></i><i></i></div>
+    <h></h><t class="w1"></t><t class="w2"></t><t class="w3"></t><t class="w4"></t>
+    <div class="img"></div>
+  </div>
+  <div class="dim"></div>
+  <div class="p2">
+    <span class="orb a"></span><span class="orb b"></span>
+    <span class="x">&#10005;</span>
+    <div class="in">
+      <div class="ey">Summer 2026 &middot; By Troy VEX Robotics 98601</div>
+      <h3 class="disp">Troy VEX Summer Camp</h3>
+      <p><b>July 20&ndash;24</b> at Troy High School. Grades 5&ndash;12, no experience required. <b>$275</b> per camper, two sessions daily.</p>
+      <a class="pill" href="/summercamp">Learn More &amp; Sign Up</a>
+      <span class="later">Maybe later</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 3 ========== -->
+<div class="mock-label" id="m3">
+  <span class="num">3</span><span class="name">Top Announcement Bar</span>
+  <p>Slim navy strip above the whole site. Least intrusive, always visible until closed.</p>
+</div>
+<div class="stage">
+  <div class="fake" style="padding-top:4rem">
+    <div class="nav"><i class="logo"></i><i></i><i></i><i></i><i></i></div>
+    <h></h><t class="w1"></t><t class="w2"></t><t class="w3"></t><t class="w4"></t>
+    <div class="img"></div>
+  </div>
+  <div class="p3">
+    <span class="chip">Summer 2026</span>
+    <span><b>Troy VEX Summer Camp</b> &middot; July 20&ndash;24 &middot; Grades 5&ndash;12 &middot; Spots limited</span>
+    <a class="go" href="/summercamp">Sign Up</a>
+    <span class="x">&#10005;</span>
+  </div>
+</div>
+
+<!-- ========== 4 ========== -->
+<div class="mock-label" id="m4">
+  <span class="num">4</span><span class="name">Photo Card</span>
+  <p>Bottom-left card with real camp photo strip. Red button, site-classic look.</p>
+</div>
+<div class="stage">
+  <div class="fake">
+    <div class="nav"><i class="logo"></i><i></i><i></i><i></i><i></i></div>
+    <h></h><t class="w1"></t><t class="w2"></t><t class="w3"></t><t class="w4"></t>
+    <div class="img"></div>
+  </div>
+  <div class="p4">
+    <img src="/assets/images/events/2025/summer-camp/PXL_20250731_012807227.jpg" alt="Camp">
+    <div class="in">
+      <span class="x">&#10005;</span>
+      <div class="ey">Summer 2026</div>
+      <h3>Summer Camp</h3>
+      <p>July 20&ndash;24 &middot; Grades 5&ndash;12 &middot; $275. Spots limited!</p>
+      <a class="btn" href="/summercamp">Sign Up</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 5 ========== -->
+<div class="mock-label" id="m5">
+  <span class="num">5</span><span class="name">Navy Corner Toast</span>
+  <p>Bottom-right navy card with red glow and chip, white button. Bold version of #1.</p>
+</div>
+<div class="stage">
+  <div class="fake">
+    <div class="nav"><i class="logo"></i><i></i><i></i><i></i><i></i></div>
+    <h></h><t class="w1"></t><t class="w2"></t><t class="w3"></t><t class="w4"></t>
+    <div class="img"></div>
+  </div>
+  <div class="p5">
+    <span class="x">&#10005;</span>
+    <div class="in">
+      <span class="chip">Summer 2026</span>
+      <h3>Troy VEX Summer Camp</h3>
+      <p>July 20&ndash;24 at Troy HS. Grades 5&ndash;12, no experience required.</p>
+      <a class="btn" href="/summercamp">Sign Up</a>
+    </div>
+  </div>
+</div>
+
+<div style="height:4rem"></div>
+</body>
+</html>

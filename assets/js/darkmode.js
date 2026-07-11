@@ -189,3 +189,120 @@ document.addEventListener('DOMContentLoaded', function () {
         if (window.innerWidth > 768) closeMenu();
     });
 });
+
+// ─── Summer Camp promo (top bar + corner toast) ──────────────────────────────
+// Both dismiss together: any click on either one hides both and remembers it.
+document.addEventListener('DOMContentLoaded', function () {
+    const DISMISS_KEY = 'campPromo2026Dismissed';
+
+    function isDismissed() {
+        try { return localStorage.getItem(DISMISS_KEY) === '1'; } catch (e) { return false; }
+    }
+    function rememberDismissed() {
+        try { localStorage.setItem(DISMISS_KEY, '1'); } catch (e) { /* storage disabled */ }
+    }
+
+    // Skip on the camp page itself and if already dismissed.
+    const path = window.location.pathname.replace(/\/$/, '');
+    if (isDismissed() || path.endsWith('/summercamp') || path.endsWith('/summercamp.html')) {
+        return;
+    }
+
+    const style = document.createElement('style');
+    style.textContent = [
+        '.camp-promo-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 10001;',
+        '  background: #e0563f;',
+        '  color: #fff; display: flex; align-items: center; justify-content: center;',
+        '  gap: 0.9rem; padding: 0.55rem 2.6rem 0.55rem 1rem; font-size: 0.88rem; flex-wrap: wrap; text-align: center;',
+        '  box-shadow: 0 2px 10px rgba(224, 86, 63, 0.3); }',
+        '.camp-promo-bar .chip { background: #fff; color: #e0563f; border-radius: 999px; font-size: 0.7rem; font-weight: 800;',
+        '  text-transform: uppercase; letter-spacing: 0.07em; padding: 0.22rem 0.75rem; white-space: nowrap; }',
+        '.camp-promo-bar b { font-weight: 700; }',
+        '.camp-promo-bar .msg { text-shadow: 0 1px 2px rgba(0,0,0,0.12); }',
+        '.camp-promo-bar .go { color: #e0563f; background: #fff; border: 1px solid #fff;',
+        '  border-radius: 999px; padding: 0.28rem 1rem; font-size: 0.8rem; font-weight: 700; text-decoration: none; white-space: nowrap;',
+        '  box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: transform 0.15s ease, background 0.15s ease; }',
+        '.camp-promo-bar .go:hover { background: #ffe9e4; transform: translateY(-1px); }',
+        '.camp-promo-bar .camp-promo-x { position: absolute; right: 0.9rem; top: 50%; transform: translateY(-50%);',
+        '  background: none; border: none; color: rgba(255,255,255,0.75); font-size: 0.95rem; cursor: pointer; line-height: 1; padding: 0.2rem; }',
+        '.camp-promo-bar .camp-promo-x:hover { color: #fff; }',
+        '.camp-promo-toast { position: fixed; right: 20px; bottom: 92px; z-index: 9500; width: 330px; max-width: calc(100vw - 40px);',
+        '  background: #f5f3f1; border-radius: 14px; padding: 1.4rem 1.5rem; overflow: hidden;',
+        '  box-shadow: 0 18px 44px rgba(13,27,58,0.22); font-family: inherit;',
+        '  opacity: 0; transform: translateY(16px); transition: opacity 0.35s ease, transform 0.35s ease; }',
+        '.camp-promo-toast.show { opacity: 1; transform: translateY(0); }',
+        '.camp-promo-toast .orb { position: absolute; border-radius: 50%; filter: blur(30px); opacity: 0.4; }',
+        '.camp-promo-toast .orb.a { width: 110px; height: 110px; background: #b12a34; top: -40px; left: -30px; }',
+        '.camp-promo-toast .orb.b { width: 100px; height: 100px; background: #0d1b3a; bottom: -45px; right: -25px; }',
+        '.camp-promo-toast .in { position: relative; z-index: 2; }',
+        '.camp-promo-toast .ey { font-size: 0.72rem; color: #555; margin-bottom: 0.3rem; }',
+        '.camp-promo-toast h3 { font-size: 1.35rem; color: #000; margin: 0 0 0.35rem; font-weight: 600; }',
+        '.camp-promo-toast p { font-size: 0.86rem; color: #555; line-height: 1.5; margin: 0 0 0.9rem; }',
+        '.camp-promo-toast .pill { background: #000; color: #fff; border-radius: 9999px; padding: 0.55rem 1.2rem;',
+        '  font-size: 0.85rem; font-weight: 500; display: inline-block; text-decoration: none; }',
+        '.camp-promo-toast .pill:hover { background: #b12a34; }',
+        '.camp-promo-toast .spots { display: block; margin-top: 0.55rem; color: #b12a34; font-size: 0.75rem; font-weight: 500; }',
+        '.camp-promo-toast .camp-promo-x { position: absolute; top: 10px; right: 12px; z-index: 3; background: none; border: none;',
+        '  color: #999; font-size: 0.95rem; cursor: pointer; line-height: 1; padding: 0.2rem; }',
+        '.camp-promo-toast .camp-promo-x:hover { color: #000; }',
+        'body.dark-mode .camp-promo-toast { background: #222; box-shadow: 0 18px 44px rgba(0,0,0,0.5); }',
+        'body.dark-mode .camp-promo-toast h3 { color: #f2f2f2; }',
+        'body.dark-mode .camp-promo-toast .ey, body.dark-mode .camp-promo-toast p { color: #b0b0b0; }',
+        'body.dark-mode .camp-promo-toast .pill { background: #b12a34; }',
+        'body.dark-mode .camp-promo-toast .orb { opacity: 0.3; }'
+    ].join('\n');
+    document.head.appendChild(style);
+
+    // Top announcement bar
+    const bar = document.createElement('div');
+    bar.className = 'camp-promo-bar';
+    bar.innerHTML =
+        '<span class="chip">Summer 2026</span>' +
+        '<span class="msg"><b>Troy VEX Summer Camp</b> · July 20–24 · Grades 5–12 · Spots limited</span>' +
+        '<a class="go" href="/summercamp">Sign Up</a>' +
+        '<button class="camp-promo-x" aria-label="Dismiss camp banner">✕</button>';
+    document.body.appendChild(bar);
+
+    // Corner toast
+    const toast = document.createElement('div');
+    toast.className = 'camp-promo-toast';
+    toast.innerHTML =
+        '<span class="orb a"></span><span class="orb b"></span>' +
+        '<button class="camp-promo-x" aria-label="Dismiss camp popup">✕</button>' +
+        '<div class="in">' +
+        '<div class="ey">Summer 2026</div>' +
+        '<h3>Troy VEX Summer Camp</h3>' +
+        '<p>July 20–24 at Troy HS. Grades 5–12, no experience required.</p>' +
+        '<a class="pill" href="/summercamp">Sign Up</a>' +
+        '<span class="spots">Spots limited, sign up fast!</span>' +
+        '</div>';
+    document.body.appendChild(toast);
+    setTimeout(function () { toast.classList.add('show'); }, 1200);
+
+    // The site header is position:fixed at top:0 — push it (and the page) down
+    // by the bar's live height so nothing hides behind the bar.
+    const header = document.querySelector('header');
+    const baseBodyPadding = parseFloat(window.getComputedStyle(document.body).paddingTop) || 0;
+
+    function offsetForBar() {
+        const h = bar.getBoundingClientRect().height;
+        if (header) header.style.top = h + 'px';
+        document.body.style.paddingTop = (baseBodyPadding + h) + 'px';
+    }
+    offsetForBar();
+    window.addEventListener('resize', offsetForBar);
+
+    function dismissBoth() {
+        rememberDismissed();
+        bar.remove();
+        toast.remove();
+        if (header) header.style.top = '';
+        document.body.style.paddingTop = '';
+        window.removeEventListener('resize', offsetForBar);
+    }
+
+    // Any click on either popup (X, Sign Up, or the card itself) hides both.
+    // Links still navigate after the dismissal is stored.
+    bar.addEventListener('click', dismissBoth);
+    toast.addEventListener('click', dismissBoth);
+});
