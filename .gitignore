@@ -18,3 +18,24 @@ __pycache__/
 .vscode/settings.json
 .gstack/
 .env.local
+
+# AI / vibecoding artifacts — not part of the live website
+mockups/
+redesigns/
+claude-redesigns/
+tests/
+archive/
+events-previews/
+landing-previews/
+landing_pages/
+serve.py
+join-mockups.html
+claude-explorer.html
+redesign-explorer.html
+events-explorer.html
+landing-explorer.html
+CLAUDE.md
+AGENT.md
+skills.md
+.claude/
+.agents/
