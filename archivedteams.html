@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Archived Teams - Troy VEX Robotics</title>
+    <link rel="stylesheet" href="/assets/css/site.css?v=13">
+    <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-10QE64BG2M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-10QE64BG2M', {
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
+    </script>
+    <!-- PostHog Analytics -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_wyyXUmDa4h7GRYQvboEfkr4XzRUu9ge2HmLgYGKoUVEN',{api_host:'https://us.i.posthog.com', defaults:'2026-01-30'})
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Archived teams — ElevenLabs style (matches teams + camp pages) ===== */
+        .at-disp { font-family: 'DM Sans', sans-serif; font-weight: 300; letter-spacing: -0.02em; }
+        .at-header {
+            position: relative;
+            overflow: hidden;
+            background: #f5f3f1;
+            border-radius: 24px;
+            max-width: 1200px;
+            width: min(1200px, calc(100% - 2rem));
+            margin: 1.6rem auto 0;
+            text-align: center;
+            padding: 3.4rem 2rem;
+        }
+        .at-orb { position: absolute; border-radius: 50%; filter: blur(40px); opacity: 0.45; }
+        .at-orb.a { width: 190px; height: 190px; background: #b12a34; top: -55px; left: -45px; }
+        .at-orb.b { width: 170px; height: 170px; background: #0d1b3a; bottom: -60px; right: -35px; }
+        .at-header .in { position: relative; z-index: 2; }
+        .at-header .ey { font-size: 0.85rem; color: #555; }
+        .at-header h1 { font-size: 2.8rem; margin: 0.6rem 0 0.7rem; color: #000; }
+        .at-header p { color: #555; max-width: 560px; margin: 0 auto; font-size: 1rem; line-height: 1.55; }
+        .at-back {
+            display: inline-block;
+            margin-top: 1.3rem;
+            border-radius: 9999px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 0.6rem 1.15rem;
+            background: #fdfcfc;
+            color: #000;
+            border: 1px solid #e5e5e5;
+            box-shadow: rgba(0, 0, 0, 0.06) 0 0 0 1px;
+            text-decoration: none;
+        }
+        .at-back:hover { background: #f5f3f1; }
+
+        .tm-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            max-width: 1200px;
+            margin: 2.5rem auto 4rem;
+            padding: 0 1.5rem;
+        }
+        .tm-card {
+            border-radius: 18px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: rgba(0, 0, 0, 0.35) 0 0 1px 0, rgba(0, 0, 0, 0.05) 0 3px 10px 0;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .tm-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px rgba(13, 27, 58, 0.14);
+        }
+        .tm-card .tm-img { aspect-ratio: 4 / 3; overflow: hidden; }
+        .tm-card .tm-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .tm-card .tm-body { padding: 1rem 1.1rem 1.2rem; }
+        .tm-card .tm-top { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+        .tm-card .tm-top h3 { font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--text-color); }
+        .tm-card .tm-code {
+            font-family: 'Geist Mono', 'Geist', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.05em;
+            color: var(--secondary-text);
+        }
+        .tm-card .tm-leads { margin-top: 0.7rem; font-size: 0.88rem; color: var(--secondary-text); line-height: 1.7; }
+        .tm-card .tm-leads strong { color: var(--text-color); }
+        .tm-card .tm-link {
+            display: inline-block;
+            margin-top: 0.9rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #b12a34;
+            text-decoration: none;
+        }
+        .tm-card .tm-link:hover { text-decoration: underline; }
+
+        @media (max-width: 1024px) {
+            .tm-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .tm-grid { grid-template-columns: repeat(2, 1fr); }
+            .at-header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="/"><img src="/assets/images/brand/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo"></a>
+                <span class="logo-text">Troy VEX Robotics</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/about">About</a></li>
+                <li><a href="/teams">Teams</a></li>
+                <li><a href="/sponsors">Sponsors</a></li>
+                <li class="dropdown">
+                    <a href="/events">Events</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/events">Event List</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
+                    </ul>
+                </li>
+                <li><a href="/awards">Awards</a></li>
+                <li class="dropdown">
+                    <a href="/join">Join Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/donate">Donate</a></li>
+                        <li><a href="/join">Prospective Members</a></li>
+                        <li><a href="/summercamp">Summer Camp</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="at-header">
+            <span class="ey">Archive &middot; 2025&ndash;26 Season</span>
+            <h1>Archived Teams</h1>
+            <p>The seven squads that carried Troy VEX to a national championship and four world qualifications last season.</p>
+            <a href="/teams" class="at-back">&larr; Back to Our Teams</a>
+        </section>
+
+        <div class="tm-grid">
+            <!-- Team A -->
+            <div class="tm-card">
+                <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teama.JPG" alt="Team Aegis"></div>
+                <div class="tm-body">
+                    <div class="tm-top"><h3>Aegis</h3><span class="tm-code">98601A</span></div>
+                    <div class="tm-leads"><strong>CO</strong> Ryan Zhou<br><strong>XO</strong> Lucas Wang</div>
+                    <a href="/teama" class="tm-link">View Profile &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Team B -->
+            <div class="tm-card">
+                <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teamb.JPG" alt="Team Ouroboros"></div>
+                <div class="tm-body">
+                    <div class="tm-top"><h3>Ouroboros</h3><span class="tm-code">98601B</span></div>
+                    <div class="tm-leads"><strong>CO</strong> Krishna Sivakumar<br><strong>XO</strong> Troy Song</div>
+                    <a href="/teamb" class="tm-link">View Profile &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Team C -->
+            <div class="tm-card">
+                <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teamc.JPG" alt="Team Jinx"></div>
+                <div class="tm-body">
+                    <div class="tm-top"><h3>Jinx</h3><span class="tm-code">98601C</span></div>
+                    <div class="tm-leads"><strong>CO</strong> Sai Arasala<br><strong>XO</strong> Karthik Sajeev</div>
+                    <a href="/teamc" class="tm-link">View Profile &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Team D -->
+            <div class="tm-card">
+                <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teamd.JPG" alt="Team Nyx"></div>
+                <div class="tm-body">
+                    <div class="tm-top"><h3>Nyx</h3><span class="tm-code">98601D</span></div>
+                    <div class="tm-leads"><strong>CO</strong> Suhasni Sampath<br><strong>XO</strong> Yucheng Chen</div>
+                    <a href="/teamd" class="tm-link">View Profile &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Team E -->
+            <div class="tm-card">
+                <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teame.JPG" alt="Team Eclipse"></div>
+                <div class="tm-body">
+                    <div class="tm-top"><h3>Eclipse</h3><span class="tm-code">98601E</span></div>
+                    <div class="tm-leads"><strong>CO</strong> Jason Pan<br><strong>XO</strong> Joy Lee</div>
+                    <a href="/teame" class="tm-link">View Profile &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Team X -->
+            <div class="tm-card">
+                <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teamx.JPG" alt="Team Paradox"></div>
+                <div class="tm-body">
+                    <div class="tm-top"><h3>Paradox</h3><span class="tm-code">98601X</span></div>
+                    <div class="tm-leads"><strong>CO</strong> Aaron Li</div>
+                    <a href="/teamx" class="tm-link">View Profile &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Team Y -->
+            <div class="tm-card">
+                <div class="tm-img"><img loading="lazy" src="/assets/images/teams/thumbnails/teamy.JPG" alt="Team Atlantis"></div>
+                <div class="tm-body">
+                    <div class="tm-top"><h3>Atlantis</h3><span class="tm-code">98601Y</span></div>
+                    <div class="tm-leads"><strong>CO</strong> Mason Zhong</div>
+                    <a href="/teamy" class="tm-link">View Profile &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4>Program</h4>
+                    <a href="/about">About</a>
+                    <a href="/teams">Teams</a>
+                    <a href="/awards">Awards</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Compete</h4>
+                    <a href="/events">Events</a>
+                    <a href="/gallery">Gallery</a>
+                    <a href="/sponsors">Sponsors</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="/donate">Donate</a>
+                    <a href="/join">Join</a>
+                    <a href="/contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://instagram.com/troyvexrobotics" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://linktr.ee/troyvex" target="_blank" rel="noopener noreferrer">Linktree</a>
+                    <a href="mailto:troyvexrobotics@gmail.com">Email</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Troy High School VEX Robotics. All rights reserved.</p>
+                <p>2200 E Dorothy Ln, Fullerton, CA 92831, Room 401</p>
+            </div>
+        </div>
+        <div class="footer-wave" aria-hidden="true"></div>
+    </footer>
+    <script src="/assets/js/darkmode.js?v=8"></script>
+</body>
+
+</html>

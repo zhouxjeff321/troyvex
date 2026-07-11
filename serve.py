@@ -37,6 +37,7 @@ ROUTES = {
     # '/alumni': 'pages/about/alumni.html',  # hidden — page not finished
     '/ourwork': 'pages/about/ourwork.html',
     '/teams': 'pages/teams/teams.html',
+    '/archivedteams': 'pages/teams/archivedteams.html',
     '/teama': 'pages/teams/teama.html',
     '/teamb': 'pages/teams/teamb.html',
     '/teamc': 'pages/teams/teamc.html',
