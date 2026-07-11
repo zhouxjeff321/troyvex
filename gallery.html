@@ -10,6 +10,59 @@
     <title>Gallery - Troy VEX Robotics</title>
     <link rel="stylesheet" href="/assets/css/site.css?v=14">
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet">
+    <style>
+        /* ─── Gallery — Hero Mosaic (scoped .gm) ─── */
+        .page-header h1 { font-family: 'DM Sans', sans-serif; font-weight: 300; letter-spacing: -0.02em; }
+        .gm-wrap { max-width: 1020px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+        .gm-sec { margin-top: 2.8rem; }
+        .gm-sec h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            font-size: 1.55rem;
+            color: var(--text-color, #111);
+            margin: 0;
+        }
+        .gm-date { color: var(--secondary-text, #777); font-size: 0.86rem; margin: 0.2rem 0 0.85rem; }
+        .gm-mosaic { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-auto-rows: 200px; gap: 10px; }
+        .gm-mosaic img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .gm-mosaic img:hover { transform: scale(1.015); }
+        .gm-hero { grid-row: span 2; }
+        .gm-wide { grid-column: span 2; }
+        .gm-row1 .gm-hero { grid-row: span 1; }
+        .gm-more { position: relative; border-radius: 12px; overflow: hidden; cursor: pointer; }
+        .gm-more img { position: absolute; inset: 0; }
+        .gm-cnt {
+            position: absolute; inset: 0; z-index: 2;
+            background: rgba(13, 27, 58, 0.62);
+            color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.45rem; font-weight: 700;
+            border-radius: 12px;
+        }
+        .gm-more:hover .gm-cnt { background: rgba(13, 27, 58, 0.5); }
+        .gm-extra { display: none; }
+        .gm-sec.expanded .gm-extra { display: block; }
+        .gm-sec.expanded .gm-cnt { display: none; }
+        .gm-single img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; cursor: pointer; }
+        .gm-sec .photo-credit { margin-top: 0.6rem; font-size: 0.82rem; color: var(--secondary-text, #888); }
+
+        body.dark-mode .gm-cnt { background: rgba(0, 0, 0, 0.62); }
+
+        @media (max-width: 680px) {
+            .gm-mosaic { grid-template-columns: 1fr 1fr; grid-auto-rows: 130px; }
+            .gm-hero { grid-column: span 2; grid-row: span 2; }
+            .gm-wide { grid-column: span 2; }
+            .gm-row1 .gm-hero { grid-row: span 2; }
+        }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-10QE64BG2M"></script>
     <script>
@@ -63,40 +116,44 @@
     <main>
         <section class="page-header">
             <h1>Event Gallery</h1>
-            <p>Photos from our competitions and events</p>
+            <p>The best shot leads every event.</p>
         </section>
 
-        <section class="events-content">
+        <section class="gm-wrap">
             <!-- JROTC Nationals - January 2026 -->
-            <div class="gallery-section" id="jrotcnats-section">
-                <h3>JROTC Nationals (January 2026)</h3>
-                <div class="photo-gallery">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5831.JPG" alt="JROTC Nationals Photo 1">
+            <div class="gm-sec">
+                <h3>JROTC Nationals</h3>
+                <div class="gm-date">Sandusky, Ohio &middot; January 2026</div>
+                <div class="gm-mosaic">
+                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2026/jrotc-nationals/5X9A5831.JPG" alt="JROTC Nationals Photo 1">
                     <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5826.JPG" alt="JROTC Nationals Photo 2">
                     <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5799.JPG" alt="JROTC Nationals Photo 3">
                     <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5769.JPG" alt="JROTC Nationals Photo 4">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5754.JPG" alt="JROTC Nationals Photo 5">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5715.JPG" alt="JROTC Nationals Photo 6">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5644.JPG" alt="JROTC Nationals Photo 7">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5632.JPG" alt="JROTC Nationals Photo 8">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5630.JPG" alt="JROTC Nationals Photo 9" class="gallery-extra" style="display:none">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5626.JPG" alt="JROTC Nationals Photo 10" class="gallery-extra" style="display:none">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5043.JPG" alt="JROTC Nationals Photo 11" class="gallery-extra" style="display:none">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A4998.jpg" alt="JROTC Nationals Photo 12" class="gallery-extra" style="display:none">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A4955 (1).jpg" alt="JROTC Nationals Photo 13" class="gallery-extra" style="display:none">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A4930.JPG" alt="JROTC Nationals Photo 14" class="gallery-extra" style="display:none">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A4895.jpg" alt="JROTC Nationals Photo 15" class="gallery-extra" style="display:none">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A4892.jpg" alt="JROTC Nationals Photo 16" class="gallery-extra" style="display:none">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A4862.jpg" alt="JROTC Nationals Photo 17" class="gallery-extra" style="display:none">
+                    <div class="gm-more">
+                        <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5754.JPG" alt="JROTC Nationals Photo 5">
+                        <div class="gm-cnt">+12</div>
+                    </div>
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5715.JPG" alt="JROTC Nationals Photo 6">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5644.JPG" alt="JROTC Nationals Photo 7">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5632.JPG" alt="JROTC Nationals Photo 8">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5630.JPG" alt="JROTC Nationals Photo 9">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5626.JPG" alt="JROTC Nationals Photo 10">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5043.JPG" alt="JROTC Nationals Photo 11">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4998.jpg" alt="JROTC Nationals Photo 12">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4955 (1).jpg" alt="JROTC Nationals Photo 13">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4930.JPG" alt="JROTC Nationals Photo 14">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4895.jpg" alt="JROTC Nationals Photo 15">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4892.jpg" alt="JROTC Nationals Photo 16">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4862.jpg" alt="JROTC Nationals Photo 17">
                 </div>
-                <button type="button" class="gallery-show-more" id="jrotcnats-btn">+ 9 more photos</button>
             </div>
 
             <!-- Diamond in the Desert - December 30-31, 2025 -->
-            <div class="gallery-section">
-                <h3>Diamond in the Desert Signature Event (December 30-31, 2025)</h3>
-                <div class="photo-gallery">
-                    <img loading="lazy" src="/assets/images/events/2025/diamond-in-the-desert/607281042_4202781856635370_1098237448640462063_n.jpg" alt="Diamond Event Photo 1">
+            <div class="gm-sec gm-row1">
+                <h3>Diamond in the Desert Signature Event</h3>
+                <div class="gm-date">Arizona &middot; December 30&ndash;31, 2025</div>
+                <div class="gm-mosaic">
+                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2025/diamond-in-the-desert/607281042_4202781856635370_1098237448640462063_n.jpg" alt="Diamond Event Photo 1">
                     <img loading="lazy" src="/assets/images/events/2025/diamond-in-the-desert/607617590_4202782159968673_7147195847232773575_n.jpg" alt="Diamond Event Photo 2">
                     <img loading="lazy" src="/assets/images/events/2025/diamond-in-the-desert/TC.jpg" alt="Diamond Event Photo 3">
                 </div>
@@ -104,69 +161,65 @@
             </div>
 
             <!-- Beach Brawl - November 15, 2025 -->
-            <div class="gallery-section">
-                <h3>Beach Brawl @ McBride High School (November 15, 2025)</h3>
-                <div class="photo-gallery">
-                    <img loading="lazy" src="/assets/images/events/2025/beach-brawl/582545215_4161534964093393_5160703348096074670_n.jpg"
-                        alt="Beach Brawl Event Photo 1">
-                    <img loading="lazy" src="/assets/images/events/2025/beach-brawl/582587382_4161534850760071_4682994050265721951_n.jpg"
-                        alt="Beach Brawl Event Photo 2">
-                    <img loading="lazy" src="/assets/images/events/2025/beach-brawl/582923457_4161534787426744_5074396647716276807_n.jpg"
-                        alt="Beach Brawl Event Photo 3">
-                    <img loading="lazy" src="/assets/images/events/2025/beach-brawl/583245284_4161535097426713_3116256423590730507_n.jpg"
-                        alt="Beach Brawl Event Photo 4">
+            <div class="gm-sec">
+                <h3>Beach Brawl @ McBride High School</h3>
+                <div class="gm-date">Long Beach, CA &middot; November 15, 2025</div>
+                <div class="gm-mosaic">
+                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2025/beach-brawl/582545215_4161534964093393_5160703348096074670_n.jpg" alt="Beach Brawl Event Photo 1">
+                    <img loading="lazy" src="/assets/images/events/2025/beach-brawl/582587382_4161534850760071_4682994050265721951_n.jpg" alt="Beach Brawl Event Photo 2">
+                    <img loading="lazy" src="/assets/images/events/2025/beach-brawl/582923457_4161534787426744_5074396647716276807_n.jpg" alt="Beach Brawl Event Photo 3">
+                    <img loading="lazy" class="gm-wide" src="/assets/images/events/2025/beach-brawl/583245284_4161535097426713_3116256423590730507_n.jpg" alt="Beach Brawl Event Photo 4">
                 </div>
                 <p class="photo-credit"><em>Photo credit: Commander Lauper's Facebook page</em></p>
             </div>
 
             <!-- One World @ UC Berkeley - November 2025 -->
-            <div class="gallery-section">
-                <h3>One World @ UC Berkeley (November 2025)</h3>
-                <div class="photo-gallery">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/586845622_4169138573333032_9081429515033235494_n.jpg"
-                        alt="One World Event Photo 1">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/586890835_4169807339932822_1777193793440060412_n.jpg"
-                        alt="One World Event Photo 2">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/586958843_4169139096666313_6170539189412982083_n.jpg"
-                        alt="One World Event Photo 3">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/587089300_4169807016599521_7420513945176883690_n.jpg"
-                        alt="One World Event Photo 4">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/587102580_4169138723333017_7908606869056431640_n.jpg"
-                        alt="One World Event Photo 5">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/587103917_4169807259932830_3177160969979622646_n.jpg"
-                        alt="One World Event Photo 6">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/587830523_10164708698914274_5793245622178358113_n.jpg"
-                        alt="One World Event Photo 7">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/588645457_10164708698704274_3395418400421253950_n.jpg"
-                        alt="One World Event Photo 8">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/607617590_4202782159968673_7147195847232773575_n.jpg"
-                        alt="One World Event Photo 10">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/607762362_4202781506635405_8161473073768550156_n.jpg"
-                        alt="One World Event Photo 11">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/harvardwestlakete.jpg" alt="One World Event Photo 12">
+            <div class="gm-sec">
+                <h3>One World @ UC Berkeley</h3>
+                <div class="gm-date">Berkeley, CA &middot; November 2025</div>
+                <div class="gm-mosaic">
+                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2025/one-world/586845622_4169138573333032_9081429515033235494_n.jpg" alt="One World Event Photo 1">
+                    <img loading="lazy" src="/assets/images/events/2025/one-world/586890835_4169807339932822_1777193793440060412_n.jpg" alt="One World Event Photo 2">
+                    <img loading="lazy" src="/assets/images/events/2025/one-world/586958843_4169139096666313_6170539189412982083_n.jpg" alt="One World Event Photo 3">
+                    <img loading="lazy" src="/assets/images/events/2025/one-world/587089300_4169807016599521_7420513945176883690_n.jpg" alt="One World Event Photo 4">
+                    <div class="gm-more">
+                        <img loading="lazy" src="/assets/images/events/2025/one-world/587102580_4169138723333017_7908606869056431640_n.jpg" alt="One World Event Photo 5">
+                        <div class="gm-cnt">+6</div>
+                    </div>
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/587103917_4169807259932830_3177160969979622646_n.jpg" alt="One World Event Photo 6">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/587830523_10164708698914274_5793245622178358113_n.jpg" alt="One World Event Photo 7">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/588645457_10164708698704274_3395418400421253950_n.jpg" alt="One World Event Photo 8">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/607617590_4202782159968673_7147195847232773575_n.jpg" alt="One World Event Photo 9">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/607762362_4202781506635405_8161473073768550156_n.jpg" alt="One World Event Photo 10">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/harvardwestlakete.jpg" alt="One World Event Photo 11">
                 </div>
                 <p class="photo-credit"><em>Photo credit: Commander Lauper's Facebook page</em></p>
             </div>
 
             <!-- Harvard Westlake Challenge - October 2025 -->
-            <div class="gallery-section">
-                <h3>Harvard Westlake Challenge (October 2025)</h3>
-                <div class="photo-gallery">
+            <div class="gm-sec">
+                <h3>Harvard Westlake Challenge</h3>
+                <div class="gm-date">October 2025</div>
+                <div class="gm-mosaic gm-single" style="display:block">
                     <img loading="lazy" src="/assets/images/events/2025/harvard-westlake/harvardwestlakete.jpg" alt="Harvard Westlake Event Photo">
                 </div>
                 <p class="photo-credit"><em>Photo credit: Commander Lauper's Facebook page</em></p>
             </div>
 
             <!-- Summer Camp - July 2025 -->
-            <div class="gallery-section">
-                <h3>Summer Camp (July 2025)</h3>
-                <div class="photo-gallery">
-                    <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250716_224247026.jpg" alt="Summer Camp Photo 1">
+            <div class="gm-sec">
+                <h3>Summer Camp</h3>
+                <div class="gm-date">Troy High School &middot; July 2025</div>
+                <div class="gm-mosaic">
+                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2025/summer-camp/PXL_20250716_224247026.jpg" alt="Summer Camp Photo 1">
                     <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250717_011754638.jpg" alt="Summer Camp Photo 2">
                     <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250729_223120995.jpg" alt="Summer Camp Photo 3">
                     <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250731_012807227.jpg" alt="Summer Camp Photo 4">
-                    <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250731_012814259.jpg" alt="Summer Camp Photo 5">
-                    <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250731_012947330.jpg" alt="Summer Camp Photo 6">
+                    <div class="gm-more">
+                        <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250731_012814259.jpg" alt="Summer Camp Photo 5">
+                        <div class="gm-cnt">+1</div>
+                    </div>
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/summer-camp/PXL_20250731_012947330.jpg" alt="Summer Camp Photo 6">
                 </div>
             </div>
         </section>
@@ -233,8 +286,8 @@
         let currentIndex = 0;
 
         // Add click event to all gallery images
-        document.querySelectorAll('.gallery-section').forEach(section => {
-            const images = section.querySelectorAll('.photo-gallery img');
+        document.querySelectorAll('.gm-sec').forEach(section => {
+            const images = section.querySelectorAll('.gm-mosaic img');
             images.forEach((img, index) => {
                 img.addEventListener('click', () => {
                     currentImages = Array.from(images);
@@ -242,6 +295,17 @@
                     openLightbox();
                 });
             });
+        });
+
+        // "+N" tile: first click expands the section instead of opening the lightbox
+        document.querySelectorAll('.gm-more').forEach(more => {
+            more.addEventListener('click', (e) => {
+                const sec = more.closest('.gm-sec');
+                if (!sec.classList.contains('expanded')) {
+                    e.stopPropagation();
+                    sec.classList.add('expanded');
+                }
+            }, true);
         });
 
         function openLightbox() {
@@ -291,15 +355,6 @@
             if (e.target === lightbox) {
                 closeLightbox();
             }
-        });
-
-        // Show more / show less for JROTC Nationals
-        const jrotcBtn = document.getElementById('jrotcnats-btn');
-        const jrotcExtras = document.querySelectorAll('#jrotcnats-section .gallery-extra');
-        jrotcBtn.addEventListener('click', () => {
-            const isHidden = jrotcExtras[0].style.display === 'none';
-            jrotcExtras.forEach(img => { img.style.display = isHidden ? '' : 'none'; });
-            jrotcBtn.textContent = isHidden ? 'Show less' : '+ 9 more photos';
         });
 
         // Keyboard navigation
