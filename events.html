@@ -47,19 +47,25 @@
       .evp .seg a.on{background:var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.1)}
       /* list */
       .evp #ev-list{margin:40px 0 0;background:var(--paper);border-radius:18px;overflow:hidden}
-      .evp .ev{display:grid;grid-template-columns:64px 1fr auto;gap:22px;align-items:center;padding:22px 26px;border-bottom:1px solid var(--cloud)}
+      .evp .ev{display:grid;grid-template-columns:84px 1fr auto;gap:22px;align-items:center;padding:22px 26px;border-bottom:1px solid var(--cloud)}
       .evp .ev:last-child{border-bottom:none}
       .evp .ev-date{text-align:center}
       .evp .ev-mo{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--red)}
-      .evp .ev-day{display:block;font-size:26px;font-weight:600;line-height:1;letter-spacing:-.02em}
+      .evp .ev-day{display:block;font-size:26px;font-weight:600;line-height:1;letter-spacing:-.02em;white-space:nowrap}
+      .evp .ev-day.ev-day-range{font-size:20px;padding:3px 0}
       .evp .ev-yr{display:block;font-size:11px;color:var(--fog)}
       .evp .ev-name{font-size:18px;font-weight:600;letter-spacing:-.01em}
       .evp .ev-loc{font-size:14px;color:var(--fog);margin-top:2px}
       .evp .ev-detail{font-size:13px;color:var(--graphite);opacity:.7;margin-top:4px}
       .evp .ev-tag{font-size:12px;font-weight:600;color:var(--red);background:rgba(177,42,52,.08);padding:4px 12px;border-radius:980px;white-space:nowrap}
       .evp .ev-major .ev-tag{color:#fff;background:var(--navy)}
-      /* calendar */
-      .evp #cal-view{padding:60px 0 80px}
+      .evp .ev{cursor:pointer}
+      .evp .ev:hover .ev-name{color:var(--red)}
+      /* calendar — hidden until toggled */
+      .evp #cal-view{display:none;padding:40px 0 80px}
+      .evp.show-cal #cal-view{display:block}
+      .evp.show-cal #ev-list{display:none}
+      .evp #ev-list{margin-bottom:80px}
       .evp #cal-view h2{text-align:center;font-size:28px;letter-spacing:-.5px;margin-bottom:6px;color:var(--graphite)}
       .evp #cal-view .sub{text-align:center;color:var(--fog);font-size:15px;margin-bottom:26px}
       .evp #cal{background:var(--paper);border-radius:18px;padding:26px}
@@ -69,16 +75,43 @@
       .evp .cal-head button:disabled{opacity:.3;cursor:default}
       .evp .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
       .evp .cal-dow{text-align:center;font-size:11px;color:var(--fog);font-weight:600;padding-bottom:6px}
-      .evp .cal-cell{min-height:78px;border-radius:10px;background:var(--cloud);padding:7px 8px}
+      .evp .cal-cell{min-height:78px;border-radius:10px;background:var(--cloud);padding:7px 8px;position:relative}
       .evp .cal-empty{background:transparent}
+      .evp .cal-adj{background:transparent;box-shadow:inset 0 0 0 1px var(--bone)}
+      .evp .cal-adj .cal-num{color:#c3c3c8}
       .evp .cal-has{background:#fff;box-shadow:inset 0 0 0 1.5px var(--red)}
+      .evp .cal-today{box-shadow:inset 0 0 0 1.5px var(--navy)}
+      .evp .cal-today .cal-num{color:var(--navy);font-weight:700}
+      /* hover tooltip on event days */
+      .evp .cal-tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+        width:230px;background:var(--graphite);color:#fff;border-radius:12px;padding:11px 13px;
+        font-size:12px;line-height:1.45;text-align:left;z-index:6;opacity:0;visibility:hidden;
+        pointer-events:none;transition:opacity .15s ease;box-shadow:0 10px 28px rgba(0,0,0,.28)}
+      .evp .cal-tip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);
+        border:6px solid transparent;border-top-color:var(--graphite)}
+      .evp .cal-tip b{display:block;font-size:13px;margin-bottom:3px}
+      .evp .cal-tip span{display:block;color:#cfcfd4}
+      .evp .cal-has:hover{z-index:7}
+      .evp .cal-has:hover .cal-tip{opacity:1;visibility:visible}
+      .evp .cal-grid > .cal-cell:nth-child(7n+1) .cal-tip{left:0;transform:none}
+      .evp .cal-grid > .cal-cell:nth-child(7n+1) .cal-tip::after{left:22px}
+      .evp .cal-grid > .cal-cell:nth-child(7n) .cal-tip{left:auto;right:0;transform:none}
+      .evp .cal-grid > .cal-cell:nth-child(7n) .cal-tip::after{left:auto;right:22px}
       .evp .cal-num{font-size:12px;color:var(--fog)}
       .evp .cal-has .cal-num{color:var(--graphite);font-weight:600}
       .evp .cal-ev{display:block;font-size:10px;line-height:1.2;margin-top:4px;color:var(--red);font-weight:500}
       .evp .cal-ev.ev-major{color:var(--navy)}
+      /* dark mode for the new calendar pieces (base .evp dark vars live in site.css) */
+      body.dark-mode .evp .cal-tip{background:#333;color:#fff}
+      body.dark-mode .evp .cal-tip::after{border-top-color:#333}
+      body.dark-mode .evp .cal-tip b{color:#fff}
+      body.dark-mode .evp .cal-adj .cal-num{color:#55555a}
+      body.dark-mode .evp .cal-today{box-shadow:inset 0 0 0 1.5px #6b83c4}
+      body.dark-mode .evp .cal-today .cal-num{color:#8fa4d9}
+      body.dark-mode .evp .cal-today.cal-has{box-shadow:inset 0 0 0 1.5px var(--red)}
       @media(max-width:680px){
         .evp .evp-hero h1{font-size:34px}
-        .evp .ev{grid-template-columns:54px 1fr;gap:14px}
+        .evp .ev{grid-template-columns:64px 1fr;gap:14px}
         .evp .ev-tag{display:none}
         .evp .cal-cell{min-height:56px}
         .evp .cal-ev{font-size:0;height:6px;width:6px;border-radius:50%;background:var(--red);margin-top:3px}
@@ -121,10 +154,10 @@
     <main class="evp">
         <div class="evp-wrap">
             <div class="evp-hero">
-                <div class="ey">2025–26 Season</div>
+                <div class="ey">2026 Season</div>
                 <h1>Competition Schedule</h1>
-                <p>Every event from California qualifiers to the world stage.</p>
-                <div class="seg"><a class="on">List</a><a data-scroll-cal href="#cal-view">Calendar</a></div>
+                <p>What's next on the Troy VEX calendar.</p>
+                <div class="seg"><a class="on" data-view="list">List</a><a data-view="cal">Calendar</a></div>
             </div>
 
             <section id="ev-list"></section>
@@ -176,30 +209,27 @@
         <div class="footer-wave" aria-hidden="true"></div>
     </footer>
 
-    <!-- Events list + season calendar -->
+    <!-- Events list + calendar (list/calendar toggle, calendar opens on current month) -->
     <script>
       (function(){
+        // d..d2 = multi-day event range
         const EVENTS = [
-          { y:2026, m:4,  d:21, name:'VEX World Championship',        loc:'St. Louis, Missouri', detail:'World stage - April 21-24',                    tag:'Worlds',     kind:'major' },
-          { y:2026, m:2,  d:27, name:'California State Championship',  loc:'Los Angeles, CA',     detail:'Qualified teams advance',                    tag:'States',     kind:'plain' },
-          { y:2026, m:2,  d:13, name:'NorCal Signature Event',         loc:'Silicon Valley, CA',  detail:'Teams B, C, D, E, and X',                    tag:'Signature',  kind:'plain' },
-          { y:2026, m:1,  d:25, name:'JROTC National Championship',    loc:'Sandusky, Ohio',      detail:'Team Y - National Champion',                 tag:'Champion',   kind:'win' },
-          { y:2026, m:1,  d:23, name:'Kalahari Signature Event',       loc:'Sandusky, Ohio',      detail:'Robot Skills Champion',                      tag:'Signature',  kind:'plain' },
-          { y:2025, m:12, d:30, name:'Diamond in the Desert',          loc:'Arizona',             detail:'Team Y - Tournament and Robot Skills Champion', tag:'Champion', kind:'win' },
-          { y:2025, m:11, d:15, name:'Beach Brawl @ McBride',          loc:'Long Beach, CA',      detail:'Team Y - Excellence; Team C - Innovate',     tag:'Excellence', kind:'win' },
-          { y:2025, m:11, d:12, name:'One World @ UC Berkeley',        loc:'Berkeley, CA',        detail:'Team Y - Tournament Finalists',              tag:'Finalist',   kind:'plain' }
+          { y:2026, m:7,  d:20, d2:24, name:'Troy VEX Summer Camp',            loc:'Troy High School, Fullerton, CA (Room 402)',              detail:'July 20-24 · AM 9 AM-1 PM or PM 2 PM-6 PM · Grades 5-12', tag:'Camp',      kind:'major', href:'/summercamp' },
+          { y:2026, m:8,  d:6,  d2:8,  name:'Mall of America Signature Event', loc:'Mall of America, 60 East Broadway, Bloomington, Minnesota', detail:'August 6-8',                                              tag:'Signature', kind:'plain' },
+          { y:2026, m:11, d:21, d2:22, name:'One World @ UC Berkeley',         loc:'Pauley Ballroom, 2495 Bancroft Way, Berkeley, California',  detail:'November 21-22',                                          tag:'Signature', kind:'plain' }
         ];
         const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
         const MO3=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-        const SEASON=[{y:2025,m:11},{y:2025,m:12},{y:2026,m:1},{y:2026,m:2},{y:2026,m:3},{y:2026,m:4}];
-        let calIdx=2;
+        const now=new Date();
+        let cur={y:now.getFullYear(),m:now.getMonth()+1};
 
         function renderList(el){
           if(!el) return;
           el.replaceChildren();
           EVENTS.forEach(function(e){
-            const item = document.createElement('article');
+            const item = document.createElement(e.href ? 'a' : 'article');
             item.className = 'ev ev-' + e.kind;
+            if(e.href) item.href = e.href;
 
             const date = document.createElement('div');
             date.className = 'ev-date';
@@ -207,8 +237,8 @@
             month.className = 'ev-mo';
             month.textContent = MO3[e.m - 1];
             const day = document.createElement('span');
-            day.className = 'ev-day';
-            day.textContent = e.d;
+            day.className = 'ev-day' + (e.d2 ? ' ev-day-range' : '');
+            day.textContent = e.d2 ? (e.d + '–' + e.d2) : e.d;
             const year = document.createElement('span');
             year.className = 'ev-yr';
             year.textContent = e.y;
@@ -239,7 +269,6 @@
         }
         function renderCal(host){
           if(!host) return;
-          const cur=SEASON[calIdx];
           host.querySelector('.cal-title').textContent=MONTHS[cur.m-1]+' '+cur.y;
           const first=new Date(cur.y,cur.m-1,1).getDay();
           const days=new Date(cur.y,cur.m,0).getDate();
@@ -251,41 +280,82 @@
             dow.textContent = d;
             grid.appendChild(dow);
           });
-          for(let i=0;i<first;i++){
-            const empty = document.createElement('div');
-            empty.className = 'cal-cell cal-empty';
-            grid.appendChild(empty);
+          function adjCell(n){
+            const c = document.createElement('div');
+            c.className = 'cal-cell cal-adj';
+            const num = document.createElement('span');
+            num.className = 'cal-num';
+            num.textContent = n;
+            c.appendChild(num);
+            return c;
           }
+          // tail of previous month, light grey
+          const prevDays=new Date(cur.y,cur.m-1,0).getDate();
+          for(let i=0;i<first;i++){
+            grid.appendChild(adjCell(prevDays - first + 1 + i));
+          }
+          const today=new Date();
           for(let day=1;day<=days;day++){
-            const evs=EVENTS.filter(function(e){return e.y===cur.y&&e.m===cur.m&&e.d===day;});
+            const evs=EVENTS.filter(function(e){
+              return e.y===cur.y && e.m===cur.m && day>=e.d && day<=(e.d2||e.d);
+            });
+            const isToday = cur.y===today.getFullYear() && cur.m===today.getMonth()+1 && day===today.getDate();
             const cell = document.createElement('div');
-            cell.className = 'cal-cell' + (evs.length ? ' cal-has' : '');
+            cell.className = 'cal-cell' + (evs.length ? ' cal-has' : '') + (isToday ? ' cal-today' : '');
             const num = document.createElement('span');
             num.className = 'cal-num';
             num.textContent = day;
             cell.appendChild(num);
             evs.forEach(function(e){
-              const ev = document.createElement('span');
+              const ev = document.createElement(e.href ? 'a' : 'span');
               ev.className = 'cal-ev ev-' + e.kind;
-              ev.title = e.name;
               ev.textContent = e.name;
+              if(e.href) ev.href = e.href;
               cell.appendChild(ev);
+
+              // hover tooltip with full details
+              const tip = document.createElement('div');
+              tip.className = 'cal-tip';
+              const t = document.createElement('b');
+              t.textContent = e.name;
+              const d1 = document.createElement('span');
+              d1.textContent = e.detail;
+              const d2 = document.createElement('span');
+              d2.textContent = e.loc;
+              tip.append(t, d1, d2);
+              cell.appendChild(tip);
             });
             grid.appendChild(cell);
           }
-          host.querySelector('[data-prev]').disabled=calIdx===0;
-          host.querySelector('[data-next]').disabled=calIdx===SEASON.length-1;
+          // head of next month, light grey, completes the final week row
+          const trailing=(7 - (first + days) % 7) % 7;
+          for(let t=1;t<=trailing;t++){
+            grid.appendChild(adjCell(t));
+          }
+        }
+        function shiftMonth(n){
+          cur.m += n;
+          if(cur.m > 12){ cur.m = 1; cur.y++; }
+          if(cur.m < 1){ cur.m = 12; cur.y--; }
         }
         function init(){
           renderList(document.querySelector('#ev-list'));
           const host=document.querySelector('#cal');
           if(host){
-            host.querySelector('[data-prev]').onclick=function(){if(calIdx>0){calIdx--;renderCal(host);}};
-            host.querySelector('[data-next]').onclick=function(){if(calIdx<SEASON.length-1){calIdx++;renderCal(host);}};
+            host.querySelector('[data-prev]').onclick=function(){shiftMonth(-1);renderCal(host);};
+            host.querySelector('[data-next]').onclick=function(){shiftMonth(1);renderCal(host);};
             renderCal(host);
           }
-          document.querySelectorAll('[data-scroll-cal]').forEach(function(b){
-            b.onclick=function(ev){ev.preventDefault();document.querySelector('#cal-view').scrollIntoView({behavior:'smooth'});};
+          // list/calendar toggle
+          const page=document.querySelector('.evp');
+          const segs=document.querySelectorAll('.seg a[data-view]');
+          segs.forEach(function(b){
+            b.onclick=function(ev){
+              ev.preventDefault();
+              segs.forEach(function(x){x.classList.remove('on');});
+              b.classList.add('on');
+              page.classList.toggle('show-cal', b.dataset.view==='cal');
+            };
           });
         }
         if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
