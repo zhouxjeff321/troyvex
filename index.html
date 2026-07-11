@@ -58,8 +58,14 @@
       body.dark-mode .camp-banner .pill { background: #2a2a2a; color: #f2f2f2; border-color: #3a3a3a; box-shadow: none; }
       body.dark-mode .camp-banner .orb { opacity: 0.3; }
       @media (max-width: 700px) {
-        .camp-banner { flex-direction: column; align-items: flex-start; }
-        .camp-banner .act { align-items: flex-start; }
+        .camp-banner {
+          flex-direction: column; align-items: flex-start;
+          margin: 3rem auto 2.5rem; padding: 1.75rem 1.25rem; gap: 1.25rem;
+        }
+        .camp-banner .txt { flex: 0 1 auto; }
+        .camp-banner h2 { font-size: 1.75rem; }
+        .camp-banner .act { width: 100%; align-items: stretch; text-align: center; }
+        .camp-banner .pill { width: 100%; text-align: center; }
       }
     </style>
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
