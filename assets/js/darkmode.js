@@ -215,8 +215,6 @@ document.addEventListener('DOMContentLoaded', function () {
         '  color: #fff; display: flex; align-items: center; justify-content: center;',
         '  gap: 0.9rem; padding: 0.55rem 2.6rem 0.55rem 1rem; font-size: 0.88rem; flex-wrap: wrap; text-align: center;',
         '  box-shadow: 0 2px 10px rgba(224, 86, 63, 0.3); }',
-        '.camp-promo-bar .chip { background: #fff; color: #e0563f; border-radius: 999px; font-size: 0.7rem; font-weight: 800;',
-        '  text-transform: uppercase; letter-spacing: 0.07em; padding: 0.22rem 0.75rem; white-space: nowrap; }',
         '.camp-promo-bar b { font-weight: 700; }',
         '.camp-promo-bar .msg { text-shadow: 0 1px 2px rgba(0,0,0,0.12); }',
         '.camp-promo-bar .go { color: #e0563f; background: #fff; border: 1px solid #fff;',
@@ -257,7 +255,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const bar = document.createElement('div');
     bar.className = 'camp-promo-bar';
     bar.innerHTML =
-        '<span class="chip">Summer 2026</span>' +
         '<span class="msg"><b>Troy VEX Summer Camp</b> · July 20–24 · Grades 5–12 · Spots limited</span>' +
         '<a class="go" href="/summercamp">Sign Up</a>' +
         '<button class="camp-promo-x" aria-label="Dismiss camp banner">✕</button>';
