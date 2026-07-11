@@ -61,6 +61,13 @@
         .sc-pill.dark:hover { background: #b12a34; border-color: #b12a34; }
         .sc-pill.light { background: #fdfcfc; color: #000; border: 1px solid #e5e5e5; box-shadow: rgba(0,0,0,0.06) 0 0 0 1px, rgba(0,0,0,0.04) 0 1px 2px 0; }
         .sc-note { position: relative; z-index: 2; margin-top: 18px; color: #b12a34; font-weight: 500; font-size: 14px; }
+        .sc-mail { position: relative; z-index: 2; margin-top: 8px; color: #999; font-size: 13px; }
+        .sc-mail a { color: #777; text-decoration: none; font-weight: 500; }
+        .sc-mail a:hover { color: #b12a34; text-decoration: underline; }
+        #schedule { scroll-margin-top: 110px; }
+        html { scroll-behavior: smooth; }
+        body.dark-mode .sc-mail { color: #888; }
+        body.dark-mode .sc-mail a { color: #aaa; }
 
         /* Sections */
         .sc-sec { padding: 80px 0; }
@@ -231,9 +238,10 @@
                     </div>
                     <div class="sc-cta">
                         <a class="sc-pill dark" href="https://forms.gle/aQRuszeFDVhHZTJ77" target="_blank" rel="noopener noreferrer">Register Now &mdash; $275</a>
-                        <a class="sc-pill light" href="mailto:troyvexrobotics@gmail.com">Ask a Question</a>
+                        <a class="sc-pill light" href="#schedule">See the Schedule</a>
                     </div>
                     <div class="sc-note">Spots limited, sign up fast!</div>
+                    <div class="sc-mail">Questions? Email us at <a href="mailto:troyvexrobotics@gmail.com">troyvexrobotics@gmail.com</a></div>
                 </div>
             </section>
 
@@ -250,7 +258,7 @@
             </section>
 
             <!-- Schedule feature -->
-            <section class="sc-sec" style="padding-top:0">
+            <section class="sc-sec" id="schedule" style="padding-top:0">
                 <div class="sc-feat">
                     <div class="pad">
                         <h3 class="disp">Five days.<br>One mini-championship.</h3>
