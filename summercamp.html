@@ -10,139 +10,148 @@
     <title>Troy VEX Summer Camp</title>
     <link rel="stylesheet" href="/assets/css/site.css?v=13">
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* ─── Summer Camp page (scoped to .sc) ─── */
-        .sc { color: #111; }
-        .sc-wrap { max-width: 1050px; margin: 0 auto; padding: 0 2rem; }
+        /* ─── Summer Camp — ElevenLabs style (scoped to .sc) ─── */
+        .sc {
+            font-family: 'Inter', sans-serif;
+            background: #fdfcfc;
+            color: #000;
+            padding: 0 0 1px;
+        }
+        .sc .disp { font-family: 'DM Sans', sans-serif; font-weight: 300; letter-spacing: -0.02em; }
+        .sc-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-        /* Header — shared site gradient */
-        .sc-header {
+        /* Hero card */
+        .sc-hero {
+            position: relative;
+            border-radius: 24px;
+            background: #f5f3f1;
+            margin-top: 24px;
+            padding: 72px 40px;
             text-align: center;
-            padding: 4.5rem 2rem 3rem;
-            background:
-                radial-gradient(circle at 92% -8%, rgba(177, 42, 52, 0.18), transparent 44%),
-                linear-gradient(180deg, rgba(13, 27, 58, 0.08) 0%, rgba(13, 27, 58, 0.03) 45%, transparent 100%);
+            overflow: hidden;
         }
-        .sc-eyebrow {
-            color: #b12a34;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-size: 0.85rem;
+        .sc-orb { position: absolute; border-radius: 50%; filter: blur(48px); opacity: 0.55; }
+        .sc-orb.a { width: 280px; height: 280px; background: #b12a34; top: -60px; left: -40px; }
+        .sc-orb.b { width: 240px; height: 240px; background: #0d1b3a; bottom: -70px; right: -30px; }
+        .sc-hero .inner { position: relative; z-index: 2; }
+        .sc-hero .ey { font-size: 14px; color: #555; }
+        .sc-hero h1 { font-size: 60px; line-height: 1.02; margin: 16px auto 18px; max-width: 18ch; color: #000; }
+        .sc-hero .details { margin: 0 auto 28px; }
+        .sc-hero .details p {
+            font-size: 18px;
+            color: #555;
+            max-width: 52ch;
+            margin: 0 auto 12px;
+            line-height: 1.6;
         }
-        .sc-header h1 { font-size: 3rem; margin: 0.6rem 0 0.8rem; color: #111; }
-        .sc-header > p { color: #555; max-width: 620px; margin: 0 auto 1.8rem; font-size: 1.15rem; line-height: 1.55; }
-        .sc-note { display: block; margin-top: 0.9rem; color: #b12a34; font-weight: 600; font-size: 0.95rem; }
+        .sc-hero .details p:last-child { margin-bottom: 0; }
+        .sc-hero .details p b { color: #000; font-weight: 600; }
+        .sc-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .sc-pill {
+            border-radius: 9999px;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 10px 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .sc-pill.dark { background: #000; color: #fff; border: 1px solid #000; }
+        .sc-pill.dark:hover { background: #b12a34; border-color: #b12a34; }
+        .sc-pill.light { background: #fdfcfc; color: #000; border: 1px solid #e5e5e5; box-shadow: rgba(0,0,0,0.06) 0 0 0 1px, rgba(0,0,0,0.04) 0 1px 2px 0; }
+        .sc-note { position: relative; z-index: 2; margin-top: 18px; color: #b12a34; font-weight: 500; font-size: 14px; }
 
-        /* Quick facts */
-        .sc-facts {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin: 2.5rem auto 3rem;
-        }
-        .sc-fact {
-            background: #f9fafb;
-            border: 1px solid #eee;
-            border-radius: 14px;
-            padding: 1.4rem 1.2rem;
-            text-align: center;
-        }
-        .sc-fact .v { font-family: 'Geist', sans-serif; font-weight: 800; font-size: 1.6rem; color: #b12a34; }
-        .sc-fact .l { color: #666; font-size: 0.92rem; margin-top: 0.3rem; }
+        /* Sections */
+        .sc-sec { padding: 80px 0; }
+        .sc-shead { font-size: 40px; text-align: center; line-height: 1.08; color: #000; }
+        .sc-slead { text-align: center; color: #555; margin-top: 12px; font-size: 17px; }
 
-        /* Info split */
-        .sc-split {
+        /* Figure cards */
+        .sc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 46px; }
+        .sc-pcard {
+            background: #fff;
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: rgba(0,0,0,0.4) 0 0 1px 0, rgba(0,0,0,0.04) 0 2px 4px 0;
+        }
+        .sc-pcard .n { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 46px; letter-spacing: -0.02em; color: #000; }
+        .sc-pcard .n .r { color: #b12a34; }
+        .sc-pcard .t { font-size: 15px; color: #555; margin-top: 6px; line-height: 1.45; }
+
+        /* Feature split */
+        .sc-feat {
+            background: #f5f3f1;
+            border-radius: 24px;
+            overflow: hidden;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
             align-items: center;
-            margin: 3rem auto;
         }
-        .sc-split h2 { font-size: 1.8rem; margin-bottom: 1rem; color: #111; }
-        .sc-split ul { list-style: none; padding: 0; margin: 0; }
-        .sc-split li {
-            padding: 0.45rem 0 0.45rem 1.7rem;
-            position: relative;
-            color: #333;
-            font-size: 1.03rem;
-            line-height: 1.5;
-        }
-        .sc-split li::before { content: "\2713"; position: absolute; left: 0; color: #b12a34; font-weight: 800; }
-        .sc-split img { width: 100%; border-radius: 16px; box-shadow: 0 16px 34px rgba(0, 0, 0, 0.12); }
-        .sc-split .sc-subhead {
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+        .sc-feat .pad { padding: 48px; }
+        .sc-feat h3 { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 36px; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 16px; color: #000; }
+        .sc-feat ul { list-style: none; margin: 0; padding: 0; }
+        .sc-feat li { color: #555; font-size: 15.5px; padding: 5px 0; line-height: 1.5; }
+        .sc-feat li b { color: #000; font-weight: 500; }
+        .sc-feat .tag {
+            display: inline-block;
+            margin-top: 18px;
+            font-size: 13px;
             color: #b12a34;
-            margin: 1.6rem 0 0.4rem;
-        }
-
-        /* Schedule */
-        .sc-sched { margin: 3.5rem auto; }
-        .sc-sched h2 { font-size: 1.8rem; text-align: center; margin-bottom: 1.6rem; color: #111; }
-        .sc-days { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.9rem; }
-        .sc-day {
-            border: 1px solid #eee;
-            border-top: 4px solid #b12a34;
-            border-radius: 12px;
-            padding: 1rem 0.9rem;
+            border: 1px solid #e5e5e5;
             background: #fff;
+            border-radius: 9999px;
+            padding: 6px 14px;
         }
-        .sc-day .d { font-family: 'Geist', sans-serif; font-weight: 800; color: #b12a34; font-size: 0.85rem; }
-        .sc-day p { font-size: 0.94rem; color: #333; margin-top: 0.35rem; font-weight: 600; line-height: 1.4; }
+        .sc-feat img { width: 100%; height: 100%; object-fit: cover; min-height: 320px; display: block; }
 
-        /* Sessions + register */
-        .sc-cta {
-            background: #0d1b3a;
-            color: #fff;
-            text-align: center;
-            padding: 3.2rem 2rem;
-            margin-top: 3.5rem;
+        /* Sessions feature (reversed tint) */
+        .sc-feat.rev { margin-top: 18px; }
+        .sc-sess-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+        .sc-sess {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: rgba(0,0,0,0.4) 0 0 1px 0, rgba(0,0,0,0.04) 0 2px 4px 0;
         }
-        .sc-cta h2 { font-size: 2rem; margin-bottom: 0.4rem; color: #fff; }
-        .sc-cta .cost { font-family: 'Geist', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff; margin-bottom: 1.2rem; }
-        .sc-sessions {
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-            margin: 1.4rem 0 1.8rem;
-        }
-        .sc-session {
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            padding: 1.1rem 1.8rem;
-            min-width: 240px;
-        }
-        .sc-session h3 { color: #fff; font-size: 1.05rem; margin-bottom: 0.3rem; }
-        .sc-session p { color: #cbd5e8; font-size: 0.98rem; margin: 0; }
-        .sc-cta .spots { color: #cbd5e8; font-size: 0.95rem; margin-top: 1.1rem; }
-        .sc-contact { text-align: center; color: #555; padding: 2rem 1rem 3rem; font-size: 0.98rem; }
-        .sc-contact a { color: #b12a34; font-weight: 600; text-decoration: none; }
-        .sc-contact a:hover { text-decoration: underline; }
+        .sc-sess h4 { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 20px; color: #b12a34; margin: 0 0 4px; }
+        .sc-sess p { color: #555; font-size: 14.5px; margin: 0; line-height: 1.45; }
+
+        /* Final CTA */
+        .sc-end { text-align: center; padding: 0 0 90px; }
+        .sc-end h2 { font-size: 36px; line-height: 1.1; color: #000; }
+        .sc-end p { color: #555; font-size: 17px; margin: 12px auto 26px; max-width: 52ch; }
+        .sc-end p a { color: #b12a34; font-weight: 500; text-decoration: none; }
+        .sc-end p a:hover { text-decoration: underline; }
 
         /* Dark mode */
-        body.dark-mode .sc-header h1, body.dark-mode .sc-split h2,
-        body.dark-mode .sc-sched h2 { color: #f2f2f2; }
-        body.dark-mode .sc-header > p { color: #b0b0b0; }
-        body.dark-mode .sc-fact { background: #222; border-color: #2f2f2f; }
-        body.dark-mode .sc-fact .l { color: #b0b0b0; }
-        body.dark-mode .sc-split li { color: #cfcfcf; }
-        body.dark-mode .sc-day { background: #222; border-color: #2f2f2f; border-top-color: #b12a34; }
-        body.dark-mode .sc-day p { color: #cfcfcf; }
-        body.dark-mode .sc-contact { color: #b0b0b0; }
+        body.dark-mode .sc { background: #161616; }
+        body.dark-mode .sc-hero, body.dark-mode .sc-feat { background: #222; }
+        body.dark-mode .sc-hero h1, body.dark-mode .sc-shead,
+        body.dark-mode .sc-feat h3, body.dark-mode .sc-end h2,
+        body.dark-mode .sc-pcard .n, body.dark-mode .sc-hero p b,
+        body.dark-mode .sc-feat li b { color: #f2f2f2; }
+        body.dark-mode .sc-hero .ey, body.dark-mode .sc-hero p,
+        body.dark-mode .sc-slead, body.dark-mode .sc-pcard .t,
+        body.dark-mode .sc-feat li, body.dark-mode .sc-sess p,
+        body.dark-mode .sc-end p { color: #b0b0b0; }
+        body.dark-mode .sc-pcard, body.dark-mode .sc-sess { background: #2a2a2a; box-shadow: none; border: 1px solid #333; }
+        body.dark-mode .sc-pill.light { background: #2a2a2a; color: #f2f2f2; border-color: #3a3a3a; box-shadow: none; }
+        body.dark-mode .sc-pill.dark { background: #b12a34; border-color: #b12a34; }
+        body.dark-mode .sc-feat .tag { background: #2a2a2a; border-color: #3a3a3a; }
+        body.dark-mode .sc-orb { opacity: 0.35; }
 
-        @media (max-width: 860px) {
-            .sc-facts { grid-template-columns: repeat(2, 1fr); }
-            .sc-days { grid-template-columns: repeat(2, 1fr); }
-            .sc-split { grid-template-columns: 1fr; }
-            .sc-header h1 { font-size: 2.2rem; }
+        @media (max-width: 900px) {
+            .sc-grid { grid-template-columns: 1fr 1fr; }
+            .sc-hero h1 { font-size: 42px; }
+            .sc-shead { font-size: 32px; }
+            .sc-feat { grid-template-columns: 1fr; }
+            .sc-feat .pad { padding: 32px 26px; }
+            .sc-end h2 { font-size: 28px; }
         }
         @media (max-width: 520px) {
-            .sc-days { grid-template-columns: 1fr; }
+            .sc-grid, .sc-sess-cards { grid-template-columns: 1fr; }
+            .sc-hero { padding: 52px 22px; }
         }
     </style>
     <!-- Google tag (gtag.js) -->
@@ -208,75 +217,79 @@
     </header>
 
     <main class="sc">
-        <!-- Header -->
-        <section class="sc-header">
-            <span class="sc-eyebrow">Summer Session 2026 &middot; By Troy VEX Robotics 98601</span>
-            <h1>Troy VEX Summer Camp</h1>
-            <p>Five days of lectures, activities, labs, and a mini-competition at Troy High School. Build, program, and compete &mdash; no experience required.</p>
-            <a href="https://forms.gle/aQRuszeFDVhHZTJ77" target="_blank" rel="noopener noreferrer" class="btn-primary">Register Now &mdash; $275</a>
-            <span class="sc-note">Spots limited, sign up fast!</span>
-        </section>
-
         <div class="sc-wrap">
-            <!-- Quick facts — all camp details up top -->
-            <div class="sc-facts">
-                <div class="sc-fact"><div class="v">July 20&ndash;24</div><div class="l">Summer Session 2026</div></div>
-                <div class="sc-fact"><div class="v">AM Session</div><div class="l">9 AM &ndash; 1 PM</div></div>
-                <div class="sc-fact"><div class="v">PM Session</div><div class="l">2 PM &ndash; 6 PM</div></div>
-                <div class="sc-fact"><div class="v">$275</div><div class="l">Cost per camper</div></div>
-                <div class="sc-fact"><div class="v">Grades 5&ndash;12</div><div class="l">No experience required</div></div>
-                <div class="sc-fact"><div class="v">5:1</div><div class="l">Student to instructor ratio</div></div>
-                <div class="sc-fact"><div class="v">20 hours</div><div class="l">Total hands-on instruction</div></div>
-                <div class="sc-fact"><div class="v">Room 402</div><div class="l">Troy High School, Fullerton, CA</div></div>
-            </div>
-
-            <!-- Curriculum + highlights -->
-            <div class="sc-split">
-                <div>
-                    <h2>What campers learn</h2>
-                    <ul>
-                        <li>Engineering design and robot building</li>
-                        <li>Programming and sensors</li>
-                        <li>Driver control and autonomous coding</li>
-                        <li>Practice competition</li>
-                    </ul>
-                    <div class="sc-subhead">Taught by a championship program</div>
-                    <ul>
-                        <li>National Champions</li>
-                        <li>4 World Championship qualified teams</li>
-                        <li>Worlds Build + Judges Award holders</li>
-                        <li>25+ awards</li>
-                    </ul>
+            <!-- Hero -->
+            <section class="sc-hero">
+                <span class="sc-orb a"></span><span class="sc-orb b"></span>
+                <div class="inner">
+                    <div class="ey">VEX Robotics Summer Camp &middot; By Troy VEX Robotics 98601</div>
+                    <h1 class="disp">Troy Summer Session 2026</h1>
+                    <div class="details">
+                        <p><b>July 20&ndash;24, 2026</b> at <b>Troy High School</b>, Fullerton, CA (Room 402)</p>
+                        <p>Two sessions daily: <b>AM 9 AM&ndash;1 PM</b> or <b>PM 2 PM&ndash;6 PM</b></p>
+                        <p>Open to grades 5&ndash;12, no experience required. <b>$275</b> per camper.</p>
+                    </div>
+                    <div class="sc-cta">
+                        <a class="sc-pill dark" href="https://forms.gle/aQRuszeFDVhHZTJ77" target="_blank" rel="noopener noreferrer">Register Now &mdash; $275</a>
+                        <a class="sc-pill light" href="mailto:troyvexrobotics@gmail.com">Ask a Question</a>
+                    </div>
+                    <div class="sc-note">Spots limited, sign up fast!</div>
                 </div>
-                <img src="/assets/images/events/2025/summer-camp/PXL_20250731_012807227.jpg" alt="Campers building VEX robots at the 2025 summer camp">
-            </div>
+            </section>
 
-            <!-- Schedule -->
-            <div class="sc-sched">
-                <h2>The five-day schedule</h2>
-                <div class="sc-days">
-                    <div class="sc-day"><div class="d">DAY 1</div><p>Engineering Design and Labs</p></div>
-                    <div class="sc-day"><div class="d">DAY 2</div><p>Robot Building and Labs</p></div>
-                    <div class="sc-day"><div class="d">DAY 3</div><p>Code Fundamentals and Labs</p></div>
-                    <div class="sc-day"><div class="d">DAY 4</div><p>Code Labs and Mini-Competition</p></div>
-                    <div class="sc-day"><div class="d">DAY 5</div><p>Mini-Competition and Awards</p></div>
+            <!-- Figures -->
+            <section class="sc-sec">
+                <h2 class="sc-shead disp">Camp in four figures.</h2>
+                <p class="sc-slead">Everything a parent asks about, up front.</p>
+                <div class="sc-grid">
+                    <div class="sc-pcard"><div class="n">5&ndash;12</div><div class="t">Grades welcome, zero experience needed</div></div>
+                    <div class="sc-pcard"><div class="n"><span class="r">5:1</span></div><div class="t">Student to instructor ratio</div></div>
+                    <div class="sc-pcard"><div class="n">20</div><div class="t">Hours of hands-on instruction</div></div>
+                    <div class="sc-pcard"><div class="n"><span class="r">2</span></div><div class="t">Sessions daily: AM 9&ndash;1 and PM 2&ndash;6</div></div>
                 </div>
-            </div>
+            </section>
+
+            <!-- Schedule feature -->
+            <section class="sc-sec" style="padding-top:0">
+                <div class="sc-feat">
+                    <div class="pad">
+                        <h3 class="disp">Five days.<br>One mini-championship.</h3>
+                        <ul>
+                            <li><b>Day 1:</b> Engineering Design and Labs</li>
+                            <li><b>Day 2:</b> Robot Building and Labs</li>
+                            <li><b>Day 3:</b> Code Fundamentals and Labs</li>
+                            <li><b>Day 4:</b> Code Labs and Mini-Competition</li>
+                            <li><b>Day 5:</b> Mini-Competition and Awards</li>
+                        </ul>
+                        <span class="tag">Lectures &middot; Activities &middot; Labs &middot; Mini-Competition</span>
+                    </div>
+                    <img src="/assets/images/events/2025/summer-camp/PXL_20250716_224247026.jpg" alt="Campers at the 2025 Troy VEX summer camp">
+                </div>
+
+                <!-- Sessions + instructors feature -->
+                <div class="sc-feat rev">
+                    <img src="/assets/images/events/2025/summer-camp/PXL_20250731_012807227.jpg" alt="Campers building VEX robots">
+                    <div class="pad">
+                        <h3 class="disp">Two sessions.<br>Taught by champions.</h3>
+                        <div class="sc-sess-cards">
+                            <div class="sc-sess"><h4>AM Session</h4><p>July 20&ndash;24<br>9 AM &ndash; 1 PM</p></div>
+                            <div class="sc-sess"><h4>PM Session</h4><p>July 20&ndash;24<br>2 PM &ndash; 6 PM</p></div>
+                        </div>
+                        <ul style="margin-top:14px">
+                            <li><b>Curriculum:</b> engineering design, robot building, programming and sensors, driver control and autonomous coding, practice competition</li>
+                            <li><b>Your instructors:</b> National Champions, 4 World Championship qualified teams, Worlds Build + Judges Award holders, 25+ awards</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final CTA -->
+            <section class="sc-end">
+                <h2 class="disp">Ready for a summer of robots?</h2>
+                <p>Pick your session and grab a spot before they're gone. Questions? Email <a href="mailto:troyvexrobotics@gmail.com">troyvexrobotics@gmail.com</a>.</p>
+                <a class="sc-pill dark" href="https://forms.gle/aQRuszeFDVhHZTJ77" target="_blank" rel="noopener noreferrer">Sign Up for Camp</a>
+            </section>
         </div>
-
-        <!-- Sessions + register -->
-        <section class="sc-cta">
-            <h2>July 20&ndash;24, 2026</h2>
-            <div class="cost">$275 per camper</div>
-            <div class="sc-sessions">
-                <div class="sc-session"><h3>AM Session</h3><p>9 AM &ndash; 1 PM</p></div>
-                <div class="sc-session"><h3>PM Session</h3><p>2 PM &ndash; 6 PM</p></div>
-            </div>
-            <a href="https://forms.gle/aQRuszeFDVhHZTJ77" target="_blank" rel="noopener noreferrer" class="btn-primary">Sign Up for Camp</a>
-            <p class="spots">Spots limited, sign up fast!</p>
-        </section>
-
-        <p class="sc-contact">Questions? Email <a href="mailto:troyvexrobotics@gmail.com">troyvexrobotics@gmail.com</a></p>
     </main>
 
     <footer class="site-footer">
