@@ -861,6 +861,14 @@ body.dark-mode .accomplishment-item .trophy {
 }
 
 /* Dark mode for page headers */
+/* The light-mode wash (navy at 8% alpha) reads as a muddy gray box on dark
+   backgrounds — swap it for a faint white lift plus the brand-red glow. */
+body.dark-mode .page-header {
+    background:
+        radial-gradient(circle at 92% -8%, rgba(177, 42, 52, 0.22), transparent 44%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 45%, transparent 100%);
+}
+
 body.dark-mode .page-header h1 {
     color: #fff !important;
 }
@@ -5649,7 +5657,7 @@ body.dark-mode .evp .cal-has {
 body.dark-mode .evp .ev-major .ev-tag,
 body.dark-mode .evp .cal-ev.ev-major {
     color: #fff;
-    background: #3a4a78;
+    background: #b12a34;
 }
 
 /* ─── Dark mode: redesigned Sponsors page ───────────────────────────────────

@@ -202,20 +202,25 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ─── Summer Camp promo (top bar + corner toast) ──────────────────────────────
-// Both dismiss together: only the ✕ on either one hides both and remembers it.
+// Each dismisses on its own: only its own ✕ hides it and remembers it.
 document.addEventListener('DOMContentLoaded', function () {
-    const DISMISS_KEY = 'campPromo2026Dismissed';
+    const LEGACY_KEY = 'campPromo2026Dismissed';
+    const BAR_KEY = 'campPromoBar2026Dismissed';
+    const TOAST_KEY = 'campPromoToast2026Dismissed';
 
-    function isDismissed() {
-        try { return localStorage.getItem(DISMISS_KEY) === '1'; } catch (e) { return false; }
+    function isDismissed(key) {
+        try { return localStorage.getItem(key) === '1' || localStorage.getItem(LEGACY_KEY) === '1'; } catch (e) { return false; }
     }
-    function rememberDismissed() {
-        try { localStorage.setItem(DISMISS_KEY, '1'); } catch (e) { /* storage disabled */ }
+    function rememberDismissed(key) {
+        try { localStorage.setItem(key, '1'); } catch (e) { /* storage disabled */ }
     }
 
-    // Skip on the camp page itself and if already dismissed.
+    const barDismissed = isDismissed(BAR_KEY);
+    const toastDismissed = isDismissed(TOAST_KEY);
+
+    // Skip on the camp page itself and if both already dismissed.
     const path = window.location.pathname.replace(/\/$/, '');
-    if (isDismissed() || path.endsWith('/summercamp') || path.endsWith('/summercamp.html')) {
+    if ((barDismissed && toastDismissed) || path.endsWith('/summercamp') || path.endsWith('/summercamp.html')) {
         return;
     }
 
@@ -271,53 +276,59 @@ document.addEventListener('DOMContentLoaded', function () {
     document.head.appendChild(style);
 
     // Top announcement bar
-    const bar = document.createElement('div');
-    bar.className = 'camp-promo-bar';
-    bar.innerHTML =
-        '<span class="msg"><b>Troy VEX Summer Camp</b> · July 20–24<span class="extra"> · Grades 5–12 · Spots limited</span></span>' +
-        '<a class="go" href="/summercamp">Sign Up</a>' +
-        '<button class="camp-promo-x" aria-label="Dismiss camp banner">✕</button>';
-    document.body.appendChild(bar);
+    if (!barDismissed) {
+        const bar = document.createElement('div');
+        bar.className = 'camp-promo-bar';
+        bar.innerHTML =
+            '<span class="msg"><b>Troy VEX Summer Camp</b> · July 20–24<span class="extra"> · Grades 5–12 · Spots limited</span></span>' +
+            '<a class="go" href="/summercamp">Sign Up</a>' +
+            '<button class="camp-promo-x" aria-label="Dismiss camp banner">✕</button>';
+        document.body.appendChild(bar);
+
+        // The site header is position:fixed at top:0 — push it (and the page) down
+        // by the bar's live height so nothing hides behind the bar.
+        const header = document.querySelector('header');
+        const baseBodyPadding = parseFloat(window.getComputedStyle(document.body).paddingTop) || 0;
+
+        function offsetForBar() {
+            const h = bar.getBoundingClientRect().height;
+            if (header) header.style.top = h + 'px';
+            document.body.style.paddingTop = (baseBodyPadding + h) + 'px';
+        }
+        offsetForBar();
+        window.addEventListener('resize', offsetForBar);
+
+        // Only an explicit ✕ click dismisses the bar; the toast stays.
+        bar.querySelector('.camp-promo-x').addEventListener('click', function () {
+            rememberDismissed(BAR_KEY);
+            bar.remove();
+            if (header) header.style.top = '';
+            document.body.style.paddingTop = '';
+            window.removeEventListener('resize', offsetForBar);
+        });
+    }
 
     // Corner toast
-    const toast = document.createElement('div');
-    toast.className = 'camp-promo-toast';
-    toast.innerHTML =
-        '<span class="orb a"></span><span class="orb b"></span>' +
-        '<button class="camp-promo-x" aria-label="Dismiss camp popup">✕</button>' +
-        '<div class="in">' +
-        '<div class="ey">Summer 2026</div>' +
-        '<h3>Troy VEX Summer Camp</h3>' +
-        '<p>July 20–24 at Troy HS. Grades 5–12, no experience required.</p>' +
-        '<a class="pill" href="/summercamp">Sign Up</a>' +
-        '<span class="spots">Spots limited, sign up fast!</span>' +
-        '</div>';
-    document.body.appendChild(toast);
-    setTimeout(function () { toast.classList.add('show'); }, 1200);
+    if (!toastDismissed) {
+        const toast = document.createElement('div');
+        toast.className = 'camp-promo-toast';
+        toast.innerHTML =
+            '<span class="orb a"></span><span class="orb b"></span>' +
+            '<button class="camp-promo-x" aria-label="Dismiss camp popup">✕</button>' +
+            '<div class="in">' +
+            '<div class="ey">Summer 2026</div>' +
+            '<h3>Troy VEX Summer Camp</h3>' +
+            '<p>July 20–24 at Troy HS. Grades 5–12, no experience required.</p>' +
+            '<a class="pill" href="/summercamp">Sign Up</a>' +
+            '<span class="spots">Spots limited, sign up fast!</span>' +
+            '</div>';
+        document.body.appendChild(toast);
+        setTimeout(function () { toast.classList.add('show'); }, 1200);
 
-    // The site header is position:fixed at top:0 — push it (and the page) down
-    // by the bar's live height so nothing hides behind the bar.
-    const header = document.querySelector('header');
-    const baseBodyPadding = parseFloat(window.getComputedStyle(document.body).paddingTop) || 0;
-
-    function offsetForBar() {
-        const h = bar.getBoundingClientRect().height;
-        if (header) header.style.top = h + 'px';
-        document.body.style.paddingTop = (baseBodyPadding + h) + 'px';
+        // Only an explicit ✕ click dismisses the toast; the bar stays.
+        toast.querySelector('.camp-promo-x').addEventListener('click', function () {
+            rememberDismissed(TOAST_KEY);
+            toast.remove();
+        });
     }
-    offsetForBar();
-    window.addEventListener('resize', offsetForBar);
-
-    function dismissBoth() {
-        rememberDismissed();
-        bar.remove();
-        toast.remove();
-        if (header) header.style.top = '';
-        document.body.style.paddingTop = '';
-        window.removeEventListener('resize', offsetForBar);
-    }
-
-    // Only an explicit ✕ click dismisses. Sign Up and card clicks leave both alive.
-    bar.querySelector('.camp-promo-x').addEventListener('click', dismissBoth);
-    toast.querySelector('.camp-promo-x').addEventListener('click', dismissBoth);
 });
