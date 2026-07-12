@@ -1359,7 +1359,7 @@ body.dark-mode .awards-list tbody tr {
 }
 
 .awards-list .rainbow-award-text {
-    display: inline-block;
+    display: inline;
     font-weight: 700;
     color: transparent !important;
     -webkit-text-fill-color: transparent;
