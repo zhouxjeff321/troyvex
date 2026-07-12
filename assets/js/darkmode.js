@@ -16,33 +16,44 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Check for saved theme preference or default to 'light'
-    const currentTheme = getStoredTheme() === 'dark' ? 'dark' : 'light';
+    // Dark mode is temporarily disabled — site stays light, no toggle button.
+    // Flip to true to bring back the toggle and saved-theme behavior.
+    const DARK_MODE_ENABLED = false;
 
-    // Apply saved theme on page load
-    if (currentTheme === 'dark') {
-        document.body.classList.add('dark-mode');
+    if (DARK_MODE_ENABLED) {
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = getStoredTheme() === 'dark' ? 'dark' : 'light';
+
+        // Apply saved theme on page load
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Create toggle button
+        const toggleButton = document.createElement('button');
+
+        function updateToggleState(isDark) {
+            toggleButton.textContent = isDark ? '🌙' : '☀️';
+            toggleButton.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+            toggleButton.setAttribute('title', isDark ? 'Dark mode enabled' : 'Light mode enabled');
+        }
+
+        toggleButton.className = 'dark-mode-toggle';
+        toggleButton.setAttribute('aria-label', 'Toggle dark mode');
+        updateToggleState(currentTheme === 'dark');
+        document.body.appendChild(toggleButton);
+
+        // Toggle theme on button click
+        toggleButton.addEventListener('click', function () {
+            const isDark = document.body.classList.toggle('dark-mode');
+            updateToggleState(isDark);
+            setStoredTheme(isDark ? 'dark' : 'light');
+        });
+    } else {
+        // Force light mode even if a dark preference was saved earlier.
+        document.body.classList.remove('dark-mode');
+        setStoredTheme('light');
     }
-
-    function updateToggleState(isDark) {
-        toggleButton.textContent = isDark ? '🌙' : '☀️';
-        toggleButton.setAttribute('aria-pressed', isDark ? 'true' : 'false');
-        toggleButton.setAttribute('title', isDark ? 'Dark mode enabled' : 'Light mode enabled');
-    }
-
-    // Create toggle button
-    const toggleButton = document.createElement('button');
-    toggleButton.className = 'dark-mode-toggle';
-    toggleButton.setAttribute('aria-label', 'Toggle dark mode');
-    updateToggleState(currentTheme === 'dark');
-    document.body.appendChild(toggleButton);
-
-    // Toggle theme on button click
-    toggleButton.addEventListener('click', function () {
-        const isDark = document.body.classList.toggle('dark-mode');
-        updateToggleState(isDark);
-        setStoredTheme(isDark ? 'dark' : 'light');
-    });
 
     // Image fallbacks are configured with data-fallback-src instead of inline handlers.
     document.querySelectorAll('img[data-fallback-src]').forEach(function (img) {
@@ -191,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ─── Summer Camp promo (top bar + corner toast) ──────────────────────────────
-// Both dismiss together: any click on either one hides both and remembers it.
+// Both dismiss together: only the ✕ on either one hides both and remembers it.
 document.addEventListener('DOMContentLoaded', function () {
     const DISMISS_KEY = 'campPromo2026Dismissed';
 
@@ -247,7 +258,15 @@ document.addEventListener('DOMContentLoaded', function () {
         'body.dark-mode .camp-promo-toast h3 { color: #f2f2f2; }',
         'body.dark-mode .camp-promo-toast .ey, body.dark-mode .camp-promo-toast p { color: #b0b0b0; }',
         'body.dark-mode .camp-promo-toast .pill { background: #b12a34; }',
-        'body.dark-mode .camp-promo-toast .orb { opacity: 0.3; }'
+        'body.dark-mode .camp-promo-toast .orb { opacity: 0.3; }',
+        '@media (max-width: 768px) {',
+        '  .camp-promo-bar { flex-wrap: nowrap; justify-content: space-between; text-align: left;',
+        '    gap: 0.6rem; padding: 0.5rem 2.2rem 0.5rem 0.85rem; font-size: 0.8rem; }',
+        '  .camp-promo-bar .msg { flex: 1 1 auto; line-height: 1.35; }',
+        '  .camp-promo-bar .msg .extra { display: none; }',
+        '  .camp-promo-bar .go { padding: 0.25rem 0.85rem; font-size: 0.75rem; }',
+        '  .camp-promo-bar .camp-promo-x { right: 0.6rem; }',
+        '}'
     ].join('\n');
     document.head.appendChild(style);
 
@@ -255,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const bar = document.createElement('div');
     bar.className = 'camp-promo-bar';
     bar.innerHTML =
-        '<span class="msg"><b>Troy VEX Summer Camp</b> · July 20–24 · Grades 5–12 · Spots limited</span>' +
+        '<span class="msg"><b>Troy VEX Summer Camp</b> · July 20–24<span class="extra"> · Grades 5–12 · Spots limited</span></span>' +
         '<a class="go" href="/summercamp">Sign Up</a>' +
         '<button class="camp-promo-x" aria-label="Dismiss camp banner">✕</button>';
     document.body.appendChild(bar);
@@ -298,8 +317,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.removeEventListener('resize', offsetForBar);
     }
 
-    // Any click on either popup (X, Sign Up, or the card itself) hides both.
-    // Links still navigate after the dismissal is stored.
-    bar.addEventListener('click', dismissBoth);
-    toast.addEventListener('click', dismissBoth);
+    // Only an explicit ✕ click dismisses. Sign Up and card clicks leave both alive.
+    bar.querySelector('.camp-promo-x').addEventListener('click', dismissBoth);
+    toast.querySelector('.camp-promo-x').addEventListener('click', dismissBoth);
 });
