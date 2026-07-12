@@ -78,10 +78,11 @@
         .tl-coming .in { position: relative; z-index: 2; }
         .tl-coming h3 { font-size: 2.2rem; color: #000; margin: 0; }
         .tl-coming p { color: #555; font-size: 0.95rem; margin: 0.5rem 0 1.2rem; }
-        .tl-pill { border-radius: 9999px; font-size: 0.88rem; font-weight: 500; padding: 0.6rem 1.15rem; display: inline-block; text-decoration: none; }
+        .tl-cta { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.6rem; }
+        .tl-pill { border-radius: 9999px; font-size: 0.88rem; font-weight: 500; padding: 0.6rem 1.15rem; display: inline-block; text-decoration: none; text-align: center; }
         .tl-pill.dark { background: #000; color: #fff; }
         .tl-pill.dark:hover { background: #b12a34; }
-        .tl-pill.light { background: #fdfcfc; color: #000; border: 1px solid #e5e5e5; box-shadow: rgba(0,0,0,0.06) 0 0 0 1px; margin-left: 0.5rem; }
+        .tl-pill.light { background: #fdfcfc; color: #000; border: 1px solid #e5e5e5; box-shadow: rgba(0,0,0,0.06) 0 0 0 1px; }
         .tl-pill.light:hover { background: #f5f3f1; }
 
         /* members directory card */
@@ -108,6 +109,9 @@
             .tl-lead { grid-template-columns: 1fr; }
             .tl-cols { column-count: 2; }
             .tl-coming h3 { font-size: 1.6rem; }
+        }
+        @media (max-width: 480px) {
+            .tl-cta { flex-direction: column; align-items: stretch; max-width: 240px; margin: 0 auto; }
         }
     </style>
 </head>
@@ -251,7 +255,7 @@
                 <div class="in">
                     <h3 class="tl-disp">9 teams, coming soon.</h3>
                     <p>The 2026&ndash;27 squads are forming now. Check back for the new lineup.</p>
-                    <a class="tl-pill dark" href="/join">Join the Program</a><a class="tl-pill light" href="/archivedteams">View 2025&ndash;26 Teams</a>
+                    <div class="tl-cta"><a class="tl-pill dark" href="/join">Join the Program</a><a class="tl-pill light" href="/archivedteams">View 2025&ndash;26 Teams</a></div>
                 </div>
             </div>
         </section>
