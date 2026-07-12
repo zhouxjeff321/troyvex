@@ -215,12 +215,18 @@ document.addEventListener('DOMContentLoaded', function () {
         try { localStorage.setItem(key, '1'); } catch (e) { /* storage disabled */ }
     }
 
+    // Visiting the camp page counts as seen: no more corner toast anywhere after.
+    const path = window.location.pathname.replace(/\/$/, '');
+    if (path.endsWith('/summercamp') || path.endsWith('/summercamp.html')) {
+        rememberDismissed(TOAST_KEY);
+        return;
+    }
+
     const barDismissed = isDismissed(BAR_KEY);
     const toastDismissed = isDismissed(TOAST_KEY);
 
-    // Skip on the camp page itself and if both already dismissed.
-    const path = window.location.pathname.replace(/\/$/, '');
-    if ((barDismissed && toastDismissed) || path.endsWith('/summercamp') || path.endsWith('/summercamp.html')) {
+    // Skip if both already dismissed.
+    if (barDismissed && toastDismissed) {
         return;
     }
 

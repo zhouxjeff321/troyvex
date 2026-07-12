@@ -8,7 +8,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Events - Troy VEX Robotics</title>
-    <link rel="stylesheet" href="/assets/css/site.css?v=15">
+    <link rel="stylesheet" href="/assets/css/site.css?v=16">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
     <!-- Google tag (gtag.js) -->
@@ -106,8 +106,8 @@
       body.dark-mode .evp .cal-tip::after{border-top-color:#333}
       body.dark-mode .evp .cal-tip b{color:#fff}
       body.dark-mode .evp .cal-adj .cal-num{color:#55555a}
-      body.dark-mode .evp .cal-today{box-shadow:inset 0 0 0 1.5px #6b83c4}
-      body.dark-mode .evp .cal-today .cal-num{color:#8fa4d9}
+      body.dark-mode .evp .cal-today{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.45)}
+      body.dark-mode .evp .cal-today .cal-num{color:#e0e0e0}
       body.dark-mode .evp .cal-today.cal-has{box-shadow:inset 0 0 0 1.5px var(--red)}
       @media(max-width:680px){
         .evp .evp-hero h1{font-size:34px}
@@ -116,6 +116,7 @@
         .evp .cal-cell{min-height:56px}
         .evp .cal-ev{font-size:0;height:6px;width:6px;border-radius:50%;background:var(--red);margin-top:3px}
         .evp .cal-ev.ev-major{background:var(--navy)}
+        body.dark-mode .evp .cal-ev.ev-major{background:#b12a34}
       }
     </style>
 </head>
@@ -361,7 +362,7 @@
         if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
       })();
     </script>
-    <script src="/assets/js/darkmode.js?v=11"></script>
+    <script src="/assets/js/darkmode.js?v=12"></script>
 </body>
 
 </html>
