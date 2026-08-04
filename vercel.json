@@ -2,6 +2,24 @@
   "cleanUrls": true,
   "headers": [
     {
+      "source": "/:team(teama|teamb|teamc|teamd|teame|teamx|teamy|archivedteams)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/pages/teams/:team(teama|teamb|teamc|teamd|teame|teamx|teamy|archivedteams)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         {
