@@ -3497,15 +3497,6 @@ body.dark-mode header {
     border: 1px solid #e0e0e0;
     border-top-width: 3px;
     border-radius: 8px;
-    transition: border-color 0.2s ease;
-}
-
-.student-card:hover {
-    border-top-color: #b12a34;
-}
-
-body.dark-mode .student-card:hover {
-    border-top-color: #b12a34;
 }
 
 .student-card.primary {
