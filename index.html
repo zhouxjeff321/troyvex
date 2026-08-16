@@ -81,7 +81,10 @@
       .plate img{ width:100%; height:auto; display:block; }
       .plate figcaption{ padding-top:12px; display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; }
 
-      .imp{ padding:88px 0 0; }
+      /* padding-top, never the padding shorthand: these rules come after .wide,
+         so a shorthand here resets its horizontal gutter to 0 and the section
+         ends up 40px wider than the hero above it. */
+      .imp{ padding-top:88px; }
       .imp h2{ font-family:'Instrument Serif',Georgia,serif !important; font-size:clamp(2.2rem,4vw,3.3rem);
         font-weight:400; margin:20px 0 0; }
       .imp .lede{ font-size:1.06rem; line-height:1.7; color:var(--ink-2); margin:20px auto 0; max-width:50ch; }
@@ -124,16 +127,18 @@
         .marquee-track a[aria-hidden="true"]{ display:none; }
       }
 
-      .rec{ padding:88px 0 0; }
+      .rec{ padding-top:88px; }
       .rec h2{ font-family:'Instrument Serif',Georgia,serif !important; font-size:clamp(2.2rem,4vw,3.3rem);
         font-weight:400; margin:20px 0 40px; }
       /* named rec-tier, not tier: site.css styles a bare .tier as a rounded
          card (background, border, radius) for the donation pages, and that was
          leaking in here and boxing every row. */
+      /* ink rules bracket the whole table, hairlines divide the tiers inside it —
+         the same treatment as .imp-row above */
+      .rec-list{ border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
       .rec-tier{ display:grid; grid-template-columns:220px minmax(0,1fr); gap:56px; padding:28px 0;
         border-top:1px solid var(--rule); align-items:start; }
-      .rec-tier:first-of-type{ border-top:1px solid var(--ink); }
-      .rec-tier:last-of-type{ border-bottom:1px solid var(--ink); }
+      .rec-list .rec-tier:first-child{ border-top:none; }
       .rec-tier > div:first-child .lb{ display:block; line-height:1.2; }
       .rec-tier-sub{ display:block; margin-top:8px; font-size:.95rem; color:var(--muted); line-height:1.45; }
       .aw{ display:flex; justify-content:space-between; gap:24px; align-items:baseline;
@@ -147,13 +152,13 @@
       .aw-t{ font-size:10px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
         color:var(--crimson); white-space:nowrap; }
 
-      .inv{ padding:88px 0 0; display:grid; grid-template-columns:1fr 1fr; gap:64px; }
+      .inv{ padding-top:88px; display:grid; grid-template-columns:1fr 1fr; gap:64px; }
       .inv h3{ font-family:'Instrument Serif',Georgia,serif !important; font-size:2.1rem; font-weight:400; margin:12px 0 14px; }
       .inv p{ font-size:1.01rem; line-height:1.7; color:var(--ink-2); margin:0 0 22px; }
       .inv ul{ list-style:none; margin:0 0 26px; padding:0; }
       .inv li{ font-size:.96rem; color:var(--ink-2); padding:10px 0; border-bottom:1px solid var(--rule-2); }
 
-      .loc{ padding:88px 0 0; }
+      .loc{ padding-top:88px; }
       .loc h2{ font-family:'Instrument Serif',Georgia,serif !important; font-size:clamp(2.2rem,4vw,3.2rem);
         font-weight:400; margin:20px 0 6px; }
       .loc .addr{ font-size:1.02rem; color:var(--ink-2); margin:0 0 30px; }
@@ -329,37 +334,39 @@
             <div class="ctr"><span class="lb lb-r">Record</span>
                 <h2>Last season</h2>
             </div>
-            <div class="rec-tier">
-                <div><span class="lb lb-r">Worlds</span><span class="rec-tier-sub">VEX Robotics World Championship</span></div>
-                <div>
-                    <div class="aw"><span class="aw-n">Build Award</span><span class="aw-t">98601C</span></div>
-                    <div class="aw"><span class="aw-n">Judges Award</span><span class="aw-t">98601X</span></div>
+            <div class="rec-list">
+                <div class="rec-tier">
+                    <div><span class="lb lb-r">Worlds</span><span class="rec-tier-sub">VEX Robotics World Championship</span></div>
+                    <div>
+                        <div class="aw"><span class="aw-n">Build Award</span><span class="aw-t">98601C</span></div>
+                        <div class="aw"><span class="aw-n">Judges Award</span><span class="aw-t">98601X</span></div>
+                    </div>
                 </div>
-            </div>
-            <div class="rec-tier">
-                <div><span class="lb lb-r">JROTC Nationals</span><span class="rec-tier-sub">JROTC National Championship</span></div>
-                <div>
-                    <div class="aw"><span class="aw-n">National Champion</span><span class="aw-t">98601Y</span></div>
-                    <div class="aw"><span class="aw-n">Excellence Award</span><span class="aw-t">98601Y</span></div>
-                    <div class="aw"><span class="aw-n">Robot Skills Champion</span><span class="aw-t">98601Y</span></div>
-                    <div class="aw"><span class="aw-n">Innovate Award <em>— world qualified</em></span><span class="aw-t">98601C</span></div>
-                    <div class="aw"><span class="aw-n">Think Award <em>— world qualified</em></span><span class="aw-t">98601X</span></div>
+                <div class="rec-tier">
+                    <div><span class="lb lb-r">JROTC Nationals</span><span class="rec-tier-sub">JROTC National Championship</span></div>
+                    <div>
+                        <div class="aw"><span class="aw-n">National Champion</span><span class="aw-t">98601Y</span></div>
+                        <div class="aw"><span class="aw-n">Excellence Award</span><span class="aw-t">98601Y</span></div>
+                        <div class="aw"><span class="aw-n">Robot Skills Champion</span><span class="aw-t">98601Y</span></div>
+                        <div class="aw"><span class="aw-n">Innovate Award <em>— world qualified</em></span><span class="aw-t">98601C</span></div>
+                        <div class="aw"><span class="aw-n">Think Award <em>— world qualified</em></span><span class="aw-t">98601X</span></div>
+                    </div>
                 </div>
-            </div>
-            <div class="rec-tier">
-                <div><span class="lb lb-r">States</span><span class="rec-tier-sub">California Region 4 Championship</span></div>
-                <div>
-                    <div class="aw"><span class="aw-n">Tournament Finalists</span><span class="aw-t">98601Y</span></div>
+                <div class="rec-tier">
+                    <div><span class="lb lb-r">States</span><span class="rec-tier-sub">California Region 4 Championship</span></div>
+                    <div>
+                        <div class="aw"><span class="aw-n">Tournament Finalists</span><span class="aw-t">98601Y</span></div>
+                    </div>
                 </div>
-            </div>
-            <div class="rec-tier">
-                <div><span class="lb lb-r">Signature Events</span><span class="rec-tier-sub">Diamond in the Desert · Kalahari Classic · Lobstah Bowl</span></div>
-                <div>
-                    <div class="aw"><span class="aw-n">Tournament Champion <em>— Diamond in the Desert</em></span><span class="aw-t">98601Y</span></div>
-                    <div class="aw"><span class="aw-n">Robot Skills Champion <em>— Diamond in the Desert</em></span><span class="aw-t">98601Y</span></div>
-                    <div class="aw"><span class="aw-n">Robot Skills Champion <em>— Kalahari Classic</em></span><span class="aw-t">98601Y</span></div>
-                    <div class="aw"><span class="aw-n">Judges Award <em>— Kalahari Classic</em></span><span class="aw-t">98601X</span></div>
-                    <div class="aw"><span class="aw-n">Judges Award <em>— Lobstah Bowl</em></span><span class="aw-t">98601X</span></div>
+                <div class="rec-tier">
+                    <div><span class="lb lb-r">Signature Events</span><span class="rec-tier-sub">Diamond in the Desert · Kalahari Classic · Lobstah Bowl</span></div>
+                    <div>
+                        <div class="aw"><span class="aw-n">Tournament Champion <em>— Diamond in the Desert</em></span><span class="aw-t">98601Y</span></div>
+                        <div class="aw"><span class="aw-n">Robot Skills Champion <em>— Diamond in the Desert</em></span><span class="aw-t">98601Y</span></div>
+                        <div class="aw"><span class="aw-n">Robot Skills Champion <em>— Kalahari Classic</em></span><span class="aw-t">98601Y</span></div>
+                        <div class="aw"><span class="aw-n">Judges Award <em>— Kalahari Classic</em></span><span class="aw-t">98601X</span></div>
+                        <div class="aw"><span class="aw-n">Judges Award <em>— Lobstah Bowl</em></span><span class="aw-t">98601X</span></div>
+                    </div>
                 </div>
             </div>
             <div style="padding-top:30px;" class="ctr"><a href="/awards" class="lnk">The complete record</a></div>
