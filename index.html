@@ -95,6 +95,34 @@
       .imp-note{ margin:34px auto 0; font-size:1.04rem; line-height:1.7; color:var(--ink-2); max-width:58ch; text-align:center; }
       .imp-note strong{ color:var(--ink); font-weight:600; }
 
+      /* alumni and internship placements */
+      .alum{ max-width:62ch; margin:38px auto 0; padding-top:26px; border-top:1px solid var(--rule); text-align:center; }
+      .alum p{ font-size:1.04rem; line-height:1.7; color:var(--ink-2); margin:14px 0 0; }
+      .alum p strong{ color:var(--ink); font-weight:600; }
+      /* Scrolling placement strip. The track holds two identical passes and
+         shifts by exactly -50%, so the loop is seamless — that only lines up if
+         the spacing lives in each item's margin rather than a flex gap, since a
+         gap would leave half a gap of drift at the wrap point. */
+      .marquee{ position:relative; margin-top:34px; padding:22px 0 4px;
+        border-top:1px solid var(--rule); overflow:hidden;
+        -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+                mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); }
+      .marquee-track{ display:flex; align-items:center; width:max-content;
+        animation:marquee-scroll 46s linear infinite; }
+      .marquee-track a{ margin-right:52px; white-space:nowrap; text-decoration:none;
+        font-size:1.12rem; color:var(--ink-2); border-bottom:1px solid transparent;
+        padding-bottom:3px; transition:color .18s ease, border-color .18s ease; }
+      .marquee-track a:hover{ color:var(--crimson); border-bottom-color:var(--crimson); }
+      /* hovering or tabbing in stops the strip so the links can actually be hit */
+      .marquee:hover .marquee-track,
+      .marquee:focus-within .marquee-track{ animation-play-state:paused; }
+      @keyframes marquee-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+      @media (prefers-reduced-motion:reduce){
+        .marquee{ -webkit-mask-image:none; mask-image:none; }
+        .marquee-track{ animation:none; width:auto; flex-wrap:wrap; justify-content:center; row-gap:12px; }
+        .marquee-track a[aria-hidden="true"]{ display:none; }
+      }
+
       .rec{ padding:88px 0 0; }
       .rec h2{ font-family:'Instrument Serif',Georgia,serif !important; font-size:clamp(2.2rem,4vw,3.3rem);
         font-weight:400; margin:20px 0 40px; }
@@ -240,8 +268,46 @@
                 <div class="ic"><b>1 in 2</b><span>Cadets arrive with zero experience</span></div>
                 <div class="ic"><b>100%</b><span>Of every dollar reaches students</span></div>
             </div>
-            <p class="imp-note">Five cadets have gone on to <strong>Boeing</strong>; others to JPL at Caltech, Yale
-                Young Global Scholars, COSMOS, and Carnegie Mellon.</p>
+            <div class="alum">
+                <span class="lb lb-r">Where they go next</span>
+                <p>Alumni are studying engineering at some of the strongest programs in the country, and cadets
+                    intern alongside them at national labs and aerospace firms. The technical and communication
+                    skills behind those placements are the same ones built on this team.</p>
+            </div>
+
+            <div class="marquee" aria-label="Where Troy VEX alumni study and intern">
+                <div class="marquee-track">
+                    <a href="https://www.boeing.com" target="_blank" rel="noopener noreferrer">Boeing</a>
+                    <a href="https://www.rtx.com" target="_blank" rel="noopener noreferrer">Raytheon</a>
+                    <a href="https://www.upenn.edu" target="_blank" rel="noopener noreferrer">UPenn</a>
+                    <a href="https://www.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley</a>
+                    <a href="https://www.cmu.edu" target="_blank" rel="noopener noreferrer">Carnegie Mellon</a>
+                    <a href="https://www.jpl.nasa.gov" target="_blank" rel="noopener noreferrer">JPL at Caltech</a>
+                    <a href="https://www.afrl.af.mil" target="_blank" rel="noopener noreferrer">Air Force Research Lab</a>
+                    <a href="https://www.purdue.edu" target="_blank" rel="noopener noreferrer">Purdue</a>
+                    <a href="https://www.cornell.edu" target="_blank" rel="noopener noreferrer">Cornell</a>
+                    <a href="https://www.stanford.edu" target="_blank" rel="noopener noreferrer">Stanford</a>
+                    <a href="https://www.yale.edu" target="_blank" rel="noopener noreferrer">Yale</a>
+                    <a href="https://www.ucla.edu" target="_blank" rel="noopener noreferrer">UCLA</a>
+                    <a href="https://www.uchicago.edu" target="_blank" rel="noopener noreferrer">UChicago</a>
+                    <a href="https://www.peraton.com" target="_blank" rel="noopener noreferrer">Peraton</a>
+                    <!-- second pass, for the seamless loop; hidden from assistive tech -->
+                    <a href="https://www.boeing.com" tabindex="-1" aria-hidden="true">Boeing</a>
+                    <a href="https://www.rtx.com" tabindex="-1" aria-hidden="true">Raytheon</a>
+                    <a href="https://www.upenn.edu" tabindex="-1" aria-hidden="true">UPenn</a>
+                    <a href="https://www.berkeley.edu" tabindex="-1" aria-hidden="true">UC Berkeley</a>
+                    <a href="https://www.cmu.edu" tabindex="-1" aria-hidden="true">Carnegie Mellon</a>
+                    <a href="https://www.jpl.nasa.gov" tabindex="-1" aria-hidden="true">JPL at Caltech</a>
+                    <a href="https://www.afrl.af.mil" tabindex="-1" aria-hidden="true">Air Force Research Lab</a>
+                    <a href="https://www.purdue.edu" tabindex="-1" aria-hidden="true">Purdue</a>
+                    <a href="https://www.cornell.edu" tabindex="-1" aria-hidden="true">Cornell</a>
+                    <a href="https://www.stanford.edu" tabindex="-1" aria-hidden="true">Stanford</a>
+                    <a href="https://www.yale.edu" tabindex="-1" aria-hidden="true">Yale</a>
+                    <a href="https://www.ucla.edu" tabindex="-1" aria-hidden="true">UCLA</a>
+                    <a href="https://www.uchicago.edu" tabindex="-1" aria-hidden="true">UChicago</a>
+                    <a href="https://www.peraton.com" tabindex="-1" aria-hidden="true">Peraton</a>
+                </div>
+            </div>
         </section>
 
         <section class="wide rec">
