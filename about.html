@@ -147,11 +147,16 @@
 
       /* the timeline — three chapters, the copy taken from /teams. Crimson ticks
          hang off the ink rule so the row reads as a sequence rather than cards. */
-      .chapters{ display:grid; grid-template-columns:repeat(3,1fr); margin-top:52px;
+      /* The gutter is a real column-gap and the dividers are pseudo-elements
+         centred in it. Carrying the gutter as per-column padding instead left
+         the middle chapter padded on both sides and the outer two on one, so
+         its content box — and its photograph — came out 36px narrower than its
+         neighbours'. Equal tracks, equal pictures. */
+      .chapters{ display:grid; grid-template-columns:repeat(3,1fr); column-gap:72px; margin-top:52px;
         border-top:1px solid var(--ink); }
-      .ch{ padding:0 36px; border-right:1px solid var(--rule); }
-      .ch:first-child{ padding-left:0; }
-      .ch:last-child{ padding-right:0; border-right:none; }
+      .ch{ position:relative; }
+      .ch + .ch::before{ content:''; position:absolute; top:0; bottom:0; left:-36px;
+        width:1px; background:var(--rule); }
       .ch-mark::before{ content:''; display:block; width:1px; height:15px; background:var(--crimson); }
       .ch-mark b{ font-family:'Instrument Serif',Georgia,serif !important; display:block;
         font-size:clamp(2.2rem,3.6vw,2.9rem); font-weight:400; line-height:.9; letter-spacing:-.02em;
@@ -221,8 +226,10 @@
         /* the photograph moves above the prose here, so the desktop drop would
            just be a gap under the heading — take it back off */
         .origin figure{ order:-1; margin-top:0; }
-        .chapters{ grid-template-columns:1fr; margin-top:34px; }
-        .ch{ padding:0 0 30px; border-right:none; border-bottom:1px solid var(--rule); margin-bottom:30px; }
+        .chapters{ grid-template-columns:1fr; column-gap:0; margin-top:34px; }
+        .ch{ padding:0 0 30px; border-bottom:1px solid var(--rule); margin-bottom:30px; }
+        /* stacked, the dividers between chapters are the bottom borders */
+        .ch + .ch::before{ display:none; }
         .ch:last-child{ padding-bottom:0; border-bottom:none; margin-bottom:0; }
         .feat{ grid-template-columns:1fr; gap:26px; margin-top:34px; }
         .feat img{ aspect-ratio:3/2; }
@@ -352,8 +359,8 @@
             <div class="ctr">
                 <span class="lb lb-r">Leadership</span>
                 <h2>Who runs it</h2>
-                <p class="lede">One instructor sets the standard. The cadets do the rest — the schedule, the builds, the
-                    training, the argument about the intake design at nine on a Thursday.</p>
+                <p class="lede">One instructor sets the standard. The cadets do the rest — the schedule, the builds,
+                    the training.</p>
             </div>
 
             <div class="feat">
