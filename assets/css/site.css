@@ -1854,13 +1854,11 @@ body.dark-mode .sponsor-info-card p {
     outline-offset: 3px;
 }
 
-/* ===== Footer — "Tally Cream" (cream bg + warm gradient wave) ===== */
+/* ===== Footer — flat light-grey panel, four link columns ===== */
 footer.site-footer {
-    position: relative;
-    overflow: hidden;
-    background: #f7f5ef;
+    background: #f7f7f8;
     color: #2b2f3a;
-    padding: 4rem 0 9rem;
+    padding: 4rem 0;
     margin-top: 5rem;
 }
 
@@ -1923,33 +1921,7 @@ footer.site-footer {
     font-size: 0.85rem;
 }
 
-/* Layered warm gradient wave rising from the bottom */
-.footer-wave {
-    position: absolute;
-    left: -10%;
-    right: -10%;
-    bottom: -62%;
-    width: 120%;
-    height: 80%;
-    background: linear-gradient(108deg, #f0563c 0%, #ff6a4d 40%, #ff8a63 70%, #ffb184 100%);
-    border-radius: 50% 50% 0 0 / 30% 30% 0 0;
-    z-index: 1;
-}
-
-.footer-wave::before {
-    content: "";
-    position: absolute;
-    left: 8%;
-    right: -14%;
-    bottom: -22%;
-    width: 116%;
-    height: 100%;
-    background: linear-gradient(120deg, #ff7a59 0%, #ffaa80 100%);
-    border-radius: 50% 50% 0 0 / 34% 34% 0 0;
-    opacity: 0.85;
-}
-
-/* Dark mode — deep charcoal panel, same warm wave */
+/* Dark mode — deep charcoal panel */
 body.dark-mode footer.site-footer {
     background: #14161b;
     color: #e7e8ea;
@@ -1968,7 +1940,7 @@ body.dark-mode .footer-col a {
 }
 
 body.dark-mode .footer-col a:hover {
-    color: #ff8a63;
+    color: #e4636d;
 }
 
 body.dark-mode .footer-bottom p {
@@ -3224,7 +3196,7 @@ body.dark-mode header {
 
     /* Footer */
     footer.site-footer {
-        padding: 3rem 0 7rem;
+        padding: 3rem 0;
     }
 
     .footer-cols {
