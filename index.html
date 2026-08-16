@@ -109,10 +109,11 @@
                 mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); }
       .marquee-track{ display:flex; align-items:center; width:max-content;
         animation:marquee-scroll 46s linear infinite; }
-      .marquee-track a{ margin-right:52px; white-space:nowrap; text-decoration:none;
-        font-size:1.12rem; color:var(--ink-2); border-bottom:1px solid transparent;
-        padding-bottom:3px; transition:color .18s ease, border-color .18s ease; }
-      .marquee-track a:hover{ color:var(--crimson); border-bottom-color:var(--crimson); }
+      .marquee-track a{ display:inline-flex; align-items:center; flex:none; margin-right:54px;
+        opacity:.92; transition:opacity .18s ease, transform .18s ease; }
+      .marquee-track a:hover{ opacity:1; transform:translateY(-2px); }
+      /* one height for every mark, whatever its own proportions are */
+      .marquee-track img{ height:56px; width:auto; display:block; }
       /* hovering or tabbing in stops the strip so the links can actually be hit */
       .marquee:hover .marquee-track,
       .marquee:focus-within .marquee-track{ animation-play-state:paused; }
@@ -126,13 +127,21 @@
       .rec{ padding:88px 0 0; }
       .rec h2{ font-family:'Instrument Serif',Georgia,serif !important; font-size:clamp(2.2rem,4vw,3.3rem);
         font-weight:400; margin:20px 0 40px; }
-      .tier{ display:grid; grid-template-columns:230px 1fr; gap:48px; padding:30px 0;
+      /* named rec-tier, not tier: site.css styles a bare .tier as a rounded
+         card (background, border, radius) for the donation pages, and that was
+         leaking in here and boxing every row. */
+      .rec-tier{ display:grid; grid-template-columns:220px minmax(0,1fr); gap:56px; padding:28px 0;
         border-top:1px solid var(--rule); align-items:start; }
-      .tier:first-of-type{ border-top:1px solid var(--ink); }
-      .tier-sub{ display:block; margin-top:8px; font-size:.95rem; color:var(--muted); line-height:1.45; }
+      .rec-tier:first-of-type{ border-top:1px solid var(--ink); }
+      .rec-tier:last-of-type{ border-bottom:1px solid var(--ink); }
+      .rec-tier > div:first-child .lb{ display:block; line-height:1.2; }
+      .rec-tier-sub{ display:block; margin-top:8px; font-size:.95rem; color:var(--muted); line-height:1.45; }
       .aw{ display:flex; justify-content:space-between; gap:24px; align-items:baseline;
-        padding:9px 0; border-bottom:1px solid var(--rule-2); }
-      .aw:last-child{ border-bottom:none; }
+        padding:11px 0; border-bottom:1px solid var(--rule-2); }
+      /* the first and last rows carry the tier's own padding, so drop theirs —
+         otherwise the award column sits lower than the label beside it */
+      .aw:first-child{ padding-top:0; }
+      .aw:last-child{ padding-bottom:0; border-bottom:none; }
       .aw-n{ font-size:1.05rem; color:var(--ink); }
       .aw-n em{ font-style:normal; color:var(--muted); font-size:.92rem; }
       .aw-t{ font-size:10px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
@@ -171,8 +180,8 @@
         .imp-row{ grid-template-columns:1fr 1fr; }
         .ic{ padding:26px 14px; border-bottom:1px solid var(--rule); }
         .ic:nth-child(2){ border-right:none; }
-        .tier{ grid-template-columns:1fr; gap:10px; padding:24px 0; }
-        .tier-sub{ margin-top:5px; }
+        .rec-tier{ grid-template-columns:1fr; gap:14px; padding:24px 0; }
+        .rec-tier-sub{ margin-top:5px; }
         .inv{ grid-template-columns:1fr; gap:34px; }
 
         /* single-column widths let prose run to 80+ characters a line, which is
@@ -271,41 +280,47 @@
             <div class="alum">
                 <span class="lb lb-r">Where they go next</span>
                 <p>Alumni are studying engineering at some of the strongest programs in the country, and cadets
-                    intern alongside them at national labs and aerospace firms. The technical and communication
-                    skills behind those placements are the same ones built on this team.</p>
+                    intern alongside them — at <strong>JPL at Caltech</strong>, the
+                    <strong>Air Force Research Lab</strong>, Stanford, Yale, UChicago and Peraton among them. The
+                    technical and communication skills behind those placements are the same ones built on this
+                    team.</p>
             </div>
 
             <div class="marquee" aria-label="Where Troy VEX alumni study and intern">
                 <div class="marquee-track">
-                    <a href="https://www.boeing.com" target="_blank" rel="noopener noreferrer">Boeing</a>
-                    <a href="https://www.rtx.com" target="_blank" rel="noopener noreferrer">Raytheon</a>
-                    <a href="https://www.upenn.edu" target="_blank" rel="noopener noreferrer">UPenn</a>
-                    <a href="https://www.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley</a>
-                    <a href="https://www.cmu.edu" target="_blank" rel="noopener noreferrer">Carnegie Mellon</a>
-                    <a href="https://www.jpl.nasa.gov" target="_blank" rel="noopener noreferrer">JPL at Caltech</a>
-                    <a href="https://www.afrl.af.mil" target="_blank" rel="noopener noreferrer">Air Force Research Lab</a>
-                    <a href="https://www.purdue.edu" target="_blank" rel="noopener noreferrer">Purdue</a>
-                    <a href="https://www.cornell.edu" target="_blank" rel="noopener noreferrer">Cornell</a>
-                    <a href="https://www.stanford.edu" target="_blank" rel="noopener noreferrer">Stanford</a>
-                    <a href="https://www.yale.edu" target="_blank" rel="noopener noreferrer">Yale</a>
-                    <a href="https://www.ucla.edu" target="_blank" rel="noopener noreferrer">UCLA</a>
-                    <a href="https://www.uchicago.edu" target="_blank" rel="noopener noreferrer">UChicago</a>
-                    <a href="https://www.peraton.com" target="_blank" rel="noopener noreferrer">Peraton</a>
+                    <a href="https://www.boeing.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/boeing.png"
+                        alt="Boeing" width="160" height="160"></a>
+                    <a href="https://www.rtx.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/raytheon.png"
+                        alt="Raytheon Technologies" width="160" height="160"></a>
+                    <a href="https://www.upenn.edu" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/upenn.png"
+                        alt="University of Pennsylvania" width="160" height="160"></a>
+                    <a href="https://www.berkeley.edu" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/berkeley.png"
+                        alt="UC Berkeley" width="160" height="160"></a>
+                    <a href="https://www.cmu.edu" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/cmu.png"
+                        alt="Carnegie Mellon University" width="160" height="160"></a>
+                    <a href="https://www.purdue.edu" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/purdue.png"
+                        alt="Purdue University" width="160" height="160"></a>
+                    <a href="https://www.cornell.edu" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/cornell.png"
+                        alt="Cornell University" width="160" height="160"></a>
+                    <a href="https://www.ucla.edu" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/ucla.png"
+                        alt="UCLA" width="160" height="160"></a>
                     <!-- second pass, for the seamless loop; hidden from assistive tech -->
-                    <a href="https://www.boeing.com" tabindex="-1" aria-hidden="true">Boeing</a>
-                    <a href="https://www.rtx.com" tabindex="-1" aria-hidden="true">Raytheon</a>
-                    <a href="https://www.upenn.edu" tabindex="-1" aria-hidden="true">UPenn</a>
-                    <a href="https://www.berkeley.edu" tabindex="-1" aria-hidden="true">UC Berkeley</a>
-                    <a href="https://www.cmu.edu" tabindex="-1" aria-hidden="true">Carnegie Mellon</a>
-                    <a href="https://www.jpl.nasa.gov" tabindex="-1" aria-hidden="true">JPL at Caltech</a>
-                    <a href="https://www.afrl.af.mil" tabindex="-1" aria-hidden="true">Air Force Research Lab</a>
-                    <a href="https://www.purdue.edu" tabindex="-1" aria-hidden="true">Purdue</a>
-                    <a href="https://www.cornell.edu" tabindex="-1" aria-hidden="true">Cornell</a>
-                    <a href="https://www.stanford.edu" tabindex="-1" aria-hidden="true">Stanford</a>
-                    <a href="https://www.yale.edu" tabindex="-1" aria-hidden="true">Yale</a>
-                    <a href="https://www.ucla.edu" tabindex="-1" aria-hidden="true">UCLA</a>
-                    <a href="https://www.uchicago.edu" tabindex="-1" aria-hidden="true">UChicago</a>
-                    <a href="https://www.peraton.com" tabindex="-1" aria-hidden="true">Peraton</a>
+                    <a href="https://www.boeing.com" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/boeing.png"
+                        alt="" width="160" height="160"></a>
+                    <a href="https://www.rtx.com" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/raytheon.png"
+                        alt="" width="160" height="160"></a>
+                    <a href="https://www.upenn.edu" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/upenn.png"
+                        alt="" width="160" height="160"></a>
+                    <a href="https://www.berkeley.edu" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/berkeley.png"
+                        alt="" width="160" height="160"></a>
+                    <a href="https://www.cmu.edu" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/cmu.png"
+                        alt="" width="160" height="160"></a>
+                    <a href="https://www.purdue.edu" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/purdue.png"
+                        alt="" width="160" height="160"></a>
+                    <a href="https://www.cornell.edu" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/cornell.png"
+                        alt="" width="160" height="160"></a>
+                    <a href="https://www.ucla.edu" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/ucla.png"
+                        alt="" width="160" height="160"></a>
                 </div>
             </div>
         </section>
@@ -314,15 +329,15 @@
             <div class="ctr"><span class="lb lb-r">Record</span>
                 <h2>Last season</h2>
             </div>
-            <div class="tier">
-                <div><span class="lb lb-r">Worlds</span><span class="tier-sub">VEX Robotics World Championship</span></div>
+            <div class="rec-tier">
+                <div><span class="lb lb-r">Worlds</span><span class="rec-tier-sub">VEX Robotics World Championship</span></div>
                 <div>
                     <div class="aw"><span class="aw-n">Build Award</span><span class="aw-t">98601C</span></div>
                     <div class="aw"><span class="aw-n">Judges Award</span><span class="aw-t">98601X</span></div>
                 </div>
             </div>
-            <div class="tier">
-                <div><span class="lb lb-r">JROTC Nationals</span><span class="tier-sub">JROTC National Championship</span></div>
+            <div class="rec-tier">
+                <div><span class="lb lb-r">JROTC Nationals</span><span class="rec-tier-sub">JROTC National Championship</span></div>
                 <div>
                     <div class="aw"><span class="aw-n">National Champion</span><span class="aw-t">98601Y</span></div>
                     <div class="aw"><span class="aw-n">Excellence Award</span><span class="aw-t">98601Y</span></div>
@@ -331,14 +346,14 @@
                     <div class="aw"><span class="aw-n">Think Award <em>— world qualified</em></span><span class="aw-t">98601X</span></div>
                 </div>
             </div>
-            <div class="tier">
-                <div><span class="lb lb-r">States</span><span class="tier-sub">California Region 4 Championship</span></div>
+            <div class="rec-tier">
+                <div><span class="lb lb-r">States</span><span class="rec-tier-sub">California Region 4 Championship</span></div>
                 <div>
                     <div class="aw"><span class="aw-n">Tournament Finalists</span><span class="aw-t">98601Y</span></div>
                 </div>
             </div>
-            <div class="tier">
-                <div><span class="lb lb-r">Signature Events</span><span class="tier-sub">Diamond in the Desert · Kalahari Classic · Lobstah Bowl</span></div>
+            <div class="rec-tier">
+                <div><span class="lb lb-r">Signature Events</span><span class="rec-tier-sub">Diamond in the Desert · Kalahari Classic · Lobstah Bowl</span></div>
                 <div>
                     <div class="aw"><span class="aw-n">Tournament Champion <em>— Diamond in the Desert</em></span><span class="aw-t">98601Y</span></div>
                     <div class="aw"><span class="aw-n">Robot Skills Champion <em>— Diamond in the Desert</em></span><span class="aw-t">98601Y</span></div>
