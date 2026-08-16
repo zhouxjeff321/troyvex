@@ -39,6 +39,8 @@
         --rule:#e2ddd3; --rule-2:#ece8e0; --bg:#f7f5f0; --crimson:#8f2b2b;
         --gutter:40px;
       }
+      /* stop iOS Safari inflating body copy independently of the headings */
+      html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
       body,p,li,span,a,div,strong,em,figure,figcaption,button,h1,h2,h3,h4{
         font-family:'Inter',-apple-system,sans-serif !important; }
       body{ background:var(--bg); color:var(--ink); }
@@ -126,15 +128,41 @@
       @media (max-width:900px){
         :root{ --gutter:20px; }
         .hero-grid{ grid-template-columns:1fr; gap:26px; padding-top:36px; }
-        .htext h1{ font-size:2.2rem; }
+
+        /* site.css crushes every heading on mobile with
+           h1{font-size:1.75rem!important} / h2{1.5rem!important} / h3{1.25rem!important},
+           which left the headline smaller than its own body copy. These win it back;
+           the !important is only here to outrank that global rule. */
+        .htext h1{ font-size:clamp(1.9rem, 9vw, 2.4rem) !important; }
+        .imp h2,.rec h2,.loc h2{ font-size:1.85rem !important; }
+        .inv h3{ font-size:1.55rem !important; }
+
         .breakline{ margin-top:38px; }
         .plate{ margin-top:38px; }
         .imp,.rec,.inv{ padding-top:54px; }
         .imp-row{ grid-template-columns:1fr 1fr; }
         .ic{ padding:26px 14px; border-bottom:1px solid var(--rule); }
         .ic:nth-child(2){ border-right:none; }
-        .tier{ grid-template-columns:1fr; gap:14px; }
-        .inv{ grid-template-columns:1fr; gap:38px; }
+        .tier{ grid-template-columns:1fr; gap:10px; padding:24px 0; }
+        .tier-sub{ margin-top:5px; }
+        .inv{ grid-template-columns:1fr; gap:34px; }
+
+        /* single-column widths let prose run to 80+ characters a line, which is
+           what made these blocks feel oversized. Cap the measure instead. */
+        .inv p,.inv li,.aw-n,.rec-aw{ max-width:58ch; }
+        .imp .lede,.imp-note{ max-width:52ch; }
+        .loc iframe{ height:300px; }
+      }
+
+      /* tablets and large phones: the hero and section heads still had desktop
+         proportions here, so everything below them read too large by comparison */
+      @media (max-width:620px){
+        .htext h1{ font-size:clamp(1.8rem, 8.4vw, 2.2rem) !important; }
+        .imp h2,.rec h2,.loc h2{ font-size:1.6rem !important; }
+        .inv h3{ font-size:1.4rem !important; }
+        .htext .sub,.inv p{ font-size:1rem; }
+        .aw-n,.rec-ev{ font-size:.98rem; }
+        .imp,.rec,.inv,.loc{ padding-top:46px; }
       }
     </style>
 </head>

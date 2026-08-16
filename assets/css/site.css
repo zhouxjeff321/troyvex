@@ -3200,8 +3200,10 @@ body.dark-mode header {
     }
 
     .footer-cols {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.75rem 1rem;
+        /* was a hard 2-up, which left big empty gutters on tablets. Fit as many
+           columns as the width allows: four on a tablet, two on a phone. */
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 1.75rem 1.25rem;
     }
 
     .footer-bottom {
