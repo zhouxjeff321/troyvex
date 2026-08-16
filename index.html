@@ -110,19 +110,22 @@
         border-top:1px solid var(--rule); overflow:hidden;
         -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
                 mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); }
-      /* 60s, not 46s: the marks and their spacing grew by about a third, so the
-         track is a third longer — the duration has to grow with it or the strip
-         scrolls noticeably faster than it used to. */
+      /* These keyframes are the no-JS fallback. When the script at the foot of
+         the page takes over it adds .js-scroll and drives the transform itself,
+         because hover has to ease the strip down to a crawl and CSS can't
+         transition animation-duration — changing it mid-run jumps the track. */
       .marquee-track{ display:flex; align-items:center; width:max-content;
-        animation:marquee-scroll 60s linear infinite; }
+        animation:marquee-scroll 46s linear infinite; }
+      .marquee.js-scroll .marquee-track{ animation:none; will-change:transform; }
       .marquee-track a{ display:inline-flex; align-items:center; flex:none; margin-right:68px;
         opacity:.92; transition:opacity .18s ease, transform .18s ease; }
       .marquee-track a:hover{ opacity:1; transform:translateY(-2px); }
       /* one height for every mark, whatever its own proportions are */
       .marquee-track img{ height:78px; width:auto; display:block; }
-      /* hovering or tabbing in stops the strip so the links can actually be hit */
-      .marquee:hover .marquee-track,
-      .marquee:focus-within .marquee-track{ animation-play-state:paused; }
+      /* without the script, hovering stops the strip outright so the links stay
+         hittable; with it, they stay hittable because the crawl is slow enough */
+      .marquee:not(.js-scroll):hover .marquee-track,
+      .marquee:not(.js-scroll):focus-within .marquee-track{ animation-play-state:paused; }
       @keyframes marquee-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
       @media (prefers-reduced-motion:reduce){
         .marquee{ -webkit-mask-image:none; mask-image:none; }
@@ -354,8 +357,8 @@
                         <div class="aw"><span class="aw-n">National Champion</span><span class="aw-t">98601Y</span></div>
                         <div class="aw"><span class="aw-n">Excellence Award</span><span class="aw-t">98601Y</span></div>
                         <div class="aw"><span class="aw-n">Robot Skills Champion</span><span class="aw-t">98601Y</span></div>
-                        <div class="aw"><span class="aw-n">Innovate Award <em>— world qualified</em></span><span class="aw-t">98601C</span></div>
-                        <div class="aw"><span class="aw-n">Think Award <em>— world qualified</em></span><span class="aw-t">98601X</span></div>
+                        <div class="aw"><span class="aw-n">Innovate Award</span><span class="aw-t">98601C</span></div>
+                        <div class="aw"><span class="aw-n">Think Award</span><span class="aw-t">98601X</span></div>
                     </div>
                 </div>
                 <div class="rec-tier">
@@ -367,11 +370,11 @@
                 <div class="rec-tier">
                     <div><span class="lb lb-r">Signature Events</span><span class="rec-tier-sub">Diamond in the Desert · Kalahari Classic · Lobstah Bowl</span></div>
                     <div>
-                        <div class="aw"><span class="aw-n">Tournament Champion <em>— Diamond in the Desert</em></span><span class="aw-t">98601Y</span></div>
-                        <div class="aw"><span class="aw-n">Robot Skills Champion <em>— Diamond in the Desert</em></span><span class="aw-t">98601Y</span></div>
-                        <div class="aw"><span class="aw-n">Robot Skills Champion <em>— Kalahari Classic</em></span><span class="aw-t">98601Y</span></div>
-                        <div class="aw"><span class="aw-n">Judges Award <em>— Kalahari Classic</em></span><span class="aw-t">98601X</span></div>
-                        <div class="aw"><span class="aw-n">Judges Award <em>— Lobstah Bowl</em></span><span class="aw-t">98601X</span></div>
+                        <div class="aw"><span class="aw-n">Tournament Champion<em>, Diamond in the Desert</em></span><span class="aw-t">98601Y</span></div>
+                        <div class="aw"><span class="aw-n">Robot Skills Champion<em>, Diamond in the Desert</em></span><span class="aw-t">98601Y</span></div>
+                        <div class="aw"><span class="aw-n">Robot Skills Champion<em>, Kalahari Classic</em></span><span class="aw-t">98601Y</span></div>
+                        <div class="aw"><span class="aw-n">Judges Award<em>, Kalahari Classic</em></span><span class="aw-t">98601X</span></div>
+                        <div class="aw"><span class="aw-n">Judges Award<em>, Lobstah Bowl</em></span><span class="aw-t">98601X</span></div>
                     </div>
                 </div>
             </div>
@@ -439,6 +442,47 @@
         </div>
     </footer>
     <script src="/assets/js/darkmode.js?v=13"></script>
+    <script>
+      /* Placement strip. Runs on rAF instead of the CSS keyframes so hovering
+         can ease the scroll down to a crawl rather than stopping it dead. The
+         track holds two identical passes, so wrapping at half its width is
+         seamless; the width is re-read every frame, which lets the loop settle
+         on its own once the logos have finished loading. */
+      (function () {
+        var marquee = document.querySelector('.marquee');
+        if (!marquee || !window.requestAnimationFrame) return;
+        var track = marquee.querySelector('.marquee-track');
+        if (!track) return;
+        /* reduced motion keeps the CSS fallback, which lays the marks out
+           static and drops the duplicate pass */
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        /* px per second. Cruise is about a third quicker than the old keyframe
+           pace (a 1291px pass in 60s, ~21px/s); hover is a quarter of that —
+           slow enough to read a mark, still plainly moving. */
+        var CRUISE = 28, HOVER = 7;
+        var speed = CRUISE, pos = 0, last = 0, slow = false;
+
+        marquee.classList.add('js-scroll');
+        marquee.addEventListener('mouseenter', function () { slow = true; });
+        marquee.addEventListener('mouseleave', function () { slow = false; });
+        marquee.addEventListener('focusin', function () { slow = true; });
+        marquee.addEventListener('focusout', function () { slow = false; });
+
+        function step(now) {
+          /* clamped so a backgrounded tab doesn't come back and teleport */
+          var dt = last ? Math.min((now - last) / 1000, 0.05) : 0;
+          last = now;
+          speed += ((slow ? HOVER : CRUISE) - speed) * Math.min(1, dt * 5);
+          pos += speed * dt;
+          var pass = track.scrollWidth / 2;
+          if (pass > 0 && pos >= pass) pos -= pass;
+          track.style.transform = 'translateX(' + (-pos).toFixed(2) + 'px)';
+          requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      })();
+    </script>
 </body>
 
 </html>
