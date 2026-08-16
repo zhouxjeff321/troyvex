@@ -167,7 +167,10 @@
       .ch p{ font-size:1rem; line-height:1.7; color:var(--ink-2); margin:20px 0 0; }
 
       /* the coach, as a feature rather than a card */
-      .feat{ display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:56px;
+      /* the portrait is 4:5, so at .85fr it stood 150px taller than the prose
+         beside it and left a hole under the pull quote. Narrower column, same
+         crop — the picture now finishes about where the text does. */
+      .feat{ display:grid; grid-template-columns:minmax(0,.6fr) minmax(0,1.4fr); gap:56px;
         margin-top:52px; padding-top:38px; border-top:1px solid var(--ink); align-items:start; }
       .feat img{ width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center top;
         display:block; filter:saturate(.92); }
@@ -373,7 +376,7 @@
                         cadets to thrive.</p>
                     <p>His leadership ensures that we remain focused not just on winning trophies, but on building
                         character and resilience.</p>
-                    <p class="pull">Not just on winning trophies, but on building character and resilience.</p>
+                    <p class="pull">Creating the Leaders of Tomorrow.</p>
                 </div>
             </div>
 
