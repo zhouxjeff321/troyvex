@@ -10,18 +10,14 @@
       "source": "/pages/support/join",
       "destination": "/apply",
       "permanent": true
+    },
+    {
+      "source": "/:team(teama|teamb|teamc|teamd|teame|teamx|teamy|archivedteams)",
+      "destination": "/teams",
+      "permanent": true
     }
   ],
   "headers": [
-    {
-      "source": "/:team(teama|teamb|teamc|teamd|teame|teamx|teamy|archivedteams)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, follow"
-        }
-      ]
-    },
     {
       "source": "/summercamp",
       "headers": [

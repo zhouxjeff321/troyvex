@@ -54,9 +54,7 @@
         padding:22px 0; border-bottom:1px solid var(--rule); align-items:start; }
       .team > h3{ font-family:'Instrument Serif',Georgia,serif; font-size:1.32rem;
         font-weight:400; margin:0; line-height:1.24; }
-      .team > h3 a{ color:inherit; text-decoration:none;
-        border-bottom:1px solid var(--rule); padding-bottom:2px; }
-      .team > h3 a:hover{ color:var(--crimson); border-bottom-color:var(--crimson); }
+      .team > h3 span{ border-bottom:1px solid var(--rule); padding-bottom:2px; }
 
       /* one row per award */
       .aw{ display:flex; align-items:baseline; gap:20px; padding:8px 0; }
