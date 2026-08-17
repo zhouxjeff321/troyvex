@@ -124,7 +124,14 @@
         color:var(--crimson); margin-top:16px; }
       .ch-mark .lb{ display:block; margin-top:11px; }
       .ch figure{ margin:24px 0 0; }
-      .ch figure img{ width:100%; aspect-ratio:3/2; object-fit:cover; display:block; filter:saturate(.94); }
+      /* height:auto is load-bearing on every cropped image below, not tidiness.
+         The width/height attributes on an <img> become CSS presentational hints,
+         so height stays a definite pixel value unless something overrides it —
+         and a definite height makes the browser ignore aspect-ratio outright.
+         Without it these images render at their attribute height (809px, 557px,
+         455px…), which is what had the three commanders below at three
+         different sizes. Any new aspect-ratio on an <img> needs this too. */
+      .ch figure img{ width:100%; height:auto; aspect-ratio:3/2; object-fit:cover; display:block; filter:saturate(.94); }
       .ch p{ font-size:1rem; line-height:1.7; color:var(--ink-2); margin:20px 0 0; }
 
       /* the coach, as a feature rather than a card */
@@ -133,7 +140,7 @@
          crop — the picture now finishes about where the text does. */
       .feat{ display:grid; grid-template-columns:minmax(0,.6fr) minmax(0,1.4fr); gap:56px;
         margin-top:52px; padding-top:38px; border-top:1px solid var(--ink); align-items:start; }
-      .feat img{ width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center top;
+      .feat img{ width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:center top;
         display:block; filter:saturate(.92); }
       .feat h3{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(1.9rem,3.2vw,2.5rem);
         font-weight:400; margin:12px 0 20px; line-height:1.12; }
@@ -145,7 +152,7 @@
       /* the three cadet commanders, at portrait scale */
       .cos{ display:grid; grid-template-columns:repeat(3,1fr); gap:44px; margin-top:52px;
         padding-top:38px; border-top:1px solid var(--ink); }
-      .cos img{ width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top;
+      .cos img{ width:100%; height:auto; aspect-ratio:3/4; object-fit:cover; object-position:center top;
         display:block; filter:saturate(.92); }
       .cos .lb{ display:block; margin-top:20px; }
       .cos h3{ font-family:'Instrument Serif',Georgia,serif; font-size:1.72rem; font-weight:400;
