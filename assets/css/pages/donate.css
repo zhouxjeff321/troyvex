@@ -1,108 +1,229 @@
-      .dn{--red:#b12a34;--red-deep:#8e1f28;--navy:#0d1b3a;--ink:#16203a;--mut:#5d6b86;
-          --line:#e7e9f0;--paper:#fff;--canvas:#f7f8fb;--soft:#f1f3f8;
-          font-family:'Inter',sans-serif;color:var(--ink);background:var(--canvas);line-height:1.6}
-      .dn *{box-sizing:border-box}
-      .dn-wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
-      .dn-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-      .dn h1,.dn h2,.dn h3,.dn .dn-impact-num{font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:-.02em}
-      .dn a{text-decoration:none}
-      .dn-email-link{color:var(--red)}
-      .dn-give-note--flush{margin-top:0}
+      /* DONATE — page styles.
+         Self-contained, in the same shape as index.html, about.html and
+         sponsors.html: the shared chrome (navigation, footer) comes from site.css,
+         everything below overrides the body typography and lays out this page only.
+         Shares the about page's tokens, horizon gradient hero and dark close — keep
+         the four in step.
+         Someone on /donate has already decided, so the three ways to send money are
+         a standing counter: a panel bracketed in ink, pinned to the right, that
+         stays on screen while the case for giving scrolls past it on the left. It
+         cannot stick in one column, so below 1000px it leaves the right edge and
+         leads the page instead — see .d-rail in the breakpoint block. */
+      :root {
+        --ink:#1a1917; --ink-2:#4f4c47; --muted:#918b81;
+        --rule:#e2ddd3; --rule-2:#ece8e0; --bg:#f7f5f0; --crimson:#8f2b2b;
+        --band:#efece5; --gutter:40px;
+        --dk:#14130f; --dk-ink:#f3f0e9; --dk-ink-2:#c3bcae; --dk-rule:rgba(243,240,233,.22);
+      }
+      html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+      body{ font-family:'Inter',-apple-system,sans-serif; }
+      body{ background:var(--bg); color:var(--ink); }
+      /* the fixed header reserves a flat 100px on the body while the bar is only
+         84px tall (72px on a phone); handing that space to the hero band removes
+         the strip of paper above it at every width */
+      body{ padding-top:0; }
+      .ghero{ padding-top:100px; }
+      /* zeroing main's vertical padding so the full-bleed bands at the top and
+         bottom meet the nav and the footer instead of floating on paper */
+      main{ background:var(--bg); padding-top:0; padding-bottom:0; }
 
-      /* gradient hero (Stripe-style halo) */
-      .dn-hero{position:relative;overflow:hidden;background:var(--paper);border-bottom:1px solid var(--line)}
-      .dn-halo{position:absolute;inset:-30% -10% auto auto;width:820px;height:680px;z-index:0;pointer-events:none;
+      .wide{ max-width:1160px; margin:0 auto; padding:0 var(--gutter); }
+      .ctr{ text-align:center; }
+      .lb{ font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+      .lb-r{ color:var(--crimson); }
+      .bar{ width:46px; height:2px; background:var(--crimson); margin:22px 0 30px; }
+
+      .btn{ display:inline-block; padding:14px 28px; font-size:11px; font-weight:600; letter-spacing:.14em;
+        text-transform:uppercase; text-decoration:none; background:#1b1a18; color:#fff;
+        border:1px solid #1b1a18; border-radius:0; transition:background .2s,color .2s; }
+      .btn:hover{ background:transparent; color:#1b1a18; }
+      .btn-rev{ background:var(--dk-ink); color:var(--dk); border-color:var(--dk-ink); }
+      .btn-rev:hover{ background:transparent; color:var(--dk-ink); }
+      .btn-rev-o{ background:transparent; color:var(--dk-ink); border-color:var(--dk-rule); }
+      .btn-rev-o:hover{ background:var(--dk-ink); color:var(--dk); border-color:var(--dk-ink); }
+      .acts{ display:flex; gap:18px; align-items:center; flex-wrap:wrap; margin-top:34px; }
+      /* The second line inside a button. Its colour has to follow that button's own
+         ground — and every variant's ground flips on hover — so each states both
+         states explicitly. */
+      .btn-sub{ display:block; margin-top:5px; font-size:10px; font-weight:600; letter-spacing:.12em;
+        text-transform:uppercase; }
+      .btn .btn-sub{ color:rgba(243,240,233,.72); }          /* dark ground, light text */
+      /* --ink-2, not --muted, on paper grounds: --muted is a 3.1:1 grey, which is
+         fine for the decorative .lb eyebrows but not for a line that tells you what
+         the button does. */
+      .btn:hover .btn-sub{ color:var(--ink-2); }             /* inverts to paper */
+      .btn-rev .btn-sub{ color:rgba(26,25,23,.62); }         /* light ground, on the dark band */
+      .btn-rev:hover .btn-sub{ color:var(--dk-ink-2); }
+      .btn-rev-o .btn-sub{ color:var(--dk-ink-2); }          /* transparent on the dark band */
+      .btn-rev-o:hover .btn-sub{ color:rgba(26,25,23,.62); }
+
+      /* hero — the about page's horizon gradient, held short so the counter comes
+         into view on the first screen */
+      .ghero{ position:relative; width:100vw; margin:0 0 0 calc(50% - 50vw);
         background:
-          radial-gradient(closest-side,rgba(177,42,52,.45),transparent 70%),
-          radial-gradient(closest-side at 65% 55%,rgba(13,27,58,.42),transparent 70%),
-          radial-gradient(closest-side at 30% 80%,rgba(224,101,109,.40),transparent 70%);
-        filter:blur(28px);transform:skewY(-8deg)}
-      .dn-hero-inner{position:relative;z-index:2;padding:5rem 0 3.5rem;max-width:42rem}
-      .dn-h1{font-size:clamp(2.4rem,5.5vw,3.8rem);line-height:1.06;margin:1.1rem 0 1.2rem;color:var(--navy)}
-      .dn-lead{font-size:1.2rem;color:var(--mut);max-width:34rem}
-      .dn-cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem}
-      .dn-btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;padding:.85rem 1.5rem;font-size:.98rem;font-weight:600;transition:.15s}
-      .dn-btn-primary{background:var(--red);color:#fff}
-      .dn-btn-primary:hover{background:var(--red-deep)}
-      .dn-btn-ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
-      .dn-btn-ghost:hover{border-color:var(--navy)}
-      .dn-tax{display:inline-flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:1.8rem;font-size:.86rem;color:var(--mut);
-        background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:.6rem 1rem}
-      .dn-tax strong{color:var(--ink)}
-      .dn-tax-label{font-weight:700;color:var(--red)}
-      .dn-tax-dot{color:var(--line)}
+          radial-gradient(circle at 92% -8%, rgba(177,42,52,.12), transparent 44%),
+          linear-gradient(180deg, rgba(17,17,17,.07) 0%, rgba(17,17,17,.02) 60%, transparent 100%); }
+      /* the arc rides its own masked layer: its centre is below the band, so as a
+         background layer it would cut off in a hard line at the bottom edge */
+      .ghero::after{ content:''; position:absolute; inset:0; pointer-events:none;
+        background:radial-gradient(ellipse 120% 76% at 50% 116%, rgba(143,43,43,.16), transparent 62%);
+        -webkit-mask-image:linear-gradient(180deg, #000 55%, transparent 100%);
+                mask-image:linear-gradient(180deg, #000 55%, transparent 100%); }
+      .ghero-in{ position:relative; z-index:1;
+        max-width:1160px; margin:0 auto; padding:74px var(--gutter) 62px; text-align:center; }
+      .ghero h1{ font-family:'Instrument Serif',Georgia,serif; color:var(--ink);
+        font-size:clamp(2.5rem,5.2vw,4.2rem); font-weight:400; line-height:1.04; letter-spacing:-.018em;
+        margin:14px auto 0; max-width:20ch; }
+      .ghero h1 em{ font-family:'Instrument Serif',Georgia,serif; font-style:italic; }
+      .ghero .sub{ font-size:1.1rem; line-height:1.75; color:var(--ink-2); margin:24px auto 0; max-width:56ch; }
 
-      /* impact strip */
-      .dn-impact{background:var(--navy);color:#fff}
-      .dn-impact .dn-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding-top:0;padding-bottom:0}
-      .dn-impact-item{padding:2rem 1rem;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
-      .dn-impact-item:last-child{border-right:none}
-      .dn-impact-num{display:block;font-size:2.4rem;font-weight:700;line-height:1;letter-spacing:-.02em}
-      .dn-impact-num .r{color:#ff6b6b}
-      .dn-impact-label{display:block;font-size:.8rem;color:#aeb8cc;margin-top:.5rem;letter-spacing:.02em}
+      /* the receipt line: the three facts a giver checks before sending anything */
+      .d-tax{ display:flex; justify-content:center; align-items:center; gap:14px 22px; flex-wrap:wrap;
+        margin:28px auto 0; padding-top:20px; border-top:1px solid var(--rule); max-width:44rem; }
+      .d-tax span{ font-size:10px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+        color:var(--ink-2); }
+      .d-tax .d-tax-r{ color:var(--crimson); }
 
-      /* section shell */
-      .dn-section{padding:4rem 0}
-      .dn-section-head{max-width:40rem;margin-bottom:2.2rem}
-      .dn-section-title{font-size:2rem;color:var(--navy);margin:.6rem 0 .6rem}
-      .dn-section-sub{color:var(--mut);font-size:1.05rem}
+      /* padding-top, never the padding shorthand: these rules come after .wide, so a
+         shorthand here resets its horizontal gutter and the section ends up 40px
+         wider than the hero above it. */
+      .sec{ padding-top:88px; }
+      .sec h2{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(2.2rem,4vw,3.3rem);
+        font-weight:400; margin:20px 0 0; line-height:1.1; }
+      .sec .lede{ font-size:1.05rem; line-height:1.7; color:var(--ink-2); margin:20px auto 0; max-width:54ch; }
 
-      /* where money goes — budget */
+      /* ——— the split: case left, counter pinned right ——— */
+      .d-split{ display:grid; grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr); gap:60px;
+        padding-top:76px; align-items:start; }
+      .d-case h2{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(2rem,3.6vw,2.9rem);
+        font-weight:400; margin:14px 0 0; line-height:1.1; }
+      .pt{ padding:22px 0; border-top:1px solid var(--rule); }
+      .pt:first-of-type{ padding-top:0; border-top:none; }
+      .pt h3{ font-family:'Instrument Serif',Georgia,serif; font-size:1.32rem; font-weight:400;
+        margin:9px 0 9px; line-height:1.2; }
+      .pt p{ font-size:1.01rem; line-height:1.75; color:var(--ink-2); margin:0; max-width:58ch; }
+      .d-case figure{ margin:44px 0 0; }
+      .d-case figure img{ width:100%; height:auto; display:block; }
+      .d-case figcaption{ padding-top:12px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
 
-      /* gift tiers */
+      /* the counter itself. top:104px clears the 84px fixed bar with a hairline of
+         air; the panel is bracketed in ink so it reads as an instrument on the page
+         rather than a floating card. */
+      .d-rail{ position:sticky; top:104px; border:1px solid var(--ink); background:#fbfaf7; }
+      .d-rail-hd{ padding:22px 24px 20px; border-bottom:1px solid var(--ink); }
+      .d-rail-hd b{ display:block; margin-top:7px; font-family:'Instrument Serif',Georgia,serif;
+        font-size:1.6rem; font-weight:400; line-height:1.1; }
+      .d-rail-hd p{ margin:10px 0 0; font-size:.95rem; line-height:1.6; color:var(--ink-2); }
 
-      /* mission (ElevenLabs orbs) */
+      .d-meth{ padding:20px 24px 22px; border-top:1px solid var(--rule); }
+      .d-meth:first-of-type{ border-top:none; }
+      .d-meth h3{ font-family:'Instrument Serif',Georgia,serif; font-size:1.24rem; font-weight:400;
+        margin:0 0 12px; line-height:1.2; display:flex; align-items:baseline; gap:10px; }
+      .d-meth h3 .lb{ font-size:10px; }
+      .d-fld{ display:grid; grid-template-columns:96px minmax(0,1fr); gap:8px 16px;
+        padding:9px 0; border-bottom:1px solid var(--rule-2); }
+      .d-fld:last-of-type{ border-bottom:none; padding-bottom:0; }
+      /* --ink-2, not --muted: --muted is a 3.1:1 grey, fine for a decorative eyebrow
+         but not for the label on an account detail someone has to read and copy */
+      .d-fld .d-fk{ font-size:10px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+        color:var(--ink-2); padding-top:3px; }
+      .d-fld .d-fv{ font-size:.97rem; line-height:1.5; color:var(--ink); }
+      .d-fld .d-fv a{ color:var(--crimson); text-decoration:none; border-bottom:1px solid var(--rule); }
+      .d-fld .d-fv a:hover{ border-bottom-color:var(--crimson); }
+      .d-fld address{ font-style:normal; font-size:.97rem; line-height:1.5; color:var(--ink); }
+      .d-meth p{ margin:12px 0 0; font-size:.9rem; line-height:1.6; color:var(--ink-2); }
+      .d-rail-ft{ padding:18px 24px 20px; border-top:1px solid var(--ink); background:var(--band); }
+      .d-rail-ft .lb{ display:block; line-height:1.6; }
+      .d-rail-ft a{ display:inline-block; margin-top:10px; font-size:.95rem; color:var(--crimson);
+        text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:2px; }
+      .d-rail-ft a:hover{ border-bottom-color:var(--crimson); }
 
-      /* ways to give */
-      /* webpage: 3 cards as columns; mobile: horizontal swipe row */
-      .dn-give{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-      .dn-give-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:1.6rem}
-      .dn-give-card h3{font-size:1.15rem;color:var(--navy);display:flex;align-items:center;gap:.6rem}
-      .dn-give-icon{width:34px;height:34px;border-radius:9px;background:var(--soft);color:var(--red);display:grid;place-items:center;flex:0 0 auto}
-      .dn-field{margin-top:1.1rem}
-      .dn-field .k{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:.15rem}
-      .dn-field .v{font-weight:500;word-break:break-word}
-      .dn-give-note{font-size:.86rem;color:var(--mut);margin-top:1.1rem}
-      .dn-give address{font-style:normal;font-weight:500;line-height:1.5}
+      /* the figures, bracketed in ink like the front page's impact row */
+      .d-figs{ display:grid; grid-template-columns:repeat(4,1fr); margin-top:52px;
+        border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+      .d-fig{ padding:38px 24px; text-align:center; border-right:1px solid var(--rule); }
+      .d-fig:last-child{ border-right:none; }
+      .d-fig b{ font-family:'Instrument Serif',Georgia,serif; display:block;
+        font-size:clamp(2.6rem,4.6vw,3.8rem); font-weight:400; line-height:.9; letter-spacing:-.02em;
+        color:var(--crimson); }
+      .d-fig span{ display:block; margin-top:16px; font-size:.98rem; line-height:1.5; color:var(--ink-2); }
 
-      /* scheduler */
-      .dn-sched{background:var(--paper);border-top:1px solid var(--line)}
-      .dn-sched-grid{display:grid;grid-template-columns:.9fr 1.4fr;gap:2.5rem;align-items:start}
-      .dn-sched-copy h2{font-size:2rem;color:var(--navy);margin:.6rem 0}
-      .dn-sched-copy p{color:var(--mut);margin-bottom:1rem}
-      .dn-sched-copy ul{list-style:none;padding:0;margin:1.2rem 0 0;display:grid;gap:.7rem}
-      .dn-sched-copy li{display:flex;gap:.6rem;align-items:flex-start;color:var(--ink)}
-      .dn-sched-copy li::before{content:"→";color:var(--red);font-weight:700}
-      .dn-cal-wrap{min-width:0}
-      .dn-cal{border:1px solid var(--line);border-radius:18px;overflow:hidden;min-height:560px;background:var(--soft);position:relative}
-      #cal-inline{position:relative;z-index:2;display:block;width:100%;height:560px;border:0;background:#fff}
-      .dn-cal-note{margin:.8rem .25rem 0;text-align:center;color:var(--mut);font-size:.9rem}
-      .dn-cal-note a{color:var(--red);font-weight:600;word-break:break-all}
+      /* the call, kept to a strip at the foot of the case */
+      .d-talk{ display:grid; grid-template-columns:minmax(0,.86fr) minmax(0,1.4fr); gap:56px;
+        padding-top:88px; align-items:start; }
+      .d-talk h2{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(1.9rem,3.4vw,2.6rem);
+        font-weight:400; margin:14px 0 0; line-height:1.12; }
+      .d-talk p{ font-size:1.01rem; line-height:1.75; color:var(--ink-2); margin:20px 0 0; max-width:52ch; }
+      .d-talk ul{ list-style:none; margin:24px 0 0; padding:0; }
+      .d-talk li{ font-size:.98rem; line-height:1.6; color:var(--ink-2); padding:12px 0;
+        border-bottom:1px solid var(--rule-2); }
+      .d-talk li:first-child{ border-top:1px solid var(--rule-2); }
+      /* the scheduler frame. The note under it sits on a layer below the iframe, so
+         it reads as the loading state and stays reachable if cal.com is blocked. */
+      .d-cal{ border:1px solid var(--rule); background:#fbfaf7; min-height:560px; position:relative; }
+      .d-cal-fb{ position:absolute; inset:0; z-index:1; display:flex; flex-direction:column;
+        align-items:center; justify-content:center; text-align:center; gap:10px; padding:32px; }
+      .d-cal-fb strong{ font-size:1rem; font-weight:600; color:var(--ink); }
+      .d-cal-fb span{ font-size:.95rem; line-height:1.6; color:var(--ink-2); max-width:40ch; }
+      .d-cal-fb a{ color:var(--crimson); text-decoration:none; border-bottom:1px solid var(--rule); }
+      .d-cal-fb a:hover{ border-bottom-color:var(--crimson); }
+      #cal-inline{ position:relative; z-index:2; display:block; width:100%; height:560px; border:0; }
+      .d-cal-note{ margin:14px 0 0; font-size:.9rem; line-height:1.6; color:var(--ink-2); }
+      .d-cal-note a{ color:var(--crimson); text-decoration:none; border-bottom:1px solid var(--rule);
+        word-break:break-all; }
+      .d-cal-note a:hover{ border-bottom-color:var(--crimson); }
 
-      /* sponsor cta */
-      .dn-sponsor{padding:3.5rem 0}
-      .dn-sponsor-inner{background:var(--navy);border-radius:22px;padding:2.6rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;position:relative;overflow:hidden}
-      .dn-sponsor-inner::after{content:"";position:absolute;inset:auto -10% -60% auto;width:420px;height:420px;border-radius:50%;background:radial-gradient(closest-side,rgba(177,42,52,.5),transparent 70%);filter:blur(30px)}
-      .dn-sponsor-text{position:relative;z-index:2;max-width:34rem}
-      .dn-sponsor-text h3{color:#fff;font-size:1.5rem}
-      .dn-sponsor-text p{color:#aeb8cc;margin-top:.5rem}
-      .dn-sponsor-actions{position:relative;z-index:2;display:flex;gap:.7rem;flex-wrap:wrap}
-      .dn-sponsor-actions .dn-btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
-      .dn-sponsor-actions .dn-btn-ghost:hover{border-color:#fff}
+      /* dark close, running straight into the footer */
+      .close{ width:100vw; margin:92px 0 0 calc(50% - 50vw); background:var(--dk); }
+      .close-in{ max-width:1160px; margin:0 auto; padding:84px var(--gutter); text-align:center; }
+      .close .lb{ color:var(--dk-ink-2); }
+      .close h3{ font-family:'Instrument Serif',Georgia,serif; color:var(--dk-ink);
+        font-size:clamp(2rem,3.8vw,3rem); font-weight:400; margin:18px auto 0; max-width:24ch; line-height:1.1; }
+      .close p{ font-size:1.05rem; line-height:1.72; color:var(--dk-ink-2); margin:22px auto 0; max-width:58ch; }
+      .close .acts{ justify-content:center; }
+      .close .ein{ margin-top:26px; font-size:10px; font-weight:600; letter-spacing:.16em;
+        text-transform:uppercase; color:var(--dk-ink-2); opacity:.75; }
 
-      @media(max-width:900px){
-        .dn-sched-grid{grid-template-columns:1fr}
-        .dn-impact .dn-wrap{grid-template-columns:repeat(2,1fr)}
-        .dn-impact-item:nth-child(2){border-right:none}
+      footer.site-footer{ background:#efece5; margin-top:0; }
+      .footer-col h4,.footer-col a,.footer-bottom p{ font-family:'Inter',sans-serif; }
+
+      @media (max-width:1000px){
+        /* below this the two columns are too narrow for a 96px label column beside a
+           mailing address; the counter leaves the right edge and leads instead */
+        .d-split{ grid-template-columns:1fr; gap:44px; padding-top:52px; }
+        .d-rail{ position:static; order:-1; }
+        .d-case figure{ margin-top:34px; }
+        .d-talk{ grid-template-columns:1fr; gap:32px; }
       }
-      @media(max-width:520px){
-        .dn-impact .dn-wrap{grid-template-columns:1fr}
-        .dn-impact-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
+      @media (max-width:900px){
+        :root{ --gutter:20px; }
+        .ghero-in{ padding:56px var(--gutter) 50px; }
+        .ghero h1{ font-size:clamp(2rem,8.6vw,2.6rem); text-wrap:balance; }
+        .sec h2,.d-case h2{ font-size:1.8rem; }
+        .d-talk h2{ font-size:1.7rem; }
+        .pt h3{ font-size:1.22rem; }
+        .d-rail-hd b{ font-size:1.45rem; }
+        .d-meth h3{ font-size:1.18rem; }
+        .close h3{ font-size:1.7rem; }
+        .sec,.d-talk{ padding-top:54px; }
+        .d-figs{ grid-template-columns:1fr 1fr; margin-top:34px; }
+        .d-fig{ padding:26px 16px; border-bottom:1px solid var(--rule); }
+        .d-fig:nth-child(2){ border-right:none; }
+        .close{ margin-top:54px; }
+        .close-in{ padding:56px var(--gutter); }
+        /* single-column widths let prose run to 80+ characters a line, which is what
+           makes these blocks feel oversized. Cap the measure instead. */
+        .pt p,.d-talk p{ max-width:58ch; }
+        .ghero .sub,.sec .lede,.close p{ max-width:52ch; }
       }
-      /* mobile: ways-to-give cards go horizontal swipe row; roomier text inside each card */
-      @media(max-width:640px){
-        /* inset only the hero TEXT (gradient stays full-bleed to the edges) */
-        .dn-hero-inner{padding-left:2rem;padding-right:2rem}
-        .dn-give{display:flex;flex-direction:row;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.6rem;-webkit-overflow-scrolling:touch}
-        .dn-give-card{flex:0 0 84%;scroll-snap-align:start;padding:1.9rem}
+      @media (max-width:620px){
+        .ghero h1{ font-size:clamp(1.9rem,8.2vw,2.3rem); }
+        .sec h2,.d-case h2{ font-size:1.6rem; }
+        .d-talk h2{ font-size:1.5rem; }
+        /* the label column costs more than it earns at this width — the account
+           details read as stacked pairs instead */
+        .d-fld{ grid-template-columns:1fr; gap:3px; }
+        .d-fld .d-fk{ padding-top:0; }
+        .acts{ gap:14px; }
+        .acts .btn{ width:100%; text-align:center; }
       }

@@ -81,6 +81,10 @@ main{ background:var(--bg); padding-top:0; padding-bottom:0; }
 .sec h2{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(2.2rem,4vw,3.3rem);
   font-weight:400; margin:20px 0 0; line-height:1.1; }
 .sec .lede{ font-size:1.05rem; line-height:1.7; color:var(--ink-2); margin:20px auto 0; max-width:56ch; }
+/* the direct-contact line under the lede, for anyone who would rather email than
+   book a slot. --ink-2 rather than the --muted used by .cal-note: this one carries
+   the address itself, so it has to stay legible. */
+.sec .contact-lead{ font-size:1rem; line-height:1.7; color:var(--ink-2); margin:14px auto 0; max-width:56ch; }
 
 /* eligibility, as ruled points — the sponsors page's .pt */
 .pts{ margin-top:14px; }
