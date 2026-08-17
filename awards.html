@@ -99,11 +99,18 @@
       /* the event is a fixed column so the award names line up down the page */
       .aw .ev{ flex:none; width:250px; font-size:.92rem; line-height:1.5; color:var(--ink-2); }
       .aw .nm{ font-size:1.01rem; line-height:1.5; color:var(--ink); }
-      .aw .nm small{ font-size:.86rem; color:var(--muted); }
+      /* qualifiers — "Signature", "(WQ)" — run at the size of the line they sit in;
+         stepping them down read as a footnote rather than as part of the name.
+         --ink-2 rather than --muted keeps them a shade back without dropping to the
+         3.1:1 grey, which is fine for decoration but not for text that informs. */
+      .aw small{ font-size:inherit; color:var(--ink-2); }
       /* the entries previously set in rainbow text; a crimson rule instead, which
          holds up on paper where the gradient text did not */
       .aw.hi{ margin-left:-16px; padding-left:16px; border-left:2px solid var(--crimson); }
-      .aw.hi + .aw{ border-top:none; }
+      /* only between two highlighted rows: a divider there would cut across the
+         continuous crimson bar. A normal row following one still takes its rule,
+         so every other pair on the page is divided the same way. */
+      .aw.hi + .aw.hi{ border-top:none; }
       .aw.hi .nm{ font-weight:600; }
 
       .tail{ height:70px; }
@@ -111,9 +118,17 @@
       @media (max-width:900px){
         :root{ --gutter:20px; }
         .ghero-in{ padding:58px var(--gutter) 56px; }
+        /* Once the team name stacks above its awards it stops holding the left
+           column, so at the full container width the rules ran a long way past the
+           text and each block ended at a different place. Narrowing the whole
+           column — season heading, team rule and award rows together — keeps them
+           on one centred measure instead. */
+        .wide{ max-width:640px; }
         .season{ padding-top:48px; }
         .season:first-of-type{ padding-top:44px; }
         .team{ grid-template-columns:1fr; gap:12px; padding:20px 0; }
+        .aw{ gap:16px; }
+        .aw .ev{ width:236px; }
         .tail{ height:48px; }
       }
       @media (max-width:620px){
@@ -193,11 +208,11 @@
                             <span class="nm">Robot Skills Champion</span>
                         </div>
                         <div class="aw">
-                            <span class="ev">Diamond in the Desert <small>Signature Event</small></span>
+                            <span class="ev">Diamond in the Desert <small>Signature</small></span>
                             <span class="nm">Tournament Champion</span>
                         </div>
                         <div class="aw">
-                            <span class="ev">Diamond in the Desert <small>Signature Event</small></span>
+                            <span class="ev">Diamond in the Desert <small>Signature</small></span>
                             <span class="nm">Robot Skills Champion</span>
                         </div>
                         <div class="aw">
@@ -273,7 +288,7 @@
                             <span class="nm">Judges Award</span>
                         </div>
                         <div class="aw">
-                            <span class="ev">Lobstah Bowl <small>Signature Event</small></span>
+                            <span class="ev">Lobstah Bowl <small>Signature</small></span>
                             <span class="nm">Judges Award</span>
                         </div>
                     </div>
