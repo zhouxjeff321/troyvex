@@ -43,6 +43,7 @@
         --ink:#1a1917; --ink-2:#4f4c47; --muted:#918b81;
         --rule:#e2ddd3; --rule-2:#ece8e0; --bg:#f7f5f0; --crimson:#8f2b2b;
         --band:#efece5; --gutter:40px;
+        --bronze:#8c5524; --silver:#6d7278; --gold:#a37a12;
         --dk:#14130f; --dk-ink:#f3f0e9; --dk-ink-2:#c3bcae; --dk-rule:rgba(243,240,233,.22);
       }
       html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
@@ -162,23 +163,39 @@
          this is the one place B is plainly better than A. */
       .matrix-hint{ display:none; }
       .matrix caption{ text-align:left; padding-bottom:14px; }
-      .matrix th,.matrix td{ text-align:center; padding:15px 12px; border-bottom:1px solid var(--rule-2); }
+      /* site.css paints every th #f8f9fa, which reads as a white block against the
+         paper. The table sits on the page background like everything else. */
+      .matrix th,.matrix td{ text-align:center; padding:15px 12px; border-bottom:1px solid var(--rule-2);
+        background:transparent; }
+      /* the header needs air on both sides of the rules: at padding-top 0 the serif
+         ascenders sit on the top rule while the price line keeps its full gap below,
+         so the band reads top-heavy. Near-even top and bottom instead. */
       .matrix thead th{ border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
-        vertical-align:bottom; padding:0 12px 16px; }
+        vertical-align:bottom; padding:22px 12px 18px; }
       .matrix tbody tr:last-child td,.matrix tbody tr:last-child th{ border-bottom:1px solid var(--ink); }
       /* the benefit column reads as label copy, left aligned */
       .matrix tbody th{ text-align:left; font-weight:400; font-size:1.02rem; color:var(--ink);
         padding-left:0; width:34%; }
       .matrix thead th:first-child{ text-align:left; padding-left:0; }
       .t-name{ font-family:'Instrument Serif',Georgia,serif !important; display:block; font-size:1.5rem;
-        font-weight:400; line-height:1; color:var(--ink); }
+        font-weight:400; line-height:1.12; color:var(--ink); }
+      /* each metal in its own colour, darkened far enough to hold contrast on paper —
+         literal silver and gold are near-invisible at #f7f5f0. Platinum keeps the ink
+         and its tinted column. */
+      .t-bronze{ color:var(--bronze); }
+      .t-silver{ color:var(--silver); }
+      .t-gold{ color:var(--gold); }
       .t-price{ display:block; margin-top:9px; font-size:10px; font-weight:600; letter-spacing:.14em;
         text-transform:uppercase; color:var(--crimson); white-space:nowrap; }
-      /* the mark: a crimson rule, not a tick glyph — the page has no icons */
-      .yes::before{ content:''; display:inline-block; width:15px; height:2px; background:var(--crimson);
-        vertical-align:middle; }
-      .no::before{ content:''; display:inline-block; width:15px; height:1px; background:var(--rule);
-        vertical-align:middle; }
+      /* the mark: a crimson ✕ where the tier includes the benefit, nothing where it
+         does not — an empty cell says "not included" without a second glyph to decode.
+         Drawn from two rules rather than set as ✕, so it is the same crimson hairline
+         vocabulary as the rest of the page and does not depend on Inter shipping U+2715. */
+      .yes{ display:inline-block; position:relative; width:14px; height:14px; vertical-align:middle; }
+      .yes::before,.yes::after{ content:''; position:absolute; top:50%; left:0; width:100%; height:2px;
+        margin-top:-1px; background:var(--crimson); }
+      .yes::before{ transform:rotate(45deg); }
+      .yes::after{ transform:rotate(-45deg); }
       /* the highest tier gets a tinted column so the eye lands somewhere */
       .matrix .col-top{ background:rgba(143,43,43,.035); }
       .matrix-note{ margin:18px 0 0; font-size:.95rem; line-height:1.6; color:var(--muted); }
@@ -346,9 +363,9 @@
                     <thead>
                         <tr>
                             <th scope="col"><span class="lb">Benefit</span></th>
-                            <th scope="col"><span class="t-name">Bronze</span><span class="t-price">Under $1,000</span></th>
-                            <th scope="col"><span class="t-name">Silver</span><span class="t-price">$1,000+</span></th>
-                            <th scope="col"><span class="t-name">Gold</span><span class="t-price">$5,000+</span></th>
+                            <th scope="col"><span class="t-name t-bronze">Bronze</span><span class="t-price">Under $1,000</span></th>
+                            <th scope="col"><span class="t-name t-silver">Silver</span><span class="t-price">$1,000+</span></th>
+                            <th scope="col"><span class="t-name t-gold">Gold</span><span class="t-price">$5,000+</span></th>
                             <th scope="col" class="col-top"><span class="t-name">Platinum</span><span class="t-price">$10,000+</span></th>
                         </tr>
                     </thead>
@@ -369,30 +386,30 @@
                         </tr>
                         <tr>
                             <th scope="row">Thank-you video</th>
-                            <td><span class="no"></span><span class="sr-only">Not included</span></td>
+                            <td><span class="sr-only">Not included</span></td>
                             <td><span class="yes"></span><span class="sr-only">Included</span></td>
                             <td><span class="yes"></span><span class="sr-only">Included</span></td>
                             <td class="col-top"><span class="yes"></span><span class="sr-only">Included</span></td>
                         </tr>
                         <tr>
                             <th scope="row">Team apparel</th>
-                            <td><span class="no"></span><span class="sr-only">Not included</span></td>
-                            <td><span class="no"></span><span class="sr-only">Not included</span></td>
+                            <td><span class="sr-only">Not included</span></td>
+                            <td><span class="sr-only">Not included</span></td>
                             <td><span class="yes"></span><span class="sr-only">Included</span></td>
                             <td class="col-top"><span class="yes"></span><span class="sr-only">Included</span></td>
                         </tr>
                         <tr>
                             <th scope="row">Pit-area banner</th>
-                            <td><span class="no"></span><span class="sr-only">Not included</span></td>
-                            <td><span class="no"></span><span class="sr-only">Not included</span></td>
+                            <td><span class="sr-only">Not included</span></td>
+                            <td><span class="sr-only">Not included</span></td>
                             <td><span class="yes"></span><span class="sr-only">Included</span></td>
                             <td class="col-top"><span class="yes"></span><span class="sr-only">Included</span></td>
                         </tr>
                         <tr>
                             <th scope="row">Logo on the robot</th>
-                            <td><span class="no"></span><span class="sr-only">Not included</span></td>
-                            <td><span class="no"></span><span class="sr-only">Not included</span></td>
-                            <td><span class="no"></span><span class="sr-only">Not included</span></td>
+                            <td><span class="sr-only">Not included</span></td>
+                            <td><span class="sr-only">Not included</span></td>
+                            <td><span class="sr-only">Not included</span></td>
                             <td class="col-top"><span class="yes"></span><span class="sr-only">Included</span></td>
                         </tr>
                     </tbody>

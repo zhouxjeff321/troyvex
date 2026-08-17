@@ -3,12 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Awards - Troy VEX Robotics</title>
     <link rel="stylesheet" href="/assets/css/site.css?v=19">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-10QE64BG2M"></script>
@@ -27,6 +29,102 @@
         !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
         posthog.init('phc_wyyXUmDa4h7GRYQvboEfkr4XzRUu9ge2HmLgYGKoUVEN',{api_host:'https://us.i.posthog.com', defaults:'2026-01-30'})
     </script>
+    <style>
+      /* AWARDS — page styles.
+         Self-contained, in the same shape as about.html: the shared chrome
+         (navigation, footer) comes from site.css, and everything below overrides
+         the body typography and lays out this page only.
+         Structure is unchanged from the version this replaced — season, then team,
+         then that team's awards — with the comma-joined entries split so each
+         award is its own row, and the event in a fixed column so the award names
+         align down the page. */
+      :root {
+        --ink:#1a1917; --ink-2:#4f4c47; --muted:#918b81;
+        --rule:#e2ddd3; --rule-2:#ece8e0; --bg:#f7f5f0; --crimson:#8f2b2b;
+        --gutter:40px;
+      }
+      html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+      /* site.css forces Geist on body with !important, so the override has to
+         match its weight — same pattern as index.html and about.html */
+      body,p,li,span,a,div,strong,em,figure,figcaption,button,h1,h2,h3,h4,th,td{
+        font-family:'Inter',-apple-system,sans-serif !important; }
+      body{ background:var(--bg); color:var(--ink); padding-top:0; }
+      /* zeroing main's vertical padding so the hero band meets the nav instead of
+         floating on paper */
+      main{ background:var(--bg); padding-top:0; padding-bottom:0; }
+
+      .wide{ max-width:1000px; margin:0 auto; padding:0 var(--gutter); }
+
+      /* hero — the about page's horizon gradient, carrying the page title and its
+         one-line description */
+      .ghero{ position:relative; width:100vw; margin:0 0 0 calc(50% - 50vw);
+        /* the fixed header reserves a flat 100px on the body while the bar is only
+           84px tall (72px on a phone); handing that space to the hero band removes
+           the strip of paper above it at every width */
+        padding-top:100px;
+        background:
+          radial-gradient(circle at 92% -8%, rgba(177,42,52,.12), transparent 44%),
+          linear-gradient(180deg, rgba(17,17,17,.07) 0%, rgba(17,17,17,.02) 60%, transparent 100%); }
+      /* the arc rides its own masked layer: its centre is below the band, so as a
+         background layer it would cut off in a hard line at the bottom edge */
+      .ghero::after{ content:''; position:absolute; inset:0; pointer-events:none;
+        background:radial-gradient(ellipse 120% 76% at 50% 116%, rgba(143,43,43,.16), transparent 62%);
+        -webkit-mask-image:linear-gradient(180deg, #000 55%, transparent 100%);
+                mask-image:linear-gradient(180deg, #000 55%, transparent 100%); }
+      .ghero-in{ position:relative; z-index:1; max-width:1000px; margin:0 auto;
+        padding:88px var(--gutter) 84px; text-align:center; }
+      .ghero h1{ font-family:'Instrument Serif',Georgia,serif !important; color:var(--ink);
+        font-size:clamp(2.6rem,5.4vw,4.2rem); font-weight:400; line-height:1.04;
+        letter-spacing:-.018em; margin:0; }
+      .ghero p{ font-size:1.1rem; line-height:1.75; color:var(--ink-2); margin:24px auto 0; max-width:52ch; }
+
+      .season{ padding-top:70px; }
+      .season:first-of-type{ padding-top:64px; }
+      .season > h2{ font-family:'Instrument Serif',Georgia,serif !important;
+        font-size:clamp(1.9rem,3.4vw,2.7rem); font-weight:400; margin:0 0 20px;
+        line-height:1; padding-bottom:16px; border-bottom:2px solid var(--ink); }
+
+      /* team at the left, that team's awards at the right */
+      .team{ display:grid; grid-template-columns:minmax(0,232px) minmax(0,1fr); gap:44px;
+        padding:22px 0; border-bottom:1px solid var(--rule); align-items:start; }
+      .team > h3{ font-family:'Instrument Serif',Georgia,serif !important; font-size:1.32rem;
+        font-weight:400; margin:0; line-height:1.24; }
+      .team > h3 a{ color:inherit; text-decoration:none;
+        border-bottom:1px solid var(--rule); padding-bottom:2px; }
+      .team > h3 a:hover{ color:var(--crimson); border-bottom-color:var(--crimson); }
+
+      /* one row per award */
+      .aw{ display:flex; align-items:baseline; gap:20px; padding:8px 0; }
+      .aw + .aw{ border-top:1px solid var(--rule-2); }
+      /* the event is a fixed column so the award names line up down the page */
+      .aw .ev{ flex:none; width:250px; font-size:.92rem; line-height:1.5; color:var(--ink-2); }
+      .aw .nm{ font-size:1.01rem; line-height:1.5; color:var(--ink); }
+      .aw .nm small{ font-size:.86rem; color:var(--muted); }
+      /* the entries previously set in rainbow text; a crimson rule instead, which
+         holds up on paper where the gradient text did not */
+      .aw.hi{ margin-left:-16px; padding-left:16px; border-left:2px solid var(--crimson); }
+      .aw.hi + .aw{ border-top:none; }
+      .aw.hi .nm{ font-weight:600; }
+
+      .tail{ height:70px; }
+
+      @media (max-width:900px){
+        :root{ --gutter:20px; }
+        .ghero-in{ padding:58px var(--gutter) 56px; }
+        .season{ padding-top:48px; }
+        .season:first-of-type{ padding-top:44px; }
+        .team{ grid-template-columns:1fr; gap:12px; padding:20px 0; }
+        .tail{ height:48px; }
+      }
+      @media (max-width:620px){
+        .ghero h1{ font-size:clamp(2rem,9vw,2.4rem) !important; }
+        .season > h2{ font-size:1.6rem !important; }
+        /* the event drops above its award rather than squeezing to a narrow column */
+        .aw{ display:block; padding:9px 0; }
+        .aw .ev{ display:block; width:auto; margin-bottom:2px; }
+        .aw .nm{ font-size:.99rem; }
+      }
+    </style>
 </head>
 
 <body>
@@ -58,149 +156,214 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="page-header">
-            <h1>Awards</h1>
-            <p>Our teams' achievements and recognitions in VEX Robotics competitions.</p>
-        </section>
-        <section class="awards-list" style="max-width:700px;margin:2em auto;">
-            <h2 class="serif-header" style="margin-top:2em; font-size: 2rem;">2025-2026 Season</h2>
-            <table style="width:100%;margin-bottom:2em;border-collapse:collapse;">
-                <thead>
-                    <tr style="background:var(--section-bg);">
-                        <th
-                            style="padding:0.8em 1em;text-align:left;font-size:1.1em;color:var(--text-color);border-bottom:2px solid #b12a34;">
-                            Team</th>
-                        <th
-                            style="padding:0.8em 1em;text-align:left;font-size:1.1em;color:var(--text-color);border-bottom:2px solid #b12a34;">
-                            Awards</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="padding:0.7em 1em;vertical-align:top;font-weight:600;">Team Y - Atlantis</td>
-                        <td style="padding:0.7em 1em;vertical-align:top;">
-                            <ul style="margin:0 0 0 1em;padding:0;list-style:disc;font-size:1em;">
-                                <li><span class="rainbow-award-text">CA R4 Tournament Finalists</span></li>
-                                <li><span class="rainbow-award-text">JROTC National Championship - National Champion, Excellence Award</span></li>
-                                <li>JROTC National Championship - Robot Skills Champion</li>
-                                <li>Kalahari Classic - Robot Skills Champion</li>
-                                <li>Diamond in the Desert Signature Event - Tournament Champion, Robot Skills Champion</li>
-                                <li>Ignite the Northwest - Tournament Finalists</li>
-                                <li>Beach Brawl @ McBride - Excellence Award, Robot Skills Champion</li>
-                                <li>Supernova Spectacular - Think Award</li>
-                                <li>One World @ Berkeley - Tournament Finalist</li>
-                                <li>San Diego Match Only #6 - Tournament Champion, Robot Skills Champion</li>
-                                <li>Harvard Westlake Challenge - Robot Skills Champion</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding:0.7em 1em;vertical-align:top;font-weight:600;">Team C - Jinx</td>
-                        <td style="padding:0.7em 1em;vertical-align:top;">
-                            <ul style="margin:0 0 0 1em;padding:0;list-style:disc;font-size:1em;">
-                                <li><span class="rainbow-award-text">Worlds Build Award</span></li>
-                                <li>JROTC National Championship - Innovate Award (WQ)</li>
-                                <li>Beach Brawl @ McBride - Innovate Award</li>
-                                <li>Roundtable Robotics - Design Award</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding:0.7em 1em;vertical-align:top;font-weight:600;">Team X - Paradox</td>
-                        <td style="padding:0.7em 1em;vertical-align:top;">
-                            <ul style="margin:0 0 0 1em;padding:0;list-style:disc;font-size:1em;">
-                                <li><span class="rainbow-award-text">Worlds Judges Award</span></li>
-                                <li>JROTC National Championship - Think Award (WQ)</li>
-                                <li>Kalahari Classic - Judges Award</li>
-                                <li>Lobstah Bowl Signature Event - Judges Award</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding:0.7em 1em;vertical-align:top;font-weight:600;">Team A - Aegis</td>
-                        <td style="padding:0.7em 1em;vertical-align:top;">
-                            <ul style="margin:0 0 0 1em;padding:0;list-style:disc;font-size:1em;">
-                                <li>Roundtable Robotics - Innovate Award</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding:0.7em 1em;vertical-align:top;font-weight:600;">Team E - Eclipse</td>
-                        <td style="padding:0.7em 1em;vertical-align:top;">
-                            <ul style="margin:0 0 0 1em;padding:0;list-style:disc;font-size:1em;">
-                                <li>Roundtable Robotics - Judges Award</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
 
-            <h2 class="serif-header" style="margin-top:2em; font-size: 2rem;">2024-2025 Season</h2>
-            <table style="width:100%;margin-bottom:2em;border-collapse:collapse;">
-                <thead>
-                    <tr style="background:var(--section-bg, #f8f9fa);">
-                        <th
-                            style="padding:0.8em 1em;text-align:left;font-size:1.1em;color:var(--text-color, #2c3e50);border-bottom:2px solid #b12a34;">
-                            Team</th>
-                        <th
-                            style="padding:0.8em 1em;text-align:left;font-size:1.1em;color:var(--text-color, #2c3e50);border-bottom:2px solid #b12a34;">
-                            Awards</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="padding:0.7em 1em;vertical-align:top;font-weight:600;">Team A - Archon</td>
-                        <td style="padding:0.7em 1em;vertical-align:top;">
-                            <ul style="margin:0 0 0 1em;padding:0;list-style:disc;font-size:1em;">
-                                <li>JROTC Nationals - Build Award, Tournament Finalist</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding:0.7em 1em;vertical-align:top;font-weight:600;">Team B - Ouroboros</td>
-                        <td style="padding:0.7em 1em;vertical-align:top;">
-                            <ul style="margin:0 0 0 1em;padding:0;list-style:disc;font-size:1em;">
-                                <li>JROTC Nationals - Create Award</li>
-                                <li>San Diego Last Chance - Excellence Award</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding:0.7em 1em;vertical-align:top;font-weight:600;">Team C - Syndicate</td>
-                        <td style="padding:0.7em 1em;vertical-align:top;">
-                            <ul style="margin:0 0 0 1em;padding:0;list-style:disc;font-size:1em;">
-                                <li>JROTC Nationals - Division Finalist, Inspire Award</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <h2 class="serif-header" style="margin-top:2em; font-size: 2rem;">2023-2024 Season</h2>
-            <table style="width:100%;margin-bottom:2em;border-collapse:collapse;">
-                <thead>
-                    <tr style="background:var(--section-bg, #f8f9fa);">
-                        <th
-                            style="padding:0.8em 1em;text-align:left;font-size:1.1em;color:var(--text-color, #2c3e50);border-bottom:2px solid #b12a34;">
-                            Team</th>
-                        <th
-                            style="padding:0.8em 1em;text-align:left;font-size:1.1em;color:var(--text-color, #2c3e50);border-bottom:2px solid #b12a34;">
-                            Awards</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="padding:0.7em 1em;vertical-align:top;font-weight:600;">Team A</td>
-                        <td style="padding:0.7em 1em;vertical-align:top;">
-                            <ul style="margin:0 0 0 1em;padding:0;list-style:disc;font-size:1em;">
-                                <li>JROTC Nationals - Amaze Award</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <main>
+        <section class="ghero">
+            <div class="ghero-in">
+                <h1>Awards</h1>
+                <p>Our teams' achievements and recognitions in VEX Robotics competitions.</p>
+            </div>
         </section>
+
+        <div class="wide">
+            <section class="season">
+                <h2>2025-2026 Season</h2>
+
+                <div class="team">
+                    <h3><a href="/teamy">Team Y — Atlantis</a></h3>
+                    <div>
+                        <div class="aw hi">
+                            <span class="ev">CA R4</span>
+                            <span class="nm">Tournament Finalists</span>
+                        </div>
+                        <div class="aw hi">
+                            <span class="ev">JROTC National Championship</span>
+                            <span class="nm">National Champion</span>
+                        </div>
+                        <div class="aw hi">
+                            <span class="ev">JROTC National Championship</span>
+                            <span class="nm">Excellence Award</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">JROTC National Championship</span>
+                            <span class="nm">Robot Skills Champion</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">Kalahari Classic</span>
+                            <span class="nm">Robot Skills Champion</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">Diamond in the Desert <small>Signature Event</small></span>
+                            <span class="nm">Tournament Champion</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">Diamond in the Desert <small>Signature Event</small></span>
+                            <span class="nm">Robot Skills Champion</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">Ignite the Northwest</span>
+                            <span class="nm">Tournament Finalists</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">Beach Brawl @ McBride</span>
+                            <span class="nm">Excellence Award</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">Beach Brawl @ McBride</span>
+                            <span class="nm">Robot Skills Champion</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">Supernova Spectacular</span>
+                            <span class="nm">Think Award</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">One World @ Berkeley</span>
+                            <span class="nm">Tournament Finalist</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">San Diego Match Only #6</span>
+                            <span class="nm">Tournament Champion</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">San Diego Match Only #6</span>
+                            <span class="nm">Robot Skills Champion</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">Harvard Westlake Challenge</span>
+                            <span class="nm">Robot Skills Champion</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team">
+                    <h3><a href="/teamc">Team C — Jinx</a></h3>
+                    <div>
+                        <div class="aw hi">
+                            <span class="ev">Worlds</span>
+                            <span class="nm">Build Award</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">JROTC National Championship</span>
+                            <span class="nm">Innovate Award <small>(WQ)</small></span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">Beach Brawl @ McBride</span>
+                            <span class="nm">Innovate Award</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">Roundtable Robotics</span>
+                            <span class="nm">Design Award</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team">
+                    <h3><a href="/teamx">Team X — Paradox</a></h3>
+                    <div>
+                        <div class="aw hi">
+                            <span class="ev">Worlds</span>
+                            <span class="nm">Judges Award</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">JROTC National Championship</span>
+                            <span class="nm">Think Award <small>(WQ)</small></span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">Kalahari Classic</span>
+                            <span class="nm">Judges Award</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">Lobstah Bowl <small>Signature Event</small></span>
+                            <span class="nm">Judges Award</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team">
+                    <h3><a href="/teama">Team A — Aegis</a></h3>
+                    <div>
+                        <div class="aw">
+                            <span class="ev">Roundtable Robotics</span>
+                            <span class="nm">Innovate Award</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team">
+                    <h3><a href="/teame">Team E — Eclipse</a></h3>
+                    <div>
+                        <div class="aw">
+                            <span class="ev">Roundtable Robotics</span>
+                            <span class="nm">Judges Award</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="season">
+                <h2>2024-2025 Season</h2>
+
+                <div class="team">
+                    <h3>Team A — Archon</h3>
+                    <div>
+                        <div class="aw">
+                            <span class="ev">JROTC Nationals</span>
+                            <span class="nm">Build Award</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">JROTC Nationals</span>
+                            <span class="nm">Tournament Finalist</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team">
+                    <h3>Team B — Ouroboros</h3>
+                    <div>
+                        <div class="aw">
+                            <span class="ev">JROTC Nationals</span>
+                            <span class="nm">Create Award</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">San Diego Last Chance</span>
+                            <span class="nm">Excellence Award</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team">
+                    <h3>Team C — Syndicate</h3>
+                    <div>
+                        <div class="aw">
+                            <span class="ev">JROTC Nationals</span>
+                            <span class="nm">Division Finalist</span>
+                        </div>
+                        <div class="aw">
+                            <span class="ev">JROTC Nationals</span>
+                            <span class="nm">Inspire Award</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="season">
+                <h2>2023-2024 Season</h2>
+
+                <div class="team">
+                    <h3>Team A</h3>
+                    <div>
+                        <div class="aw">
+                            <span class="ev">JROTC Nationals</span>
+                            <span class="nm">Amaze Award</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="tail"></div>
+        </div>
     </main>
+
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-cols">
