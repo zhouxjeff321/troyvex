@@ -3,90 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Troy VEX Robotics</title>
-    <link rel="stylesheet" href="/assets/css/site.css?v=19">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20">
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet">
-    <style>
-        /* ─── Gallery — Hero Mosaic (scoped .gm) ─── */
-        .page-header h1 { font-family: 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-        .gm-wrap { max-width: 1020px; margin: 0 auto; padding: 0 1.5rem 4rem; }
-        .gm-sec { margin-top: 2.8rem; }
-        .gm-sec h3 {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
-            letter-spacing: -0.02em;
-            font-size: 1.55rem;
-            color: var(--text-color, #111);
-            margin: 0;
-        }
-        .gm-date { color: var(--secondary-text, #777); font-size: 0.86rem; margin: 0.2rem 0 0.85rem; }
-        .gm-mosaic { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-auto-rows: 200px; gap: 10px; }
-        .gm-mosaic img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-        .gm-mosaic img:hover { transform: scale(1.015); }
-        .gm-hero { grid-row: span 2; }
-        .gm-wide { grid-column: span 2; }
-        .gm-row1 .gm-hero { grid-row: span 1; }
-        .gm-more { position: relative; border-radius: 12px; overflow: hidden; cursor: pointer; }
-        .gm-more img { position: absolute; inset: 0; }
-        .gm-cnt {
-            position: absolute; inset: 0; z-index: 2;
-            background: rgba(13, 27, 58, 0.62);
-            color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.45rem; font-weight: 700;
-            border-radius: 12px;
-        }
-        .gm-more:hover .gm-cnt { background: rgba(13, 27, 58, 0.5); }
-        .gm-extra { display: none; }
-        .gm-sec.expanded .gm-extra { display: block; }
-        .gm-sec.expanded .gm-cnt { display: none; }
-        .gm-single img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; cursor: pointer; }
-        .gm-sec .photo-credit { margin-top: 0.6rem; font-size: 0.82rem; color: var(--secondary-text, #888); }
-
-        body.dark-mode .gm-cnt { background: rgba(0, 0, 0, 0.62); }
-
-        @media (max-width: 680px) {
-            .gm-mosaic { grid-template-columns: 1fr 1fr; grid-auto-rows: 130px; }
-            .gm-hero { grid-column: span 2; grid-row: span 2; }
-            .gm-wide { grid-column: span 2; }
-            .gm-row1 .gm-hero { grid-row: span 2; }
-        }
-    </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-10QE64BG2M"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-10QE64BG2M', {
-        anonymize_ip: true,
-        allow_google_signals: false,
-        allow_ad_personalization_signals: false
-      });
-    </script>
-    <!-- PostHog Analytics -->
-    <script>
-        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-        posthog.init('phc_wyyXUmDa4h7GRYQvboEfkr4XzRUu9ge2HmLgYGKoUVEN',{api_host:'https://us.i.posthog.com', defaults:'2026-01-30'})
-    </script>
+    <link rel="stylesheet" href="/assets/css/pages/gallery.css?v=1">
+    <script src="/assets/js/analytics.js?v=1" defer></script>
 </head>
 
 <body>
     <header>
         <nav class="navbar">
             <div class="logo-container">
-                <a href="/"><img src="/assets/images/brand/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo"></a>
+                <a href="/"><img src="/assets/images/brand/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo" width="600" height="600" decoding="async"></a>
                 <span class="logo-text">Troy VEX Robotics</span>
             </div>
             <ul class="nav-links">
@@ -102,10 +32,10 @@
                 </li>
                 <li><a href="/awards">Awards</a></li>
                 <li class="dropdown">
-                    <a href="/join">Join Us</a>
+                    <a href="/apply">Join Us</a>
                     <ul class="dropdown-menu">
+                        <li><a href="/apply">Apply Now</a></li>
                         <li><a href="/donate">Donate</a></li>
-                        <li><a href="/join">Prospective Members</a></li>
                     </ul>
                 </li>
             </ul>
@@ -123,26 +53,26 @@
                 <h3>JROTC Nationals</h3>
                 <div class="gm-date">Sandusky, Ohio &middot; January 2026</div>
                 <div class="gm-mosaic">
-                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2026/jrotc-nationals/5X9A5831.JPG" alt="JROTC Nationals Photo 1">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5826.JPG" alt="JROTC Nationals Photo 2">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5799.JPG" alt="JROTC Nationals Photo 3">
-                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5769.JPG" alt="JROTC Nationals Photo 4">
+                    <img loading="eager" class="gm-hero" src="/assets/images/events/2026/jrotc-nationals/5X9A5831.JPG" alt="JROTC Nationals Photo 1" width="1920" height="1280" decoding="async" fetchpriority="high" srcset="/assets/images/events/2026/jrotc-nationals/5X9A5831-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A5831-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5826.JPG" alt="JROTC Nationals Photo 2" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A5826-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A5826-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5799.JPG" alt="JROTC Nationals Photo 3" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A5799-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A5799-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5769.JPG" alt="JROTC Nationals Photo 4" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A5769-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A5769-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
                     <div class="gm-more">
-                        <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5754.JPG" alt="JROTC Nationals Photo 5">
+                        <img loading="lazy" src="/assets/images/events/2026/jrotc-nationals/5X9A5754.JPG" alt="JROTC Nationals Photo 5" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A5754-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A5754-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
                         <div class="gm-cnt">+12</div>
                     </div>
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5715.JPG" alt="JROTC Nationals Photo 6">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5644.JPG" alt="JROTC Nationals Photo 7">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5632.JPG" alt="JROTC Nationals Photo 8">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5630.JPG" alt="JROTC Nationals Photo 9">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5626.JPG" alt="JROTC Nationals Photo 10">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5043.JPG" alt="JROTC Nationals Photo 11">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4998.jpg" alt="JROTC Nationals Photo 12">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4955 (1).jpg" alt="JROTC Nationals Photo 13">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4930.JPG" alt="JROTC Nationals Photo 14">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4895.jpg" alt="JROTC Nationals Photo 15">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4892.jpg" alt="JROTC Nationals Photo 16">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4862.jpg" alt="JROTC Nationals Photo 17">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5715.JPG" alt="JROTC Nationals Photo 6" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A5715-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A5715-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5644.JPG" alt="JROTC Nationals Photo 7" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A5644-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A5644-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5632.JPG" alt="JROTC Nationals Photo 8" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A5632-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A5632-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5630.JPG" alt="JROTC Nationals Photo 9" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A5630-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A5630-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5626.JPG" alt="JROTC Nationals Photo 10" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A5626-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A5626-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A5043.JPG" alt="JROTC Nationals Photo 11" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A5043-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A5043-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4998.jpg" alt="JROTC Nationals Photo 12" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A4998-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A4998-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4955 (1).jpg" alt="JROTC Nationals Photo 13" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A4955%20(1)-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A4955%20(1)-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4930.JPG" alt="JROTC Nationals Photo 14" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A4930-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A4930-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4895.jpg" alt="JROTC Nationals Photo 15" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A4895-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A4895-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4892.jpg" alt="JROTC Nationals Photo 16" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A4892-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A4892-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2026/jrotc-nationals/5X9A4862.jpg" alt="JROTC Nationals Photo 17" width="1920" height="1280" decoding="async" srcset="/assets/images/events/2026/jrotc-nationals/5X9A4862-640.jpg 640w, /assets/images/events/2026/jrotc-nationals/5X9A4862-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
                 </div>
             </div>
 
@@ -151,9 +81,9 @@
                 <h3>Diamond in the Desert Signature Event</h3>
                 <div class="gm-date">Arizona &middot; December 30&ndash;31, 2025</div>
                 <div class="gm-mosaic">
-                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2025/diamond-in-the-desert/607281042_4202781856635370_1098237448640462063_n.jpg" alt="Diamond Event Photo 1">
-                    <img loading="lazy" src="/assets/images/events/2025/diamond-in-the-desert/607617590_4202782159968673_7147195847232773575_n.jpg" alt="Diamond Event Photo 2">
-                    <img loading="lazy" src="/assets/images/events/2025/diamond-in-the-desert/TC.jpg" alt="Diamond Event Photo 3">
+                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2025/diamond-in-the-desert/607281042_4202781856635370_1098237448640462063_n.jpg" alt="Diamond Event Photo 1" width="1536" height="2048" decoding="async" srcset="/assets/images/events/2025/diamond-in-the-desert/607281042_4202781856635370_1098237448640462063_n-640.jpg 480w, /assets/images/events/2025/diamond-in-the-desert/607281042_4202781856635370_1098237448640462063_n-1280.jpg 960w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" src="/assets/images/events/2025/diamond-in-the-desert/607617590_4202782159968673_7147195847232773575_n.jpg" alt="Diamond Event Photo 2" width="565" height="586" decoding="async" srcset="/assets/images/events/2025/diamond-in-the-desert/607617590_4202782159968673_7147195847232773575_n-565.jpg 544w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" src="/assets/images/events/2025/diamond-in-the-desert/TC.jpg" alt="Diamond Event Photo 3" width="590" height="443" decoding="async" srcset="/assets/images/events/2025/diamond-in-the-desert/TC-590.jpg 590w" sizes="(max-width: 680px) 100vw, 550px">
                 </div>
                 <p class="photo-credit"><em>Photo credit: Commander Lauper's Facebook page</em></p>
             </div>
@@ -163,10 +93,10 @@
                 <h3>Beach Brawl @ McBride High School</h3>
                 <div class="gm-date">Long Beach, CA &middot; November 15, 2025</div>
                 <div class="gm-mosaic">
-                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2025/beach-brawl/582545215_4161534964093393_5160703348096074670_n.jpg" alt="Beach Brawl Event Photo 1">
-                    <img loading="lazy" src="/assets/images/events/2025/beach-brawl/582587382_4161534850760071_4682994050265721951_n.jpg" alt="Beach Brawl Event Photo 2">
-                    <img loading="lazy" src="/assets/images/events/2025/beach-brawl/582923457_4161534787426744_5074396647716276807_n.jpg" alt="Beach Brawl Event Photo 3">
-                    <img loading="lazy" class="gm-wide" src="/assets/images/events/2025/beach-brawl/583245284_4161535097426713_3116256423590730507_n.jpg" alt="Beach Brawl Event Photo 4">
+                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2025/beach-brawl/582545215_4161534964093393_5160703348096074670_n.jpg" alt="Beach Brawl Event Photo 1" width="1536" height="2048" decoding="async" srcset="/assets/images/events/2025/beach-brawl/582545215_4161534964093393_5160703348096074670_n-640.jpg 480w, /assets/images/events/2025/beach-brawl/582545215_4161534964093393_5160703348096074670_n-1280.jpg 960w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" src="/assets/images/events/2025/beach-brawl/582587382_4161534850760071_4682994050265721951_n.jpg" alt="Beach Brawl Event Photo 2" width="1536" height="2048" decoding="async" srcset="/assets/images/events/2025/beach-brawl/582587382_4161534850760071_4682994050265721951_n-640.jpg 480w, /assets/images/events/2025/beach-brawl/582587382_4161534850760071_4682994050265721951_n-1280.jpg 960w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" src="/assets/images/events/2025/beach-brawl/582923457_4161534787426744_5074396647716276807_n.jpg" alt="Beach Brawl Event Photo 3" width="1536" height="2048" decoding="async" srcset="/assets/images/events/2025/beach-brawl/582923457_4161534787426744_5074396647716276807_n-640.jpg 480w, /assets/images/events/2025/beach-brawl/582923457_4161534787426744_5074396647716276807_n-1280.jpg 960w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-wide" src="/assets/images/events/2025/beach-brawl/583245284_4161535097426713_3116256423590730507_n.jpg" alt="Beach Brawl Event Photo 4" width="2048" height="1536" decoding="async" srcset="/assets/images/events/2025/beach-brawl/583245284_4161535097426713_3116256423590730507_n-640.jpg 640w, /assets/images/events/2025/beach-brawl/583245284_4161535097426713_3116256423590730507_n-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
                 </div>
                 <p class="photo-credit"><em>Photo credit: Commander Lauper's Facebook page</em></p>
             </div>
@@ -176,20 +106,20 @@
                 <h3>One World @ UC Berkeley</h3>
                 <div class="gm-date">Berkeley, CA &middot; November 2025</div>
                 <div class="gm-mosaic">
-                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2025/one-world/586845622_4169138573333032_9081429515033235494_n.jpg" alt="One World Event Photo 1">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/586890835_4169807339932822_1777193793440060412_n.jpg" alt="One World Event Photo 2">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/586958843_4169139096666313_6170539189412982083_n.jpg" alt="One World Event Photo 3">
-                    <img loading="lazy" src="/assets/images/events/2025/one-world/587089300_4169807016599521_7420513945176883690_n.jpg" alt="One World Event Photo 4">
+                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2025/one-world/586845622_4169138573333032_9081429515033235494_n.jpg" alt="One World Event Photo 1" width="2048" height="1536" decoding="async" srcset="/assets/images/events/2025/one-world/586845622_4169138573333032_9081429515033235494_n-640.jpg 640w, /assets/images/events/2025/one-world/586845622_4169138573333032_9081429515033235494_n-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" src="/assets/images/events/2025/one-world/586890835_4169807339932822_1777193793440060412_n.jpg" alt="One World Event Photo 2" width="1536" height="2048" decoding="async" srcset="/assets/images/events/2025/one-world/586890835_4169807339932822_1777193793440060412_n-640.jpg 480w, /assets/images/events/2025/one-world/586890835_4169807339932822_1777193793440060412_n-1280.jpg 960w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" src="/assets/images/events/2025/one-world/586958843_4169139096666313_6170539189412982083_n.jpg" alt="One World Event Photo 3" width="2048" height="1536" decoding="async" srcset="/assets/images/events/2025/one-world/586958843_4169139096666313_6170539189412982083_n-640.jpg 640w, /assets/images/events/2025/one-world/586958843_4169139096666313_6170539189412982083_n-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" src="/assets/images/events/2025/one-world/587089300_4169807016599521_7420513945176883690_n.jpg" alt="One World Event Photo 4" width="1536" height="2048" decoding="async" srcset="/assets/images/events/2025/one-world/587089300_4169807016599521_7420513945176883690_n-640.jpg 480w, /assets/images/events/2025/one-world/587089300_4169807016599521_7420513945176883690_n-1280.jpg 960w" sizes="(max-width: 680px) 100vw, 550px">
                     <div class="gm-more">
-                        <img loading="lazy" src="/assets/images/events/2025/one-world/587102580_4169138723333017_7908606869056431640_n.jpg" alt="One World Event Photo 5">
+                        <img loading="lazy" src="/assets/images/events/2025/one-world/587102580_4169138723333017_7908606869056431640_n.jpg" alt="One World Event Photo 5" width="1536" height="2048" decoding="async" srcset="/assets/images/events/2025/one-world/587102580_4169138723333017_7908606869056431640_n-640.jpg 480w, /assets/images/events/2025/one-world/587102580_4169138723333017_7908606869056431640_n-1280.jpg 960w" sizes="(max-width: 680px) 100vw, 550px">
                         <div class="gm-cnt">+6</div>
                     </div>
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/587103917_4169807259932830_3177160969979622646_n.jpg" alt="One World Event Photo 6">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/587830523_10164708698914274_5793245622178358113_n.jpg" alt="One World Event Photo 7">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/588645457_10164708698704274_3395418400421253950_n.jpg" alt="One World Event Photo 8">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/607617590_4202782159968673_7147195847232773575_n.jpg" alt="One World Event Photo 9">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/607762362_4202781506635405_8161473073768550156_n.jpg" alt="One World Event Photo 10">
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/harvardwestlakete.jpg" alt="One World Event Photo 11">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/587103917_4169807259932830_3177160969979622646_n.jpg" alt="One World Event Photo 6" width="1536" height="2048" decoding="async" srcset="/assets/images/events/2025/one-world/587103917_4169807259932830_3177160969979622646_n-640.jpg 480w, /assets/images/events/2025/one-world/587103917_4169807259932830_3177160969979622646_n-1280.jpg 960w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/587830523_10164708698914274_5793245622178358113_n.jpg" alt="One World Event Photo 7" width="960" height="720" decoding="async" srcset="/assets/images/events/2025/one-world/587830523_10164708698914274_5793245622178358113_n-640.jpg 640w, /assets/images/events/2025/one-world/587830523_10164708698914274_5793245622178358113_n-960.jpg 960w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/588645457_10164708698704274_3395418400421253950_n.jpg" alt="One World Event Photo 8" width="720" height="960" decoding="async" srcset="/assets/images/events/2025/one-world/588645457_10164708698704274_3395418400421253950_n-640.jpg 480w, /assets/images/events/2025/one-world/588645457_10164708698704274_3395418400421253950_n-720.jpg 540w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/607617590_4202782159968673_7147195847232773575_n.jpg" alt="One World Event Photo 9" width="565" height="586" decoding="async" srcset="/assets/images/events/2025/one-world/607617590_4202782159968673_7147195847232773575_n-565.jpg 544w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/607762362_4202781506635405_8161473073768550156_n.jpg" alt="One World Event Photo 10" width="590" height="443" decoding="async" srcset="/assets/images/events/2025/one-world/607762362_4202781506635405_8161473073768550156_n-590.jpg 590w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/one-world/harvardwestlakete.jpg" alt="One World Event Photo 11" width="1536" height="2048" decoding="async" srcset="/assets/images/events/2025/one-world/harvardwestlakete-640.jpg 480w, /assets/images/events/2025/one-world/harvardwestlakete-1280.jpg 960w" sizes="(max-width: 680px) 100vw, 550px">
                 </div>
                 <p class="photo-credit"><em>Photo credit: Commander Lauper's Facebook page</em></p>
             </div>
@@ -198,8 +128,8 @@
             <div class="gm-sec">
                 <h3>Harvard Westlake Challenge</h3>
                 <div class="gm-date">October 2025</div>
-                <div class="gm-mosaic gm-single" style="display:block">
-                    <img loading="lazy" src="/assets/images/events/2025/harvard-westlake/harvardwestlakete.jpg" alt="Harvard Westlake Event Photo">
+                <div class="gm-mosaic gm-single">
+                    <img loading="lazy" src="/assets/images/events/2025/harvard-westlake/harvardwestlakete.jpg" alt="Harvard Westlake Event Photo" width="1536" height="2048" decoding="async" srcset="/assets/images/events/2025/harvard-westlake/harvardwestlakete-640.jpg 480w, /assets/images/events/2025/harvard-westlake/harvardwestlakete-1280.jpg 960w" sizes="(max-width: 680px) 100vw, 550px">
                 </div>
                 <p class="photo-credit"><em>Photo credit: Commander Lauper's Facebook page</em></p>
             </div>
@@ -209,15 +139,15 @@
                 <h3>Summer Camp</h3>
                 <div class="gm-date">Troy High School &middot; July 2025</div>
                 <div class="gm-mosaic">
-                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2025/summer-camp/PXL_20250716_224247026.jpg" alt="Summer Camp Photo 1">
-                    <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250717_011754638.jpg" alt="Summer Camp Photo 2">
-                    <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250729_223120995.jpg" alt="Summer Camp Photo 3">
-                    <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250731_012807227.jpg" alt="Summer Camp Photo 4">
+                    <img loading="lazy" class="gm-hero" src="/assets/images/events/2025/summer-camp/PXL_20250716_224247026.jpg" alt="Summer Camp Photo 1" width="4032" height="3024" decoding="async" srcset="/assets/images/events/2025/summer-camp/PXL_20250716_224247026-640.jpg 640w, /assets/images/events/2025/summer-camp/PXL_20250716_224247026-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250717_011754638.jpg" alt="Summer Camp Photo 2" width="4032" height="3024" decoding="async" srcset="/assets/images/events/2025/summer-camp/PXL_20250717_011754638-640.jpg 640w, /assets/images/events/2025/summer-camp/PXL_20250717_011754638-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250729_223120995.jpg" alt="Summer Camp Photo 3" width="1628" height="1221" decoding="async" srcset="/assets/images/events/2025/summer-camp/PXL_20250729_223120995-640.jpg 640w, /assets/images/events/2025/summer-camp/PXL_20250729_223120995-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
+                    <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250731_012807227.jpg" alt="Summer Camp Photo 4" width="4032" height="3024" decoding="async" srcset="/assets/images/events/2025/summer-camp/PXL_20250731_012807227-640.jpg 640w, /assets/images/events/2025/summer-camp/PXL_20250731_012807227-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
                     <div class="gm-more">
-                        <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250731_012814259.jpg" alt="Summer Camp Photo 5">
+                        <img loading="lazy" src="/assets/images/events/2025/summer-camp/PXL_20250731_012814259.jpg" alt="Summer Camp Photo 5" width="4032" height="3024" decoding="async" srcset="/assets/images/events/2025/summer-camp/PXL_20250731_012814259-640.jpg 640w, /assets/images/events/2025/summer-camp/PXL_20250731_012814259-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
                         <div class="gm-cnt">+1</div>
                     </div>
-                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/summer-camp/PXL_20250731_012947330.jpg" alt="Summer Camp Photo 6">
+                    <img loading="lazy" class="gm-extra" src="/assets/images/events/2025/summer-camp/PXL_20250731_012947330.jpg" alt="Summer Camp Photo 6" width="4032" height="3024" decoding="async" srcset="/assets/images/events/2025/summer-camp/PXL_20250731_012947330-640.jpg 640w, /assets/images/events/2025/summer-camp/PXL_20250731_012947330-1280.jpg 1280w" sizes="(max-width: 680px) 100vw, 550px">
                 </div>
             </div>
         </section>
@@ -241,7 +171,7 @@
                 <div class="footer-col">
                     <h4>Support</h4>
                     <a href="/donate">Donate</a>
-                    <a href="/join">Join</a>
+                    <a href="/apply">Join</a>
                     <a href="/contact">Contact</a>
                 </div>
                 <div class="footer-col">
@@ -259,111 +189,17 @@
     </footer>
 
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <span class="lightbox-prev">&#10094;</span>
-        <span class="lightbox-next">&#10095;</span>
-        <img loading="lazy" class="lightbox-content" id="lightbox-img" alt="Expanded gallery photo">
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-describedby="lightbox-caption lightbox-counter" aria-hidden="true">
+        <button type="button" class="lightbox-close" aria-label="Close photo viewer" tabindex="-1">&times;</button>
+        <button type="button" class="lightbox-prev" aria-label="Previous photo" tabindex="-1">&#10094;</button>
+        <button type="button" class="lightbox-next" aria-label="Next photo" tabindex="-1">&#10095;</button>
+        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" class="lightbox-content" id="lightbox-img" alt="" width="1" height="1" decoding="async">
         <div class="lightbox-caption" id="lightbox-caption"></div>
         <div class="lightbox-counter" id="lightbox-counter"></div>
     </div>
 
-    <script src="/assets/js/darkmode.js?v=13"></script>
-    <script>
-        // Lightbox functionality
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxCaption = document.getElementById('lightbox-caption');
-        const lightboxCounter = document.getElementById('lightbox-counter');
-        const closeBtn = document.querySelector('.lightbox-close');
-        const prevBtn = document.querySelector('.lightbox-prev');
-        const nextBtn = document.querySelector('.lightbox-next');
-
-        let currentImages = [];
-        let currentIndex = 0;
-
-        // Add click event to all gallery images
-        document.querySelectorAll('.gm-sec').forEach(section => {
-            const images = section.querySelectorAll('.gm-mosaic img');
-            images.forEach((img, index) => {
-                img.addEventListener('click', () => {
-                    currentImages = Array.from(images);
-                    currentIndex = index;
-                    openLightbox();
-                });
-            });
-        });
-
-        // "+N" tile: first click expands the section instead of opening the lightbox
-        document.querySelectorAll('.gm-more').forEach(more => {
-            more.addEventListener('click', (e) => {
-                const sec = more.closest('.gm-sec');
-                if (!sec.classList.contains('expanded')) {
-                    e.stopPropagation();
-                    sec.classList.add('expanded');
-                }
-            }, true);
-        });
-
-        function openLightbox() {
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            updateLightboxImage();
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function updateLightboxImage() {
-            const img = currentImages[currentIndex];
-            lightboxImg.src = img.src;
-            lightboxCaption.textContent = img.alt;
-            lightboxCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
-
-            // Hide arrows if only one image
-            if (currentImages.length <= 1) {
-                prevBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
-            } else {
-                prevBtn.style.display = 'flex';
-                nextBtn.style.display = 'flex';
-            }
-        }
-
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % currentImages.length;
-            updateLightboxImage();
-        }
-
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-            updateLightboxImage();
-        }
-
-        // Event listeners
-        closeBtn.addEventListener('click', closeLightbox);
-        prevBtn.addEventListener('click', prevImage);
-        nextBtn.addEventListener('click', nextImage);
-
-        // Close on background click
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
-
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowRight') nextImage();
-            if (e.key === 'ArrowLeft') prevImage();
-        });
-    </script>
+    <script src="/assets/js/site.js?v=1" defer></script>
+    <script src="/assets/js/pages/gallery.js?v=1" defer></script>
 </body>
 
 </html>
-

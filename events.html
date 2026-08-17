@@ -3,129 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events - Troy VEX Robotics</title>
-    <link rel="stylesheet" href="/assets/css/site.css?v=19">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-10QE64BG2M"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-10QE64BG2M', {
-        anonymize_ip: true,
-        allow_google_signals: false,
-        allow_ad_personalization_signals: false
-      });
-    </script>
-    <!-- PostHog Analytics -->
-    <script>
-        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-        posthog.init('phc_wyyXUmDa4h7GRYQvboEfkr4XzRUu9ge2HmLgYGKoUVEN',{api_host:'https://us.i.posthog.com', defaults:'2026-01-30'})
-    </script>
-
-    <!-- Events page (Apple-style) — scoped to .evp so nav/footer are untouched -->
-    <style>
-      .evp{--red:#b12a34;--navy:#0d1b3a;--graphite:#1d1d1f;--fog:#707070;--cloud:#f5f5f7;--bone:#e2e2e5;--paper:#fff;
-           font-family:'Inter',sans-serif;background:var(--cloud);color:var(--graphite);-webkit-font-smoothing:antialiased}
-      .evp *{box-sizing:border-box}
-      .evp a{text-decoration:none;color:inherit}
-      .evp .evp-wrap{max-width:880px;margin:0 auto;padding:0 22px}
-      .evp h1,.evp h2,.evp h3,.evp .ev-day{font-family:'Inter',sans-serif !important}
-      /* hero */
-      .evp .evp-hero{text-align:center;padding:64px 0 30px}
-      .evp .evp-hero .ey{color:var(--red);font-size:19px;font-weight:600}
-      .evp .evp-hero h1{font-size:46px;letter-spacing:-1px;font-weight:700;margin:.2em 0 .15em;color:var(--graphite);line-height:1.08}
-      .evp .evp-hero p{font-size:19px;font-weight:300;color:var(--fog)}
-      .evp .seg{display:inline-flex;background:var(--bone);border-radius:980px;padding:3px;margin-top:26px}
-      .evp .seg a{font-size:14px;font-weight:500;padding:7px 18px;border-radius:980px;color:var(--graphite);cursor:pointer}
-      .evp .seg a.on{background:var(--paper);box-shadow:0 1px 3px rgba(0,0,0,.1)}
-      /* list */
-      .evp #ev-list{margin:40px 0 0;background:var(--paper);border-radius:18px;overflow:hidden}
-      .evp .ev{display:grid;grid-template-columns:84px 1fr auto;gap:22px;align-items:center;padding:22px 26px;border-bottom:1px solid var(--cloud)}
-      .evp .ev:last-child{border-bottom:none}
-      .evp .ev-date{text-align:center}
-      .evp .ev-mo{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--red)}
-      .evp .ev-day{display:block;font-size:26px;font-weight:600;line-height:1;letter-spacing:-.02em;white-space:nowrap}
-      .evp .ev-day.ev-day-range{font-size:20px;padding:3px 0}
-      .evp .ev-yr{display:block;font-size:11px;color:var(--fog)}
-      .evp .ev-name{font-size:18px;font-weight:600;letter-spacing:-.01em}
-      .evp .ev-loc{font-size:14px;color:var(--fog);margin-top:2px}
-      .evp .ev-detail{font-size:13px;color:var(--graphite);opacity:.7;margin-top:4px}
-      .evp .ev-tag{font-size:12px;font-weight:600;color:var(--red);background:rgba(177,42,52,.08);padding:4px 12px;border-radius:980px;white-space:nowrap}
-      .evp .ev-major .ev-tag{color:#fff;background:var(--navy)}
-      .evp .ev{cursor:pointer}
-      .evp .ev:hover .ev-name{color:var(--red)}
-      /* calendar — hidden until toggled */
-      .evp #cal-view{display:none;padding:40px 0 80px}
-      .evp.show-cal #cal-view{display:block}
-      .evp.show-cal #ev-list{display:none}
-      .evp #ev-list{margin-bottom:80px}
-      .evp #cal-view h2{text-align:center;font-size:28px;letter-spacing:-.5px;margin-bottom:6px;color:var(--graphite)}
-      .evp #cal-view .sub{text-align:center;color:var(--fog);font-size:15px;margin-bottom:26px}
-      .evp #cal{background:var(--paper);border-radius:18px;padding:26px}
-      .evp .cal-head{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:18px}
-      .evp .cal-title{font-size:19px;font-weight:600;min-width:190px;text-align:center}
-      .evp .cal-head button{width:34px;height:34px;border:none;background:var(--cloud);border-radius:980px;cursor:pointer;font-size:16px;color:var(--graphite)}
-      .evp .cal-head button:disabled{opacity:.3;cursor:default}
-      .evp .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
-      .evp .cal-dow{text-align:center;font-size:11px;color:var(--fog);font-weight:600;padding-bottom:6px}
-      .evp .cal-cell{min-height:78px;border-radius:10px;background:var(--cloud);padding:7px 8px;position:relative}
-      .evp .cal-empty{background:transparent}
-      .evp .cal-adj{background:transparent;box-shadow:inset 0 0 0 1px var(--bone)}
-      .evp .cal-adj .cal-num{color:#c3c3c8}
-      .evp .cal-has{background:#fff;box-shadow:inset 0 0 0 1.5px var(--red)}
-      .evp .cal-today{box-shadow:inset 0 0 0 1.5px var(--navy)}
-      .evp .cal-today .cal-num{color:var(--navy);font-weight:700}
-      /* hover tooltip on event days */
-      .evp .cal-tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
-        width:230px;background:var(--graphite);color:#fff;border-radius:12px;padding:11px 13px;
-        font-size:12px;line-height:1.45;text-align:left;z-index:6;opacity:0;visibility:hidden;
-        pointer-events:none;transition:opacity .15s ease;box-shadow:0 10px 28px rgba(0,0,0,.28)}
-      .evp .cal-tip::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);
-        border:6px solid transparent;border-top-color:var(--graphite)}
-      .evp .cal-tip b{display:block;font-size:13px;margin-bottom:3px}
-      .evp .cal-tip span{display:block;color:#cfcfd4}
-      .evp .cal-has:hover{z-index:7}
-      .evp .cal-has:hover .cal-tip{opacity:1;visibility:visible}
-      .evp .cal-grid > .cal-cell:nth-child(7n+1) .cal-tip{left:0;transform:none}
-      .evp .cal-grid > .cal-cell:nth-child(7n+1) .cal-tip::after{left:22px}
-      .evp .cal-grid > .cal-cell:nth-child(7n) .cal-tip{left:auto;right:0;transform:none}
-      .evp .cal-grid > .cal-cell:nth-child(7n) .cal-tip::after{left:auto;right:22px}
-      .evp .cal-num{font-size:12px;color:var(--fog)}
-      .evp .cal-has .cal-num{color:var(--graphite);font-weight:600}
-      .evp .cal-ev{display:block;font-size:10px;line-height:1.2;margin-top:4px;color:var(--red);font-weight:500}
-      .evp .cal-ev.ev-major{color:var(--navy)}
-      /* dark mode for the new calendar pieces (base .evp dark vars live in site.css) */
-      body.dark-mode .evp .cal-tip{background:#333;color:#fff}
-      body.dark-mode .evp .cal-tip::after{border-top-color:#333}
-      body.dark-mode .evp .cal-tip b{color:#fff}
-      body.dark-mode .evp .cal-adj .cal-num{color:#55555a}
-      body.dark-mode .evp .cal-today{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.45)}
-      body.dark-mode .evp .cal-today .cal-num{color:#e0e0e0}
-      body.dark-mode .evp .cal-today.cal-has{box-shadow:inset 0 0 0 1.5px var(--red)}
-      @media(max-width:680px){
-        .evp .evp-hero h1{font-size:34px}
-        .evp .ev{grid-template-columns:64px 1fr;gap:14px}
-        .evp .ev-tag{display:none}
-        .evp .cal-cell{min-height:56px}
-        .evp .cal-ev{font-size:0;height:6px;width:6px;border-radius:50%;background:var(--red);margin-top:3px}
-        .evp .cal-ev.ev-major{background:var(--navy)}
-        body.dark-mode .evp .cal-ev.ev-major{background:#b12a34}
-      }
-    </style>
+    <link rel="stylesheet" href="/assets/css/pages/events.css?v=2">
+    <script src="/assets/js/analytics.js?v=1" defer></script>
 </head>
 
 <body>
     <header>
         <nav class="navbar">
             <div class="logo-container">
-                <a href="/"><img src="/assets/images/brand/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo"></a>
+                <a href="/"><img src="/assets/images/brand/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo" width="600" height="600" decoding="async"></a>
                 <span class="logo-text">Troy VEX Robotics</span>
             </div>
             <ul class="nav-links">
@@ -141,36 +33,40 @@
                 </li>
                 <li><a href="/awards">Awards</a></li>
                 <li class="dropdown">
-                    <a href="/join">Join Us</a>
+                    <a href="/apply">Join Us</a>
                     <ul class="dropdown-menu">
+                        <li><a href="/apply">Apply Now</a></li>
                         <li><a href="/donate">Donate</a></li>
-                        <li><a href="/join">Prospective Members</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <main class="evp">
-        <div class="evp-wrap">
-            <div class="evp-hero">
-                <div class="ey">2026 Season</div>
+    <main>
+        <section class="ghero">
+            <div class="ghero-in">
+                <span class="lb lb-r">2026 Season</span>
                 <h1>Competition Schedule</h1>
-                <p>What's next on the Troy VEX calendar.</p>
-                <div class="seg"><a class="on" data-view="list">List</a><a data-view="cal">Calendar</a></div>
+                <p class="sub">What's next on the Troy VEX calendar.</p>
             </div>
+        </section>
 
-            <section id="ev-list"></section>
-
-            <section id="cal-view">
-                <h2>Season Calendar</h2>
-                <p class="sub">Browse the season month by month.</p>
-                <div id="cal">
-                    <div class="cal-head"><button type="button" data-prev>‹</button><span class="cal-title"></span><button type="button" data-next>›</button></div>
-                    <div class="cal-grid"></div>
-                </div>
-            </section>
+        <div class="wide">
+            <!-- the season spine; months are rendered from the EVENTS array -->
+            <section class="line" id="line"></section>
         </div>
+
+        <section class="close">
+            <div class="close-in">
+                <span class="lb">Follow along</span>
+                <h3>Photos from every competition.</h3>
+                <div class="acts">
+                    <a class="btn btn-rev" href="/gallery">Gallery</a>
+                    <a class="btn btn-rev-o" href="/awards">Awards</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
@@ -191,7 +87,7 @@
                 <div class="footer-col">
                     <h4>Support</h4>
                     <a href="/donate">Donate</a>
-                    <a href="/join">Join</a>
+                    <a href="/apply">Join</a>
                     <a href="/contact">Contact</a>
                 </div>
                 <div class="footer-col">
@@ -208,158 +104,9 @@
         </div>
     </footer>
 
-    <!-- Events list + calendar (list/calendar toggle, calendar opens on current month) -->
-    <script>
-      (function(){
-        // d..d2 = multi-day event range
-        const EVENTS = [
-          { y:2026, m:8,  d:6,  d2:8,  name:'Mall of America Signature Event', loc:'Mall of America, 60 East Broadway, Bloomington, Minnesota', detail:'August 6-8',                                              tag:'Signature', kind:'plain' },
-          { y:2026, m:11, d:21, d2:22, name:'One World @ UC Berkeley',         loc:'Pauley Ballroom, 2495 Bancroft Way, Berkeley, California',  detail:'November 21-22',                                          tag:'Signature', kind:'plain' }
-        ];
-        const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
-        const MO3=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-        const now=new Date();
-        let cur={y:now.getFullYear(),m:now.getMonth()+1};
-
-        function renderList(el){
-          if(!el) return;
-          el.replaceChildren();
-          EVENTS.forEach(function(e){
-            const item = document.createElement(e.href ? 'a' : 'article');
-            item.className = 'ev ev-' + e.kind;
-            if(e.href) item.href = e.href;
-
-            const date = document.createElement('div');
-            date.className = 'ev-date';
-            const month = document.createElement('span');
-            month.className = 'ev-mo';
-            month.textContent = MO3[e.m - 1];
-            const day = document.createElement('span');
-            day.className = 'ev-day' + (e.d2 ? ' ev-day-range' : '');
-            day.textContent = e.d2 ? (e.d + '–' + e.d2) : e.d;
-            const year = document.createElement('span');
-            year.className = 'ev-yr';
-            year.textContent = e.y;
-            date.append(month, day, year);
-
-            const main = document.createElement('div');
-            main.className = 'ev-main';
-            const name = document.createElement('h3');
-            name.className = 'ev-name';
-            name.textContent = e.name;
-            const loc = document.createElement('div');
-            loc.className = 'ev-loc';
-            loc.textContent = e.loc;
-            const detail = document.createElement('div');
-            detail.className = 'ev-detail';
-            detail.textContent = e.detail;
-            main.append(name, loc, detail);
-
-            item.append(date, main);
-            if(e.tag){
-              const tag = document.createElement('span');
-              tag.className = 'ev-tag';
-              tag.textContent = e.tag;
-              item.appendChild(tag);
-            }
-            el.appendChild(item);
-          });
-        }
-        function renderCal(host){
-          if(!host) return;
-          host.querySelector('.cal-title').textContent=MONTHS[cur.m-1]+' '+cur.y;
-          const first=new Date(cur.y,cur.m-1,1).getDay();
-          const days=new Date(cur.y,cur.m,0).getDate();
-          const grid = host.querySelector('.cal-grid');
-          grid.replaceChildren();
-          ['S','M','T','W','T','F','S'].forEach(function(d){
-            const dow = document.createElement('div');
-            dow.className = 'cal-dow';
-            dow.textContent = d;
-            grid.appendChild(dow);
-          });
-          function adjCell(n){
-            const c = document.createElement('div');
-            c.className = 'cal-cell cal-adj';
-            const num = document.createElement('span');
-            num.className = 'cal-num';
-            num.textContent = n;
-            c.appendChild(num);
-            return c;
-          }
-          // tail of previous month, light grey
-          const prevDays=new Date(cur.y,cur.m-1,0).getDate();
-          for(let i=0;i<first;i++){
-            grid.appendChild(adjCell(prevDays - first + 1 + i));
-          }
-          const today=new Date();
-          for(let day=1;day<=days;day++){
-            const evs=EVENTS.filter(function(e){
-              return e.y===cur.y && e.m===cur.m && day>=e.d && day<=(e.d2||e.d);
-            });
-            const isToday = cur.y===today.getFullYear() && cur.m===today.getMonth()+1 && day===today.getDate();
-            const cell = document.createElement('div');
-            cell.className = 'cal-cell' + (evs.length ? ' cal-has' : '') + (isToday ? ' cal-today' : '');
-            const num = document.createElement('span');
-            num.className = 'cal-num';
-            num.textContent = day;
-            cell.appendChild(num);
-            evs.forEach(function(e){
-              const ev = document.createElement(e.href ? 'a' : 'span');
-              ev.className = 'cal-ev ev-' + e.kind;
-              ev.textContent = e.name;
-              if(e.href) ev.href = e.href;
-              cell.appendChild(ev);
-
-              // hover tooltip with full details
-              const tip = document.createElement('div');
-              tip.className = 'cal-tip';
-              const t = document.createElement('b');
-              t.textContent = e.name;
-              const d1 = document.createElement('span');
-              d1.textContent = e.detail;
-              const d2 = document.createElement('span');
-              d2.textContent = e.loc;
-              tip.append(t, d1, d2);
-              cell.appendChild(tip);
-            });
-            grid.appendChild(cell);
-          }
-          // head of next month, light grey, completes the final week row
-          const trailing=(7 - (first + days) % 7) % 7;
-          for(let t=1;t<=trailing;t++){
-            grid.appendChild(adjCell(t));
-          }
-        }
-        function shiftMonth(n){
-          cur.m += n;
-          if(cur.m > 12){ cur.m = 1; cur.y++; }
-          if(cur.m < 1){ cur.m = 12; cur.y--; }
-        }
-        function init(){
-          renderList(document.querySelector('#ev-list'));
-          const host=document.querySelector('#cal');
-          if(host){
-            host.querySelector('[data-prev]').onclick=function(){shiftMonth(-1);renderCal(host);};
-            host.querySelector('[data-next]').onclick=function(){shiftMonth(1);renderCal(host);};
-            renderCal(host);
-          }
-          // list/calendar toggle
-          const page=document.querySelector('.evp');
-          const segs=document.querySelectorAll('.seg a[data-view]');
-          segs.forEach(function(b){
-            b.onclick=function(ev){
-              ev.preventDefault();
-              segs.forEach(function(x){x.classList.remove('on');});
-              b.classList.add('on');
-              page.classList.toggle('show-cal', b.dataset.view==='cal');
-            };
-          });
-        }
-        if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
-      })();
-    </script>
-    <script src="/assets/js/darkmode.js?v=13"></script>
+    <!-- the season spine, rendered month by month from the EVENTS array -->
+    <script src="/assets/js/pages/events.js?v=2" defer></script>
+    <script src="/assets/js/site.js?v=1" defer></script>
 </body>
 
 </html>

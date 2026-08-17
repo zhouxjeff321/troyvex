@@ -1,0 +1,179 @@
+      /* SIDE / RIGHT — the program photo sits beside the headline on the right,
+         running off the right edge of the window. Breakthrough line under the
+         buttons, Nationals photo below it. */
+      :root {
+        --ink:#1a1917; --ink-2:#4f4c47; --muted:#918b81;
+        --rule:#e2ddd3; --rule-2:#ece8e0; --bg:#f7f5f0; --crimson:#8f2b2b;
+        --gutter:40px;
+      }
+      /* stop iOS Safari inflating body copy independently of the headings */
+      html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+      body{ font-family:'Inter',-apple-system,sans-serif; }
+      body{ background:var(--bg); color:var(--ink); }
+      main{ background:var(--bg); }
+      .wide{ max-width:1160px; margin:0 auto; padding:0 var(--gutter); }
+      .bleed{ width:100vw; margin-left:calc(50% - 50vw); }
+      .ctr{ text-align:center; }
+      .lb{ font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+      .lb-r{ color:var(--crimson); }
+      .btn{ display:inline-block; padding:14px 28px; font-size:11px; font-weight:600; letter-spacing:.14em;
+        text-transform:uppercase; text-decoration:none; background:#1b1a18; color:#fff;
+        border:1px solid #1b1a18; border-radius:0; transition:background .2s,color .2s; }
+      .btn:hover{ background:transparent; color:#1b1a18; }
+      .lnk{ font-size:.98rem; color:var(--crimson); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:3px; }
+      .lnk:hover{ border-bottom-color:var(--crimson); }
+      .acts{ display:flex; gap:22px; align-items:center; flex-wrap:wrap; margin-top:38px; }
+
+      /* AWARDS A — four tiers, label in a left column, awards listed right.
+         (base: CANDIDATE) — Right / Swap with the requested revisions: single-line caption
+         on the Nationals photo, "Troy VEX — 9 teams, one family" on the program
+         panorama, and a rewritten impact lede. Each photograph keeps its own aspect
+         ratio (JROTCEXCEL 1920x1280, teamphotos 1181x507) so nothing is cropped. */
+      .hero-grid{ max-width:1160px; margin:0 auto; padding:56px var(--gutter) 0;
+        display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.06fr); gap:52px; align-items:center; }
+      .htext h1{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(2.4rem,4.4vw,3.7rem);
+        font-weight:400; line-height:1.04; letter-spacing:-.015em; margin:0; }
+      /* The italic has a very tight right sidebearing, so "VEX" collided with
+         "robotics"; giving it its own line fixes that and lets the phrase
+         break as: The nation's largest / JROTC VEX / robotics program. */
+      .htext h1 em{ font-family:'Instrument Serif',Georgia,serif;
+        font-style:italic; display:block; }
+      .htext .sub{ font-size:1.08rem; line-height:1.7; color:var(--ink-2); margin:26px 0 0; }
+      .hpic img{ width:100%; height:auto; display:block; }
+      .hpic figcaption{ padding-top:12px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+
+      .breakline{ border-top:1px solid var(--ink); margin-top:56px; }
+
+      .plate{ max-width:1160px; margin:56px auto 0; padding:0 var(--gutter); }
+      .plate img{ width:100%; height:auto; display:block; }
+      .plate figcaption{ padding-top:12px; display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+
+      /* padding-top, never the padding shorthand: these rules come after .wide,
+         so a shorthand here resets its horizontal gutter to 0 and the section
+         ends up 40px wider than the hero above it. */
+      .imp{ padding-top:88px; }
+      .imp h2{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(2.2rem,4vw,3.3rem);
+        font-weight:400; margin:20px 0 0; }
+      .imp .lede{ font-size:1.06rem; line-height:1.7; color:var(--ink-2); margin:20px auto 0; max-width:50ch; }
+      .imp-row{ display:grid; grid-template-columns:repeat(4,1fr); margin-top:56px;
+        border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+      .ic{ padding:40px 26px; text-align:center; border-right:1px solid var(--rule); }
+      .ic:last-child{ border-right:none; }
+      .ic b{ font-family:'Instrument Serif',Georgia,serif; display:block;
+        font-size:clamp(3rem,5.2vw,4.4rem); font-weight:400; line-height:.88; letter-spacing:-.02em; color:var(--crimson); }
+      .ic span{ display:block; margin-top:18px; font-size:1rem; line-height:1.5; color:var(--ink-2); }
+
+      /* alumni and internship placements */
+      .alum{ max-width:62ch; margin:38px auto 0; padding-top:26px; border-top:1px solid var(--rule); text-align:center; }
+      .alum p{ font-size:1.04rem; line-height:1.7; color:var(--ink-2); margin:14px 0 0; }
+      .alum p strong{ color:var(--ink); font-weight:600; }
+      /* Scrolling placement strip. The track holds two identical passes and
+         shifts by exactly -50%, so the loop is seamless — that only lines up if
+         the spacing lives in each item's margin rather than a flex gap, since a
+         gap would leave half a gap of drift at the wrap point. */
+      .marquee{ position:relative; margin-top:34px; padding:28px 0 8px;
+        border-top:1px solid var(--rule); overflow:hidden;
+        -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+                mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); }
+      /* CSS keeps the placement strip moving without page-specific JavaScript. */
+      .marquee-track{ display:flex; align-items:center; width:max-content;
+        animation:marquee-scroll 46s linear infinite; }
+      .marquee-track a{ display:inline-flex; align-items:center; flex:none; margin-right:68px;
+        opacity:.92; transition:opacity .18s ease, transform .18s ease; }
+      .marquee-track a:hover{ opacity:1; transform:translateY(-2px); }
+      /* one height for every mark, whatever its own proportions are */
+      .marquee-track img{ height:78px; width:auto; display:block; }
+      .marquee:hover .marquee-track,
+      .marquee:focus-within .marquee-track{ animation-play-state:paused; }
+      @keyframes marquee-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+      @media (prefers-reduced-motion:reduce){
+        .marquee{ -webkit-mask-image:none; mask-image:none; }
+        .marquee-track{ animation:none; width:auto; flex-wrap:wrap; justify-content:center; row-gap:12px; }
+        .marquee-track a[aria-hidden="true"]{ display:none; }
+      }
+
+      .rec{ padding-top:88px; }
+      .rec h2{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(2.2rem,4vw,3.3rem);
+        font-weight:400; margin:20px 0 40px; }
+      /* named rec-tier, not tier: site.css styles a bare .tier as a rounded
+         card (background, border, radius) for the donation pages, and that was
+         leaking in here and boxing every row. */
+      /* ink rules bracket the whole table, hairlines divide the tiers inside it —
+         the same treatment as .imp-row above */
+      .rec-list{ border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+      .rec-tier{ display:grid; grid-template-columns:220px minmax(0,1fr); gap:56px; padding:28px 0;
+        border-top:1px solid var(--rule); align-items:start; }
+      .rec-list .rec-tier:first-child{ border-top:none; }
+      .rec-tier > div:first-child .lb{ display:block; line-height:1.2; }
+      .rec-tier-sub{ display:block; margin-top:8px; font-size:.95rem; color:var(--muted); line-height:1.45; }
+      .aw{ display:flex; justify-content:space-between; gap:24px; align-items:baseline;
+        padding:11px 0; border-bottom:1px solid var(--rule-2); }
+      /* the first and last rows carry the tier's own padding, so drop theirs —
+         otherwise the award column sits lower than the label beside it */
+      .aw:first-child{ padding-top:0; }
+      .aw:last-child{ padding-bottom:0; border-bottom:none; }
+      .aw-n{ font-size:1.05rem; color:var(--ink); }
+      .aw-n em{ font-style:normal; color:var(--muted); font-size:.92rem; }
+      .aw-t{ font-size:10px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+        color:var(--crimson); white-space:nowrap; }
+
+      .inv{ padding-top:88px; display:grid; grid-template-columns:1fr 1fr; gap:64px; }
+      .inv h3{ font-family:'Instrument Serif',Georgia,serif; font-size:2.1rem; font-weight:400; margin:12px 0 14px; }
+      .inv p{ font-size:1.01rem; line-height:1.7; color:var(--ink-2); margin:0 0 22px; }
+      .inv ul{ list-style:none; margin:0 0 26px; padding:0; }
+      .inv li{ font-size:.96rem; color:var(--ink-2); padding:10px 0; border-bottom:1px solid var(--rule-2); }
+
+      .loc{ padding-top:88px; }
+      .loc h2{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(2.2rem,4vw,3.2rem);
+        font-weight:400; margin:20px 0 6px; }
+      .loc .addr{ font-size:1.02rem; color:var(--ink-2); margin:0 0 30px; }
+      .loc iframe{ width:100%; height:380px; border:1px solid var(--rule); display:block; filter:saturate(.9); }
+
+      footer.site-footer{ background:#efece5; margin-top:92px; }
+      .footer-col h4,.footer-col a,.footer-bottom p{ font-family:'Inter',sans-serif; }
+
+      @media (max-width:900px){
+        :root{ --gutter:20px; }
+        .hero-grid{ grid-template-columns:1fr; gap:26px; padding-top:36px; }
+
+        .htext h1{ font-size:clamp(1.9rem, 9vw, 2.4rem); }
+        .imp h2,.rec h2,.loc h2{ font-size:1.85rem; }
+        .inv h3{ font-size:1.55rem; }
+
+        .breakline{ margin-top:38px; }
+        .plate{ margin-top:38px; }
+        .imp,.rec,.inv{ padding-top:54px; }
+        .imp-row{ grid-template-columns:1fr 1fr; }
+        .ic{ padding:26px 14px; border-bottom:1px solid var(--rule); }
+        .ic:nth-child(2){ border-right:none; }
+        .rec-tier{ grid-template-columns:1fr; gap:14px; padding:24px 0; }
+        .rec-tier-sub{ margin-top:5px; }
+        .inv{ grid-template-columns:1fr; gap:34px; }
+
+        /* single-column widths let prose run to 80+ characters a line, which is
+           what made these blocks feel oversized. Cap the measure instead. */
+        .inv p,.inv li,.aw-n{ max-width:58ch; }
+        .imp .lede{ max-width:52ch; }
+        .loc iframe{ height:300px; }
+      }
+
+      /* tablets and large phones: the hero and section heads still had desktop
+         proportions here, so everything below them read too large by comparison */
+      @media (max-width:620px){
+        /* In one column the headline's three lines are nearly the same width,
+           so left-aligning them just looked crooked. Centred, they stack into a
+           symmetric block — and that matches the centred sections below. The
+           lede gets a measure of its own so it doesn't run wall to wall. */
+        .htext{ text-align:center; }
+        .htext .sub{ max-width:36ch; margin-left:auto; margin-right:auto; text-wrap:pretty; }
+        .htext .acts{ justify-content:center; }
+        .htext h1{ font-size:clamp(1.8rem, 8.4vw, 2.2rem); }
+        .imp h2,.rec h2,.loc h2{ font-size:1.6rem; }
+        .inv h3{ font-size:1.4rem; }
+        .htext .sub,.inv p{ font-size:1rem; }
+        .aw-n{ font-size:.98rem; }
+        /* still larger than it was, just not dominating a phone screen */
+        .marquee-track img{ height:64px; }
+        .marquee-track a{ margin-right:52px; }
+        .imp,.rec,.inv,.loc{ padding-top:46px; }
+      }

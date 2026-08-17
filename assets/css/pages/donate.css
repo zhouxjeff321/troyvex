@@ -1,0 +1,108 @@
+      .dn{--red:#b12a34;--red-deep:#8e1f28;--navy:#0d1b3a;--ink:#16203a;--mut:#5d6b86;
+          --line:#e7e9f0;--paper:#fff;--canvas:#f7f8fb;--soft:#f1f3f8;
+          font-family:'Inter',sans-serif;color:var(--ink);background:var(--canvas);line-height:1.6}
+      .dn *{box-sizing:border-box}
+      .dn-wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+      .dn-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+      .dn h1,.dn h2,.dn h3,.dn .dn-impact-num{font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:-.02em}
+      .dn a{text-decoration:none}
+      .dn-email-link{color:var(--red)}
+      .dn-give-note--flush{margin-top:0}
+
+      /* gradient hero (Stripe-style halo) */
+      .dn-hero{position:relative;overflow:hidden;background:var(--paper);border-bottom:1px solid var(--line)}
+      .dn-halo{position:absolute;inset:-30% -10% auto auto;width:820px;height:680px;z-index:0;pointer-events:none;
+        background:
+          radial-gradient(closest-side,rgba(177,42,52,.45),transparent 70%),
+          radial-gradient(closest-side at 65% 55%,rgba(13,27,58,.42),transparent 70%),
+          radial-gradient(closest-side at 30% 80%,rgba(224,101,109,.40),transparent 70%);
+        filter:blur(28px);transform:skewY(-8deg)}
+      .dn-hero-inner{position:relative;z-index:2;padding:5rem 0 3.5rem;max-width:42rem}
+      .dn-h1{font-size:clamp(2.4rem,5.5vw,3.8rem);line-height:1.06;margin:1.1rem 0 1.2rem;color:var(--navy)}
+      .dn-lead{font-size:1.2rem;color:var(--mut);max-width:34rem}
+      .dn-cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem}
+      .dn-btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;padding:.85rem 1.5rem;font-size:.98rem;font-weight:600;transition:.15s}
+      .dn-btn-primary{background:var(--red);color:#fff}
+      .dn-btn-primary:hover{background:var(--red-deep)}
+      .dn-btn-ghost{background:#fff;color:var(--navy);border:1px solid var(--line)}
+      .dn-btn-ghost:hover{border-color:var(--navy)}
+      .dn-tax{display:inline-flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-top:1.8rem;font-size:.86rem;color:var(--mut);
+        background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:.6rem 1rem}
+      .dn-tax strong{color:var(--ink)}
+      .dn-tax-label{font-weight:700;color:var(--red)}
+      .dn-tax-dot{color:var(--line)}
+
+      /* impact strip */
+      .dn-impact{background:var(--navy);color:#fff}
+      .dn-impact .dn-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding-top:0;padding-bottom:0}
+      .dn-impact-item{padding:2rem 1rem;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
+      .dn-impact-item:last-child{border-right:none}
+      .dn-impact-num{display:block;font-size:2.4rem;font-weight:700;line-height:1;letter-spacing:-.02em}
+      .dn-impact-num .r{color:#ff6b6b}
+      .dn-impact-label{display:block;font-size:.8rem;color:#aeb8cc;margin-top:.5rem;letter-spacing:.02em}
+
+      /* section shell */
+      .dn-section{padding:4rem 0}
+      .dn-section-head{max-width:40rem;margin-bottom:2.2rem}
+      .dn-section-title{font-size:2rem;color:var(--navy);margin:.6rem 0 .6rem}
+      .dn-section-sub{color:var(--mut);font-size:1.05rem}
+
+      /* where money goes — budget */
+
+      /* gift tiers */
+
+      /* mission (ElevenLabs orbs) */
+
+      /* ways to give */
+      /* webpage: 3 cards as columns; mobile: horizontal swipe row */
+      .dn-give{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+      .dn-give-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:1.6rem}
+      .dn-give-card h3{font-size:1.15rem;color:var(--navy);display:flex;align-items:center;gap:.6rem}
+      .dn-give-icon{width:34px;height:34px;border-radius:9px;background:var(--soft);color:var(--red);display:grid;place-items:center;flex:0 0 auto}
+      .dn-field{margin-top:1.1rem}
+      .dn-field .k{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:.15rem}
+      .dn-field .v{font-weight:500;word-break:break-word}
+      .dn-give-note{font-size:.86rem;color:var(--mut);margin-top:1.1rem}
+      .dn-give address{font-style:normal;font-weight:500;line-height:1.5}
+
+      /* scheduler */
+      .dn-sched{background:var(--paper);border-top:1px solid var(--line)}
+      .dn-sched-grid{display:grid;grid-template-columns:.9fr 1.4fr;gap:2.5rem;align-items:start}
+      .dn-sched-copy h2{font-size:2rem;color:var(--navy);margin:.6rem 0}
+      .dn-sched-copy p{color:var(--mut);margin-bottom:1rem}
+      .dn-sched-copy ul{list-style:none;padding:0;margin:1.2rem 0 0;display:grid;gap:.7rem}
+      .dn-sched-copy li{display:flex;gap:.6rem;align-items:flex-start;color:var(--ink)}
+      .dn-sched-copy li::before{content:"→";color:var(--red);font-weight:700}
+      .dn-cal-wrap{min-width:0}
+      .dn-cal{border:1px solid var(--line);border-radius:18px;overflow:hidden;min-height:560px;background:var(--soft);position:relative}
+      #cal-inline{position:relative;z-index:2;display:block;width:100%;height:560px;border:0;background:#fff}
+      .dn-cal-note{margin:.8rem .25rem 0;text-align:center;color:var(--mut);font-size:.9rem}
+      .dn-cal-note a{color:var(--red);font-weight:600;word-break:break-all}
+
+      /* sponsor cta */
+      .dn-sponsor{padding:3.5rem 0}
+      .dn-sponsor-inner{background:var(--navy);border-radius:22px;padding:2.6rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;position:relative;overflow:hidden}
+      .dn-sponsor-inner::after{content:"";position:absolute;inset:auto -10% -60% auto;width:420px;height:420px;border-radius:50%;background:radial-gradient(closest-side,rgba(177,42,52,.5),transparent 70%);filter:blur(30px)}
+      .dn-sponsor-text{position:relative;z-index:2;max-width:34rem}
+      .dn-sponsor-text h3{color:#fff;font-size:1.5rem}
+      .dn-sponsor-text p{color:#aeb8cc;margin-top:.5rem}
+      .dn-sponsor-actions{position:relative;z-index:2;display:flex;gap:.7rem;flex-wrap:wrap}
+      .dn-sponsor-actions .dn-btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+      .dn-sponsor-actions .dn-btn-ghost:hover{border-color:#fff}
+
+      @media(max-width:900px){
+        .dn-sched-grid{grid-template-columns:1fr}
+        .dn-impact .dn-wrap{grid-template-columns:repeat(2,1fr)}
+        .dn-impact-item:nth-child(2){border-right:none}
+      }
+      @media(max-width:520px){
+        .dn-impact .dn-wrap{grid-template-columns:1fr}
+        .dn-impact-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
+      }
+      /* mobile: ways-to-give cards go horizontal swipe row; roomier text inside each card */
+      @media(max-width:640px){
+        /* inset only the hero TEXT (gradient stays full-bleed to the edges) */
+        .dn-hero-inner{padding-left:2rem;padding-right:2rem}
+        .dn-give{display:flex;flex-direction:row;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.6rem;-webkit-overflow-scrolling:touch}
+        .dn-give-card{flex:0 0 84%;scroll-snap-align:start;padding:1.9rem}
+      }

@@ -1,0 +1,103 @@
+        .alumni-hero {
+            text-align: center;
+            padding: 5rem 2rem 1rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .alumni-hero h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+            color: var(--text-color);
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+        }
+        .alumni-hero .description {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            line-height: 1.7;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 3rem 0 2rem;
+        }
+
+        /* Hall of Fame cards (matches mockup) */
+        .hof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.75rem;
+            max-width: 1100px;
+            margin: 0 auto 5rem;
+            padding: 0 2rem;
+        }
+        .hof-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            overflow: hidden;
+        }
+        .hof-photo {
+            height: 220px;
+            background: linear-gradient(135deg, #0d1b3a 0%, #b12a34 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 3rem;
+            font-weight: 800;
+            overflow: hidden;
+        }
+        .hof-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
+        .hof-body {
+            padding: 1.4rem 1.5rem 1.7rem;
+        }
+        .hof-body h3 {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 0.6rem;
+        }
+        .hof-body p {
+            font-size: 0.92rem;
+            color: var(--secondary-text);
+            line-height: 1.6;
+        }
+        .hof-uni {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .alumni-hero h1 { font-size: 2rem; }
+            .hof-grid { grid-template-columns: 1fr; }
+        }
+
+        .alumni-cta {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            padding: 3.5rem 2rem;
+            text-align: center;
+            background: var(--card-bg, #f9fafb);
+            border-radius: 20px;
+        }
+        .alumni-cta-title {
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+            font-size: 1.75rem;
+        }
+        .alumni-cta-copy {
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            color: var(--secondary-text);
+            font-size: 1.05rem;
+        }

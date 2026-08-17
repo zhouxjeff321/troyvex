@@ -1,0 +1,205 @@
+/* APPLY — page styles.
+   Self-contained, in the same shape as the other page sheets: the shared chrome
+   (navigation, footer) comes from site.css and everything here lays out this
+   page only. Shares about.html's tokens, horizon gradient hero and dark close —
+   keep them in step.
+   C's four chapters carry the middle of the page and D's framed band makes
+   the ask once the reader knows how it works. Eligibility is no longer a
+   section: it is three facts on a ruled strip directly under the hero, so
+   the two questions that stop people applying — am I allowed, do I need
+   experience — are answered before the timeline rather than after it.
+   Order: hero, who can apply, how it goes, the ask, the numbers, the
+   scheduler, the close. Shares about.html's tokens, hero and dark close. */
+:root {
+  --ink:#1a1917; --ink-2:#4f4c47; --muted:#918b81;
+  --rule:#e2ddd3; --bg:#f7f5f0; --crimson:#8f2b2b; --gutter:40px;
+  --dk:#14130f; --dk-ink:#f3f0e9; --dk-ink-2:#c3bcae; --dk-rule:rgba(243,240,233,.22);
+}
+html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body{ font-family:'Inter',-apple-system,sans-serif; }
+body{ background:var(--bg); color:var(--ink); }
+/* the fixed header reserves a flat 100px on the body while the bar is only
+   84px tall (72px on a phone); handing that space to the hero band removes
+   the strip of paper above it at every width */
+body{ padding-top:0; }
+.ghero{ padding-top:100px; }
+main{ background:var(--bg); padding-top:0; padding-bottom:0; }
+.wide{ max-width:1160px; margin:0 auto; padding:0 var(--gutter); }
+.ctr{ text-align:center; }
+.lb{ font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+.lb-r{ color:var(--crimson); }
+.btn{ display:inline-block; padding:14px 28px; font-size:11px; font-weight:600; letter-spacing:.14em;
+  text-transform:uppercase; text-decoration:none; background:#1b1a18; color:#fff;
+  border:1px solid #1b1a18; border-radius:0; transition:background .2s,color .2s; }
+.btn:hover{ background:transparent; color:#1b1a18; }
+.btn-o{ background:transparent; color:#1b1a18; }
+.btn-o:hover{ background:#1b1a18; color:#fff; }
+.btn-rev{ background:var(--dk-ink); color:var(--dk); border-color:var(--dk-ink); }
+.btn-rev:hover{ background:transparent; color:var(--dk-ink); }
+.lnk{ font-size:.98rem; color:var(--crimson); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:3px; }
+.lnk:hover{ border-bottom-color:var(--crimson); }
+.lnk-rev{ color:var(--dk-ink); border-bottom-color:var(--dk-rule); }
+.lnk-rev:hover{ border-bottom-color:var(--dk-ink); }
+.acts{ display:flex; gap:22px; align-items:center; flex-wrap:wrap; margin-top:34px; }
+.bar{ width:46px; height:2px; background:var(--crimson); margin:22px 0 26px; }
+/* the second line inside a button. Its colour follows that button's ground,
+   and every variant's ground flips on hover, so each states both states —
+   the same table sponsors.html carries. */
+.btn-sub{ display:block; margin-top:5px; font-size:10px; font-weight:600; letter-spacing:.12em;
+  text-transform:uppercase; }
+.btn .btn-sub{ color:rgba(243,240,233,.72); }
+.btn:hover .btn-sub{ color:var(--ink-2); }
+.btn-o .btn-sub{ color:var(--ink-2); }
+.btn-o:hover .btn-sub{ color:rgba(243,240,233,.72); }
+.btn-rev .btn-sub{ color:rgba(26,25,23,.62); }
+.btn-rev:hover .btn-sub{ color:var(--dk-ink-2); }
+
+/* hero — the about page's horizon gradient, unchanged */
+.ghero{ position:relative; width:100vw; margin:0 0 0 calc(50% - 50vw);
+  background:
+    radial-gradient(circle at 92% -8%, rgba(177,42,52,.12), transparent 44%),
+    linear-gradient(180deg, rgba(17,17,17,.07) 0%, rgba(17,17,17,.02) 60%, transparent 100%); }
+.ghero::after{ content:''; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(ellipse 120% 76% at 50% 116%, rgba(143,43,43,.16), transparent 62%);
+  -webkit-mask-image:linear-gradient(180deg, #000 55%, transparent 100%);
+    mask-image:linear-gradient(180deg, #000 55%, transparent 100%); }
+.ghero-in{ position:relative; z-index:1;
+  max-width:1160px; margin:0 auto; padding:92px var(--gutter) 96px; text-align:center; }
+.ghero h1{ font-family:'Instrument Serif',Georgia,serif; color:var(--ink);
+  font-size:clamp(2.5rem,5.2vw,4.2rem); font-weight:400; line-height:1.04; letter-spacing:-.018em;
+  margin:0 auto; max-width:22ch; }
+.ghero h1 em{ font-family:'Instrument Serif',Georgia,serif; font-style:italic; }
+.ghero .sub{ font-size:1.1rem; line-height:1.75; color:var(--ink-2); margin:26px auto 0; max-width:58ch; }
+.ghero .acts{ justify-content:center; }
+
+.sec{ padding-top:88px; }
+/* the hero already sets down 96px below its subtitle, so the first section
+   would pay for the gap twice — same trim teams.html carries. Adjacent
+   sibling, not :first-of-type: that counts section elements, and the first
+   section in main is the hero itself. */
+.ghero + .sec{ padding-top:48px; }
+.sec h2{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(2.2rem,4vw,3.3rem);
+  font-weight:400; margin:20px 0 0; line-height:1.1; }
+.sec .lede{ font-size:1.05rem; line-height:1.7; color:var(--ink-2); margin:20px auto 0; max-width:56ch; }
+
+/* eligibility, as ruled points — the sponsors page's .pt */
+.pts{ margin-top:14px; }
+.pt{ padding:24px 0; border-top:1px solid var(--rule); }
+.pt:first-of-type{ padding-top:0; border-top:none; }
+.pt h3{ font-family:'Instrument Serif',Georgia,serif; font-size:1.34rem; font-weight:400;
+  margin:9px 0 10px; line-height:1.2; }
+.pt p{ font-size:1.01rem; line-height:1.75; color:var(--ink-2); margin:0; max-width:58ch; }
+/* THE FOUR CHAPTERS. Crimson ticks hang off the ink rule so the row reads as
+   a sequence rather than as four cards — the about page's .chapters. */
+.chs{ display:grid; grid-template-columns:repeat(4,1fr); column-gap:52px; margin-top:52px;
+  border-top:1px solid var(--ink); }
+.ch{ position:relative; padding:26px 0 0; }
+.ch + .ch::before{ content:''; position:absolute; top:0; bottom:0; left:-26px;
+  width:1px; background:var(--rule); }
+.ch-mark::before{ content:''; display:block; width:1px; height:15px; background:var(--crimson); }
+.ch-mark b{ font-family:'Instrument Serif',Georgia,serif; display:block;
+  font-size:clamp(2.2rem,3.6vw,2.9rem); font-weight:400; line-height:.9; letter-spacing:-.02em;
+  color:var(--crimson); margin-top:16px; }
+/* no "Step 01" under the numeral: the crimson tick and the numeral already
+   say it, and the heading beneath names the step — three labels for one
+   idea read as a stutter. The about page's chapters can carry both because
+   its pair is a year and a chapter name, which are different facts. */
+.ch h3{ font-family:'Instrument Serif',Georgia,serif; font-size:1.5rem; font-weight:400;
+  margin:18px 0 10px; line-height:1.15; }
+.ch p{ font-size:1rem; line-height:1.7; color:var(--ink-2); margin:0; }
+/* the button belongs to step one, so it sits inside that column */
+.ch .acts{ margin-top:22px; }
+.ch .acts .btn{ padding:12px 20px; }
+/* ELIGIBILITY, as a strip rather than a section. Three facts, no heading —
+   the labels are the heading. Bracketed by ink rules like the figure row,
+   which is the other place this page states things flatly. */
+.elig{ display:grid; grid-template-columns:repeat(3,1fr); margin-top:0;
+  border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+.eg{ padding:26px 28px; border-right:1px solid var(--rule); }
+.eg:first-child{ padding-left:0; }
+.eg:last-child{ border-right:none; padding-right:0; }
+.eg b{ display:block; margin-top:11px; font-family:'Instrument Serif',Georgia,serif;
+  font-size:1.32rem; font-weight:400; line-height:1.25; color:var(--ink); }
+
+/* the ask, as a band rather than a button loose on the page */
+.ask{ margin-top:52px; padding:44px var(--gutter); border:1px solid var(--ink);
+  background:#fbfaf7; text-align:center; }
+.ask h3{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(1.8rem,3.2vw,2.4rem);
+  font-weight:400; margin:14px auto 0; max-width:24ch; line-height:1.12; }
+.ask p{ font-size:1.03rem; line-height:1.7; color:var(--ink-2); margin:16px auto 0; max-width:52ch; }
+.ask .acts{ justify-content:center; }
+
+/* the numbers, as a ruled row — the front page's .imp-row */
+.nums{ display:grid; grid-template-columns:repeat(4,1fr); margin-top:52px;
+  border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+.nm{ padding:34px 22px; text-align:center; border-right:1px solid var(--rule); }
+.nm:last-child{ border-right:none; }
+.nm b{ font-family:'Instrument Serif',Georgia,serif; display:block; font-size:2.7rem;
+  font-weight:400; line-height:.9; letter-spacing:-.02em; color:var(--crimson); }
+.nm span{ display:block; margin-top:14px; font-size:.97rem; line-height:1.5; color:var(--ink-2); }
+
+/* the scheduler. The embed paints its own white card with its own radius,
+   which is the one rounded thing on the page — the hairline frame around it
+   keeps it looking placed rather than pasted. */
+.meet{ display:grid; grid-template-columns:minmax(0,.68fr) minmax(0,1.32fr); gap:56px;
+  margin-top:52px; padding-top:38px; border-top:1px solid var(--ink); align-items:start; }
+.meet h3{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(1.7rem,2.8vw,2.2rem);
+  font-weight:400; margin:12px 0 0; line-height:1.14; }
+.meet p{ font-size:1.02rem; line-height:1.75; color:var(--ink-2); margin:18px 0 0; max-width:46ch; }
+/* A plain iframe avoids loader exceptions in the CSP and keeps the light theme. */
+.cal-frame{ border:1px solid var(--rule); background:#fbfaf7; }
+.cal-frame iframe{ display:block; width:100%; min-height:600px; border:0; background:#fff; }
+.cal-note{ margin:16px 0 0; font-size:.93rem; color:var(--muted); }
+
+/* dark close, running straight into the footer */
+.close{ width:100vw; margin:92px 0 0 calc(50% - 50vw); background:var(--dk); }
+.close-in{ max-width:1160px; margin:0 auto; padding:84px var(--gutter); text-align:center; }
+.close .lb{ color:var(--dk-ink-2); }
+.close h3{ font-family:'Instrument Serif',Georgia,serif; color:var(--dk-ink);
+  font-size:clamp(2rem,3.8vw,3rem); font-weight:400; margin:18px auto 0; max-width:26ch; line-height:1.1; }
+.close p{ font-size:1.05rem; line-height:1.72; color:var(--dk-ink-2); margin:22px auto 0; max-width:58ch; }
+.close .acts{ justify-content:center; }
+
+footer.site-footer{ background:#efece5; margin-top:0; }
+.footer-col h4,.footer-col a,.footer-bottom p{ font-family:'Inter',sans-serif; }
+
+@media (max-width:900px){
+  :root{ --gutter:20px; }
+  .ghero-in{ padding:56px var(--gutter) 58px; }
+  .ghero h1{ font-size:clamp(2rem,8.6vw,2.6rem); text-wrap:balance; }
+  .sec h2{ font-size:1.85rem; }
+  .meet h3{ font-size:1.5rem; }
+  .close h3{ font-size:1.7rem; }
+  .sec{ padding-top:54px; }
+  .ghero + .sec{ padding-top:30px; }
+  /* two by two rather than four across: at a third of this width the
+     figures collide with their own labels */
+  .nums{ grid-template-columns:1fr 1fr; margin-top:34px; }
+  .nm{ padding:24px 14px; }
+  .nm:nth-child(2n){ border-right:none; }
+  .nm:nth-child(-n+2){ border-bottom:1px solid var(--rule); }
+  .nm b{ font-size:2.2rem; }
+  .meet{ grid-template-columns:1fr; gap:24px; margin-top:34px; }
+  .close{ margin-top:54px; }
+  .close-in{ padding:56px var(--gutter); }
+  .ghero .sub,.sec .lede,.close p{ max-width:52ch; }
+  .chs{ grid-template-columns:1fr; column-gap:0; margin-top:34px; }
+  .ch{ padding:24px 0 26px; border-bottom:1px solid var(--rule); }
+  /* stacked, the dividers between chapters are the bottom borders */
+  .ch + .ch::before{ display:none; }
+  .ch:last-child{ padding-bottom:0; border-bottom:none; }
+  .ch h3{ font-size:1.3rem; }
+  /* stacked, the dividers between the three facts are bottom borders */
+  .elig{ grid-template-columns:1fr; }
+  .eg{ padding:18px 0; border-right:none; border-bottom:1px solid var(--rule); }
+  .eg:last-child{ border-bottom:none; }
+  .eg b{ font-size:1.18rem; margin-top:7px; }
+  .ask{ margin-top:34px; padding:32px 22px; }
+}
+@media (max-width:620px){
+  .ghero h1{ font-size:clamp(1.9rem,8.2vw,2.3rem); }
+  .sec h2{ font-size:1.6rem; }
+  .acts{ gap:14px; }
+  .acts .btn{ width:100%; text-align:center; }
+
+}

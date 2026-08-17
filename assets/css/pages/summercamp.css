@@ -1,0 +1,131 @@
+        /* ─── Summer Camp — ElevenLabs style (scoped to .sc) ─── */
+        .sc {
+            font-family: 'Inter', sans-serif;
+            background: #fdfcfc;
+            color: #000;
+            padding: 0 0 1px;
+        }
+        .sc .disp { font-family: 'DM Sans', sans-serif; font-weight: 300; letter-spacing: -0.02em; }
+        .sc-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* Hero card */
+        .sc-hero {
+            position: relative;
+            border-radius: 24px;
+            background: #f5f3f1;
+            margin-top: 24px;
+            padding: 72px 40px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .sc-orb { position: absolute; border-radius: 50%; filter: blur(48px); opacity: 0.55; }
+        .sc-orb.a { width: 280px; height: 280px; background: #b12a34; top: -60px; left: -40px; }
+        .sc-orb.b { width: 240px; height: 240px; background: #0d1b3a; bottom: -70px; right: -30px; }
+        .sc-hero .inner { position: relative; z-index: 2; }
+        .sc-hero .ey { font-size: 14px; color: #555; }
+        .sc-hero h1 { font-size: 60px; line-height: 1.02; margin: 16px auto 18px; max-width: 18ch; color: #000; }
+        .sc-hero .details { margin: 0 auto 28px; }
+        .sc-hero .details p {
+            font-size: 18px;
+            color: #555;
+            max-width: 52ch;
+            margin: 0 auto 12px;
+            line-height: 1.6;
+        }
+        .sc-hero .details p:last-child { margin-bottom: 0; }
+        .sc-hero .details p b { color: #000; font-weight: 600; }
+        .sc-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .sc-pill {
+            border-radius: 9999px;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 10px 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .sc-pill.dark { background: #000; color: #fff; border: 1px solid #000; }
+        .sc-pill.dark:hover { background: #b12a34; border-color: #b12a34; }
+        .sc-pill.light { background: #fdfcfc; color: #000; border: 1px solid #e5e5e5; box-shadow: rgba(0,0,0,0.06) 0 0 0 1px, rgba(0,0,0,0.04) 0 1px 2px 0; }
+        .sc-note { position: relative; z-index: 2; margin-top: 18px; color: #b12a34; font-weight: 500; font-size: 14px; }
+        .sc-mail { position: relative; z-index: 2; margin-top: 8px; color: #999; font-size: 13px; }
+        .sc-mail a { color: #777; text-decoration: none; font-weight: 500; }
+        .sc-mail a:hover { color: #b12a34; text-decoration: underline; }
+        #schedule { scroll-margin-top: 110px; }
+        .sc-schedule { padding-top: 0; }
+        .sc-list-spaced { margin-top: 14px; }
+        html { scroll-behavior: smooth; }
+
+        /* Sections */
+        .sc-sec { padding: 80px 0; }
+        .sc-shead { font-size: 40px; text-align: center; line-height: 1.08; color: #000; }
+
+        /* Figure cards */
+        .sc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 46px; }
+        .sc-pcard {
+            background: #fff;
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: rgba(0,0,0,0.4) 0 0 1px 0, rgba(0,0,0,0.04) 0 2px 4px 0;
+        }
+        .sc-pcard .n { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 46px; letter-spacing: -0.02em; color: #000; }
+        .sc-pcard .n .r { color: #b12a34; }
+        .sc-pcard .t { font-size: 15px; color: #555; margin-top: 6px; line-height: 1.45; }
+
+        /* Feature split */
+        .sc-feat {
+            background: #f5f3f1;
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+        .sc-feat .pad { padding: 48px; }
+        .sc-feat h3 { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 36px; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 16px; color: #000; }
+        .sc-feat ul { list-style: none; margin: 0; padding: 0; }
+        .sc-feat li { color: #555; font-size: 15.5px; padding: 5px 0; line-height: 1.5; }
+        .sc-feat li b { color: #000; font-weight: 500; }
+        .sc-feat .tag {
+            display: inline-block;
+            margin-top: 18px;
+            font-size: 13px;
+            color: #b12a34;
+            border: 1px solid #e5e5e5;
+            background: #fff;
+            border-radius: 9999px;
+            padding: 6px 14px;
+        }
+        .sc-feat img { width: 100%; height: 100%; object-fit: cover; min-height: 320px; display: block; }
+
+        /* Sessions feature (reversed tint) */
+        .sc-feat.rev { margin-top: 18px; }
+        .sc-sess-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+        .sc-sess {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: rgba(0,0,0,0.4) 0 0 1px 0, rgba(0,0,0,0.04) 0 2px 4px 0;
+        }
+        .sc-sess h4 { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 20px; color: #b12a34; margin: 0 0 4px; }
+        .sc-sess p { color: #555; font-size: 14.5px; margin: 0; line-height: 1.45; }
+
+        /* Final CTA */
+        .sc-end { text-align: center; padding: 0 0 90px; }
+        .sc-end h2 { font-size: 36px; line-height: 1.1; color: #000; }
+        .sc-end p { color: #555; font-size: 17px; margin: 12px auto 26px; max-width: 52ch; }
+        .sc-end p a { color: #b12a34; font-weight: 500; text-decoration: none; }
+        .sc-end p a:hover { text-decoration: underline; }
+
+
+        @media (max-width: 900px) {
+            .sc-grid { grid-template-columns: 1fr 1fr; }
+            .sc-hero h1 { font-size: 42px; }
+            .sc-shead { font-size: 32px; }
+            .sc-feat { grid-template-columns: 1fr; }
+            .sc-feat .pad { padding: 32px 26px; }
+            .sc-end h2 { font-size: 28px; }
+        }
+        @media (max-width: 520px) {
+            .sc-grid, .sc-sess-cards { grid-template-columns: 1fr; }
+            .sc-hero { padding: 52px 22px; }
+        }

@@ -28,7 +28,6 @@ archive/
 events-previews/
 landing-previews/
 landing_pages/
-serve.py
 join-mockups.html
 claude-explorer.html
 redesign-explorer.html

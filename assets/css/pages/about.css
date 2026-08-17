@@ -1,0 +1,212 @@
+      /* ABOUT — page styles.
+         Self-contained, in the same shape as index.html: the shared chrome
+         (navigation, footer) comes from site.css, and everything below overrides
+         the body typography and lays out this page only.
+         Structure: gradient hero, origin story, the three-chapter timeline
+         (its copy is the same as the chapters on /teams — keep the two in step),
+         leadership, philosophy, closing invitation. */
+      :root {
+        --ink:#1a1917; --ink-2:#4f4c47; --muted:#918b81;
+        --rule:#e2ddd3; --bg:#f7f5f0; --crimson:#8f2b2b; --gutter:40px;
+        /* reversed set, for the dark plates */
+        --dk:#14130f; --dk-ink:#f3f0e9; --dk-ink-2:#c3bcae; --dk-rule:rgba(243,240,233,.22);
+      }
+      html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+      body{ font-family:'Inter',-apple-system,sans-serif; }
+      body{ background:var(--bg); color:var(--ink); }
+      /* The header is position:fixed and site.css reserves a flat 100px on the
+         body for it — but the bar is only 84px tall (72px on a phone), so the
+         remainder shows as a strip of paper above a full-bleed top band. Hand
+         that 100px to the hero band instead and it runs up under the translucent
+         nav, with no strip at any width. Safe to pin: the 100px is declared once
+         in site.css and never overridden in a media query. */
+      body{ padding-top:0; }
+      .ghero{ padding-top:100px; }
+      /* site.css gives main 2rem of padding and changes it at its breakpoints.
+         The plate and the closing band are full-bleed and sit at the very top and
+         bottom, so that padding shows up as a strip of paper against the nav and
+         the footer. Zeroing the vertical padding here is breakpoint-proof —
+         cancelling it with a negative margin is not, and left the dark band
+         overlapping the footer by 20px on a phone. Horizontal padding stays: the
+         sections keep their own gutter on top of it, as on the front page. */
+      main{ background:var(--bg); padding-top:0; padding-bottom:0; }
+      .wide{ max-width:1160px; margin:0 auto; padding:0 var(--gutter); }
+      .ctr{ text-align:center; }
+      .lb{ font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
+      .lb-r{ color:var(--crimson); }
+      .btn{ display:inline-block; padding:14px 28px; font-size:11px; font-weight:600; letter-spacing:.14em;
+        text-transform:uppercase; text-decoration:none; background:#1b1a18; color:#fff;
+        border:1px solid #1b1a18; border-radius:0; transition:background .2s,color .2s; }
+      .btn:hover{ background:transparent; color:#1b1a18; }
+      .btn-rev{ background:var(--dk-ink); color:var(--dk); border-color:var(--dk-ink); }
+      .btn-rev:hover{ background:transparent; color:var(--dk-ink); }
+      .lnk{ font-size:.98rem; color:var(--crimson); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:3px; }
+      .lnk:hover{ border-bottom-color:var(--crimson); }
+      .lnk-rev{ color:var(--dk-ink); border-bottom-color:var(--dk-rule); }
+      .lnk-rev:hover{ border-bottom-color:var(--dk-ink); }
+      .acts{ display:flex; gap:22px; align-items:center; flex-wrap:wrap; margin-top:34px; }
+
+      /* The gradient hero. No photograph — three layers, all of them values the
+         site already uses: the crimson corner glow from .page-header
+         (rgba(177,42,52,·) as a circle at 92% -8%), a weaker glow answering it
+         from low left, and the ink wash beneath both. The wash fades to
+         transparent rather than stopping at a colour, so the band dissolves into
+         the paper and needs no closing rule — a hairline here would read as the
+         edge of a panel, which is the thing this replaced.
+         Alternatives built from the same vocabulary are laid out side by side in
+         mockups/about-gradients.html; swapping is one declaration.
+         Not named .hero: site.css already owns that class (centred text, 6rem of
+         padding) and it leaks straight in. */
+      .ghero{ position:relative; width:100vw; margin:0 0 0 calc(50% - 50vw);
+        background:
+          radial-gradient(circle at 92% -8%, rgba(177,42,52,.12), transparent 44%),
+          linear-gradient(180deg, rgba(17,17,17,.07) 0%, rgba(17,17,17,.02) 60%, transparent 100%); }
+      /* The horizon: a wide arc rising from below the fold, so the crimson sits
+         under the headline rather than off to one side.
+         It gets its own layer because its centre is below the band — at the bottom
+         edge the arc is still roughly .10 opaque, and as a background layer it
+         would cut off there in a hard line right across the page. The mask fades
+         this layer to nothing over the last 45%, which keeps the arc but lets it
+         reach the paper at zero. Masking the band to the paper colour instead
+         (what the other options can do) would flatten the arc away entirely. */
+      .ghero::after{ content:''; position:absolute; inset:0; pointer-events:none;
+        background:radial-gradient(ellipse 120% 76% at 50% 116%, rgba(143,43,43,.16), transparent 62%);
+        -webkit-mask-image:linear-gradient(180deg, #000 55%, transparent 100%);
+                mask-image:linear-gradient(180deg, #000 55%, transparent 100%); }
+      /* positioned and lifted so the headline paints above that layer, not under it */
+      .ghero-in{ position:relative; z-index:1;
+        max-width:1160px; margin:0 auto; padding:92px var(--gutter) 96px; text-align:center; }
+      .ghero h1{ font-family:'Instrument Serif',Georgia,serif; color:var(--ink);
+        font-size:clamp(2.5rem,5.2vw,4.2rem); font-weight:400; line-height:1.04; letter-spacing:-.018em;
+        margin:0 auto; max-width:22ch; }
+      .ghero h1 em{ font-family:'Instrument Serif',Georgia,serif; font-style:italic; }
+      .ghero .sub{ font-size:1.1rem; line-height:1.75; color:var(--ink-2); margin:26px auto 0; max-width:58ch; }
+
+      /* padding-top, never the shorthand: these rules come after .wide, so a
+         shorthand here resets its horizontal gutter to 0 */
+      .sec{ padding-top:88px; }
+      .sec h2{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(2.2rem,4vw,3.3rem);
+        font-weight:400; margin:20px 0 0; line-height:1.1; }
+      .sec .lede{ font-size:1.05rem; line-height:1.7; color:var(--ink-2); margin:20px auto 0; max-width:54ch; }
+
+      /* the origin story — the live page's split, kept brief: three paragraphs
+         and one photograph. The short crimson bar under the heading is the one
+         piece of the current page's ornament worth keeping. */
+      .origin{ display:grid; grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr); gap:60px;
+        padding-top:88px; align-items:start; }
+      .origin h2{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(2rem,3.6vw,2.9rem);
+        font-weight:400; margin:14px 0 0; line-height:1.1; }
+      .bar{ width:46px; height:2px; background:var(--crimson); margin:22px 0 26px; }
+      .origin p{ font-size:1.05rem; line-height:1.78; color:var(--ink-2); margin:0 0 20px; max-width:60ch; }
+      .origin p:last-child{ margin-bottom:0; }
+      /* dropped so the photograph starts below the heading rather than level with
+         the eyebrow — it stops competing with "The Origin Story" for the top of
+         the section. Two other honest anchors if this wants tuning: 104px puts the
+         photo's top edge on the crimson bar, 135px on the first line of copy. */
+      .origin figure{ margin:52px 0 0; }
+      .origin figure img{ width:100%; height:auto; display:block; }
+
+      /* the timeline — three chapters, the copy taken from /teams. Crimson ticks
+         hang off the ink rule so the row reads as a sequence rather than cards. */
+      /* The gutter is a real column-gap and the dividers are pseudo-elements
+         centred in it. Carrying the gutter as per-column padding instead left
+         the middle chapter padded on both sides and the outer two on one, so
+         its content box — and its photograph — came out 36px narrower than its
+         neighbours'. Equal tracks, equal pictures. */
+      .chapters{ display:grid; grid-template-columns:repeat(3,1fr); column-gap:72px; margin-top:52px;
+        border-top:1px solid var(--ink); }
+      .ch{ position:relative; }
+      .ch + .ch::before{ content:''; position:absolute; top:0; bottom:0; left:-36px;
+        width:1px; background:var(--rule); }
+      .ch-mark::before{ content:''; display:block; width:1px; height:15px; background:var(--crimson); }
+      .ch-mark b{ font-family:'Instrument Serif',Georgia,serif; display:block;
+        font-size:clamp(2.2rem,3.6vw,2.9rem); font-weight:400; line-height:.9; letter-spacing:-.02em;
+        color:var(--crimson); margin-top:16px; }
+      .ch-mark .lb{ display:block; margin-top:11px; }
+      .ch figure{ margin:24px 0 0; }
+      .ch figure img{ width:100%; aspect-ratio:3/2; object-fit:cover; display:block; filter:saturate(.94); }
+      .ch p{ font-size:1rem; line-height:1.7; color:var(--ink-2); margin:20px 0 0; }
+
+      /* the coach, as a feature rather than a card */
+      /* the portrait is 4:5, so at .85fr it stood 150px taller than the prose
+         beside it and left a hole under the pull quote. Narrower column, same
+         crop — the picture now finishes about where the text does. */
+      .feat{ display:grid; grid-template-columns:minmax(0,.6fr) minmax(0,1.4fr); gap:56px;
+        margin-top:52px; padding-top:38px; border-top:1px solid var(--ink); align-items:start; }
+      .feat img{ width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center top;
+        display:block; filter:saturate(.92); }
+      .feat h3{ font-family:'Instrument Serif',Georgia,serif; font-size:clamp(1.9rem,3.2vw,2.5rem);
+        font-weight:400; margin:12px 0 20px; line-height:1.12; }
+      .feat p{ font-size:1.05rem; line-height:1.75; color:var(--ink-2); margin:0 0 18px; max-width:60ch; }
+      .feat p:last-child{ margin-bottom:0; }
+      .feat .pull{ font-family:'Instrument Serif',Georgia,serif; font-size:1.5rem; line-height:1.35;
+        color:var(--ink); margin:26px 0 0; padding-top:22px; border-top:1px solid var(--rule); max-width:44ch; }
+
+      /* the three cadet commanders, at portrait scale */
+      .cos{ display:grid; grid-template-columns:repeat(3,1fr); gap:44px; margin-top:52px;
+        padding-top:38px; border-top:1px solid var(--ink); }
+      .cos img{ width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top;
+        display:block; filter:saturate(.92); }
+      .cos .lb{ display:block; margin-top:20px; }
+      .cos h3{ font-family:'Instrument Serif',Georgia,serif; font-size:1.72rem; font-weight:400;
+        margin:9px 0 12px; line-height:1.12; }
+      .cos p{ font-size:1rem; line-height:1.7; color:var(--ink-2); margin:0; }
+
+      .phil{ display:grid; grid-template-columns:repeat(3,1fr); gap:44px; margin-top:52px;
+        padding-top:36px; border-top:1px solid var(--ink); }
+      .phil h4{ font-family:'Instrument Serif',Georgia,serif; font-size:1.42rem; font-weight:400;
+        margin:14px 0 12px; }
+      .phil p{ font-size:.99rem; line-height:1.72; color:var(--ink-2); margin:0; }
+
+      /* dark close, bookending the plate; runs straight into the footer */
+      .close{ width:100vw; margin:92px 0 0 calc(50% - 50vw); background:var(--dk); }
+      .close-in{ max-width:1160px; margin:0 auto; padding:84px var(--gutter); text-align:center; }
+      .close .lb{ color:var(--dk-ink-2); }
+      .close h3{ font-family:'Instrument Serif',Georgia,serif; color:var(--dk-ink);
+        font-size:clamp(2rem,3.8vw,3rem); font-weight:400; margin:18px auto 0; max-width:26ch; line-height:1.1; }
+      .close p{ font-size:1.05rem; line-height:1.72; color:var(--dk-ink-2); margin:22px auto 0; max-width:58ch; }
+      .close .acts{ justify-content:center; }
+
+      footer.site-footer{ background:#efece5; margin-top:0; }
+      .footer-col h4,.footer-col a,.footer-bottom p{ font-family:'Inter',sans-serif; }
+
+      @media (max-width:900px){
+        :root{ --gutter:20px; }
+        .ghero-in{ padding:56px var(--gutter) 58px; }
+        .ghero h1{ font-size:clamp(2rem,8.6vw,2.6rem); text-wrap:balance; }
+        .sec h2{ font-size:1.85rem; }
+        .origin h2{ font-size:1.7rem; }
+        .feat h3{ font-size:1.6rem; }
+        .cos h3{ font-size:1.4rem; }
+        .close h3{ font-size:1.7rem; }
+        .phil h4{ font-size:1.22rem; }
+        .sec{ padding-top:54px; }
+        /* photograph first in one column: the prose is what the reader came for,
+           and a portrait-height image above it pushes everything off the screen */
+        .origin{ grid-template-columns:1fr; gap:26px; padding-top:54px; }
+        /* the photograph moves above the prose here, so the desktop drop would
+           just be a gap under the heading — take it back off */
+        .origin figure{ order:-1; margin-top:0; }
+        .chapters{ grid-template-columns:1fr; column-gap:0; margin-top:34px; }
+        .ch{ padding:0 0 30px; border-bottom:1px solid var(--rule); margin-bottom:30px; }
+        /* stacked, the dividers between chapters are the bottom borders */
+        .ch + .ch::before{ display:none; }
+        .ch:last-child{ padding-bottom:0; border-bottom:none; margin-bottom:0; }
+        .feat{ grid-template-columns:1fr; gap:26px; margin-top:34px; }
+        .feat img{ aspect-ratio:3/2; }
+        .feat .pull{ font-size:1.28rem; }
+        .cos{ grid-template-columns:1fr; gap:38px; margin-top:34px; }
+        .cos img{ aspect-ratio:3/2; }
+        .phil{ grid-template-columns:1fr; gap:28px; }
+        .close{ margin-top:54px; }
+        .close-in{ padding:56px var(--gutter); }
+        /* one column lets prose run past 80 characters a line, which is what makes
+           these blocks feel oversized — cap the measure instead */
+        .origin p,.feat p,.cos p,.phil p,.ch p{ max-width:58ch; }
+        .ghero .sub,.sec .lede,.close p{ max-width:52ch; }
+      }
+      @media (max-width:620px){
+        .ghero h1{ font-size:clamp(1.9rem,8.2vw,2.3rem); }
+        .sec h2{ font-size:1.6rem; }
+        .origin h2{ font-size:1.5rem; }
+      }

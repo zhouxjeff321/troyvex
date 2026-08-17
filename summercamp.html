@@ -3,188 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Troy VEX Summer Camp</title>
-    <link rel="stylesheet" href="/assets/css/site.css?v=19">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20">
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        /* ─── Summer Camp — ElevenLabs style (scoped to .sc) ─── */
-        .sc {
-            font-family: 'Inter', sans-serif;
-            background: #fdfcfc;
-            color: #000;
-            padding: 0 0 1px;
-        }
-        .sc .disp { font-family: 'DM Sans', sans-serif; font-weight: 300; letter-spacing: -0.02em; }
-        .sc-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-
-        /* Hero card */
-        .sc-hero {
-            position: relative;
-            border-radius: 24px;
-            background: #f5f3f1;
-            margin-top: 24px;
-            padding: 72px 40px;
-            text-align: center;
-            overflow: hidden;
-        }
-        .sc-orb { position: absolute; border-radius: 50%; filter: blur(48px); opacity: 0.55; }
-        .sc-orb.a { width: 280px; height: 280px; background: #b12a34; top: -60px; left: -40px; }
-        .sc-orb.b { width: 240px; height: 240px; background: #0d1b3a; bottom: -70px; right: -30px; }
-        .sc-hero .inner { position: relative; z-index: 2; }
-        .sc-hero .ey { font-size: 14px; color: #555; }
-        .sc-hero h1 { font-size: 60px; line-height: 1.02; margin: 16px auto 18px; max-width: 18ch; color: #000; }
-        .sc-hero .details { margin: 0 auto 28px; }
-        .sc-hero .details p {
-            font-size: 18px;
-            color: #555;
-            max-width: 52ch;
-            margin: 0 auto 12px;
-            line-height: 1.6;
-        }
-        .sc-hero .details p:last-child { margin-bottom: 0; }
-        .sc-hero .details p b { color: #000; font-weight: 600; }
-        .sc-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-        .sc-pill {
-            border-radius: 9999px;
-            font-size: 15px;
-            font-weight: 500;
-            padding: 10px 20px;
-            display: inline-block;
-            text-decoration: none;
-        }
-        .sc-pill.dark { background: #000; color: #fff; border: 1px solid #000; }
-        .sc-pill.dark:hover { background: #b12a34; border-color: #b12a34; }
-        .sc-pill.light { background: #fdfcfc; color: #000; border: 1px solid #e5e5e5; box-shadow: rgba(0,0,0,0.06) 0 0 0 1px, rgba(0,0,0,0.04) 0 1px 2px 0; }
-        .sc-note { position: relative; z-index: 2; margin-top: 18px; color: #b12a34; font-weight: 500; font-size: 14px; }
-        .sc-mail { position: relative; z-index: 2; margin-top: 8px; color: #999; font-size: 13px; }
-        .sc-mail a { color: #777; text-decoration: none; font-weight: 500; }
-        .sc-mail a:hover { color: #b12a34; text-decoration: underline; }
-        #schedule { scroll-margin-top: 110px; }
-        html { scroll-behavior: smooth; }
-        body.dark-mode .sc-mail { color: #888; }
-        body.dark-mode .sc-mail a { color: #aaa; }
-
-        /* Sections */
-        .sc-sec { padding: 80px 0; }
-        .sc-shead { font-size: 40px; text-align: center; line-height: 1.08; color: #000; }
-        .sc-slead { text-align: center; color: #555; margin-top: 12px; font-size: 17px; }
-
-        /* Figure cards */
-        .sc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 46px; }
-        .sc-pcard {
-            background: #fff;
-            border-radius: 20px;
-            padding: 28px;
-            box-shadow: rgba(0,0,0,0.4) 0 0 1px 0, rgba(0,0,0,0.04) 0 2px 4px 0;
-        }
-        .sc-pcard .n { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 46px; letter-spacing: -0.02em; color: #000; }
-        .sc-pcard .n .r { color: #b12a34; }
-        .sc-pcard .t { font-size: 15px; color: #555; margin-top: 6px; line-height: 1.45; }
-
-        /* Feature split */
-        .sc-feat {
-            background: #f5f3f1;
-            border-radius: 24px;
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-        }
-        .sc-feat .pad { padding: 48px; }
-        .sc-feat h3 { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 36px; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 16px; color: #000; }
-        .sc-feat ul { list-style: none; margin: 0; padding: 0; }
-        .sc-feat li { color: #555; font-size: 15.5px; padding: 5px 0; line-height: 1.5; }
-        .sc-feat li b { color: #000; font-weight: 500; }
-        .sc-feat .tag {
-            display: inline-block;
-            margin-top: 18px;
-            font-size: 13px;
-            color: #b12a34;
-            border: 1px solid #e5e5e5;
-            background: #fff;
-            border-radius: 9999px;
-            padding: 6px 14px;
-        }
-        .sc-feat img { width: 100%; height: 100%; object-fit: cover; min-height: 320px; display: block; }
-
-        /* Sessions feature (reversed tint) */
-        .sc-feat.rev { margin-top: 18px; }
-        .sc-sess-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
-        .sc-sess {
-            background: #fff;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: rgba(0,0,0,0.4) 0 0 1px 0, rgba(0,0,0,0.04) 0 2px 4px 0;
-        }
-        .sc-sess h4 { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 20px; color: #b12a34; margin: 0 0 4px; }
-        .sc-sess p { color: #555; font-size: 14.5px; margin: 0; line-height: 1.45; }
-
-        /* Final CTA */
-        .sc-end { text-align: center; padding: 0 0 90px; }
-        .sc-end h2 { font-size: 36px; line-height: 1.1; color: #000; }
-        .sc-end p { color: #555; font-size: 17px; margin: 12px auto 26px; max-width: 52ch; }
-        .sc-end p a { color: #b12a34; font-weight: 500; text-decoration: none; }
-        .sc-end p a:hover { text-decoration: underline; }
-
-        /* Dark mode */
-        body.dark-mode .sc { background: #161616; }
-        body.dark-mode .sc-hero, body.dark-mode .sc-feat { background: #222; }
-        body.dark-mode .sc-hero h1, body.dark-mode .sc-shead,
-        body.dark-mode .sc-feat h3, body.dark-mode .sc-end h2,
-        body.dark-mode .sc-pcard .n, body.dark-mode .sc-hero p b,
-        body.dark-mode .sc-feat li b { color: #f2f2f2; }
-        body.dark-mode .sc-hero .ey, body.dark-mode .sc-hero p,
-        body.dark-mode .sc-slead, body.dark-mode .sc-pcard .t,
-        body.dark-mode .sc-feat li, body.dark-mode .sc-sess p,
-        body.dark-mode .sc-end p { color: #b0b0b0; }
-        body.dark-mode .sc-pcard, body.dark-mode .sc-sess { background: #2a2a2a; box-shadow: none; border: 1px solid #333; }
-        body.dark-mode .sc-pill.light { background: #2a2a2a; color: #f2f2f2; border-color: #3a3a3a; box-shadow: none; }
-        body.dark-mode .sc-pill.dark { background: #b12a34; border-color: #b12a34; }
-        body.dark-mode .sc-feat .tag { background: #2a2a2a; border-color: #3a3a3a; }
-        body.dark-mode .sc-orb { opacity: 0.35; }
-
-        @media (max-width: 900px) {
-            .sc-grid { grid-template-columns: 1fr 1fr; }
-            .sc-hero h1 { font-size: 42px; }
-            .sc-shead { font-size: 32px; }
-            .sc-feat { grid-template-columns: 1fr; }
-            .sc-feat .pad { padding: 32px 26px; }
-            .sc-end h2 { font-size: 28px; }
-        }
-        @media (max-width: 520px) {
-            .sc-grid, .sc-sess-cards { grid-template-columns: 1fr; }
-            .sc-hero { padding: 52px 22px; }
-        }
-    </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-10QE64BG2M"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-10QE64BG2M', {
-        anonymize_ip: true,
-        allow_google_signals: false,
-        allow_ad_personalization_signals: false
-      });
-    </script>
-    <!-- PostHog Analytics -->
-    <script>
-        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-        posthog.init('phc_wyyXUmDa4h7GRYQvboEfkr4XzRUu9ge2HmLgYGKoUVEN',{api_host:'https://us.i.posthog.com', defaults:'2026-01-30'})
-    </script>
+    <link rel="stylesheet" href="/assets/css/pages/summercamp.css?v=1">
+    <script src="/assets/js/analytics.js?v=1" defer></script>
 </head>
 
 <body>
     <header>
         <nav class="navbar">
             <div class="logo-container">
-                <a href="/"><img src="/assets/images/brand/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo"></a>
+                <a href="/"><img src="/assets/images/brand/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo" width="600" height="600" decoding="async"></a>
                 <span class="logo-text">Troy VEX Robotics</span>
             </div>
             <ul class="nav-links">
@@ -200,10 +32,10 @@
                 </li>
                 <li><a href="/awards">Awards</a></li>
                 <li class="dropdown">
-                    <a href="/join">Join Us</a>
+                    <a href="/apply">Join Us</a>
                     <ul class="dropdown-menu">
+                        <li><a href="/apply">Apply Now</a></li>
                         <li><a href="/donate">Donate</a></li>
-                        <li><a href="/join">Prospective Members</a></li>
                     </ul>
                 </li>
             </ul>
@@ -224,10 +56,10 @@
                         <p>Open to grades 5&ndash;12, no experience required. <b>$275</b> per camper.</p>
                     </div>
                     <div class="sc-cta">
-                        <a class="sc-pill dark" href="https://forms.gle/aQRuszeFDVhHZTJ77" target="_blank" rel="noopener noreferrer">Register Now &mdash; $275</a>
-                        <a class="sc-pill light" href="#schedule">See the Schedule</a>
+                        <a class="sc-pill dark" href="mailto:troyvexrobotics@gmail.com?subject=2027%20Summer%20Camp%20Updates">Ask about the 2027 camp</a>
+                        <a class="sc-pill light" href="#schedule">View the 2026 Schedule</a>
                     </div>
-                    <div class="sc-note">Spots limited, sign up fast!</div>
+                    <div class="sc-note">The 2026 camp has concluded. Email us for the next session announcement.</div>
                     <div class="sc-mail">Questions? Email us at <a href="mailto:troyvexrobotics@gmail.com">troyvexrobotics@gmail.com</a></div>
                 </div>
             </section>
@@ -244,7 +76,7 @@
             </section>
 
             <!-- Schedule feature -->
-            <section class="sc-sec" id="schedule" style="padding-top:0">
+            <section class="sc-sec sc-schedule" id="schedule">
                 <div class="sc-feat">
                     <div class="pad">
                         <h3 class="disp">Five days.<br>One mini-championship.</h3>
@@ -257,19 +89,19 @@
                         </ul>
                         <span class="tag">Lectures &middot; Activities &middot; Labs &middot; Mini-Competition</span>
                     </div>
-                    <img src="/assets/images/events/2025/summer-camp/PXL_20250716_224247026.jpg" alt="Campers at the 2025 Troy VEX summer camp">
+                    <img src="/assets/images/events/2025/summer-camp/PXL_20250716_224247026.jpg" alt="Campers at the 2025 Troy VEX summer camp" width="4032" height="3024" decoding="async" loading="lazy" srcset="/assets/images/events/2025/summer-camp/PXL_20250716_224247026-640.jpg 640w, /assets/images/events/2025/summer-camp/PXL_20250716_224247026-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 550px">
                 </div>
 
                 <!-- Sessions + instructors feature -->
                 <div class="sc-feat rev">
-                    <img src="/assets/images/events/2025/summer-camp/PXL_20250731_012807227.jpg" alt="Campers building VEX robots">
+                    <img src="/assets/images/events/2025/summer-camp/PXL_20250731_012807227.jpg" alt="Campers building VEX robots" width="4032" height="3024" decoding="async" loading="lazy" srcset="/assets/images/events/2025/summer-camp/PXL_20250731_012807227-640.jpg 640w, /assets/images/events/2025/summer-camp/PXL_20250731_012807227-1280.jpg 1280w" sizes="(max-width: 900px) 100vw, 550px">
                     <div class="pad">
                         <h3 class="disp">Two sessions.<br>Taught by champions.</h3>
                         <div class="sc-sess-cards">
                             <div class="sc-sess"><h4>AM Session</h4><p>July 20&ndash;24<br>9 AM &ndash; 1 PM</p></div>
                             <div class="sc-sess"><h4>PM Session</h4><p>July 20&ndash;24<br>2 PM &ndash; 6 PM</p></div>
                         </div>
-                        <ul style="margin-top:14px">
+                        <ul class="sc-list-spaced">
                             <li><b>Curriculum:</b> engineering design, robot building, programming and sensors, driver control and autonomous coding, practice competition</li>
                             <li><b>Your instructors:</b> National Champions, 4 World Championship qualified teams, Worlds Build + Judges Award holders, 25+ awards</li>
                         </ul>
@@ -279,9 +111,9 @@
 
             <!-- Final CTA -->
             <section class="sc-end">
-                <h2 class="disp">Ready for a summer of robots?</h2>
-                <p>Pick your session and grab a spot before they're gone. Questions? Email <a href="mailto:troyvexrobotics@gmail.com">troyvexrobotics@gmail.com</a>.</p>
-                <a class="sc-pill dark" href="https://forms.gle/aQRuszeFDVhHZTJ77" target="_blank" rel="noopener noreferrer">Sign Up for Camp</a>
+                <h2 class="disp">Looking ahead to next summer?</h2>
+                <p>The 2026 session has ended. Email us to hear when the next camp dates and registration form are published.</p>
+                <a class="sc-pill dark" href="mailto:troyvexrobotics@gmail.com?subject=2027%20Summer%20Camp%20Updates">Request camp updates</a>
             </section>
         </div>
     </main>
@@ -304,7 +136,7 @@
                 <div class="footer-col">
                     <h4>Support</h4>
                     <a href="/donate">Donate</a>
-                    <a href="/join">Join</a>
+                    <a href="/apply">Join</a>
                     <a href="/contact">Contact</a>
                 </div>
                 <div class="footer-col">
@@ -320,7 +152,7 @@
             </div>
         </div>
     </footer>
-    <script src="/assets/js/darkmode.js?v=13"></script>
+    <script src="/assets/js/site.js?v=1" defer></script>
 </body>
 
 </html>

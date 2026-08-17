@@ -4,238 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
 
     <title>Home - Troy VEX Robotics</title>
-    <link rel="stylesheet" href="/assets/css/site.css?v=19">
+    <link rel="stylesheet" href="/assets/css/site.css?v=20">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/assets/images/brand/logos/njrotcupdated.png">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-10QE64BG2M"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-10QE64BG2M', {
-        anonymize_ip: true,
-        allow_google_signals: false,
-        allow_ad_personalization_signals: false
-      });
-    </script>
-    <!-- PostHog Analytics -->
-    <script>
-        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-        posthog.init('phc_wyyXUmDa4h7GRYQvboEfkr4XzRUu9ge2HmLgYGKoUVEN',{api_host:'https://us.i.posthog.com', defaults:'2026-01-30'})
-    </script>
-    <style>
-      /* SIDE / RIGHT — the program photo sits beside the headline on the right,
-         running off the right edge of the window. Breakthrough line under the
-         buttons, Nationals photo below it. */
-      :root {
-        --ink:#1a1917; --ink-2:#4f4c47; --muted:#918b81;
-        --rule:#e2ddd3; --rule-2:#ece8e0; --bg:#f7f5f0; --crimson:#8f2b2b;
-        --gutter:40px;
-      }
-      /* stop iOS Safari inflating body copy independently of the headings */
-      html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
-      body,p,li,span,a,div,strong,em,figure,figcaption,button,h1,h2,h3,h4{
-        font-family:'Inter',-apple-system,sans-serif !important; }
-      body{ background:var(--bg); color:var(--ink); }
-      main{ background:var(--bg); }
-      .wide{ max-width:1160px; margin:0 auto; padding:0 var(--gutter); }
-      .bleed{ width:100vw; margin-left:calc(50% - 50vw); }
-      .ctr{ text-align:center; }
-      .lb{ font-size:10px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); }
-      .lb-r{ color:var(--crimson); }
-      .btn{ display:inline-block; padding:14px 28px; font-size:11px; font-weight:600; letter-spacing:.14em;
-        text-transform:uppercase; text-decoration:none; background:#1b1a18; color:#fff;
-        border:1px solid #1b1a18; border-radius:0; transition:background .2s,color .2s; }
-      .btn:hover{ background:transparent; color:#1b1a18; }
-      .lnk{ font-size:.98rem; color:var(--crimson); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:3px; }
-      .lnk:hover{ border-bottom-color:var(--crimson); }
-      .acts{ display:flex; gap:22px; align-items:center; flex-wrap:wrap; margin-top:38px; }
-
-      /* AWARDS A — four tiers, label in a left column, awards listed right.
-         (base: CANDIDATE) — Right / Swap with the requested revisions: single-line caption
-         on the Nationals photo, "Troy VEX — 9 teams, one family" on the program
-         panorama, and a rewritten impact lede. Each photograph keeps its own aspect
-         ratio (JROTCEXCEL 1920x1280, teamphotos 1181x507) so nothing is cropped. */
-      .hero-grid{ max-width:1160px; margin:0 auto; padding:56px var(--gutter) 0;
-        display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.06fr); gap:52px; align-items:center; }
-      .htext h1{ font-family:'Instrument Serif',Georgia,serif !important; font-size:clamp(2.4rem,4.4vw,3.7rem);
-        font-weight:400; line-height:1.04; letter-spacing:-.015em; margin:0; }
-      /* The blanket Inter rule at the top matches `em` directly and with
-         !important, so the h1's family cannot reach it by inheritance — the
-         italic was silently setting in Inter, whose much larger x-height made
-         it read a size bigger than the lines around it. Name the family here.
-
-         The italic has a very tight right sidebearing, so "VEX" collided with
-         "robotics"; giving it its own line fixes that and lets the phrase
-         break as: The nation's largest / JROTC VEX / robotics program. */
-      .htext h1 em{ font-family:'Instrument Serif',Georgia,serif !important;
-        font-style:italic; display:block; }
-      .htext .sub{ font-size:1.08rem; line-height:1.7; color:var(--ink-2); margin:26px 0 0; }
-      .hpic img{ width:100%; height:auto; display:block; }
-      .hpic figcaption{ padding-top:12px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
-
-      .breakline{ border-top:1px solid var(--ink); margin-top:56px; }
-
-      .plate{ max-width:1160px; margin:56px auto 0; padding:0 var(--gutter); }
-      .plate img{ width:100%; height:auto; display:block; }
-      .plate figcaption{ padding-top:12px; display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; }
-
-      /* padding-top, never the padding shorthand: these rules come after .wide,
-         so a shorthand here resets its horizontal gutter to 0 and the section
-         ends up 40px wider than the hero above it. */
-      .imp{ padding-top:88px; }
-      .imp h2{ font-family:'Instrument Serif',Georgia,serif !important; font-size:clamp(2.2rem,4vw,3.3rem);
-        font-weight:400; margin:20px 0 0; }
-      .imp .lede{ font-size:1.06rem; line-height:1.7; color:var(--ink-2); margin:20px auto 0; max-width:50ch; }
-      .imp-row{ display:grid; grid-template-columns:repeat(4,1fr); margin-top:56px;
-        border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
-      .ic{ padding:40px 26px; text-align:center; border-right:1px solid var(--rule); }
-      .ic:last-child{ border-right:none; }
-      .ic b{ font-family:'Instrument Serif',Georgia,serif !important; display:block;
-        font-size:clamp(3rem,5.2vw,4.4rem); font-weight:400; line-height:.88; letter-spacing:-.02em; color:var(--crimson); }
-      .ic span{ display:block; margin-top:18px; font-size:1rem; line-height:1.5; color:var(--ink-2); }
-      .imp-note{ margin:34px auto 0; font-size:1.04rem; line-height:1.7; color:var(--ink-2); max-width:58ch; text-align:center; }
-      .imp-note strong{ color:var(--ink); font-weight:600; }
-
-      /* alumni and internship placements */
-      .alum{ max-width:62ch; margin:38px auto 0; padding-top:26px; border-top:1px solid var(--rule); text-align:center; }
-      .alum p{ font-size:1.04rem; line-height:1.7; color:var(--ink-2); margin:14px 0 0; }
-      .alum p strong{ color:var(--ink); font-weight:600; }
-      /* Scrolling placement strip. The track holds two identical passes and
-         shifts by exactly -50%, so the loop is seamless — that only lines up if
-         the spacing lives in each item's margin rather than a flex gap, since a
-         gap would leave half a gap of drift at the wrap point. */
-      .marquee{ position:relative; margin-top:34px; padding:28px 0 8px;
-        border-top:1px solid var(--rule); overflow:hidden;
-        -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-                mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); }
-      /* These keyframes are the no-JS fallback. When the script at the foot of
-         the page takes over it adds .js-scroll and drives the transform itself,
-         because hover has to ease the strip down to a crawl and CSS can't
-         transition animation-duration — changing it mid-run jumps the track. */
-      .marquee-track{ display:flex; align-items:center; width:max-content;
-        animation:marquee-scroll 46s linear infinite; }
-      .marquee.js-scroll .marquee-track{ animation:none; will-change:transform; }
-      .marquee-track a{ display:inline-flex; align-items:center; flex:none; margin-right:68px;
-        opacity:.92; transition:opacity .18s ease, transform .18s ease; }
-      .marquee-track a:hover{ opacity:1; transform:translateY(-2px); }
-      /* one height for every mark, whatever its own proportions are */
-      .marquee-track img{ height:78px; width:auto; display:block; }
-      /* without the script, hovering stops the strip outright so the links stay
-         hittable; with it, they stay hittable because the crawl is slow enough */
-      .marquee:not(.js-scroll):hover .marquee-track,
-      .marquee:not(.js-scroll):focus-within .marquee-track{ animation-play-state:paused; }
-      @keyframes marquee-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
-      @media (prefers-reduced-motion:reduce){
-        .marquee{ -webkit-mask-image:none; mask-image:none; }
-        .marquee-track{ animation:none; width:auto; flex-wrap:wrap; justify-content:center; row-gap:12px; }
-        .marquee-track a[aria-hidden="true"]{ display:none; }
-      }
-
-      .rec{ padding-top:88px; }
-      .rec h2{ font-family:'Instrument Serif',Georgia,serif !important; font-size:clamp(2.2rem,4vw,3.3rem);
-        font-weight:400; margin:20px 0 40px; }
-      /* named rec-tier, not tier: site.css styles a bare .tier as a rounded
-         card (background, border, radius) for the donation pages, and that was
-         leaking in here and boxing every row. */
-      /* ink rules bracket the whole table, hairlines divide the tiers inside it —
-         the same treatment as .imp-row above */
-      .rec-list{ border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
-      .rec-tier{ display:grid; grid-template-columns:220px minmax(0,1fr); gap:56px; padding:28px 0;
-        border-top:1px solid var(--rule); align-items:start; }
-      .rec-list .rec-tier:first-child{ border-top:none; }
-      .rec-tier > div:first-child .lb{ display:block; line-height:1.2; }
-      .rec-tier-sub{ display:block; margin-top:8px; font-size:.95rem; color:var(--muted); line-height:1.45; }
-      .aw{ display:flex; justify-content:space-between; gap:24px; align-items:baseline;
-        padding:11px 0; border-bottom:1px solid var(--rule-2); }
-      /* the first and last rows carry the tier's own padding, so drop theirs —
-         otherwise the award column sits lower than the label beside it */
-      .aw:first-child{ padding-top:0; }
-      .aw:last-child{ padding-bottom:0; border-bottom:none; }
-      .aw-n{ font-size:1.05rem; color:var(--ink); }
-      .aw-n em{ font-style:normal; color:var(--muted); font-size:.92rem; }
-      .aw-t{ font-size:10px; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
-        color:var(--crimson); white-space:nowrap; }
-
-      .inv{ padding-top:88px; display:grid; grid-template-columns:1fr 1fr; gap:64px; }
-      .inv h3{ font-family:'Instrument Serif',Georgia,serif !important; font-size:2.1rem; font-weight:400; margin:12px 0 14px; }
-      .inv p{ font-size:1.01rem; line-height:1.7; color:var(--ink-2); margin:0 0 22px; }
-      .inv ul{ list-style:none; margin:0 0 26px; padding:0; }
-      .inv li{ font-size:.96rem; color:var(--ink-2); padding:10px 0; border-bottom:1px solid var(--rule-2); }
-
-      .loc{ padding-top:88px; }
-      .loc h2{ font-family:'Instrument Serif',Georgia,serif !important; font-size:clamp(2.2rem,4vw,3.2rem);
-        font-weight:400; margin:20px 0 6px; }
-      .loc .addr{ font-size:1.02rem; color:var(--ink-2); margin:0 0 30px; }
-      .loc iframe{ width:100%; height:380px; border:1px solid var(--rule); display:block; filter:saturate(.9); }
-
-      footer.site-footer{ background:#efece5; margin-top:92px; }
-      .footer-col h4,.footer-col a,.footer-bottom p{ font-family:'Inter',sans-serif !important; }
-
-      @media (max-width:900px){
-        :root{ --gutter:20px; }
-        .hero-grid{ grid-template-columns:1fr; gap:26px; padding-top:36px; }
-
-        /* site.css crushes every heading on mobile with
-           h1{font-size:1.75rem!important} / h2{1.5rem!important} / h3{1.25rem!important},
-           which left the headline smaller than its own body copy. These win it back;
-           the !important is only here to outrank that global rule. */
-        .htext h1{ font-size:clamp(1.9rem, 9vw, 2.4rem) !important; }
-        .imp h2,.rec h2,.loc h2{ font-size:1.85rem !important; }
-        .inv h3{ font-size:1.55rem !important; }
-
-        .breakline{ margin-top:38px; }
-        .plate{ margin-top:38px; }
-        .imp,.rec,.inv{ padding-top:54px; }
-        .imp-row{ grid-template-columns:1fr 1fr; }
-        .ic{ padding:26px 14px; border-bottom:1px solid var(--rule); }
-        .ic:nth-child(2){ border-right:none; }
-        .rec-tier{ grid-template-columns:1fr; gap:14px; padding:24px 0; }
-        .rec-tier-sub{ margin-top:5px; }
-        .inv{ grid-template-columns:1fr; gap:34px; }
-
-        /* single-column widths let prose run to 80+ characters a line, which is
-           what made these blocks feel oversized. Cap the measure instead. */
-        .inv p,.inv li,.aw-n,.rec-aw{ max-width:58ch; }
-        .imp .lede,.imp-note{ max-width:52ch; }
-        .loc iframe{ height:300px; }
-      }
-
-      /* tablets and large phones: the hero and section heads still had desktop
-         proportions here, so everything below them read too large by comparison */
-      @media (max-width:620px){
-        /* In one column the headline's three lines are nearly the same width,
-           so left-aligning them just looked crooked. Centred, they stack into a
-           symmetric block — and that matches the centred sections below. The
-           lede gets a measure of its own so it doesn't run wall to wall. */
-        .htext{ text-align:center; }
-        .htext .sub{ max-width:36ch; margin-left:auto; margin-right:auto; text-wrap:pretty; }
-        .htext .acts{ justify-content:center; }
-        .htext h1{ font-size:clamp(1.8rem, 8.4vw, 2.2rem) !important; }
-        .imp h2,.rec h2,.loc h2{ font-size:1.6rem !important; }
-        .inv h3{ font-size:1.4rem !important; }
-        .htext .sub,.inv p{ font-size:1rem; }
-        .aw-n,.rec-ev{ font-size:.98rem; }
-        /* still larger than it was, just not dominating a phone screen */
-        .marquee-track img{ height:64px; }
-        .marquee-track a{ margin-right:52px; }
-        .imp,.rec,.inv,.loc{ padding-top:46px; }
-      }
-    </style>
+    <link rel="stylesheet" href="/assets/css/pages/index.css?v=1">
+    <script src="/assets/js/analytics.js?v=1" defer></script>
 </head>
 
 <body>
     <header>
         <nav class="navbar">
             <div class="logo-container">
-                <a href="/"><img src="/assets/images/brand/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo"></a>
+                <a href="/"><img src="/assets/images/brand/logos/NJROTC.jpg" alt="Troy VEX Logo" class="logo" width="600" height="600" decoding="async"></a>
                 <span class="logo-text">Troy VEX Robotics</span>
             </div>
             <ul class="nav-links">
@@ -249,10 +32,10 @@
                     </ul>
                 </li>
                 <li><a href="/awards">Awards</a></li>
-                <li class="dropdown"><a href="/join">Join Us</a>
+                <li class="dropdown"><a href="/apply">Join Us</a>
                     <ul class="dropdown-menu">
+                        <li><a href="/apply">Apply Now</a></li>
                         <li><a href="/donate">Donate</a></li>
-                        <li><a href="/join">Prospective Members</a></li>
                     </ul>
                 </li>
             </ul>
@@ -266,13 +49,13 @@
                 <p class="sub">Eleven cadets started this in a garage three years ago. Today: seven teams, sixty-plus
                     cadets, and the national championship — every robot built by students.</p>
                 <div class="acts">
-                    <a href="/join" class="btn">Join the program</a>
+                    <a href="/apply" class="btn">Join the program</a>
                     <a href="/sponsors" class="lnk">Sponsor a season</a>
                 </div>
             </div>
             <figure class="hpic">
                 <img src="/assets/images/program/history/JROTCEXCEL.JPG"
-                    alt="Troy VEX cadets accepting the Excellence Award at the JROTC National Championship">
+                    alt="Troy VEX cadets accepting the Excellence Award at the JROTC National Championship" width="1920" height="1280" decoding="async" loading="eager" fetchpriority="high" srcset="/assets/images/program/history/JROTCEXCEL-640.jpg 640w, /assets/images/program/history/JROTCEXCEL-1280.jpg 1280w" sizes="(max-width: 768px) 100vw, 1160px">
                 <figcaption>
                     <span class="lb">98601Y — JROTC Nationals Excellence Award</span>
                 </figcaption>
@@ -283,7 +66,7 @@
 
         <figure class="plate">
             <img src="/assets/images/program/history/teamphotos.jpg"
-                alt="The Troy VEX Robotics program in NJROTC uniform">
+                alt="The Troy VEX Robotics program in NJROTC uniform" width="1181" height="507" decoding="async" loading="lazy" srcset="/assets/images/program/history/teamphotos-640.jpg 640w, /assets/images/program/history/teamphotos-1181.jpg 1181w" sizes="(max-width: 768px) 100vw, 1160px">
             <figcaption>
                 <span class="lb">Troy VEX — 60+ cadets, one family</span>
                 <span class="lb lb-r">Troy High School</span>
@@ -313,43 +96,43 @@
                     team.</p>
             </div>
 
-            <div class="marquee" aria-label="Where Troy VEX alumni study and intern">
+            <section class="marquee" aria-label="Where Troy VEX alumni study and intern">
                 <div class="marquee-track">
                     <a href="https://www.boeing.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/boeing.png"
-                        alt="Boeing" width="160" height="160"></a>
+                        alt="Boeing" width="178" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.rtx.com" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/raytheon.png"
-                        alt="Raytheon Technologies" width="160" height="160"></a>
+                        alt="Raytheon Technologies" width="284" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.upenn.edu" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/upenn.png"
-                        alt="University of Pennsylvania" width="160" height="160"></a>
+                        alt="University of Pennsylvania" width="249" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.berkeley.edu" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/berkeley.png"
-                        alt="UC Berkeley" width="160" height="160"></a>
+                        alt="UC Berkeley" width="159" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.cmu.edu" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/cmu.png"
-                        alt="Carnegie Mellon University" width="160" height="160"></a>
+                        alt="Carnegie Mellon University" width="167" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.purdue.edu" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/purdue.png"
-                        alt="Purdue University" width="160" height="160"></a>
+                        alt="Purdue University" width="160" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.cornell.edu" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/cornell.png"
-                        alt="Cornell University" width="160" height="160"></a>
+                        alt="Cornell University" width="160" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.ucla.edu" target="_blank" rel="noopener noreferrer"><img src="/assets/images/support/alumni/ucla.png"
-                        alt="UCLA" width="160" height="160"></a>
+                        alt="UCLA" width="174" height="160" decoding="async" loading="lazy"></a>
                     <!-- second pass, for the seamless loop; hidden from assistive tech -->
                     <a href="https://www.boeing.com" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/boeing.png"
-                        alt="" width="160" height="160"></a>
+                        alt="" width="178" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.rtx.com" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/raytheon.png"
-                        alt="" width="160" height="160"></a>
+                        alt="" width="284" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.upenn.edu" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/upenn.png"
-                        alt="" width="160" height="160"></a>
+                        alt="" width="249" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.berkeley.edu" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/berkeley.png"
-                        alt="" width="160" height="160"></a>
+                        alt="" width="159" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.cmu.edu" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/cmu.png"
-                        alt="" width="160" height="160"></a>
+                        alt="" width="167" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.purdue.edu" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/purdue.png"
-                        alt="" width="160" height="160"></a>
+                        alt="" width="160" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.cornell.edu" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/cornell.png"
-                        alt="" width="160" height="160"></a>
+                        alt="" width="160" height="160" decoding="async" loading="lazy"></a>
                     <a href="https://www.ucla.edu" tabindex="-1" aria-hidden="true"><img src="/assets/images/support/alumni/ucla.png"
-                        alt="" width="160" height="160"></a>
+                        alt="" width="174" height="160" decoding="async" loading="lazy"></a>
                 </div>
-            </div>
+            </section>
         </section>
 
         <section class="wide rec">
@@ -391,7 +174,7 @@
                     </div>
                 </div>
             </div>
-            <div style="padding-top:30px;" class="ctr"><a href="/awards" class="lnk">The complete record</a></div>
+            <div class="ctr section-link"><a href="/awards" class="lnk">The complete record</a></div>
         </section>
 
         <section class="wide inv">
@@ -404,7 +187,7 @@
                     <li>Tryout and lab tour — no experience required</li>
                     <li>Compete at regionals, Nationals, and Worlds</li>
                 </ul>
-                <a href="/join" class="btn">Apply now</a>
+                <a href="/apply" class="btn">Apply now</a>
             </div>
             <div>
                 <span class="lb lb-r">For sponsors and families</span>
@@ -442,7 +225,7 @@
                     <h4>Compete</h4><a href="/events">Events</a><a href="/gallery">Gallery</a><a href="/sponsors">Sponsors</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Support</h4><a href="/donate">Donate</a><a href="/join">Join</a><a href="/contact">Contact</a>
+                    <h4>Support</h4><a href="/donate">Donate</a><a href="/apply">Join</a><a href="/contact">Contact</a>
                 </div>
                 <div class="footer-col">
                     <h4>Connect</h4><a href="https://instagram.com/troyvexrobotics">Instagram</a><a href="https://linktr.ee/troyvex">Linktree</a><a href="mailto:troyvexrobotics@gmail.com">Email</a>
@@ -454,48 +237,7 @@
             </div>
         </div>
     </footer>
-    <script src="/assets/js/darkmode.js?v=13"></script>
-    <script>
-      /* Placement strip. Runs on rAF instead of the CSS keyframes so hovering
-         can ease the scroll down to a crawl rather than stopping it dead. The
-         track holds two identical passes, so wrapping at half its width is
-         seamless; the width is re-read every frame, which lets the loop settle
-         on its own once the logos have finished loading. */
-      (function () {
-        var marquee = document.querySelector('.marquee');
-        if (!marquee || !window.requestAnimationFrame) return;
-        var track = marquee.querySelector('.marquee-track');
-        if (!track) return;
-        /* reduced motion keeps the CSS fallback, which lays the marks out
-           static and drops the duplicate pass */
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-        /* px per second. Cruise is about a third quicker than the old keyframe
-           pace (a 1291px pass in 60s, ~21px/s); hover is a quarter of that —
-           slow enough to read a mark, still plainly moving. */
-        var CRUISE = 28, HOVER = 7;
-        var speed = CRUISE, pos = 0, last = 0, slow = false;
-
-        marquee.classList.add('js-scroll');
-        marquee.addEventListener('mouseenter', function () { slow = true; });
-        marquee.addEventListener('mouseleave', function () { slow = false; });
-        marquee.addEventListener('focusin', function () { slow = true; });
-        marquee.addEventListener('focusout', function () { slow = false; });
-
-        function step(now) {
-          /* clamped so a backgrounded tab doesn't come back and teleport */
-          var dt = last ? Math.min((now - last) / 1000, 0.05) : 0;
-          last = now;
-          speed += ((slow ? HOVER : CRUISE) - speed) * Math.min(1, dt * 5);
-          pos += speed * dt;
-          var pass = track.scrollWidth / 2;
-          if (pass > 0 && pos >= pass) pos -= pass;
-          track.style.transform = 'translateX(' + (-pos).toFixed(2) + 'px)';
-          requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-      })();
-    </script>
+    <script src="/assets/js/site.js?v=1" defer></script>
 </body>
 
 </html>
