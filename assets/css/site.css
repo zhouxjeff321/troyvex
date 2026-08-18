@@ -606,6 +606,10 @@ body.lightbox-open {
 }
 
 .lightbox-content {
+    /* The placeholder GIF ships width="1" height="1"; without these the
+       attributes would pin every loaded photo to a 1px box. */
+    width: auto;
+    height: auto;
     max-width: 90%;
     max-height: 80vh;
     object-fit: contain;
