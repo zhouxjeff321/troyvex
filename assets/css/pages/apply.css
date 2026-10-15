@@ -70,6 +70,8 @@ main{ background:var(--bg); padding-top:0; padding-bottom:0; }
   margin:0 auto; max-width:22ch; }
 .ghero h1 em{ font-family:'Instrument Serif',Georgia,serif; font-style:italic; }
 .ghero .sub{ font-size:1.1rem; line-height:1.75; color:var(--ink-2); margin:26px auto 0; max-width:58ch; }
+.ghero .classroom-code{ font-size:.98rem; line-height:1.6; color:var(--ink-2); margin:14px auto 0; }
+.ghero .classroom-code strong{ color:var(--crimson); font-weight:600; letter-spacing:.06em; }
 .ghero .acts{ justify-content:center; }
 
 .sec{ padding-top:88px; }
